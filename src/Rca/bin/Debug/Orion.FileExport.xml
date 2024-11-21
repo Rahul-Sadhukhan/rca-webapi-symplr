@@ -1,0 +1,169 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Orion.FileExport</name>
+    </assembly>
+    <members>
+        <member name="T:Orion.FileExport.Attributes.CsvExportAttribute">
+            <summary>
+            Csv Export Attribute.
+            </summary>
+        </member>
+        <member name="M:Orion.FileExport.Attributes.CsvExportAttribute.#ctor(System.String,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.FileExport.Attributes.CsvExportAttribute"/> class.
+            </summary>
+            <param name="columnName">Column Name.</param>
+            <param name="order">Order.</param>
+        </member>
+        <member name="P:Orion.FileExport.Attributes.CsvExportAttribute.ColumnName">
+            <summary>
+            Gets ColumnName.
+            </summary>
+        </member>
+        <member name="P:Orion.FileExport.Attributes.CsvExportAttribute.Order">
+            <summary>
+            Gets Order.
+            </summary>
+        </member>
+        <member name="T:Orion.FileExport.FileExportComponent">
+            <summary>
+            File Export Component.
+            </summary>
+        </member>
+        <member name="M:Orion.FileExport.FileExportComponent.#ctor(Orion.FileExport.Services.ICsvFileExportService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.FileExport.FileExportComponent"/> class.
+            </summary>
+            <param name="csvFileExportService">Csv File Export Service.</param>
+        </member>
+        <member name="M:Orion.FileExport.FileExportComponent.WriteCsvDataToHttpContent``1(System.IO.Stream,System.Collections.Generic.IEnumerable{``0},System.Linq.IOrderedEnumerable{Orion.FileExport.Models.CsvExportColumnModel})">
+            <summary>
+            Write Csv Data To Http Content.
+            </summary>
+            <typeparam name="T">Type.</typeparam>
+            <param name="stream">Stream.</param>
+            <param name="contents">Contents.</param>
+            <param name="csvHeaders">Csv Headers.</param>
+            <returns>Task.</returns>
+        </member>
+        <member name="M:Orion.FileExport.FileExportComponent.GetCsvMediaTypeHeaderValue">
+            <summary>
+            Get Csv Media Type Header Value.
+            </summary>
+            <returns>Media Type Header Value.</returns>
+        </member>
+        <member name="M:Orion.FileExport.FileExportComponent.GetCsvContentDispositionHeaderValue(System.String)">
+            <summary>
+            Get Csv Content Disposition Header Value.
+            </summary>
+            <param name="fileName">File Name.</param>
+            <returns>Content Disposition Header Value.</returns>
+        </member>
+        <member name="T:Orion.FileExport.FileExportModule">
+            <summary>
+            File Export Module.
+            </summary>
+        </member>
+        <member name="M:Orion.FileExport.FileExportModule.Load(Autofac.ContainerBuilder)">
+            <summary>
+            Add registrations to the container.
+            </summary>
+            <param name="builder">The builder through which components can be registered.</param>
+            <remarks>
+            Note that the ContainerBuilder parameter is unique to this module.
+            </remarks>
+        </member>
+        <member name="T:Orion.FileExport.IFileExportComponent">
+            <summary>
+            Component used for file export.
+            </summary>
+        </member>
+        <member name="M:Orion.FileExport.IFileExportComponent.WriteCsvDataToHttpContent``1(System.IO.Stream,System.Collections.Generic.IEnumerable{``0},System.Linq.IOrderedEnumerable{Orion.FileExport.Models.CsvExportColumnModel})">
+            <summary>
+            Writes CSV file data to the given stream with the given name.
+            </summary>
+            <typeparam name="T">Type of data to write the given stream.</typeparam>
+            <param name="stream">Stream to write data into.</param>
+            <param name="contents">Data to write into the stream.</param>
+            <param name="csvHeaders">Custom CSV headers.</param>
+            <returns><see cref="T:System.Threading.Tasks.Task"/> Asynchronous operation to write CSV data to HTTP content.</returns>
+        </member>
+        <member name="M:Orion.FileExport.IFileExportComponent.GetCsvMediaTypeHeaderValue">
+            <summary>
+            Gets value for the Content-Type HTTP header needed for CSV file type.
+            </summary>
+            <returns><see cref="T:System.Net.Http.Headers.MediaTypeHeaderValue"/>.</returns>
+        </member>
+        <member name="M:Orion.FileExport.IFileExportComponent.GetCsvContentDispositionHeaderValue(System.String)">
+            <summary>
+            Gets value for the Content-Disposition HTTP Header needed for CSV file type.
+            </summary>
+            <param name="fileName">Name of CSV file with data.</param>
+            <returns><see cref="T:System.Net.Http.Headers.ContentDispositionHeaderValue"/>.</returns>
+        </member>
+        <member name="T:Orion.FileExport.Models.CsvExportColumnModel">
+            <summary>
+            Summary of metadata for a single column for a CSV export.
+            </summary>
+        </member>
+        <member name="P:Orion.FileExport.Models.CsvExportColumnModel.Order">
+            <summary>
+            Gets or sets the order of the column for the CSV export.
+            </summary>
+        </member>
+        <member name="P:Orion.FileExport.Models.CsvExportColumnModel.ColumnHeaderName">
+            <summary>
+            Gets or sets the friendly name of the column for the CSV export.
+            </summary>
+        </member>
+        <member name="P:Orion.FileExport.Models.CsvExportColumnModel.DeclaredPropertyInfo">
+            <summary>
+            Gets or sets the property info that the attribute was declared for.
+            </summary>
+        </member>
+        <member name="T:Orion.FileExport.Services.ICsvFileExportService">
+            <summary>
+            ICsvFileExportService.
+            </summary>
+        </member>
+        <member name="M:Orion.FileExport.Services.ICsvFileExportService.GetPropertiesOfModelForCsv``1">
+            <summary>
+            Gets Properties Of Model For Csv.
+            </summary>
+            <typeparam name="T">Type.</typeparam>
+            <returns>Csv Export Column Models.</returns>
+        </member>
+        <member name="M:Orion.FileExport.Services.ICsvFileExportService.WriteHeaderLineToStreamAsync(System.IO.StreamWriter,System.Linq.IOrderedEnumerable{Orion.FileExport.Models.CsvExportColumnModel})">
+            <summary>
+            Writes Header Line To Stream Async.
+            </summary>
+            <param name="streamWriter">Stream writer.</param>
+            <param name="propertiesToIncludeInCsv">Properties to include to csv.</param>
+            <returns>Task.</returns>
+        </member>
+        <member name="M:Orion.FileExport.Services.ICsvFileExportService.WriteDataLinesAsync``1(System.IO.StreamWriter,System.Linq.IOrderedEnumerable{Orion.FileExport.Models.CsvExportColumnModel},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Writes Data Lines Async.
+            </summary>
+            <typeparam name="T">Type.</typeparam>
+            <param name="streamWriter">Stream writer.</param>
+            <param name="propertiesToIncludeInCsv">Properties to include in csv.</param>
+            <param name="contents">Contents.</param>
+            <returns>Task.</returns>
+        </member>
+        <member name="M:Orion.FileExport.Services.ICsvFileExportService.GetCsvContentDispositionHeaderValue(System.String)">
+            <summary>
+            Gets Csv Content Disposition Header Value.
+            </summary>
+            <param name="fileName">File name.</param>
+            <returns>Content Disposition Header Value.</returns>
+        </member>
+        <member name="M:Orion.FileExport.Services.ICsvFileExportService.GetCsvMediaTypeHeaderValue">
+            <summary>
+            Gets Csv Media Type Header Value.
+            </summary>
+            <returns>Media Type Header Value.</returns>
+        </member>
+    </members>
+</doc>

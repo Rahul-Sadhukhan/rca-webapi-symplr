@@ -1,0 +1,2779 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Orion.Items</name>
+    </assembly>
+    <members>
+        <member name="P:Orion.Items.Data.Entities.ItemHistory.ItemId">
+            <summary>
+            Gets or sets Item identifier.
+            </summary>
+        </member>
+        <member name="M:Orion.Items.Data.Repositories.ItemUserOwnerRepository.AddItemUserOwner(Orion.Items.Data.Entities.ItemUserOwner)">
+            <summary>
+            Add Item user owner.
+            </summary>
+            <param name="userOwner">Owner details.</param>
+        </member>
+        <member name="M:Orion.Items.Data.Repositories.IItemsRepository.DeleteItem(System.Int64,System.Int64)">
+            <summary>
+            Soft deletes an item.
+            </summary>
+            <param name="itemId">Identifier of item to soft-delete.</param>
+            <param name="userId">Current user identifier.</param>
+        </member>
+        <member name="T:Orion.Items.Converters.UdfsJsonConverter">
+            <summary>
+            Udfs Json Converter.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Converters.UdfsJsonConverter.CanWrite">
+            <summary>
+            Gets a value indicating whether CanWrite.
+            </summary>
+        </member>
+        <member name="M:Orion.Items.Converters.UdfsJsonConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Writes Json.
+            </summary>
+            <param name="writer">Writer.</param>
+            <param name="value">Value.</param>
+            <param name="serializer">Serializer.</param>
+        </member>
+        <member name="M:Orion.Items.Converters.UdfsJsonConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Reads Json.
+            </summary>
+            <param name="reader">Reader.</param>
+            <param name="objectType">Object Type.</param>
+            <param name="existingValue">Existing Value.</param>
+            <param name="serializer">Serializer.</param>
+            <returns>Object.</returns>
+        </member>
+        <member name="M:Orion.Items.Converters.UdfsJsonConverter.CanConvert(System.Type)">
+            <summary>
+            Can convert?.
+            </summary>
+            <param name="objectType">Object Type.</param>
+            <returns>True or false.</returns>
+        </member>
+        <member name="M:Orion.Items.Converters.UdfsJsonConverter.GetUdfValue(Newtonsoft.Json.Linq.JToken)">
+            <summary>
+            Gets Udf value.
+            </summary>
+            <param name="jContent">JToken.</param>
+            <returns>UserDefinedFieldValueBase.</returns>
+        </member>
+        <member name="T:Orion.Items.Enums.UsersConditionType">
+            <summary>
+            Type of Owner/assignedTo condition for advance filter.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.UsersConditionType.None">
+            <summary>
+            None.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.UsersConditionType.User">
+            <summary>
+            User id.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.UsersConditionType.UserGroup">
+            <summary>
+            User group id.
+            </summary>
+        </member>
+        <member name="T:Orion.Items.Enums.AttributeType">
+            <summary>
+            Attribute Type.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.AttributeType.SingleLineText">
+            <summary>
+            text box control (ValueString in ItemAttribute)
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.AttributeType.MultiLineText">
+            <summary>
+            text area control (ValueString in ItemAttribute)
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.AttributeType.Decimal">
+            <summary>
+            text box control (ValueNumber in ItemAttribute)
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.AttributeType.Date">
+            <summary>
+            datetime control
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.AttributeType.SingleSelectDropList">
+            <summary>
+            lookup list single selectable
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.AttributeType.MultiSelectDropList">
+            <summary>
+            lookup list multiselectable
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.AttributeType.CheckBoxList">
+            <summary>
+            lookup list
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.AttributeType.Category">
+            <summary>
+            Dynamic control.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.AttributeType.RadioButtonList">
+            <summary>
+            Radio button list
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.AttributeType.Integer">
+            <summary>
+            text box control (ValueNumber in ItemAttribute)
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.AttributeType.Email">
+            <summary>
+            text box control (ValueString in ItemAttribute)
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.AttributeType.PhoneNumber">
+            <summary>
+            text box control (ValueString in ItemAttribute)
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.AttributeType.Text">
+            <summary>
+            header control (Text + textType in ItemAttributeDefinition)
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.AttributeType.OwnerSingleSelection">
+            <summary>
+            Singleselect owner
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.AttributeType.Person">
+            <summary>
+            People control.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.AttributeType.AssignToSingleSelection">
+            <summary>
+            Singleselect assign-to
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.AttributeType.RiskCalculatorCalculate">
+            <summary>
+            Risk calculator option (Calculate Risk).
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.AttributeType.RiskCalculatorSelectPriority">
+            <summary>
+            Risk calculator option (Select Priority).
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.AttributeType.RiskCalculatorChooseMethod">
+            <summary>
+            Risk calculator option (Allow User to Choose Method).
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.AttributeType.Panel">
+            <summary>
+            Panel control.
+            </summary>
+        </member>
+        <member name="T:Orion.Items.Enums.ControlSize">
+            <summary>
+            Control Size.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.ControlSize.None">
+            <summary>
+            None.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.ControlSize.Small">
+            <summary>
+            Small.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.ControlSize.Medium">
+            <summary>
+            Medium.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.ControlSize.Large">
+            <summary>
+            Large.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.ControlSize.ExtraLarge">
+            <summary>
+            Extra Large.
+            </summary>
+        </member>
+        <member name="T:Orion.Items.Enums.ControlType">
+            <summary>
+            Control Type.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.ControlType.SingleLineText">
+            <summary>
+            Text box control
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.ControlType.MultiLineText">
+            <summary>
+            Text area control
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.ControlType.Decimal">
+            <summary>
+            Decimal control
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.ControlType.Date">
+            <summary>
+            Datetime control (Date)
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.ControlType.Time">
+            <summary>
+            Datetime control (Time)
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.ControlType.DateTime">
+            <summary>
+            Datetime control (Datetime)
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.ControlType.SingleSelectDropList">
+            <summary>
+            Lookup list single selectable
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.ControlType.MultiSelectDropList">
+            <summary>
+            Lookup list multiselectable
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.ControlType.CheckBoxList">
+            <summary>
+            Check box list
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.ControlType.Category">
+            <summary>
+            Dynamic control.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.ControlType.RadioButtonList">
+            <summary>
+            Radio button list
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.ControlType.Integer">
+            <summary>
+            Integer control
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.ControlType.Email">
+            <summary>
+            Email control
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.ControlType.PhoneNumber">
+            <summary>Phone number</summary>
+        </member>
+        <member name="F:Orion.Items.Enums.ControlType.Header">
+            <summary>
+            Header control (Heading)
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.ControlType.Subheader">
+            <summary>
+            Header control (Subheading)
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.ControlType.Text">
+            <summary>Header control (Normal)</summary>
+        </member>
+        <member name="F:Orion.Items.Enums.ControlType.OwnerSingleSelection">
+            <summary>
+            Single-select owner
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.ControlType.AssignToSingleSelection">
+            <summary>Single-select assign-to </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.ControlType.RiskCalculatorCalculate">
+            <summary>
+            Risk calculator calculate control.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.ControlType.RiskCalculatorChooseMethod">
+            <summary>
+            Risk calculator choose method control.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.ControlType.RiskCalculatorSelectPriority">
+            <summary>
+            Risk calculator select priority control.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.ControlType.Person">
+            <summary>
+            People control.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.ControlType.Panel">
+            <summary>
+            Panel control.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.ControlType.AdvanceFilterMultiSelect">
+            <summary>
+            Type for displaying multiselect controls on the Advance filter tab.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.ControlType.AdvanceFilterRiskCalculator">
+            <summary>
+            Type of displaying risk calculator controls on the Advance filter tab.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.ControlType.AdvanceFilterPerson">
+            <summary>
+             Type of displaying people controls on the Advance filter tab.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.ControlType.AdvanceFilterDateControl">
+            <summary>
+            Type for displaying date control on the Advance filter tab.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.ControlType.AdvanceFilterCategory">
+            <summary>
+            Type of displaying category/dynamic controls on the Advance filter tab.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.ControlType.AdvanceFilterPanel">
+            <summary>
+            Type of displaying panel control on Advance filter tab.
+            </summary>
+        </member>
+        <member name="T:Orion.Items.Enums.DateTimeType">
+            <summary>
+            DateTime Type.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.DateTimeType.None">
+            <summary>
+            None.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.DateTimeType.Date">
+            <summary>
+            Date.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.DateTimeType.Time">
+            <summary>
+            Time.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.DateTimeType.DateTime">
+            <summary>
+            DateTime.
+            </summary>
+        </member>
+        <member name="T:Orion.Items.Enums.ItemSourceType">
+            <summary>
+            Item Source Type.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.ItemSourceType.FromCreateMenu">
+            <summary>
+            From Create Menu.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.ItemSourceType.Added">
+            <summary>
+            Added.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.ItemSourceType.Scheduled">
+            <summary>
+            Scheduled.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.ItemSourceType.FromLegalRegister">
+            <summary>
+            From Legal Register.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.ItemSourceType.FromAuditManagement">
+            <summary>
+            From Audit Management.
+            </summary>
+        </member>
+        <member name="T:Orion.Items.Enums.ItemStageType">
+            <summary>
+            Item Stage Type.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.ItemStageType.NotApplicable">
+            <summary>
+            Not Applicable.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.ItemStageType.InitialStage">
+            <summary>
+            Initial Stage.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.ItemStageType.InterimStage">
+            <summary>
+            Interim Stage.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.ItemStageType.FinalStage">
+            <summary>
+            Final Stage.
+            </summary>
+        </member>
+        <member name="T:Orion.Items.Enums.LookupCollectionSortType">
+            <summary>
+            Lookup Collection Sort Type.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.LookupCollectionSortType.Default">
+            <summary>
+            Default.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.LookupCollectionSortType.Alphabetical">
+            <summary>
+            Alphabetical.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.LookupCollectionSortType.Custom">
+            <summary>
+            Custom.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.LookupCollectionSortType.ReverseAlphabetical">
+            <summary>
+            Reverse Alphabetical.
+            </summary>
+        </member>
+        <member name="T:Orion.Items.Enums.MemberType">
+            <summary>
+            Member Type.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.MemberType.User">
+            <summary>
+            User.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.MemberType.Group">
+            <summary>
+            Group.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.MemberType.OrgUnit">
+            <summary>
+            Org Unit.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.MemberType.PrimaryOrgUnit">
+            <summary>
+            Primary Org Unit.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.MemberType.DefaultOwner">
+            <summary>
+            Default Owner.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.MemberType.Creator">
+            <summary>
+            Creator.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.MemberType.Person">
+            <summary>
+            Person.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.MemberType.EmailAddress">
+            <summary>
+            Email Address.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.MemberType.AssignedTo">
+            <summary>
+            Assigned To.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.MemberType.UserGroupOrgProfile">
+            <summary>
+            User Group Org Profile.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.MemberType.Form">
+            <summary>
+            Form.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.MemberType.ItemTemplate">
+            <summary>
+            Item Template.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.MemberType.LookupList">
+            <summary>
+            Lookup List.
+            </summary>
+        </member>
+        <member name="F:Orion.Items.Enums.MemberType.ItemTemplateReport">
+            <summary>
+            Item Template Report.
+            </summary>
+        </member>
+        <member name="T:Orion.Items.ItemsComponentModule">
+            <summary>
+            Items Component Module.
+            </summary>
+        </member>
+        <member name="M:Orion.Items.ItemsComponentModule.Load(Autofac.ContainerBuilder)">
+            <summary>
+            Add registrations to the container.
+            </summary>
+            <param name="builder">The builder through which components can be registered.</param>
+            <remarks>
+            Note that the ContainerBuilder parameter is unique to this module.
+            </remarks>
+        </member>
+        <member name="T:Orion.Items.Models.AdvancedFilter.StoredProcedure.AdvanceFilterStoredProcedureAttributeArrayModel">
+            <summary>
+            Model of attribute (with array values) condition for AF search.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.StoredProcedure.AdvanceFilterStoredProcedureAttributeArrayModel.Values">
+            <summary>
+            Gets or sets item attribute value.
+            </summary>
+        </member>
+        <member name="T:Orion.Items.Models.AdvancedFilter.StoredProcedure.AdvanceFilterStoredProcedureAttributeDateModel">
+            <summary>
+            Date model for advance filter.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.StoredProcedure.AdvanceFilterStoredProcedureAttributeDateModel.Values">
+            <summary>
+            Gets or sets date.
+            </summary>
+        </member>
+        <member name="T:Orion.Items.Models.AdvancedFilter.StoredProcedure.AdvanceFilterStoredProcedureDateModel">
+            <summary>
+             Search criteria of date for stored procedure.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.StoredProcedure.AdvanceFilterStoredProcedureDateModel.StartDate">
+            <summary>
+            Gets or sets start date.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.StoredProcedure.AdvanceFilterStoredProcedureDateModel.EndDate">
+            <summary>
+            Gets or sets end date.
+            </summary>
+        </member>
+        <member name="T:Orion.Items.Models.AdvancedFilter.StoredProcedure.AdvanceFilterStoredProcedureItemDefinitionModel">
+            <summary>
+            Search ItemDefinition condition for generating param in advance filter stored procedure.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.StoredProcedure.AdvanceFilterStoredProcedureItemDefinitionModel.ItemDefinitionId">
+            <summary>
+            Gets or sets ItemDefinitionId for search criteria.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.StoredProcedure.AdvanceFilterStoredProcedureItemDefinitionModel.ItemAttributes">
+            <summary>
+            Gets or sets item attributes definitions.
+            </summary>
+        </member>
+        <member name="T:Orion.Items.Models.AdvancedFilter.StoredProcedure.AdvanceFilterStoredProcedureModel">
+            <summary>
+            Search condition for generating param in advance filter stored procedure.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.StoredProcedure.AdvanceFilterStoredProcedureModel.ItemDefinition">
+            <summary>
+            Gets or sets ItemDefinition search condition criteria.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.StoredProcedure.AdvanceFilterStoredProcedureModel.CreatedByUserId">
+            <summary>
+            Gets or sets CreatedByUserId search condition criteria.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.StoredProcedure.AdvanceFilterStoredProcedureModel.Owner">
+            <summary>
+            Gets or sets Owners search condition criteria.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.StoredProcedure.AdvanceFilterStoredProcedureModel.AssignedTo">
+            <summary>
+            Gets or sets AssignedTo search condition criteria.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.StoredProcedure.AdvanceFilterStoredProcedureModel.Name">
+            <summary>
+            Gets or sets item name.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.StoredProcedure.AdvanceFilterStoredProcedureModel.Description">
+            <summary>
+            Gets or sets description name.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.StoredProcedure.AdvanceFilterStoredProcedureModel.Stage">
+            <summary>
+            Gets or sets stages.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.StoredProcedure.AdvanceFilterStoredProcedureModel.ResolutionType">
+            <summary>
+            Gets or sets resolution types.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.StoredProcedure.AdvanceFilterStoredProcedureModel.OrganizationUnits">
+            <summary>
+            Gets or sets Organization Units.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.StoredProcedure.AdvanceFilterStoredProcedureModel.CreatedDate">
+            <summary>
+            GEts or sets CreatedDate.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.StoredProcedure.AdvanceFilterStoredProcedureModel.DueDate">
+            <summary>
+            Gets or sets DueDate.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.StoredProcedure.AdvanceFilterStoredProcedureModel.ActivityDate">
+            <summary>
+            Gets or sets ActivityDate.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.StoredProcedure.AdvanceFilterStoredProcedureModel.AssignedOn">
+            <summary>
+            Gets or sets AssignedOn.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.StoredProcedure.AdvanceFilterStoredProcedureModel.LastModifiedDate">
+            <summary>
+            Gets or sets ModifiedDate.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.StoredProcedure.AdvanceFilterStoredProcedureModel.IsNotClosed">
+            <summary>
+            Gets or sets IsNotClosed.
+            </summary>
+        </member>
+        <member name="T:Orion.Items.Models.AdvancedFilter.StoredProcedure.AdvanceFilterStoredProcedureUsersModel">
+            <summary>
+            Search User/User group condition for advance filter.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.StoredProcedure.AdvanceFilterStoredProcedureUsersModel.Id">
+            <summary>
+            Gets or sets ItemAttributeDefinitionId.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.StoredProcedure.AdvanceFilterStoredProcedureUsersModel.Type">
+            <summary>
+            Gets or sets ControlTypeId.
+            </summary>
+        </member>
+        <member name="T:Orion.Items.Models.AdvancedFilter.StoredProcedure.AdvanceFilterStoredProcedureAttributeBaseModel">
+            <summary>
+            Base model of attribute condition for AF search.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.StoredProcedure.AdvanceFilterStoredProcedureAttributeBaseModel.ItemAttributeDefinitionId">
+            <summary>
+            Gets or sets item attribute definition id.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.StoredProcedure.AdvanceFilterStoredProcedureAttributeBaseModel.ControlTypeId">
+            <summary>
+            Gets or sets control type of item attribute definition.
+            </summary>
+        </member>
+        <member name="T:Orion.Items.Models.AdvancedFilter.Results.AdvanceFilterResultItemModel">
+            <summary>
+            Item model for advance filer search result.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.Results.AdvanceFilterResultItemModel.ItemId">
+            <summary>
+            Gets or sets ItemId of filtering result.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.Results.AdvanceFilterResultItemModel.CustomId">
+            <summary>
+            Gets or sets CustomID of item from filtering result.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.Results.AdvanceFilterResultItemModel.ItemName">
+            <summary>
+            Gets or sets ItemName of item from filtering result.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.Results.AdvanceFilterResultItemModel.ItemDefinitionName">
+            <summary>
+            Gets or sets ItemDefinitionName of item from filtering result.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.Results.AdvanceFilterResultItemModel.ItemDescription">
+            <summary>
+            Gets or sets ItemDescription of item from filtering result.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.Results.AdvanceFilterResultItemModel.Stage">
+            <summary>
+            Gets or sets item stage from filtering result.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.Results.AdvanceFilterResultItemModel.Assignments">
+            <summary>
+            Gets or sets list of item assignments from filtering result.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.Results.AdvanceFilterResultItemModel.Owners">
+            <summary>
+            Gets or sets list of item owners from filtering result.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.Results.AdvanceFilterResultItemModel.CreatedDate">
+            <summary>
+            Gets or sets created date if item.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.Results.AdvanceFilterResultItemModel.HasChildren">
+            <summary>
+            Gets or sets a value indicating whether gets or sets HasChildren flag.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.Results.AdvanceFilterResultItemModel.ParentItemId">
+            <summary>
+            Gets or sets parent item id for child item.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.Results.AdvanceFilterResultItemModel.ParentCustomId">
+            <summary>
+            Gets or sets parent custom item id for child item.
+            </summary>
+        </member>
+        <member name="T:Orion.Items.Models.AdvancedFilter.Results.AdvanceFilterResultModel">
+            <summary>
+            Wrapper with result of search via advance filer.
+            </summary>
+        </member>
+        <member name="M:Orion.Items.Models.AdvancedFilter.Results.AdvanceFilterResultModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Items.Models.AdvancedFilter.Results.AdvanceFilterResultModel"/> class. Initialize properties with default values.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.Results.AdvanceFilterResultModel.TotalCount">
+            <summary>
+            Gets or sets count of items in advance filer search result.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.Results.AdvanceFilterResultModel.Value">
+            <summary>
+            Gets or sets items list of advance filer search result.
+            </summary>
+        </member>
+        <member name="T:Orion.Items.Models.AdvancedFilter.Conditions.AdvanceFilterSearchConditionModel">
+            <summary>
+            Search condition for advance filter.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.Conditions.AdvanceFilterSearchConditionModel.ItemDefinitionId">
+            <summary>
+            Gets or sets ItemDefinitionId od search criteria.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.Conditions.AdvanceFilterSearchConditionModel.CreatedByUserId">
+            <summary>
+            Gets or sets CreatedByUserId search condition criteria.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.Conditions.AdvanceFilterSearchConditionModel.UsersAssignedTo">
+            <summary>
+            Gets or sets AssignedTo user id list.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.Conditions.AdvanceFilterSearchConditionModel.UserGroupsAssignedTo">
+            <summary>
+            Gets or sets AssignedTo user group id list.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.Conditions.AdvanceFilterSearchConditionModel.UsersOwner">
+            <summary>
+            Gets or sets Owner user id list.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.Conditions.AdvanceFilterSearchConditionModel.UserGroupsOwner">
+            <summary>
+            Gets or sets Owner user group id list.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.Conditions.AdvanceFilterSearchConditionModel.Name">
+            <summary>
+            Gets or sets item name.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.Conditions.AdvanceFilterSearchConditionModel.Description">
+            <summary>
+            Gets or sets description name.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.Conditions.AdvanceFilterSearchConditionModel.Stages">
+            <summary>
+            Gets or sets stages.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.Conditions.AdvanceFilterSearchConditionModel.ResolutionTypes">
+            <summary>
+            Gets or sets resolution types.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.Conditions.AdvanceFilterSearchConditionModel.OrganizationUnits">
+            <summary>
+            Gets or sets Organization Units.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.Conditions.AdvanceFilterSearchConditionModel.CreatedDate">
+            <summary>
+            Gets or sets created date.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.Conditions.AdvanceFilterSearchConditionModel.DueDate">
+            <summary>
+            Gets or sets due date.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.Conditions.AdvanceFilterSearchConditionModel.ActivityDate">
+            <summary>
+            Gets or sets activity date.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.Conditions.AdvanceFilterSearchConditionModel.AssignedOn">
+            <summary>
+            Gets or sets Assigned on.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.Conditions.AdvanceFilterSearchConditionModel.ModifiedDate">
+            <summary>
+            Gets or sets modified date.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.Conditions.AdvanceFilterSearchConditionModel.Udfs">
+            <summary>
+            Gets or sets udf values.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.AdvancedFilter.Conditions.AdvanceFilterSearchConditionModel.IsNotClosed">
+            <summary>
+            Gets or sets IsNotClosed.
+            </summary>
+        </member>
+        <member name="T:Orion.Items.Models.CloneItemParamsModel">
+            <summary>
+            Model with a list of boolean params needed for the Clone Item procedure.
+            </summary>
+        </member>
+        <member name="M:Orion.Items.Models.CloneItemParamsModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Items.Models.CloneItemParamsModel"/> class. Initialize properties with default values.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.CloneItemParamsModel.GenerateCustomId">
+            <summary>
+            Gets or sets a value indicating whether it's needed to generate new custom id for the cloned item.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.CloneItemParamsModel.CloneSecurities">
+            <summary>
+            Gets or sets a value indicating whether it's needed to copy item securities to the cloned item.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.CloneItemParamsModel.CloneOwners">
+            <summary>
+            Gets or sets a value indicating whether it's needed to copy owners to the cloned item.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.CloneItemParamsModel.CloneAssignees">
+            <summary>
+            Gets or sets a value indicating whether it's needed to copy assignees to the cloned item.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.CloneItemParamsModel.CloneOrgUnits">
+            <summary>
+            Gets or sets a value indicating whether it's needed to copy org units to the cloned item.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.CloneItemParamsModel.CloneAttributes">
+            <summary>
+            Gets or sets a value indicating whether it's needed to copy all attributes to the cloned item.
+            </summary>
+        </member>
+        <member name="T:Orion.Items.Models.DateRangeModel">
+            <summary>
+            Date range model.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.DateRangeModel.From">
+            <summary>
+            Gets or sets start date.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.DateRangeModel.To">
+            <summary>
+            Gets or sets end date.
+            </summary>
+        </member>
+        <member name="T:Orion.Items.Models.ItemChildInfoModel">
+            <summary>
+            Item model with getting info about child items.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemChildInfoModel.ItemId">
+            <summary>
+            Gets or sets the Item identifier.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemChildInfoModel.CustomId">
+            <summary>
+            Gets or sets item custom id.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemChildInfoModel.Name">
+            <summary>
+            Gets or sets Item name.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemChildInfoModel.ItemDefinitionName">
+            <summary>
+            Gets or sets Item template name.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemChildInfoModel.Stage">
+            <summary>
+            Gets or sets Item stage.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemChildInfoModel.DueBy">
+            <summary>
+            Gets or sets Item DueBy time.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemChildInfoModel.AssignedTo">
+            <summary>
+            Gets or sets Item assignees.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemChildInfoModel.AssignedOn">
+            <summary>
+            Gets or sets Item assign date.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemChildInfoModel.HasChildren">
+            <summary>
+            Gets or sets a value indicating whether gets or sets HasChildren flag.
+            </summary>
+        </member>
+        <member name="T:Orion.Items.Models.ItemAttributeModel">
+            <summary>
+            Item attribute model.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemAttributeModel.Id">
+            <summary>
+            Gets or sets item attribute identifier.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemAttributeModel.ItemId">
+            <summary>
+            Gets or sets item attribute identifier.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemAttributeModel.ItemAttributeDefinitionId">
+            <summary>
+            Gets or sets item attribute identifier.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemAttributeModel.ItemAttributeDefinitionUid">
+            <summary>
+            Gets or sets item attribute unique identifier.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemAttributeModel.ValueString">
+            <summary>
+            Gets or sets item attribute string value.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemAttributeModel.ValueNumber">
+            <summary>
+            Gets or sets item attribute number value.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemAttributeModel.ValueDateTime">
+            <summary>
+            Gets or sets item attribute datetime value.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemAttributeModel.ValueBoolean">
+            <summary>
+            Gets or sets item attribute bool value.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemAttributeModel.ItemAttributeLookupValuesIds">
+            <summary>
+            Gets or sets item attribute lookup values collection.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemUserOwnerModel.UserId">
+            <summary>
+            Gets or Sets UserId.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemUserOwnerModel.ItemId">
+            <summary>
+            Gets or Sets ItemId.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemUserOwnerModel.CreatedDate">
+            <summary>
+            Gets or Sets CreatedDate.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemUserOwnerModel.CreatedByUserId">
+            <summary>
+            Gets or Sets CreatedByUserId.
+            </summary>
+        </member>
+        <member name="T:Orion.Items.Models.ItemWithAttributesModel">
+            <summary>
+            Item with attributes info model.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemWithAttributesModel.Id">
+            <summary>
+            Gets or sets the item guid.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemWithAttributesModel.Name">
+            <summary>
+            Gets or sets the item name.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemWithAttributesModel.LifecycleStage">
+            <summary>
+            Gets or sets the item lifecycle stage string value.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemWithAttributesModel.LifecycleComment">
+            <summary>
+            Gets or sets the item lifecycle comment string value.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemWithAttributesModel.CreateDate">
+            <summary>
+            Gets or sets the item create date value.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemWithAttributesModel.ItemsAttributes">
+            <summary>
+            Gets or sets the item collection of attributes.
+            </summary>
+        </member>
+        <member name="T:Orion.Items.Models.ItemInfoModel">
+            <summary>
+            Item Info Model.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemInfoModel.Id">
+            <summary>
+            Gets or sets the Item identifier.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemInfoModel.Type">
+            <summary>
+            Gets or sets the Item Type.
+            </summary>
+        </member>
+        <member name="T:Orion.Items.Models.ItemLinkUriModel">
+            <summary>
+            Item link Uri model.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemLinkUriModel.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:Orion.Items.Models.ItemLinkUriModel.ItemId">
+            <summary>
+            Gets or sets the item identifier.
+            </summary>
+            <value>
+            The item identifier.
+            </value>
+        </member>
+        <member name="P:Orion.Items.Models.ItemLinkUriModel.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="P:Orion.Items.Models.ItemLinkUriModel.Description">
+            <summary>
+            Gets or sets the description.
+            </summary>
+            <value>
+            The description.
+            </value>
+        </member>
+        <member name="P:Orion.Items.Models.ItemLinkUriModel.Url">
+            <summary>
+            Gets or sets the URL.
+            </summary>
+            <value>
+            The URL.
+            </value>
+        </member>
+        <member name="T:Orion.Items.Models.ItemModel">
+            <summary>
+            Item Model.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemModel.Id">
+            <summary>
+            Gets or sets the Item identifier.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemModel.CustomId">
+            <summary>Gets or sets the Item Custom ID.</summary>
+            <remarks>
+            Until there are no special instructions this property should be populated automatically via itemsComponent.UpdateItemCustomIdAndMapping. Otherwise it can be set manually.
+            </remarks>
+        </member>
+        <member name="P:Orion.Items.Models.ItemModel.Name">
+            <summary>
+            Gets or sets the Item name.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemModel.Description">
+            <summary>
+            Gets or sets the Item description.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemModel.ItemDefinitionId">
+            <summary>
+            Gets or sets the Item template identifier.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemModel.AssignedToUserIds">
+            <summary>
+            Gets or sets a list of "Assigned To" User identifiers.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemModel.AssignedToGroupIds">
+            <summary>
+            Gets or sets a list of "Assigned To" Security Group identifiers.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemModel.OwnerUserIds">
+            <summary>
+            Gets or sets a list of "Owner" User identifiers.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemModel.OwnerGroupIds">
+            <summary>
+            Gets or sets a list of "Owner" Security Group identifiers.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemModel.OrgUnitIds">
+            <summary>
+            Gets or sets a list of Org Unit identifiers.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemModel.ItemLifecycleStageId">
+            <summary>
+            Gets or sets the Item Lifecycle Stage identifier.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemModel.SearchCustomId">
+            <summary> Gets or sets the Item Search Custom ID. </summary>
+            <remarks>
+            Most of the time the Search Custom ID should be the same as the Item's Custom ID.
+            </remarks>
+        </member>
+        <member name="P:Orion.Items.Models.ItemModel.ItemSourceType">
+            <summary>
+            Gets or sets the Item Source Type.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemModel.InstanceType">
+            <summary>
+            Gets or sets the Item Instance Type.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemModel.FormSubmissionId">
+            <summary>
+            Gets or sets identifier of the associated submitted Form.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemModel.DueDate">
+            <summary>
+            Gets or sets the Item Due Date.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemModel.EntityId">
+            <summary>
+            Gets or sets the Item Entity identifier (UID).
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemModel.CreatedByUserId">
+            <summary>
+            Gets or sets CreatedByUserId.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemModel.CreatedOn">
+            <summary>
+            Gets or sets the date/time (UTC) when the Item was created.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemModel.InheritedPermissionsItemId">
+            <summary>
+            Gets or sets the Item's Inherited Permissions Item identifier.
+            </summary>
+        </member>
+        <member name="T:Orion.Items.Models.ItemWithAssigneesAndStageModel">
+            <summary>
+            Model describing an Item with assignees and stage.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemWithAssigneesAndStageModel.ItemId">
+            <summary>
+            Gets or sets the Item identifier.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemWithAssigneesAndStageModel.CustomId">
+            <summary>
+            Gets or sets the Item custom identifier.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemWithAssigneesAndStageModel.Name">
+            <summary>
+            Gets or sets Item name.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemWithAssigneesAndStageModel.Stage">
+            <summary>
+            Gets or sets Item stage.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemWithAssigneesAndStageModel.DueBy">
+            <summary>
+            Gets or sets Item DueBy time.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemWithAssigneesAndStageModel.CreateDate">
+            <summary>
+            Gets or sets the date/time (UTC) when the Item was created.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemWithAssigneesAndStageModel.AssignedTo">
+            <summary>
+            Gets or sets Item assignees.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemWithAssigneesAndStageModel.EntityId">
+            <summary>
+            Gets or sets Item Entity identifier (UID).
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.ItemWithAssigneesAndStageModel.Description">
+            <summary>
+            Gets or sets the Item description.
+            </summary>
+        </member>
+        <member name="T:Orion.Items.Models.UserDefinedFieldsMetadata.CheckBoxListUdfMetadata">
+            <summary>
+            CheckBoxList Udf Metadata.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFieldsMetadata.CheckBoxListUdfMetadata.DefaultValue">
+            <summary>
+            Gets or sets DefaultValue.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFieldsMetadata.CheckBoxListUdfMetadata.ListValues">
+            <summary>
+            Gets or sets ListValues.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFieldsMetadata.CheckBoxListUdfMetadata.NumberOfColumns">
+            <summary>
+            Gets or sets NumberOfColumns.
+            </summary>
+        </member>
+        <member name="T:Orion.Items.Models.UserDefinedFieldsMetadata.ControlPosition">
+            <summary>
+            Control Position.
+            </summary>
+        </member>
+        <member name="M:Orion.Items.Models.UserDefinedFieldsMetadata.ControlPosition.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Items.Models.UserDefinedFieldsMetadata.ControlPosition"/> class.
+            </summary>
+            <param name="row">Row.</param>
+            <param name="column">Column.</param>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFieldsMetadata.ControlPosition.Row">
+            <summary>
+            Gets or sets Row.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFieldsMetadata.ControlPosition.Column">
+            <summary>
+            Gets or sets Column.
+            </summary>
+        </member>
+        <member name="T:Orion.Items.Models.UserDefinedFieldsMetadata.CategoryUdfMetadata">
+            <summary>
+            Dynamic control metadata.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFieldsMetadata.CategoryUdfMetadata.DefaultValue">
+            <summary>
+            Gets or sets DefaultValue.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFieldsMetadata.CategoryUdfMetadata.CategoryValues">
+            <summary>
+            Gets or sets Category list of dynamic control.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFieldsMetadata.CategoryUdfMetadata.ChildrenMetadata">
+            <summary>
+            Gets or sets metadata of children from dynamic control.
+            </summary>
+        </member>
+        <member name="T:Orion.Items.Models.UserDefinedFieldsMetadata.HeaderUdfMetadata">
+            <summary>
+            Header Udf Metadata.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFieldsMetadata.HeaderUdfMetadata.DefaultValue">
+            <summary>
+            Gets or sets DefaultValue.
+            </summary>
+        </member>
+        <member name="T:Orion.Items.Models.UserDefinedFieldsMetadata.IUdfMetadata`1">
+            <summary>
+            IUdfMetadata.
+            </summary>
+            <typeparam name="T">Type.</typeparam>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFieldsMetadata.IUdfMetadata`1.DefaultValue">
+            <summary>
+            Gets or sets DefaultValue.
+            </summary>
+        </member>
+        <member name="T:Orion.Items.Models.UserDefinedFieldsMetadata.MultiSelectDropListUdfMetadata">
+            <summary>
+            MultiSelectDropList Udf Metadata.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFieldsMetadata.MultiSelectDropListUdfMetadata.DefaultValue">
+            <summary>
+            Gets or sets DefaultValue.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFieldsMetadata.MultiSelectDropListUdfMetadata.ListValues">
+            <summary>
+            Gets or sets ListValues.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFieldsMetadata.PersonUdfMetadata.DefaultValue">
+            <summary>
+            Gets or sets DefaultValue.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFieldsMetadata.PersonUdfMetadata.ListValues">
+            <summary>
+            Gets or sets ListValues.
+            </summary>
+        </member>
+        <member name="T:Orion.Items.Models.UserDefinedFieldsMetadata.RadioButtonListUdfMetadata">
+            <summary>
+            RadioButtonList Udf Metadata.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFieldsMetadata.RadioButtonListUdfMetadata.DefaultValue">
+            <summary>
+            Gets or sets DefaultValue.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFieldsMetadata.RadioButtonListUdfMetadata.ListValues">
+            <summary>
+            Gets or sets ListValues.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFieldsMetadata.RadioButtonListUdfMetadata.NumberOfColumns">
+            <summary>
+            Gets or sets NumberOfColumns.
+            </summary>
+        </member>
+        <member name="T:Orion.Items.Models.UserDefinedFieldsMetadata.RiskCalculatorUdfMetadata">
+            <summary>
+            RiskCalculatorUdfMetadata Udf Metadata.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFieldsMetadata.RiskCalculatorUdfMetadata.DefaultValue">
+            <summary>
+            Gets or sets DefaultValue.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFieldsMetadata.RiskCalculatorUdfMetadata.ListValues">
+            <summary>
+            Gets or sets ListValues.
+            </summary>
+        </member>
+        <member name="T:Orion.Items.Models.UserDefinedFieldsMetadata.SingleSelectDropListUdfMetadata">
+            <summary>
+            SingleSelectDropList Udf Metadata.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFieldsMetadata.SingleSelectDropListUdfMetadata.DefaultValue">
+            <summary>
+            Gets or sets DefaultValue.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFieldsMetadata.SingleSelectDropListUdfMetadata.ListValues">
+            <summary>
+            Gets or sets ListValues.
+            </summary>
+        </member>
+        <member name="T:Orion.Items.Models.UserDefinedFieldsMetadata.SubheaderUdfMetadata">
+            <summary>
+            Subheader Udf Metadata.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFieldsMetadata.SubheaderUdfMetadata.DefaultValue">
+            <summary>
+            Gets or sets DefaultValue.
+            </summary>
+        </member>
+        <member name="T:Orion.Items.Models.UserDefinedFieldsMetadata.TextUdfMetadata">
+            <summary>
+            Text Udf Metadata.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFieldsMetadata.TextUdfMetadata.DefaultValue">
+            <summary>
+            Gets or sets DefaultValue.
+            </summary>
+        </member>
+        <member name="T:Orion.Items.Models.UdfPersonMetadataEntity">
+            <summary>
+            Udf List Metadata Entity.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UdfPersonMetadataEntity.Id">
+            <summary>
+            Gets or sets Id.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UdfPersonMetadataEntity.Name">
+            <summary>
+            Gets or sets Value.
+            </summary>
+        </member>
+        <member name="T:Orion.Items.Models.UdfListMetadataEntity">
+            <summary>
+            Udf List Metadata Entity.
+            </summary>
+        </member>
+        <member name="M:Orion.Items.Models.UdfListMetadataEntity.#ctor(System.Int64,System.String,System.Boolean,System.Nullable{System.Int64})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Items.Models.UdfListMetadataEntity"/> class.
+            </summary>
+            <param name="key">Key.</param>
+            <param name="value">Value.</param>
+            <param name="isActive">Is Active.</param>
+            <param name="parentId">Parent Id.</param>
+        </member>
+        <member name="P:Orion.Items.Models.UdfListMetadataEntity.Key">
+            <summary>
+            Gets or sets Key.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UdfListMetadataEntity.Value">
+            <summary>
+            Gets or sets Value.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UdfListMetadataEntity.IsActive">
+            <summary>
+            Gets or sets a value indicating whether IsActive.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UdfListMetadataEntity.ParentId">
+            <summary>
+            Gets or sets a value indicating whether ParentId.
+            </summary>
+        </member>
+        <member name="T:Orion.Items.Models.UserDefinedFieldMetadataBase">
+            <summary>
+            User Defined Field Metadata Base.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFieldMetadataBase.UdfTemplateId">
+            <summary>
+            Gets or sets UdfTemplateId.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFieldMetadataBase.ItemTemplateId">
+            <summary>
+            Gets or sets ItemTemplateId.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFieldMetadataBase.Type">
+            <summary>
+            Gets or sets Type.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFieldMetadataBase.Name">
+            <summary>
+            Gets or sets Name.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFieldMetadataBase.Size">
+            <summary>
+            Gets or sets Size.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFieldMetadataBase.IsRequired">
+            <summary>
+            Gets or sets a value indicating whether IsRequired.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFieldMetadataBase.IsReadOnly">
+            <summary>
+            Gets or sets a value indicating whether IsReadOnly.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFieldMetadataBase.IsHidden">
+            <summary>
+            Gets or sets a value indicating whether IsHidden.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFieldMetadataBase.CategoryId">
+            <summary>
+            Gets or sets category id for controls what are located into dynamic control.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFieldMetadataBase.ParentItemAttributeDefinitionId">
+            <summary>
+            Gets or sets parent control id for controls what are located into panel.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFieldMetadataBase.Row">
+            <summary>
+            Gets or sets Row.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFieldMetadataBase.Column">
+            <summary>
+            Gets or sets Column.
+            </summary>
+        </member>
+        <member name="T:Orion.Items.Models.UserDefinedFields.AdvanceFilterCategoryUdf">
+            <summary>
+            Category/dynamic control for advance filer.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFields.AdvanceFilterCategoryUdf.Type">
+            <summary>
+            Gets Type.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFields.AdvanceFilterCategoryUdf.Value">
+            <summary>
+            Gets or sets Value.
+            </summary>
+        </member>
+        <member name="M:Orion.Items.Models.UserDefinedFields.AdvanceFilterCategoryUdf.GetValueOrNullIfEmpty">
+            <summary>
+            Gets Value Or Null If Empty.
+            </summary>
+            <returns>Object.</returns>
+        </member>
+        <member name="T:Orion.Items.Models.UserDefinedFields.AdvanceFilterRiskCalculatorUdf">
+            <summary>
+            MultiSelect for advance filer.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFields.AdvanceFilterRiskCalculatorUdf.Type">
+            <summary>
+            Gets Type.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFields.AdvanceFilterRiskCalculatorUdf.Value">
+            <summary>
+            Gets or sets Value.
+            </summary>
+        </member>
+        <member name="M:Orion.Items.Models.UserDefinedFields.AdvanceFilterRiskCalculatorUdf.GetValueOrNullIfEmpty">
+            <summary>
+            Gets Value Or Null If Empty.
+            </summary>
+            <returns>Object.</returns>
+        </member>
+        <member name="T:Orion.Items.Models.UserDefinedFields.AdvanceFilterDateUdf">
+            <summary>
+            Date advance filter date Udf.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFields.AdvanceFilterDateUdf.Type">
+            <summary>
+            Gets Type.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFields.AdvanceFilterDateUdf.Value">
+            <summary>
+            Gets or sets Value.
+            </summary>
+        </member>
+        <member name="M:Orion.Items.Models.UserDefinedFields.AdvanceFilterDateUdf.GetValueOrNullIfEmpty">
+            <summary>
+            Gets Value Or Null If Empty.
+            </summary>
+            <returns>Object.</returns>
+        </member>
+        <member name="T:Orion.Items.Models.UserDefinedFields.AdvanceFilterMultiSelectListUdf">
+            <summary>
+            MultiSelect for advance filer.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFields.AdvanceFilterMultiSelectListUdf.Type">
+            <summary>
+            Gets Type.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFields.AdvanceFilterMultiSelectListUdf.Value">
+            <summary>
+            Gets or sets Value.
+            </summary>
+        </member>
+        <member name="M:Orion.Items.Models.UserDefinedFields.AdvanceFilterMultiSelectListUdf.GetValueOrNullIfEmpty">
+            <summary>
+            Gets Value Or Null If Empty.
+            </summary>
+            <returns>Object.</returns>
+        </member>
+        <member name="T:Orion.Items.Models.UserDefinedFields.AssignToSingleSelect">
+            <summary>
+            Assign To Single Select.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFields.AssignToSingleSelect.Type">
+            <summary>
+            Gets Type.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFields.AssignToSingleSelect.Value">
+            <summary>
+            Gets or sets Value.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFields.AssignToSingleSelect.MemberType">
+            <summary>
+            Gets or sets MemberType.
+            </summary>
+        </member>
+        <member name="M:Orion.Items.Models.UserDefinedFields.AssignToSingleSelect.GetValueOrNullIfEmpty">
+            <summary>
+            Gets Value Or Null If Empty.
+            </summary>
+            <returns>Object.</returns>
+        </member>
+        <member name="T:Orion.Items.Models.UserDefinedFields.CheckBoxListUdf">
+            <summary>
+            Check Box List Udf.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFields.CheckBoxListUdf.Type">
+            <summary>
+            Gets Type.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFields.CheckBoxListUdf.Value">
+            <summary>
+            Gets or sets Value.
+            </summary>
+        </member>
+        <member name="M:Orion.Items.Models.UserDefinedFields.CheckBoxListUdf.GetValueOrNullIfEmpty">
+            <summary>
+            Gets Value Or Null If Empty.
+            </summary>
+            <returns>Object.</returns>
+        </member>
+        <member name="T:Orion.Items.Models.UserDefinedFields.DateTimeUdf">
+            <summary>
+            Date Time Udf.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFields.DateTimeUdf.Type">
+            <summary>
+            Gets Type.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFields.DateTimeUdf.Value">
+            <summary>
+            Gets or sets Value.
+            </summary>
+        </member>
+        <member name="M:Orion.Items.Models.UserDefinedFields.DateTimeUdf.GetValueOrNullIfEmpty">
+            <summary>
+            Gets Value Or Null If Empty.
+            </summary>
+            <returns>Object.</returns>
+        </member>
+        <member name="T:Orion.Items.Models.UserDefinedFields.DateUdf">
+            <summary>
+            Date Udf.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFields.DateUdf.Type">
+            <summary>
+            Gets Type.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFields.DateUdf.Value">
+            <summary>
+            Gets or sets Value.
+            </summary>
+        </member>
+        <member name="M:Orion.Items.Models.UserDefinedFields.DateUdf.GetValueOrNullIfEmpty">
+            <summary>
+            Gets Value Or Null If Empty.
+            </summary>
+            <returns>Object.</returns>
+        </member>
+        <member name="T:Orion.Items.Models.UserDefinedFields.DecimalUdf">
+            <summary>
+            Decimal Udf.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFields.DecimalUdf.Type">
+            <summary>
+            Gets Type.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFields.DecimalUdf.Value">
+            <summary>
+            Gets or sets Value.
+            </summary>
+        </member>
+        <member name="M:Orion.Items.Models.UserDefinedFields.DecimalUdf.GetValueOrNullIfEmpty">
+            <summary>
+            Gets Value Or Null If Empty.
+            </summary>
+            <returns>Object.</returns>
+        </member>
+        <member name="T:Orion.Items.Models.UserDefinedFields.EmailUdf">
+            <summary>
+            Email Udf.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFields.EmailUdf.Type">
+            <summary>
+            Gets Type.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFields.EmailUdf.Value">
+            <summary>
+            Gets or sets Value.
+            </summary>
+        </member>
+        <member name="M:Orion.Items.Models.UserDefinedFields.EmailUdf.GetValueOrNullIfEmpty">
+            <summary>
+            Gets Value Or Null If Empty.
+            </summary>
+            <returns>Object.</returns>
+        </member>
+        <member name="T:Orion.Items.Models.UserDefinedFields.HeaderUdf">
+            <summary>
+            Header Udf.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFields.HeaderUdf.Type">
+            <summary>
+            Gets Type.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFields.HeaderUdf.Value">
+            <summary>
+            Gets or sets Value.
+            </summary>
+        </member>
+        <member name="M:Orion.Items.Models.UserDefinedFields.HeaderUdf.GetValueOrNullIfEmpty">
+            <summary>
+            Gets Value Or Null If Empty.
+            </summary>
+            <returns>Object.</returns>
+        </member>
+        <member name="T:Orion.Items.Models.UserDefinedFields.IntegerUdf">
+            <summary>
+            Integer Udf.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFields.IntegerUdf.Type">
+            <summary>
+            Gets Type.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFields.IntegerUdf.Value">
+            <summary>
+            Gets or sets Value.
+            </summary>
+        </member>
+        <member name="M:Orion.Items.Models.UserDefinedFields.IntegerUdf.GetValueOrNullIfEmpty">
+            <summary>
+            Gets Value Or Null If Empty.
+            </summary>
+            <returns>Object.</returns>
+        </member>
+        <member name="T:Orion.Items.Models.UserDefinedFields.MultiLineTextUdf">
+            <summary>
+            MultiLineText Udf.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFields.MultiLineTextUdf.Type">
+            <summary>
+            Gets Type.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFields.MultiLineTextUdf.Value">
+            <summary>
+            Gets or sets Value.
+            </summary>
+        </member>
+        <member name="M:Orion.Items.Models.UserDefinedFields.MultiLineTextUdf.GetValueOrNullIfEmpty">
+            <summary>
+            Gets Value Or Null If Empty.
+            </summary>
+            <returns>Object.</returns>
+        </member>
+        <member name="T:Orion.Items.Models.UserDefinedFields.MultiSelectDropListUdf">
+            <summary>
+            MultiSelectDropList Udf.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFields.MultiSelectDropListUdf.Type">
+            <summary>
+            Gets Type.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFields.MultiSelectDropListUdf.Value">
+            <summary>
+            Gets or sets Value.
+            </summary>
+        </member>
+        <member name="M:Orion.Items.Models.UserDefinedFields.MultiSelectDropListUdf.GetValueOrNullIfEmpty">
+            <summary>
+            Gets Value Or Null If Empty.
+            </summary>
+            <returns>Object.</returns>
+        </member>
+        <member name="T:Orion.Items.Models.UserDefinedFields.OwnerSingleSelect">
+            <summary>
+            OwnerSingleSelect.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFields.OwnerSingleSelect.Type">
+            <summary>
+            Gets Type.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFields.OwnerSingleSelect.Value">
+            <summary>
+            Gets or sets Value.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFields.OwnerSingleSelect.MemberType">
+            <summary>
+            Gets or sets MemberType.
+            </summary>
+        </member>
+        <member name="M:Orion.Items.Models.UserDefinedFields.OwnerSingleSelect.GetValueOrNullIfEmpty">
+            <summary>
+            Gets Value Or Null If Empty.
+            </summary>
+            <returns>Object.</returns>
+        </member>
+        <member name="T:Orion.Items.Models.UserDefinedFields.AdvanceFilterPersonUdf">
+            <summary>
+            Person Udf.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFields.AdvanceFilterPersonUdf.Type">
+            <summary>
+            Gets Type.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFields.AdvanceFilterPersonUdf.Value">
+            <summary>
+            Gets or sets Value.
+            </summary>
+        </member>
+        <member name="M:Orion.Items.Models.UserDefinedFields.AdvanceFilterPersonUdf.GetValueOrNullIfEmpty">
+            <summary>
+            Gets Value Or Null If Empty.
+            </summary>
+            <returns>Object.</returns>
+        </member>
+        <member name="T:Orion.Items.Models.UserDefinedFields.PhoneNumberUdf">
+            <summary>
+            PhoneNumber Udf.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFields.PhoneNumberUdf.Type">
+            <summary>
+            Gets Type.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFields.PhoneNumberUdf.Value">
+            <summary>
+            Gets or sets Value.
+            </summary>
+        </member>
+        <member name="M:Orion.Items.Models.UserDefinedFields.PhoneNumberUdf.GetValueOrNullIfEmpty">
+            <summary>
+            Gets Value Or Null If Empty.
+            </summary>
+            <returns>Object.</returns>
+        </member>
+        <member name="T:Orion.Items.Models.UserDefinedFields.RadioButtonListUdf">
+            <summary>
+            RadioButtonList Udf.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFields.RadioButtonListUdf.Type">
+            <summary>
+            Gets Type.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFields.RadioButtonListUdf.Value">
+            <summary>
+            Gets or sets Value.
+            </summary>
+        </member>
+        <member name="M:Orion.Items.Models.UserDefinedFields.RadioButtonListUdf.GetValueOrNullIfEmpty">
+            <summary>
+            Gets Value Or Null If Empty.
+            </summary>
+            <returns>Object.</returns>
+        </member>
+        <member name="T:Orion.Items.Models.UserDefinedFields.SingleLineTextUdf">
+            <summary>
+            SingleLineText Udf.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFields.SingleLineTextUdf.Type">
+            <summary>
+            Gets Type.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFields.SingleLineTextUdf.Value">
+            <summary>
+            Gets or sets Value.
+            </summary>
+        </member>
+        <member name="M:Orion.Items.Models.UserDefinedFields.SingleLineTextUdf.GetValueOrNullIfEmpty">
+            <summary>
+            Gets Value Or Null If Empty.
+            </summary>
+            <returns>Object.</returns>
+        </member>
+        <member name="T:Orion.Items.Models.UserDefinedFields.SingleSelectDropListUdf">
+            <summary>
+            SingleSelectDropList Udf.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFields.SingleSelectDropListUdf.Type">
+            <summary>
+            Gets Type.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFields.SingleSelectDropListUdf.Value">
+            <summary>
+            Gets or sets Value.
+            </summary>
+        </member>
+        <member name="M:Orion.Items.Models.UserDefinedFields.SingleSelectDropListUdf.GetValueOrNullIfEmpty">
+            <summary>
+            Gets Value Or Null If Empty.
+            </summary>
+            <returns>Object.</returns>
+        </member>
+        <member name="T:Orion.Items.Models.UserDefinedFields.SubheaderUdf">
+            <summary>
+            Subheader Udf.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFields.SubheaderUdf.Type">
+            <summary>
+            Gets Type.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFields.SubheaderUdf.Value">
+            <summary>
+            Gets or sets Value.
+            </summary>
+        </member>
+        <member name="M:Orion.Items.Models.UserDefinedFields.SubheaderUdf.GetValueOrNullIfEmpty">
+            <summary>
+            Gets value or null if empty.
+            </summary>
+            <returns>Object.</returns>
+        </member>
+        <member name="T:Orion.Items.Models.UserDefinedFields.TextUdf">
+            <summary>
+            Text Udf.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFields.TextUdf.Type">
+            <summary>
+            Gets Type.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFields.TextUdf.Value">
+            <summary>
+            Gets or sets Value.
+            </summary>
+        </member>
+        <member name="M:Orion.Items.Models.UserDefinedFields.TextUdf.GetValueOrNullIfEmpty">
+            <summary>
+            Gets value or null if empty.
+            </summary>
+            <returns>Object.</returns>
+        </member>
+        <member name="T:Orion.Items.Models.UserDefinedFields.TimeUdf">
+            <summary>
+            Time Udf.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFields.TimeUdf.Type">
+            <summary>
+            Gets Type.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFields.TimeUdf.Value">
+            <summary>
+            Gets or sets Value.
+            </summary>
+        </member>
+        <member name="M:Orion.Items.Models.UserDefinedFields.TimeUdf.GetValueOrNullIfEmpty">
+            <summary>
+            Gets value or null if empty.
+            </summary>
+            <returns>Object.</returns>
+        </member>
+        <member name="T:Orion.Items.Models.UserDefinedFieldValueBase">
+            <summary>
+            User Defined Field Value Base.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFieldValueBase.ItemId">
+            <summary>
+            Gets or sets ItemId.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFieldValueBase.UdfTemplateId">
+            <summary>
+            Gets or sets UdfTemplateId.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFieldValueBase.Type">
+            <summary>
+            Gets Type.
+            </summary>
+        </member>
+        <member name="P:Orion.Items.Models.UserDefinedFieldValueBase.IsReadOnly">
+            <summary>
+            Gets or sets IsReadOnly.
+            </summary>
+        </member>
+        <member name="M:Orion.Items.Models.UserDefinedFieldValueBase.GetValueOrNullIfEmpty">
+            <summary>
+            Gets Value Or Null If Empty.
+            </summary>
+            <returns>Object.</returns>
+        </member>
+        <member name="T:Orion.Items.IItemsComponent">
+            <summary>
+            Component is used to work with Items and User-Defined Fields (UDFs).
+            </summary>
+        </member>
+        <member name="M:Orion.Items.IItemsComponent.GetAdvanceFilteredItems(Orion.Items.Models.AdvancedFilter.Conditions.AdvanceFilterSearchConditionModel,System.Int32,System.Int32,System.String)">
+            <summary>
+            Get list of items what were filtered by criteria.
+            </summary>
+            <param name="filter">Search criteria for advance filter.</param>
+            <param name="top">Identifies a subset of the Entries in the Collection.</param>
+            <param name="skip">Identifies a subset of the Entries in the Collection of Entries identified.</param>
+            <param name="orderBy">Order by of search results.</param>
+            <returns>List of items.</returns>
+        </member>
+        <member name="M:Orion.Items.IItemsComponent.GetAdvanceFilteredSubItemsQueryable(System.Int64)">
+            <summary>
+            Get list of sub items for filtered items.
+            </summary>
+            <param name="parentItemId">Parent item id.</param>
+            <returns>List of sub items.</returns>
+        </member>
+        <member name="M:Orion.Items.IItemsComponent.CreateItem(Orion.Items.Models.ItemModel)">
+            <summary>
+            Create a new Item.
+            </summary>
+            <param name="itemModel">Model describing a new Item to create.</param>
+            <returns>Item model for the newly created item.</returns>
+        </member>
+        <member name="M:Orion.Items.IItemsComponent.UpdateItem(Orion.Items.Models.ItemModel)">
+            <summary>
+            Update an Item.
+            </summary>
+            <param name="itemModel">Item model.</param>
+            <returns>Item model for the updated item.</returns>
+        </member>
+        <member name="M:Orion.Items.IItemsComponent.GetItemById(System.Int64)">
+            <summary>
+            Get the Item.
+            </summary>
+            <param name="itemId">Item identifier.</param>
+            <returns>Item model.</returns>
+        </member>
+        <member name="M:Orion.Items.IItemsComponent.GetItemWithMetadataById(System.Int64)">
+            <summary>
+            Get the Item, including related tables.
+            </summary>
+            <param name="itemId">Item identifier.</param>
+            <returns>Item model.</returns>
+        </member>
+        <member name="M:Orion.Items.IItemsComponent.DoesItemExist(System.Int64)">
+            <summary>
+            Determines whether the specified item exists.
+            </summary>
+            <param name="itemId">Item identifier to check.</param>
+            <returns>true if the specified item exists; otherwise, false.</returns>
+        </member>
+        <member name="M:Orion.Items.IItemsComponent.GetItemTemplateType(System.Int64)">
+            <summary>
+            Find out what's the Item template/instance type.
+            </summary>
+            <param name="itemId">Item identifier to check.</param>
+            <returns>Template/instance type of the Item.</returns>
+        </member>
+        <member name="M:Orion.Items.IItemsComponent.CloseItem(System.Int64)">
+            <summary>
+            Change the Item stage to the final one.
+            </summary>
+            <param name="itemId">Item identifier.</param>
+        </member>
+        <member name="M:Orion.Items.IItemsComponent.ReopenItem(System.Int64)">
+            <summary>
+            Change the Item stage to the initial one.
+            </summary>
+            <param name="itemId">Item identifier.</param>
+        </member>
+        <member name="M:Orion.Items.IItemsComponent.DeleteItem(System.Int64)">
+            <summary>
+            Soft-delete the Item.
+            </summary>
+            <param name="itemId">Item identifier.</param>
+        </member>
+        <member name="M:Orion.Items.IItemsComponent.UpdateItemCustomIdAndMapping(System.Int64,System.Int64)">
+            <summary>
+            Generate Custom ID for the item and prepare related mapping table records.
+            </summary>
+            <param name="itemId">Item identifier.</param>
+            <param name="layerId">Layer identifier.</param>
+            <returns>Generated Custom ID string value.</returns>
+        </member>
+        <member name="M:Orion.Items.IItemsComponent.IsItemCustomIdUsed(System.Nullable{System.Int64},System.Int64,System.String)">
+            <summary>
+            Check if the specified Custom ID already is in use.
+            </summary>
+            <param name="itemId">Item identifier; null for new item.</param>
+            <param name="itemDefinitionId">Item definition identifier.</param>
+            <param name="customId">Custom ID to check.</param>
+            <returns>true if the specified Custom ID is in use; otherwise, false.</returns>
+            <remarks>If the itemId is specified, the item will be skipped in the check.</remarks>
+        </member>
+        <member name="M:Orion.Items.IItemsComponent.GetItemInfo(System.Int64)">
+            <summary>
+            Get Item info-model.
+            </summary>
+            <param name="itemId">Item identifier.</param>
+            <returns>Item info-model.</returns>
+        </member>
+        <member name="M:Orion.Items.IItemsComponent.GetItemDefinitionIdByItemId(System.Int64)">
+            <summary>
+            Find out Item's template identifier.
+            </summary>
+            <param name="itemId">Item identifier.</param>
+            <returns>Item template identifier.</returns>
+        </member>
+        <member name="M:Orion.Items.IItemsComponent.GetItemIndexDocument(System.Guid,Orion.Entities.Data.Entities.Entity)">
+            <summary>
+            Get IndexDocument for an Item.
+            </summary>
+            <param name="entityId">Entity identifier (UID).</param>
+            <param name="parentEntity">Parent Entity.</param>
+            <returns>IndexDocument.</returns>
+        </member>
+        <member name="M:Orion.Items.IItemsComponent.GetSearchResultItemModel(Orion.Search.Models.IndexDocument)">
+            <summary>
+            Get Search Result Item.
+            </summary>
+            <param name="document">Index document.</param>
+            <returns>Search Result Item.</returns>
+        </member>
+        <member name="M:Orion.Items.IItemsComponent.GetNotClosedItemsWithAssigneesAndStage(System.Int64,Orion.Multilingual.Enums.Language,Orion.Items.Enums.MemberType,System.Int64)">
+            <summary>
+            Get Item information with metadata and Stage.
+            </summary>
+            <param name="itemDefinitionId">Item template identifier.</param>
+            <param name="language">Language.</param>
+            <param name="memberType">Member type.</param>
+            <param name="userId">User identifier.</param>
+            <returns>Queryable list of item models.</returns>
+        </member>
+        <member name="M:Orion.Items.IItemsComponent.GetUdfValuesByItemId(System.Int64)">
+            <summary>
+            Gets UDF Values for a given Item.
+            </summary>
+            <param name="itemId">Item identifier.</param>
+            <returns>Collection of UserDefinedFieldValueBase.</returns>
+        </member>
+        <member name="M:Orion.Items.IItemsComponent.GetUdfMetadataByItemId(System.Int64)">
+            <summary>
+            Gets UDF Metadata for the given Item.
+            </summary>
+            <param name="itemId">Item identifier.</param>
+            <returns>Collection of UserDefinedFieldMetadataBase.</returns>
+        </member>
+        <member name="M:Orion.Items.IItemsComponent.GetUdfMetadataByTemplateId(System.Int64)">
+            <summary>
+            Gets UDF Metadata By Template identifier.
+            </summary>
+            <param name="templateId">Template identifier.</param>
+            <returns>Collection of UserDefinedFieldMetadataBase.</returns>
+        </member>
+        <member name="M:Orion.Items.IItemsComponent.GetUdfMetadataByItemDefinitionIdForAdvanceFilter(System.Int64)">
+            <summary>
+            Gets UDF Metadata By Template identifier for advanceFilter tab.
+            </summary>
+            <param name="itemDefinitionId">Item definition id.</param>
+            <returns>Collection of UserDefinedFieldMetadataBase.</returns>
+        </member>
+        <member name="M:Orion.Items.IItemsComponent.SetUdfValues(System.Collections.Generic.IEnumerable{Orion.Items.Models.UserDefinedFieldValueBase})">
+            <summary>
+            Sets UDF Values.
+            </summary>
+            <param name="udfValues">UDF Values.</param>
+            <returns>Collection of UserDefinedFieldValueBase.</returns>
+        </member>
+        <member name="M:Orion.Items.IItemsComponent.GetUdfMetadataByAttributeDefinitionId(System.Int64)">
+            <summary>
+            Get UDF Metadata By Attribute Definition identifier.
+            </summary>
+            <param name="attributeDefinitionId">Attribute Definition identifier.</param>
+            <returns>UserDefinedFieldMetadataBase.</returns>
+        </member>
+        <member name="M:Orion.Items.IItemsComponent.GetUdfsIndexContent(System.Int64,System.Collections.Generic.IEnumerable{Orion.Items.Models.UserDefinedFieldValueBase})">
+            <summary>
+            Get index content for UDFs.
+            </summary>
+            <param name="itemId">Item identifier.</param>
+            <param name="udfs">UDFs.</param>
+            <returns>Index content string.</returns>
+        </member>
+        <member name="M:Orion.Items.IItemsComponent.CreateItemLinkUri(Orion.Items.Models.ItemLinkUriModel)">
+            <summary>
+            Creates new Item Link with Url for the item.
+            </summary>
+            <param name="itemLinkUriModel"> Item Link Url as a <see cref="T:Orion.Items.Models.ItemLinkUriModel"/>.</param>
+            <returns>Created Item Link Url.</returns>
+        </member>
+        <member name="M:Orion.Items.IItemsComponent.GetAllItemsWithMetadataQueryable(System.Int64,Orion.Multilingual.Enums.Language,Orion.Items.Enums.MemberType,System.Int64)">
+            <summary>
+            Get item information with metadata (including closed items).
+            </summary>
+            <param name="itemDefinitionId">Item template identifier.</param>
+            <param name="language">Language.</param>
+            <param name="memberType">Member type.</param>
+            <param name="userId">User identifier.</param>
+            <returns>Queryable list of item models.</returns>
+        </member>
+        <member name="M:Orion.Items.IItemsComponent.GetItemsByGuids(System.Collections.Generic.IEnumerable{System.Guid},System.Int64,System.Int64,Orion.Multilingual.Enums.Language,System.Int32,System.Int32)">
+            <summary>
+            Get risk reporter incidents ordered by create date descending.
+            </summary>
+            <param name="guids">Enumeration of guids.</param>
+            <param name="itemDefinitionId">Item definition identifier.</param>
+            <param name="userId">User identifier.</param>
+            <param name="language">Language.</param>
+            <param name="skipCount">Skip top count.</param>
+            <param name="takeCount">Take top count.</param>
+            <returns>Enumeration of items based on input guids.</returns>
+        </member>
+        <member name="M:Orion.Items.IItemsComponent.SetItemViewedByCurrentUser(System.Int64)">
+            <summary>
+            Log the fact that the current user viewed this Item.
+            </summary>
+            <param name="itemId">Item identifier.</param>
+        </member>
+        <member name="M:Orion.Items.IItemsComponent.GetAvailableItemHistoryOperationTypes">
+            <summary>
+            Retrieve a list of all operations available for filtering.
+            </summary>
+            <returns>List of available operations.</returns>
+        </member>
+        <member name="M:Orion.Items.IItemsComponent.GetItemHistory(System.Int64,Orion.History.Models.HistoryQueryParamsModel)">
+            <summary>
+            Retrieves history records for the given Item.
+            </summary>
+            <param name="itemId">Item identifier.</param>
+            <param name="queryParams">History query parameters.</param>
+            <returns>Model representing the history request result.</returns>
+        </member>
+        <member name="M:Orion.Items.IItemsComponent.CloneItem(System.Int64,System.Int64,Orion.Items.Models.CloneItemParamsModel)">
+            <summary>
+            Creates a copy of an specified item with specified options.
+            </summary>
+            <param name="itemId">The source item identifier.</param>
+            <param name="userId">The specified user id who creates a copy.</param>
+            <param name="cloneItemParamsModel">Model with boolean params that are passed to CloneItem stored procedure. Default values are in constructor.</param>
+            <returns>Created item identifier.</returns>
+        </member>
+        <member name="M:Orion.Items.IItemsComponent.SetItemUdfValues(System.Int64,System.Collections.Generic.IEnumerable{Orion.Items.Models.UserDefinedFieldValueBase})">
+            <summary>
+            Sets the item udf values.
+            </summary>
+            <param name="itemId">The item identifier.</param>
+            <param name="udfValues">The udf values.</param>
+            <returns>
+            Collection of UserDefinedFieldValueBase.
+            </returns>
+        </member>
+        <member name="M:Orion.Items.IItemsComponent.AddItemUserOwner(System.Collections.Generic.IEnumerable{Orion.Items.Models.ItemUserOwnerModel})">
+            <summary>
+            Add new item user owner.
+            </summary>
+            <param name="itemUserOwners">owner details.</param>
+        </member>
+        <member name="M:Orion.Items.IItemsComponent.GetAdvanceFilteredItemsForDownload(Orion.Items.Models.AdvancedFilter.Conditions.AdvanceFilterSearchConditionModel,System.Int32,System.Int32,System.String)">
+            <summary>
+            Get list of items what were filtered by criteria.
+            </summary>
+            <param name="filter">Search criteria for advance filter.</param>
+            <param name="top">Identifies a subset of the Entries in the Collection.</param>
+            <param name="skip">Identifies a subset of the Entries in the Collection of Entries identified.</param>
+            <param name="orderBy">Order by of search results.</param>
+            <returns>List of items.</returns>
+        </member>
+        <member name="T:Orion.Items.ItemsComponentAutoMapperProfile">
+            <summary>
+            Items Component Auto Mapper Profile.
+            </summary>
+        </member>
+        <member name="M:Orion.Items.ItemsComponentAutoMapperProfile.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Items.ItemsComponentAutoMapperProfile"/> class.
+            </summary>
+        </member>
+        <member name="M:Orion.Items.ItemsComponent.AddItemUserOwner(System.Collections.Generic.IEnumerable{Orion.Items.Models.ItemUserOwnerModel})">
+            <summary>
+            Add new item user owner.
+            </summary>
+            <param name="itemUserOwners">owner details.</param>
+        </member>
+        <member name="M:Orion.Items.Services.IItemUserOwnerService.AddItemUserOwner(System.Collections.Generic.IEnumerable{Orion.Items.Models.ItemUserOwnerModel})">
+            <summary>
+            Add Item user owner.
+            </summary>
+            <param name="userOwner">Owner details.</param>
+        </member>
+        <member name="M:Orion.Items.Services.ItemsService.SetItemStage(System.Int64,System.Int64)">
+            <summary>
+            Sets an item's stage to the provided stage value.
+            </summary>
+            <param name="itemId">identifier of item to change stage for.</param>
+            <param name="stageListValueId">identifier of stage list value to change the given item to.</param>
+        </member>
+        <member name="M:Orion.Items.Services.ItemUserOwnerService.AddItemUserOwner(System.Collections.Generic.IEnumerable{Orion.Items.Models.ItemUserOwnerModel})">
+            <summary>
+            Add Item user owner.
+            </summary>
+            <param name="userOwnerModel">Owner details.</param>
+        </member>
+        <member name="M:Orion.Items.Services.IUserDefinedFieldsService.SetUdfValues(System.Collections.Generic.IEnumerable{Orion.Items.Models.UserDefinedFieldValueBase})">
+            <summary>Updates UDFs.</summary>
+            <param name="udfValues">UDFs.</param>
+            <returns>Updates set.</returns>
+            <exception>Throws exception if invalid .<cref>ExceptionsValidationPlatformException</cref></exception>
+        </member>
+        <member name="T:Orion.Items.Validators.AssignToSingleSelectUdfValidator">
+            <summary>
+            Validator for UDF Assign to single select.
+            </summary>
+        </member>
+        <member name="M:Orion.Items.Validators.AssignToSingleSelectUdfValidator.Validate(Orion.Items.Models.UserDefinedFieldValueBase)">
+            <summary>
+            Validates as Assign to single select.
+            </summary>
+            <param name="instance">UDF value.</param>
+            <returns>Validation result.</returns>
+        </member>
+        <member name="M:Orion.Items.Validators.AssignToSingleSelectUdfValidator.ValidateAsync(Orion.Items.Models.UserDefinedFieldValueBase,System.Threading.CancellationToken)">
+            <summary>
+            Validates as Assign to single select.
+            </summary>
+            <param name="instance">UDF value.</param>
+            <param name="cancellation">Propagates notification that operations should be canceled.</param>
+            <returns>Validation result.</returns>
+        </member>
+        <member name="M:Orion.Items.Validators.AssignToSingleSelectUdfValidator.Validate(Orion.Items.Models.UserDefinedFieldValueBase,Orion.Items.Models.UserDefinedFieldMetadataBase)">
+            <summary>
+            Validates as Assign to single select.
+            </summary>
+            <param name="instance">UDF value.</param>
+            <param name="metadata">UDF metadata value.</param>
+            <returns>Validation result.</returns>
+        </member>
+        <member name="T:Orion.Items.Validators.CheckBoxListUdfValidator">
+            <summary>
+            CheckBoxList UDF Validator.
+            </summary>
+        </member>
+        <member name="M:Orion.Items.Validators.CheckBoxListUdfValidator.#ctor(Orion.Items.Data.IUnitOfWork,Orion.Multilingual.IMultilingualComponent,Orion.Users.IUsersComponent)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Items.Validators.CheckBoxListUdfValidator"/> class.
+            </summary>
+            <param name="unitOfWork">Unit of Work.</param>
+            <param name="multilingualComponent">Multilingual Component.</param>
+            <param name="usersComponent">Users Component.</param>
+        </member>
+        <member name="M:Orion.Items.Validators.CheckBoxListUdfValidator.Validate(Orion.Items.Models.UserDefinedFieldValueBase)">
+            <summary>
+            Validates.
+            </summary>
+            <param name="instance">UserDefinedFieldValueBase instance.</param>
+            <returns>ValidationResult.</returns>
+        </member>
+        <member name="M:Orion.Items.Validators.CheckBoxListUdfValidator.ValidateAsync(Orion.Items.Models.UserDefinedFieldValueBase,System.Threading.CancellationToken)">
+            <summary>
+            Validates async.
+            </summary>
+            <param name="instance">UserDefinedFieldValueBase instance.</param>
+            <param name="cancellation">Cancellation token.</param>
+            <returns>Task.</returns>
+        </member>
+        <member name="M:Orion.Items.Validators.CheckBoxListUdfValidator.Validate(Orion.Items.Models.UserDefinedFieldValueBase,Orion.Items.Models.UserDefinedFieldMetadataBase)">
+            <summary>
+            Validates.
+            </summary>
+            <param name="instance">UserDefinedFieldValueBase instance.</param>
+            <param name="metadata">UserDefinedFieldMetadataBase metadata.</param>
+            <returns>ValidationResult.</returns>
+        </member>
+        <member name="T:Orion.Items.Validators.DateTimeUdfValidator">
+            <summary>
+            Validator for UDF DateTime.
+            </summary>
+        </member>
+        <member name="M:Orion.Items.Validators.DateTimeUdfValidator.Validate(Orion.Items.Models.UserDefinedFieldValueBase)">
+            <summary>
+            Validates as DateTime.
+            </summary>
+            <param name="instance">UDF value.</param>
+            <returns>Validation result.</returns>
+        </member>
+        <member name="M:Orion.Items.Validators.DateTimeUdfValidator.ValidateAsync(Orion.Items.Models.UserDefinedFieldValueBase,System.Threading.CancellationToken)">
+            <summary>
+            Validates as DateTime async.
+            </summary>
+            <param name="instance">UDF value.</param>
+            <param name="cancellation">Propagates notification that operations should be canceled.</param>
+            <returns>Validation result.</returns>
+        </member>
+        <member name="M:Orion.Items.Validators.DateTimeUdfValidator.Validate(Orion.Items.Models.UserDefinedFieldValueBase,Orion.Items.Models.UserDefinedFieldMetadataBase)">
+            <summary>
+            Validates as DateTime.
+            </summary>
+            <param name="instance">UDF value.</param>
+            <param name="metadata">UDF metadata value.</param>
+            <returns>Validation result.</returns>
+        </member>
+        <member name="T:Orion.Items.Validators.DateUdfValidator">
+            <summary>
+            Validator for UDF Date.
+            </summary>
+        </member>
+        <member name="M:Orion.Items.Validators.DateUdfValidator.Validate(Orion.Items.Models.UserDefinedFieldValueBase)">
+            <summary>
+            Validates as Date.
+            </summary>
+            <param name="instance">UDF value.</param>
+            <returns>Validation result.</returns>
+        </member>
+        <member name="M:Orion.Items.Validators.DateUdfValidator.ValidateAsync(Orion.Items.Models.UserDefinedFieldValueBase,System.Threading.CancellationToken)">
+            <summary>
+            Validates as Date async.
+            </summary>
+            <param name="instance">UDF value.</param>
+            <param name="cancellation">Propagates notification that operations should be canceled.</param>
+            <returns>Validation result.</returns>
+        </member>
+        <member name="M:Orion.Items.Validators.DateUdfValidator.Validate(Orion.Items.Models.UserDefinedFieldValueBase,Orion.Items.Models.UserDefinedFieldMetadataBase)">
+            <summary>
+            Validates as Date.
+            </summary>
+            <param name="instance">UDF value.</param>
+            <param name="metadata">UDF metadata value.</param>
+            <returns>Validation result.</returns>
+        </member>
+        <member name="T:Orion.Items.Validators.HeaderUdfValidator">
+            <summary>
+            Validator for UDF Header.
+            </summary>
+        </member>
+        <member name="M:Orion.Items.Validators.HeaderUdfValidator.Validate(Orion.Items.Models.UserDefinedFieldValueBase)">
+            <summary>
+            Validates as Header.
+            </summary>
+            <param name="instance">UDF value.</param>
+            <returns>Validation result.</returns>
+        </member>
+        <member name="M:Orion.Items.Validators.HeaderUdfValidator.ValidateAsync(Orion.Items.Models.UserDefinedFieldValueBase,System.Threading.CancellationToken)">
+            <summary>
+            Validates as Header async.
+            </summary>
+            <param name="instance">UDF value.</param>
+            <param name="cancellation">Propagates notification that operations should be canceled.</param>
+            <returns>Validation result.</returns>
+        </member>
+        <member name="M:Orion.Items.Validators.HeaderUdfValidator.Validate(Orion.Items.Models.UserDefinedFieldValueBase,Orion.Items.Models.UserDefinedFieldMetadataBase)">
+            <summary>
+            Validates as Header.
+            </summary>
+            <param name="instance">UDF value.</param>
+            <param name="metadata">UDF metadata value.</param>
+            <returns>Validation result.</returns>
+        </member>
+        <member name="T:Orion.Items.Validators.MultiLineTextUdfValidator">
+            <summary>
+            Validator for UDF MultiLineText.
+            </summary>
+        </member>
+        <member name="M:Orion.Items.Validators.MultiLineTextUdfValidator.Validate(Orion.Items.Models.UserDefinedFieldValueBase)">
+            <summary>
+            Validates as MultiLineText.
+            </summary>
+            <param name="instance">UDF value.</param>
+            <returns>Validation result.</returns>
+        </member>
+        <member name="M:Orion.Items.Validators.MultiLineTextUdfValidator.ValidateAsync(Orion.Items.Models.UserDefinedFieldValueBase,System.Threading.CancellationToken)">
+            <summary>
+            Validates as MultiLineText async.
+            </summary>
+            <param name="instance">UDF value.</param>
+            <param name="cancellation">Propagates notification that operations should be canceled.</param>
+            <returns>Validation result.</returns>
+        </member>
+        <member name="M:Orion.Items.Validators.MultiLineTextUdfValidator.Validate(Orion.Items.Models.UserDefinedFieldValueBase,Orion.Items.Models.UserDefinedFieldMetadataBase)">
+            <summary>
+            Validates as MultiLineText.
+            </summary>
+            <param name="instance">UDF value.</param>
+            <param name="metadata">UDF metadata value.</param>
+            <returns>Validation result.</returns>
+        </member>
+        <member name="T:Orion.Items.Validators.OwnerSingleSelectUdfValidator">
+            <summary>
+            Validator for UDF Owner single select.
+            </summary>
+        </member>
+        <member name="M:Orion.Items.Validators.OwnerSingleSelectUdfValidator.Validate(Orion.Items.Models.UserDefinedFieldValueBase)">
+            <summary>
+            Validates as Owner single select.
+            </summary>
+            <param name="instance">UDF value.</param>
+            <returns>Validation result.</returns>
+        </member>
+        <member name="M:Orion.Items.Validators.OwnerSingleSelectUdfValidator.ValidateAsync(Orion.Items.Models.UserDefinedFieldValueBase,System.Threading.CancellationToken)">
+            <summary>
+            Validates as Owner single select async.
+            </summary>
+            <param name="instance">UDF value.</param>
+            <param name="cancellation">Propagates notification that operations should be canceled.</param>
+            <returns>Validation result.</returns>
+        </member>
+        <member name="M:Orion.Items.Validators.OwnerSingleSelectUdfValidator.Validate(Orion.Items.Models.UserDefinedFieldValueBase,Orion.Items.Models.UserDefinedFieldMetadataBase)">
+            <summary>
+            Validates as Owner single select.
+            </summary>
+            <param name="instance">UDF value.</param>
+            <param name="metadata">UDF metadata value.</param>
+            <returns>Validation result.</returns>
+        </member>
+        <member name="T:Orion.Items.Validators.SingleLineTextUdfValidator">
+            <summary>
+            Validator for UDF SingleLineText.
+            </summary>
+        </member>
+        <member name="M:Orion.Items.Validators.SingleLineTextUdfValidator.Validate(Orion.Items.Models.UserDefinedFieldValueBase)">
+            <summary>
+            Validates as SingleLineText.
+            </summary>
+            <param name="instance">UDF value.</param>
+            <returns>Validation result.</returns>
+        </member>
+        <member name="M:Orion.Items.Validators.SingleLineTextUdfValidator.ValidateAsync(Orion.Items.Models.UserDefinedFieldValueBase,System.Threading.CancellationToken)">
+            <summary>
+            Validates as SingleLineText async.
+            </summary>
+            <param name="instance">UDF value.</param>
+            <param name="cancellation">Propagates notification that operations should be canceled.</param>
+            <returns>Validation result.</returns>
+        </member>
+        <member name="M:Orion.Items.Validators.SingleLineTextUdfValidator.Validate(Orion.Items.Models.UserDefinedFieldValueBase,Orion.Items.Models.UserDefinedFieldMetadataBase)">
+            <summary>
+            Validates as SingleLineText.
+            </summary>
+            <param name="instance">UDF value.</param>
+            <param name="metadata">UDF metadata value.</param>
+            <returns>Validation result.</returns>
+        </member>
+        <member name="T:Orion.Items.Validators.SubHeaderUdfValidator">
+            <summary>
+            Validator for UDF SubHeader.
+            </summary>
+        </member>
+        <member name="M:Orion.Items.Validators.SubHeaderUdfValidator.Validate(Orion.Items.Models.UserDefinedFieldValueBase)">
+            <summary>
+            Validates as SubHeader.
+            </summary>
+            <param name="instance">UDF value.</param>
+            <returns>Validation result.</returns>
+        </member>
+        <member name="M:Orion.Items.Validators.SubHeaderUdfValidator.ValidateAsync(Orion.Items.Models.UserDefinedFieldValueBase,System.Threading.CancellationToken)">
+            <summary>
+            Validates as SubHeader async.
+            </summary>
+            <param name="instance">UDF value.</param>
+            <param name="cancellation">Propagates notification that operations should be canceled.</param>
+            <returns>Validation result.</returns>
+        </member>
+        <member name="M:Orion.Items.Validators.SubHeaderUdfValidator.Validate(Orion.Items.Models.UserDefinedFieldValueBase,Orion.Items.Models.UserDefinedFieldMetadataBase)">
+            <summary>
+            Validates as SubHeader.
+            </summary>
+            <param name="instance">UDF value.</param>
+            <param name="metadata">UDF metadata value.</param>
+            <returns>Validation result.</returns>
+        </member>
+        <member name="T:Orion.Items.Validators.TextUdfValidator">
+            <summary>
+            Validator for UDF Text Header.
+            </summary>
+        </member>
+        <member name="M:Orion.Items.Validators.TextUdfValidator.Validate(Orion.Items.Models.UserDefinedFieldValueBase)">
+            <summary>
+            Validates as TextHeader.
+            </summary>
+            <param name="instance">UDF value.</param>
+            <returns>Validation result.</returns>
+        </member>
+        <member name="M:Orion.Items.Validators.TextUdfValidator.ValidateAsync(Orion.Items.Models.UserDefinedFieldValueBase,System.Threading.CancellationToken)">
+            <summary>
+            Validates as Text async.
+            </summary>
+            <param name="instance">UDF value.</param>
+            <param name="cancellation">Propagates notification that operations should be canceled.</param>
+            <returns>Validation result.</returns>
+        </member>
+        <member name="M:Orion.Items.Validators.TextUdfValidator.Validate(Orion.Items.Models.UserDefinedFieldValueBase,Orion.Items.Models.UserDefinedFieldMetadataBase)">
+            <summary>
+            Validates as Text.
+            </summary>
+            <param name="instance">UDF value.</param>
+            <param name="metadata">UDF metadata value.</param>
+            <returns>Validation result.</returns>
+        </member>
+        <member name="T:Orion.Items.Validators.TimeUdfValidator">
+            <summary>
+            Validator for UDF Time.
+            </summary>
+        </member>
+        <member name="M:Orion.Items.Validators.TimeUdfValidator.Validate(Orion.Items.Models.UserDefinedFieldValueBase)">
+            <summary>
+            Validates as Time.
+            </summary>
+            <param name="instance">UDF value.</param>
+            <returns>Validation result.</returns>
+        </member>
+        <member name="M:Orion.Items.Validators.TimeUdfValidator.ValidateAsync(Orion.Items.Models.UserDefinedFieldValueBase,System.Threading.CancellationToken)">
+            <summary>
+            Validates as Time async.
+            </summary>
+            <param name="instance">UDF value.</param>
+            <param name="cancellation">Propagates notification that operations should be canceled.</param>
+            <returns>Validation result.</returns>
+        </member>
+        <member name="M:Orion.Items.Validators.TimeUdfValidator.Validate(Orion.Items.Models.UserDefinedFieldValueBase,Orion.Items.Models.UserDefinedFieldMetadataBase)">
+            <summary>
+            Validates as Time.
+            </summary>
+            <param name="instance">UDF value.</param>
+            <param name="metadata">UDF metadata value.</param>
+            <returns>Validation result.</returns>
+        </member>
+    </members>
+</doc>

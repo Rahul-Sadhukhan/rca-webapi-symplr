@@ -1,0 +1,166 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Orion.Encryption</name>
+    </assembly>
+    <members>
+        <member name="T:Orion.Encryption.EncryptionComponentModule">
+            <summary>
+            Encryption Component Module.
+            </summary>
+        </member>
+        <member name="M:Orion.Encryption.EncryptionComponentModule.Load(Autofac.ContainerBuilder)">
+            <summary>
+            Add registrations to the container.
+            </summary>
+            <param name="builder">The builder through which components can be registered.</param>
+            <remarks>
+            Note that the ContainerBuilder parameter is unique to this module.
+            </remarks>
+        </member>
+        <member name="T:Orion.Encryption.Services.AesEncryptionAlgorithm">
+            <summary>
+            AES encryption using .Net Framework implementation with 256-bit key.
+            </summary>
+        </member>
+        <member name="M:Orion.Encryption.Services.IAsymmetricCryptoService.Encrypt(System.Byte[],System.String)">
+            <summary>
+            Encrypt the data with the given RSA public key.
+            </summary>
+            <param name="dataToEncrypt">Data to encrypt.</param>
+            <param name="publicKeyPem">RSA public key in form of PEM file.</param>
+            <returns>Encrypted data.</returns>
+            <remarks>
+            <para>The RSA public key should be provided as PEM file content, with or without standard header/footer.</para>
+            </remarks>
+        </member>
+        <member name="M:Orion.Encryption.Services.ISymmetricCryptoService.EncryptString(Orion.Encryption.Enums.SymmetricEncryptionAlgorithmTypes,System.String,System.Byte[],System.Byte[])">
+            <summary>
+            Encrypt UTF8 string.
+            </summary>
+            <param name="algorithmType"><see cref="T:Orion.Encryption.Enums.SymmetricEncryptionAlgorithmTypes"/>.</param>
+            <param name="dataToEncrypt">Input data to work on.</param>
+            <param name="key">Gets or sets the secret key.</param>
+            <param name="iv">Gets or sets the initialization vector (IV) for the symmetric algorithm.</param>
+            <returns>Encrypted string.</returns>
+        </member>
+        <member name="M:Orion.Encryption.Services.ISymmetricCryptoService.DecryptString(Orion.Encryption.Enums.SymmetricEncryptionAlgorithmTypes,System.String,System.Byte[],System.Byte[])">
+            <summary>
+            Decrypt a UTF8 string.
+            </summary>
+            <param name="algorithmType"><see cref="T:Orion.Encryption.Enums.SymmetricEncryptionAlgorithmTypes"/>.</param>
+            <param name="dataToDecrypt">Input data to work on.</param>
+            <param name="key">Secret key.</param>
+            <param name="iv">Initialization vector (IV) for the symmetric algorithm.</param>
+            <returns>Decrypted string.</returns>
+        </member>
+        <member name="M:Orion.Encryption.Services.SymmetricCryptoService.EncryptString(Orion.Encryption.Enums.SymmetricEncryptionAlgorithmTypes,System.String,System.Byte[],System.Byte[])">
+            <summary>
+            Encrypt UTF8 String.
+            </summary>
+            <param name="algorithmType"><see cref="T:Orion.Encryption.Enums.SymmetricEncryptionAlgorithmTypes"/>.</param>
+            <param name="dataToEncrypt">Input data to work on.</param>
+            <param name="key">Gets or sets the secret key.</param>
+            <param name="iv">Gets or sets the initialization vector (IV) for the symmetric algorithm.</param>
+            <returns>encrypted string.</returns>
+        </member>
+        <member name="M:Orion.Encryption.Services.SymmetricCryptoService.DecryptString(Orion.Encryption.Enums.SymmetricEncryptionAlgorithmTypes,System.String,System.Byte[],System.Byte[])">
+            <summary>
+            Decrypt a UTF8 string.
+            </summary>
+            <param name="algorithmType"><see cref="T:Orion.Encryption.Enums.SymmetricEncryptionAlgorithmTypes"/>.</param>
+            <param name="dataToDecrypt">Input data to work on.</param>
+            <param name="key">Secret key.</param>
+            <param name="iv">Initialization vector (IV) for the symmetric algorithm.</param>
+            <returns>Decrypted string.</returns>
+        </member>
+        <member name="T:Orion.Encryption.Enums.SymmetricEncryptionAlgorithmTypes">
+            <summary>
+            Represents symmetric encryption algorithm types implemented in Orion.Encryption component.
+            </summary>
+        </member>
+        <member name="F:Orion.Encryption.Enums.SymmetricEncryptionAlgorithmTypes.TripleDES">
+            <summary>
+            TripleDES algorithm.
+            </summary>
+        </member>
+        <member name="F:Orion.Encryption.Enums.SymmetricEncryptionAlgorithmTypes.AES">
+            <summary>
+            AES algorithm.
+            </summary>
+        </member>
+        <member name="T:Orion.Encryption.IEncryptionComponent">
+            <summary>
+            Component used for encryption.
+            </summary>
+        </member>
+        <member name="M:Orion.Encryption.IEncryptionComponent.EncryptStringWithSymmetricAlgorithm(Orion.Encryption.Enums.SymmetricEncryptionAlgorithmTypes,System.String,System.Byte[],System.Byte[])">
+            <summary>
+            Encrypts a string with a symmetric algorithm.
+            </summary>
+            <param name="algorithmType">Algorithm type to use.</param>
+            <param name="dataToEncrypt">Data To encrypt.</param>
+            <param name="key">Secret key to use.</param>
+            <param name="iv">Initialization vector (IV) for the symmetric algorithm.</param>
+            <returns>Encrypted string.</returns>
+        </member>
+        <member name="M:Orion.Encryption.IEncryptionComponent.EncryptDataWithSymmetricAlgorithm(Orion.Encryption.Enums.SymmetricEncryptionAlgorithmTypes,System.Byte[],System.Byte[],System.Byte[])">
+            <summary>
+            Encrypts data with a symmetric algorithm.
+            </summary>
+            <param name="algorithmType">Algorithm type to use.</param>
+            <param name="dataToEncrypt">Data To encrypt.</param>
+            <param name="key">Secret key to use.</param>
+            <param name="iv">Initialization vector (IV) for the symmetric algorithm.</param>
+            <returns>Encrypted data.</returns>
+        </member>
+        <member name="M:Orion.Encryption.IEncryptionComponent.EncryptDataWithSymmetricAlgorithm(Orion.Encryption.Enums.SymmetricEncryptionAlgorithmTypes,System.IO.Stream,System.Byte[],System.Byte[])">
+            <summary>
+            Encrypts data with a symmetric algorithm.
+            </summary>
+            <param name="algorithmType">Algorithm type to use.</param>
+            <param name="dataStreamToEncrypt">Data stream to encrypt.</param>
+            <param name="key">Secret key to use.</param>
+            <param name="iv">Initialization vector (IV) for the symmetric algorithm.</param>
+            <returns>Stream of the encrypted data.</returns>
+        </member>
+        <member name="M:Orion.Encryption.IEncryptionComponent.DecryptDataWithSymmetricAlgorithm(Orion.Encryption.Enums.SymmetricEncryptionAlgorithmTypes,System.Byte[],System.Byte[],System.Byte[])">
+            <summary>
+            Decrypts data with a symmetric algorithm.
+            </summary>
+            <param name="algorithmType">Algorithm type to use.</param>
+            <param name="dataToDecrypt">Data to decrypt.</param>
+            <param name="key">Secret key to use.</param>
+            <param name="iv">Initialization vector (IV) for the symmetric algorithm.</param>
+            <returns>Decrypted data.</returns>
+        </member>
+        <member name="M:Orion.Encryption.IEncryptionComponent.CreateSymmetricKey(Orion.Encryption.Enums.SymmetricEncryptionAlgorithmTypes)">
+            <summary>
+            Create a new symmetric key.
+            </summary>
+            <param name="algorithmType">Algorithm type to use.</param>
+            <returns>The new symmetric key.</returns>
+        </member>
+        <member name="M:Orion.Encryption.IEncryptionComponent.GenerateRandomIV(Orion.Encryption.Enums.SymmetricEncryptionAlgorithmTypes)">
+            <summary>
+            Generate random IV suitable for the algorithm.
+            </summary>
+            <param name="algorithmType">Algorithm type to use.</param>
+            <returns>Random IV value with the proper length.</returns>
+        </member>
+        <member name="M:Orion.Encryption.IEncryptionComponent.EncryptDataWithAsymmetricAlgorithm(System.Byte[],System.String)">
+            <summary>
+            Encrypts data with asymmetric algorithm (RSA).
+            </summary>
+            <param name="dataToEncrypt">Data To encrypt.</param>
+            <param name="publicKeyPem">Public key to use, in form of PEM file.</param>
+            <returns>Encrypted data.</returns>
+        </member>
+        <member name="M:Orion.Encryption.IEncryptionComponent.GetMachineGuid">
+            <summary>
+            Gets the MachineGuid for the current host.
+            </summary>
+            <returns> The value stored in the registry.</returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,746 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Rca</name>
+    </assembly>
+    <members>
+        <member name="T:Rca.AutoMapperConfig">
+            <summary>
+            AutoMapper Config file.
+            </summary>
+        </member>
+        <member name="M:Rca.AutoMapperConfig.Configure">
+            <summary>
+            AutoMapper Configuration.
+            </summary>
+        </member>
+        <member name="T:Rca.Configuration.RcaAppSettingsConfig">
+            <summary>
+            RCA AppSettings Configurations.
+            </summary>
+        </member>
+        <member name="P:Rca.Configuration.RcaAppSettingsConfig.ApplicationPath">
+            <summary>
+            Gets or sets application path.
+            </summary>
+        </member>
+        <member name="P:Rca.Configuration.RcaAppSettingsConfig.GlobalAtlasUrl">
+            <summary>
+            Gets or sets GlobalAtlasUrl.
+            </summary>
+        </member>
+        <member name="T:Rca.Configuration.RcaConfigModel">
+            <summary>
+            RCA Configuration Model.
+            </summary>
+        </member>
+        <member name="P:Rca.Configuration.RcaConfigModel.AppSettings">
+            <summary>
+            Gets or sets app settings.
+            </summary>
+        </member>
+        <member name="P:Rca.Configuration.RcaConfigModel.HttpRuntime">
+            <summary>
+            Gets or sets http run time.
+            </summary>
+        </member>
+        <member name="P:Rca.Configuration.RcaConfigModel.ConnectionStrings">
+            <summary>
+            Gets or sets connection strings.
+            </summary>
+        </member>
+        <member name="T:Rca.Configuration.RcaConfigurationResolver">
+            <summary>
+            RCA configuration resolver.
+            </summary>
+        </member>
+        <member name="M:Rca.Data.RcaDbContext.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Rca.Data.RcaDbContext"/> class.
+            </summary>
+            <param name="connectionString">The connection string.</param>
+        </member>
+        <member name="M:Rca.Data.RcaDbContext.GetRootCauseAnalysisDetails(System.Int32,System.Int64)">
+            <summary>
+            Retrieves the list of rca details.
+            </summary>
+            <param name="rcaId">rca identifier.</param>
+            <param name="userId">user identifier.</param>
+            <returns>List of rca details.</returns>
+        </member>
+        <member name="M:Rca.Data.RcaDbContext.ValidateItemListforRCA(System.String,System.Int64)">
+            <summary>
+            Validates list of items.
+            </summary>
+            <param name="rcaItemsList">List of Items.</param>
+            <param name="userId">Current User Id.</param>
+            <returns>Validation message.</returns>
+        </member>
+        <member name="M:Rca.Data.Repositories.IncidentRepository.AddIncidents(System.Collections.Generic.IEnumerable{Rca.Data.Entities.Incident})">
+            <summary>
+            Add all the items associated with rcaid.
+            </summary>
+            <param name="rcaItemsList">List of items to be added associated with rcaid.</param>
+            <returns>List of added items associated with rcaid.</returns>
+        </member>
+        <member name="M:Rca.Data.Repositories.IncidentRepository.ValidateItemListforRCA(System.String,System.Int64)">
+            <summary>
+            validate for any invalid item in the list.
+            </summary>
+            <param name="rcaItemsList">List of items to be added associated with rcaid.</param>
+            <param name="userId">User Id.</param>
+            <returns>validations message for any invalid item in the list.</returns>
+        </member>
+        <member name="M:Rca.Data.Repositories.ParticipantRepository.GetAllParticipants">
+            <summary>
+            Returns all existing Participants .
+            </summary>
+            <returns>List of existing Participants.</returns>
+        </member>
+        <member name="M:Rca.Data.Repositories.ParticipantRepository.AddParticipants(System.Collections.Generic.IEnumerable{Rca.Data.Entities.Participant})">
+            <summary>
+            Add all the Participants who are not present in participant table.
+            </summary>
+            <param name="participantList">List of new participants to be added.</param>
+            <returns>List of added Participants.</returns>
+        </member>
+        <member name="M:Rca.Data.Repositories.ClassificationRepository.GetClassifications">
+            <summary>
+            Gets a list of classifications.
+            </summary>
+            <returns>List of classifications.</returns>
+        </member>
+        <member name="M:Rca.Data.Repositories.ClassificationRepository.DoesClassificationExist(System.Int32)">
+            <summary>
+            Check classification exist based on classification id.
+            </summary>
+            <param name="classificationId">Classification identifier.</param>
+            <returns>Boolean flag represents rca exist or not.</returns>
+        </member>
+        <member name="M:Rca.Data.Repositories.ClassificationRepository.GetClassificationsByRCAId(System.Int32)">
+            <summary>
+            Gets a list of classifications for a provided RCA id.
+            </summary>
+            <param name="rcaId">RCA identifier.</param>
+            <returns>List of classification entities.</returns>
+        </member>
+        <member name="M:Rca.Data.Repositories.ICauseRepository.DoesCauseExist(System.Int32)">
+            <summary>
+            Check cause exist based on cause id.
+            </summary>
+            <param name="causeId">Cause identifier.</param>
+            <returns>Boolean flag represents cause exist or not.</returns>
+        </member>
+        <member name="M:Rca.Data.Repositories.ICauseRepository.GetCauseById(System.Int32)">
+            <summary>
+            Gets the cause details for a provider cause id.
+            </summary>
+            <param name="causeId">The cause identifier.</param>
+            <returns>Cause model.</returns>
+        </member>
+        <member name="M:Rca.Data.Repositories.ICauseRepository.CreateCause(Rca.Data.Entities.Cause)">
+            <summary>
+            Creates a cause.
+            </summary>
+            <param name="cause">Cause entity.</param>
+            <returns>Create cause entity.</returns>
+        </member>
+        <member name="M:Rca.Data.Repositories.ICauseRepository.GetClassificationCauses(System.Int32,System.Int32)">
+            <summary>
+            Gets a list of causes for a provided rcaId and classificationId.
+            </summary>
+            <param name="rcaId">RCA identifier.</param>
+            <param name="classificationId">Classification identifier.</param>
+            <returns>List of causes entities.</returns>
+        </member>
+        <member name="M:Rca.Data.Repositories.IClassificationRepository.GetClassifications">
+            <summary>
+            Gets a list of classifications.
+            </summary>
+            <returns>List of classifications.</returns>
+        </member>
+        <member name="M:Rca.Data.Repositories.IClassificationRepository.DoesClassificationExist(System.Int32)">
+            <summary>
+            Check classification exist based on classification id.
+            </summary>
+            <param name="classificationId">Classification identifier.</param>
+            <returns>Boolean flag represents rca exist or not.</returns>
+        </member>
+        <member name="M:Rca.Data.Repositories.IClassificationRepository.GetClassificationsByRCAId(System.Int32)">
+            <summary>
+            Gets a list of classifications for a provided RCA id.
+            </summary>
+            <param name="rcaId">RCA identifier.</param>
+            <returns>List of classification entities.</returns>
+        </member>
+        <member name="T:Rca.Data.Repositories.Queryable.IItemQueryableRepository">
+            <summary>
+            Repository interface to retrieve item data in OData format.
+            </summary>
+        </member>
+        <member name="T:Rca.Data.Repositories.Queryable.IParticipantQueryableRepository">
+            <summary>
+            Repository interface to retrieve data in OData format.
+            </summary>
+        </member>
+        <member name="M:Rca.Data.Repositories.Queryable.ItemQueryableRepository.#ctor(Rca.Data.IRcaDbContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Rca.Data.Repositories.Queryable.ItemQueryableRepository"/> class.
+            </summary>
+            <param name="rcaDbContext">The database context.</param>
+        </member>
+        <member name="M:Rca.Data.Repositories.Queryable.ItemQueryableRepository.GetItemQueryableByUserId(System.Int64)">
+            <summary>
+            Gets a list of item models in OData format.
+            </summary>
+            <returns>A list of item models.</returns>
+            <param name="userId">User Id. </param>
+        </member>
+        <member name="M:Rca.Data.Repositories.Queryable.ParticipantQueryableRepository.#ctor(Rca.Data.IRcaDbContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Rca.Data.Repositories.Queryable.ParticipantQueryableRepository"/> class.
+            </summary>
+            <param name="rcaDbContext">The database context.</param>
+        </member>
+        <member name="M:Rca.Data.Repositories.Queryable.ParticipantQueryableRepository.GetParticipantQueryable">
+            <summary>
+            Gets a list of participant models in OData format.
+            </summary>
+            <returns>A list of participant models.</returns>
+        </member>
+        <member name="M:Rca.Data.Repositories.CauseRepository.#ctor(Rca.Data.IRcaDbContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Rca.Data.Repositories.CauseRepository"/> class.
+            </summary>
+            <param name="rcaDbContext">Rca db context.</param>
+        </member>
+        <member name="M:Rca.Data.Repositories.CauseRepository.DoesCauseExist(System.Int32)">
+            <summary>
+            Check cause exist based on cause id.
+            </summary>
+            <param name="causeId">Cause identifier.</param>
+            <returns>Boolean flag represents cause exist or not.</returns>
+        </member>
+        <member name="M:Rca.Data.Repositories.CauseRepository.GetCauseById(System.Int32)">
+            <summary>
+            Gets the cause details for a provider cause id.
+            </summary>
+            <param name="causeId">The cause identifier.</param>
+            <returns>Cause model.</returns>
+        </member>
+        <member name="M:Rca.Data.Repositories.CauseRepository.CreateCause(Rca.Data.Entities.Cause)">
+            <summary>
+            Creates a cause.
+            </summary>
+            <param name="cause">Cause entity.</param>
+            <returns>Create cause entity.</returns>
+        </member>
+        <member name="M:Rca.Data.Repositories.CauseRepository.GetClassificationCauses(System.Int32,System.Int32)">
+            <summary>
+            Gets a list of causes for a provided rcaId and classificationId.
+            </summary>
+            <param name="rcaId">RCA identifier.</param>
+            <param name="classificationId">Classification identifier.</param>
+            <returns>List of causes entities.</returns>
+        </member>
+        <member name="M:Rca.Data.Repositories.RootCauseAnalysisRepository.#ctor(Rca.Data.IRcaDbContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Rca.Data.Repositories.RootCauseAnalysisRepository"/> class.
+            </summary>
+            <param name="dbContext">db context.</param>
+        </member>
+        <member name="M:Rca.Data.Repositories.RootCauseAnalysisRepository.AddRootCauseAnalysis(Rca.Data.Entities.RootCauseAnalysis)">
+            <summary>
+            Create Root Cause Analysis.
+            </summary>
+            <param name="rootCauseAnalysis">Root Cause Analysis Model.</param>
+            <returns>created RootCauseAnalysis model.</returns>
+        </member>
+        <member name="M:Rca.Data.Repositories.RootCauseAnalysisRepository.DoesRCAExist(System.Int32)">
+            <summary>
+            Check rca exist based on rca id.
+            </summary>
+            <param name="rcaId">RCA identifier.</param>
+            <returns>Boolean flag represents rca exist or not.</returns>
+        </member>
+        <member name="M:Rca.Data.Repositories.RootCauseAnalysisRepository.GetRootCauseAnalysisDetails(System.Int32,System.Int64)">
+            <summary>
+            Get RootCauseAnalysis details by id.
+            </summary>
+            <param name="rcaId">RCA identifier.</param>
+            <param name="userId">user identifier.</param>
+            <returns>RootCauseAnalysisDetails model.</returns>
+        </member>
+        <member name="M:Rca.Data.Repositories.IRootCauseAnalysisRepository.DoesRCAExist(System.Int32)">
+            <summary>
+            Check rca exist based on rca id.
+            </summary>
+            <param name="rcaId">RCA identifier.</param>
+            <returns>Boolean flag represents rca exist or not.</returns>
+        </member>
+        <member name="M:Rca.Data.Repositories.IRootCauseAnalysisRepository.GetRootCauseAnalysisDetails(System.Int32,System.Int64)">
+            <summary>
+            Get RootCauseAnalysis details by id.
+            </summary>
+            <param name="rcaId">RCA identifier.</param>
+            <param name="userId">User identifier.</param>
+            <returns>RootCauseAnalysisDetails model.</returns>
+        </member>
+        <member name="M:Rca.Data.Repositories.RootCauseParticipantRepository.AddRootCauseParticipants(System.Collections.Generic.IEnumerable{Rca.Data.Entities.RootCauseParticipant})">
+            <summary>
+            Add all the Participants associated with rcaid.
+            </summary>
+            <param name="rcaParticipantList">List of participants to be added associated with rcaid.</param>
+            <returns>List of added Participants associated with rcaid.</returns>
+        </member>
+        <member name="F:Rca.Enums.RootCauseAnalysisStatus.Open">
+            <summary>
+            Indicates open state.
+            </summary>
+        </member>
+        <member name="F:Rca.Enums.RootCauseAnalysisStatus.InProgress">
+            <summary>
+            Indicates InProgress state.
+            </summary>
+        </member>
+        <member name="F:Rca.Enums.RootCauseAnalysisStatus.Closed">
+            <summary>
+            Indicates Closed state.
+            </summary>
+        </member>
+        <member name="F:Rca.Enums.ValidationMessage.INCIDENT_DATE_MUST_NOT_BE_FUTURE_DATE">
+            <summary>
+            Incident Date must be current or past date.
+            </summary>
+        </member>
+        <member name="F:Rca.Enums.ValidationMessage.RCA_NAME_IS_REQUIRED">
+            <summary>
+            RCA Name is required.
+            </summary>
+        </member>
+        <member name="F:Rca.Enums.ValidationMessage.PROBLEM_STATEMENT_IS_REQUIRED">
+            <summary>
+            Problem Statement is required.
+            </summary>
+        </member>
+        <member name="F:Rca.Enums.ValidationMessage.VALIDATION_MAXLENGTH">
+            <summary>
+            {field} Length cannot be more than {length}.
+            </summary>
+        </member>
+        <member name="F:Rca.Enums.ValidationMessage.CAUSE_ID_INVALID">
+            <summary>
+            Cause id is invalid.
+            </summary>
+        </member>
+        <member name="F:Rca.Enums.ValidationMessage.CAUSE_ID_DOES_NOT_EXIST">
+            <summary>
+            Cause id does not exist.
+            </summary>
+        </member>
+        <member name="F:Rca.Enums.ValidationMessage.RCA_ID_REQUIRED">
+            <summary>
+            RCA id is required.
+            </summary>
+        </member>
+        <member name="F:Rca.Enums.ValidationMessage.RCA_ID_INVALID">
+            <summary>
+            RCA id is invalid.
+            </summary>
+        </member>
+        <member name="F:Rca.Enums.ValidationMessage.CLASSIFICATION_ID_INVALID">
+            <summary>
+            Classification id is invalid.
+            </summary>
+        </member>
+        <member name="F:Rca.Enums.ValidationMessage.PARENT_CAUSE_ID_INVALID">
+            <summary>
+            Parent cause id is invalid.
+            </summary>
+        </member>
+        <member name="F:Rca.Enums.ValidationMessage.RCA_ID_DOES_NOT_EXIST">
+            <summary>
+            RCA id does not exist.
+            </summary>
+        </member>
+        <member name="F:Rca.Enums.ValidationMessage.RCA_ID_UNIQUE_WITHIN_PARAMETERS">
+            <summary>
+            RCA id is not matching with parameter rcaId.
+            </summary>
+        </member>
+        <member name="F:Rca.Enums.ValidationMessage.CANNOT_CREATE_CAUSE_WITHOUT_REQUIRED_DATA">
+            <summary>
+            RCA id and description are required for creating a cause.
+            </summary>
+        </member>
+        <member name="F:Rca.Enums.ValidationMessage.RCA_DATA_NOT_FOUND">
+            <summary>
+            No records found.
+            </summary>
+        </member>
+        <member name="F:Rca.Enums.ValidationMessage.CLASSIFICATION_ID_DOES_NOT_EXIST">
+            <summary>
+            Classification id does not exist.
+            </summary>
+        </member>
+        <member name="F:Rca.Enums.ValidationMessage.INCIDENT_DATE_NOT_PROVIDED">
+            <summary>
+            Incident Date is not provided.
+            </summary>
+        </member>
+        <member name="F:Rca.Enums.ValidationMessage.INVALID_ITEMS">
+            <summary>
+            The following itemids are not permissible: {0} .
+            </summary>
+        </member>
+        <member name="F:Rca.Enums.ValidationMessage.CREATE_RCA_MODEL_NULL">
+            <summary>
+            Request body cannot be null.
+            </summary>
+        </member>
+        <member name="F:Rca.Enums.ValidationMessage.CREATE_RCA_SUCCESSFUL_MESSAGE">
+            <summary>
+            Root Cause Analysis created successfully.
+            </summary>
+        </member>
+        <member name="F:Rca.Enums.ValidationMessage.PARTICIPANT_ID_GREATER_THAN_EQUAL_ZERO">
+            <summary>
+            ParticipantId cannot be negative.
+            </summary>
+        </member>
+        <member name="F:Rca.Enums.ValidationMessage.PARTICIPANT_ID_MISSING_WHEN_PARTICIPANTNAME_EMPTY">
+            <summary>
+            ParticipantId should be greater than zero when ParticipantName is blank.
+            </summary>
+        </member>
+        <member name="F:Rca.Enums.ValidationMessage.PARTICIPANT_NAME_IS_REQUIRED">
+            <summary>
+            ParticipantName is required when ParticipantId is zero.
+            </summary>
+        </member>
+        <member name="F:Rca.Enums.ValidationMessage.INVALID_PARTICIPANTS">
+            <summary>
+            No matching participantId found for {0}.
+            </summary>
+        </member>
+        <member name="F:Rca.Enums.ValidationMessage.INVALID_EXISTING_PARTICIPANTS">
+            <summary>
+            Matching participantId found but incorrect participantName for {0}.
+            </summary>
+        </member>
+        <member name="F:Rca.Enums.ValidationMessage.INCIDENT_DATE_INVALID_UTC_FORMAT">
+            <summary>
+            Incident date should be valid UTC format.
+            </summary>
+        </member>
+        <member name="F:Rca.Enums.ValidationMessage.DUPLICATE_PARTICIPANT_NOT_ALLOWED">
+            <summary>
+            Duplicate participants are not allowed.
+            </summary>
+        </member>
+        <member name="F:Rca.Enums.ValidationMessage.DUPLICATE_ITEMS_NOT_ALLOWED">
+            <summary>
+            Duplicate items are not allowed.
+            </summary>
+        </member>
+        <member name="T:Rca.Models.OData.ItemODataModel">
+            <summary>
+            OData model for Items.
+            </summary>
+        </member>
+        <member name="P:Rca.Models.OData.ItemODataModel.ItemId">
+            <summary>
+            Gets or sets the unique identifier for item.
+            </summary>
+        </member>
+        <member name="P:Rca.Models.OData.ItemODataModel.Name">
+            <summary>
+            Gets or sets the item name.
+            </summary>
+        </member>
+        <member name="P:Rca.Models.OData.ItemODataModel.Description">
+            <summary>
+            Gets or sets item description.
+            </summary>
+        </member>
+        <member name="T:Rca.Models.OData.RcaDashboardODataModel">
+            <summary>
+            OData model for Rca Dashboard.
+            </summary>
+        </member>
+        <member name="T:Rca.Models.OData.ParticipantODataModel">
+            <summary>
+            OData model for Participants.
+            </summary>
+        </member>
+        <member name="P:Rca.Models.OData.ParticipantODataModel.ParticipantId">
+            <summary>
+            Gets or sets the unique identifier for participant.
+            </summary>
+        </member>
+        <member name="P:Rca.Models.OData.ParticipantODataModel.ParticipantName">
+            <summary>
+            Gets or sets the participant name.
+            </summary>
+        </member>
+        <member name="T:Rca.Models.CauseSelectListModel">
+            <summary>
+            Model for cause select list.
+            </summary>
+        </member>
+        <member name="T:Rca.Models.CauseModel">
+            <summary>
+            Cause model.
+            </summary>
+        </member>
+        <member name="T:Rca.Models.ClassificationModel">
+            <summary>
+            Classification model.
+            </summary>
+        </member>
+        <member name="M:Rca.Services.ICauseService.GetClassifications">
+            <summary>
+            Gets a list of classifications.
+            </summary>
+            <returns>List of classifications.</returns>
+        </member>
+        <member name="M:Rca.Services.ICauseService.GetCauseById(System.Int32)">
+            <summary>
+            Gets the cause details for a provider cause id.
+            </summary>
+            <param name="causeId">The cause identifier.</param>
+            <returns>Cause model.</returns>
+        </member>
+        <member name="M:Rca.Services.ICauseService.CreateCause(System.Int32,Rca.Models.CauseModel)">
+            <summary>
+            Creates a cause.
+            </summary>
+            <param name="rcaId">The rca identifier.</param>
+            <param name="causeModel">Cause model.</param>
+        </member>
+        <member name="M:Rca.Services.ICauseService.GetRCAClassificationCauses(System.Int32,System.Int32)">
+            <summary>
+            Gets a list of RCA classification causes and it's sub-causes.
+            </summary>
+            <param name="rcaId">RCA identifier.</param>
+            <param name="classificationId">Classification identifier.</param>
+            <returns>Cause select list model.</returns>
+        </member>
+        <member name="M:Rca.Services.ICauseService.GetClassificationsByRCAId(System.Int32)">
+            <summary>
+            Gets a list of classifications for a provided RCA id.
+            </summary>
+            <param name="rcaId">RCA identifier.</param>
+            <returns>List of classifications.</returns>
+        </member>
+        <member name="M:Rca.Services.IRootCauseAnalysisService.GetRootCauseAnalysisDetails(System.Int32)">
+            <summary>
+            Get RootCauseAnalysis details by id.
+            </summary>
+            <param name="rcaId">RCA id.</param>
+            <returns>RootCauseAnalysisDetailModel model.</returns>
+        </member>
+        <member name="T:Rca.Services.ISoftLabelResourceService">
+            <summary>
+            Interface for work with Multilingual component.
+            </summary>
+        </member>
+        <member name="M:Rca.Services.ISoftLabelResourceService.Initialize">
+            <summary>
+            Initialize multilingual component with soft labels.
+            </summary>
+        </member>
+        <member name="M:Rca.Services.ISoftLabelResourceService.GetSoftLabel(Rca.Enums.ValidationMessage,System.Object[])">
+            <summary>
+            Get validation message soft label for document management application.
+            </summary>
+            <param name="resource">Validation message soft label resource.</param>
+            <param name="args">Args.</param>
+            <returns>Soft label value.</returns>
+        </member>
+        <member name="M:Rca.Services.OData.IItemODataService.GetItemQueryable">
+            <summary>
+            Gets a list of item models in OData format.
+            </summary>
+            <returns>A list of item models.</returns>
+        </member>
+        <member name="M:Rca.Services.OData.IParticipantODataService.GetParticipantQueryable">
+            <summary>
+            Gets a list of participant models in OData format.
+            </summary>
+            <returns>A list of participant models.</returns>
+        </member>
+        <member name="M:Rca.Services.OData.ItemODataService.#ctor(Rca.Data.IRcaUnitOfWork,Orion.Users.IUsersComponent)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Rca.Services.OData.ItemODataService" /> class.
+            </summary>
+            <param name="rcaUnitOfWork">The unit of work.</param>
+            <param name="usersComponent">The user component.</param>
+        </member>
+        <member name="M:Rca.Services.OData.ItemODataService.GetItemQueryable">
+            <summary>
+            Get List of Items in OData format.
+            </summary>
+            <returns>A list of ItemODataModel.</returns>
+        </member>
+        <member name="T:Rca.Services.OData.RcaDashboardODataService">
+            <summary>
+            RcaDashboard Service class to return data in OData format.
+            </summary>
+        </member>
+        <member name="M:Rca.Services.OData.RcaDashboardODataService.#ctor(Rca.Data.IRcaUnitOfWork,Orion.Users.IUsersComponent,Rca.Services.ISoftLabelResourceService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Rca.Services.OData.RcaDashboardODataService" /> class.
+            </summary>
+            <param name="rcaUnitOfWork">The unit of work.</param>
+            <param name="usersComponent">The user component.</param>
+            <param name="softLabelResourceService">Validaion Message service.</param>
+        </member>
+        <member name="M:Rca.Services.OData.RcaDashboardODataService.GetRcaDashboardInfoQueryable">
+            <summary>
+            Get List of RCA Dashboard Info in OData format.
+            </summary>
+            <returns>A list of RcaDashboardODataModel.</returns>
+        </member>
+        <member name="M:Rca.Services.OData.ParticipantODataService.#ctor(Rca.Data.IRcaUnitOfWork)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Rca.Services.OData.ParticipantODataService" /> class.
+            </summary>
+            <param name="rcaUnitOfWork">The unit of work.</param>
+        </member>
+        <member name="M:Rca.Services.OData.ParticipantODataService.GetParticipantQueryable">
+            <summary>
+            Get List of Participants in OData format.
+            </summary>
+            <returns>A list of ParticipantODataModel.</returns>
+        </member>
+        <member name="M:Rca.Services.CauseService.GetClassifications">
+            <summary>
+            Gets a list of classifications.
+            </summary>
+            <returns>List of classifications.</returns>
+        </member>
+        <member name="M:Rca.Services.CauseService.GetCauseById(System.Int32)">
+            <summary>
+            Gets the cause details for a provider cause id.
+            </summary>
+            <param name="causeId">The cause identifier.</param>
+            <returns>Cause model.</returns>
+        </member>
+        <member name="M:Rca.Services.CauseService.CreateCause(System.Int32,Rca.Models.CauseModel)">
+            <summary>
+            Creates a cause.
+            </summary>
+            <param name="rcaId">The rca identifier.</param>
+            <param name="causeModel">Cause model.</param>
+        </member>
+        <member name="M:Rca.Services.CauseService.GetRCAClassificationCauses(System.Int32,System.Int32)">
+            <summary>
+            Gets a list of RCA classification causes and it's sub-causes.
+            </summary>
+            <param name="rcaId">RCA identifier.</param>
+            <param name="classificationId">Classification identifier.</param>
+            <returns>Cause select list model.</returns>
+        </member>
+        <member name="M:Rca.Services.CauseService.GetClassificationsByRCAId(System.Int32)">
+            <summary>
+            Gets a list of classifications for a provided RCA id.
+            </summary>
+            <param name="rcaId">RCA identifier.</param>
+            <returns>List of classifications.</returns>
+        </member>
+        <member name="M:Rca.Services.RootCauseAnalysisService.GetRootCauseAnalysisById(System.Int32)">
+            <summary>
+            Get RootCauseAnalysis by id.
+            </summary>
+            <param name="rcaId">RCA id.</param>
+            <returns>RootCauseAnalysis model.</returns>
+        </member>
+        <member name="M:Rca.Services.RootCauseAnalysisService.CreateRootCauseAnalysis(Rca.Models.CreateRCAModel)">
+            <summary>
+            Create Root Cause Analysis.
+            </summary>
+            <param name="rootCauseAnalysisModel">Create RCA Model.</param>
+            <returns>CreateRCAResponse model.</returns>
+        </member>
+        <member name="M:Rca.Services.RootCauseAnalysisService.GetRootCauseAnalysisDetails(System.Int32)">
+            <summary>
+            Get RootCauseAnalysis details by id.
+            </summary>
+            <param name="rcaId">RCA id.</param>
+            <returns>RootCauseAnalysisDetailModel model.</returns>
+        </member>
+        <member name="M:Rca.Services.RootCauseAnalysisService.ValidateAndAddParticipant(Rca.Models.CreateRCAModel)">
+            <summary>
+            Validate existing participant list and Add all the Participants who are not present in participant table.
+            </summary>
+            <param name="rootCauseAnalysisModel">Create RCA Model.</param>
+            <returns>List of Participants.</returns>
+        </member>
+        <member name="M:Rca.Services.RootCauseAnalysisService.AddRCAParticipant(Rca.Models.CreateRCAModel,System.Int32)">
+            <summary>
+            Add all the Participants associated with the RCA Id.
+            </summary>
+            <param name="rootCauseAnalysisModel">Create RCA Model.</param>
+            <param name="createdRCAId">Created RCA Id.</param>
+        </member>
+        <member name="M:Rca.Services.RootCauseAnalysisService.IsValidParticipant(Rca.Models.CreateParticipantModel)">
+            <summary>
+            Validate the participant model to be added.
+            </summary>
+            <param name="participant">Participant to be added.</param>
+            <returns>If a participant is valid.</returns>
+        </member>
+        <member name="M:Rca.Services.RootCauseAnalysisService.AddItemswithRCA(System.Collections.Generic.IEnumerable{System.Int64},System.Int32)">
+            <summary>
+            Add all the Items associated with the RCA Id.
+            </summary>
+            <param name="items">List of itemid associated with create RCA model.</param>
+            <param name="createdRCAId">Created RCA Id.</param>
+        </member>
+        <member name="M:Rca.Services.RootCauseAnalysisService.ValidateCreateRCAModel(Rca.Models.CreateRCAModel)">
+            <summary>
+            Validate the Create RCA Model.
+            </summary>
+            <param name="rootCauseAnalysisModel">Participant to be added.</param>
+        </member>
+        <member name="M:Rca.Services.RootCauseAnalysisService.IsValidItems(System.Collections.Generic.IEnumerable{System.Int64})">
+            <summary>
+            Validate list of items to be added.
+            </summary>
+            <param name="itemList">List of Items.</param>
+        </member>
+        <member name="M:Rca.Services.RootCauseAnalysisService.IsValidExistingParticipant(System.Collections.Generic.IEnumerable{Rca.Models.CreateParticipantModel},System.Collections.Generic.IEnumerable{Rca.Data.Entities.Participant})">
+            <summary>
+            Validate list of participants to be added.
+            </summary>
+            <param name="participantList">List of Participants.</param>
+            <param name="existingParticipant">List of existing Participants from db.</param>
+        </member>
+        <member name="T:Rca.Services.SoftLabelResourceService">
+            <summary>
+            Service which initializes soft labels for the application and gets label values of different label types.
+            </summary>
+        </member>
+        <member name="M:Rca.Services.SoftLabelResourceService.#ctor(Orion.Multilingual.IMultilingualComponent,Orion.Users.IUsersComponent)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Rca.Services.SoftLabelResourceService"/> class.
+            </summary>
+            <param name="multilingualComponent">Multilingual component.</param>
+            <param name="usersComponent">Users component.</param>
+        </member>
+        <member name="M:Rca.Services.SoftLabelResourceService.Initialize">
+            <summary>
+            Initialize soft labels using multilingual component.
+            </summary>
+        </member>
+        <member name="M:Rca.Services.SoftLabelResourceService.GetSoftLabel(Rca.Enums.ValidationMessage,System.Object[])">
+            <summary>
+            Get validation message soft label.
+            </summary>
+            <param name="resource">Validation message soft label resource.</param>
+            <param name="args">Args.</param>
+            <returns>Soft label value.</returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,814 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Orion.Templates</name>
+    </assembly>
+    <members>
+        <member name="T:Orion.Templates.Data.Entities.ItemDefinitionAndModuleMapping">
+            <summary>
+            Item Definition And Module Mapping.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.ItemDefinitionAndModuleMapping.ItemDefinitionAndModuleMappingId">
+            <summary>
+            Gets or sets ItemDefinitionAndModuleMappingId.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.ItemDefinitionAndModuleMapping.ItemDefinitionUid">
+            <summary>
+            Gets or sets ItemDefinitionUid.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.ItemDefinitionAndModuleMapping.ContentModuleId">
+            <summary>
+            Gets or sets ContentModuleId.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.ItemDefinitionAndModuleMapping.IsStandard">
+            <summary>
+            Gets or sets a value indicating whether the template is standard or not.
+            </summary>
+        </member>
+        <member name="T:Orion.Templates.Data.Entities.ItemDefinitionLookupValue">
+            <summary>
+            Item Definition Lookup Value.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.ItemDefinitionLookupValue.ItemDefinitionId">
+            <summary>
+            Gets or sets ItemDefinitionId.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.ItemDefinitionLookupValue.LookupValueId">
+            <summary>
+            Gets or sets LookupValueId.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.ItemDefinitionLookupValue.ItemDefinitions">
+            <summary>
+            Gets or sets ItemDefinitions.
+            </summary>
+        </member>
+        <member name="T:Orion.Templates.Data.Entities.NoMlsItemDefinition">
+            <summary>
+            No mls item definition.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.NoMlsItemDefinition.Id">
+            <summary>
+            Gets or sets Id.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.NoMlsItemDefinition.DefaultName">
+            <summary>
+            Gets or sets DefaultName.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.NoMlsItemDefinition.CustomName">
+            <summary>
+            Gets or sets CustomName.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.NoMlsItemDefinition.CanPush">
+            <summary>
+            Gets or sets a value indicating whether gets or sets Can Push value.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.NoMlsItemDefinition.LayerId">
+            <summary>
+            Gets or sets LayerId.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.NoMlsItemDefinition.CanEdit">
+            <summary>
+            Gets or sets a value indicating whether gets or sets CanEdit.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.NoMlsItemDefinition.CanRename">
+            <summary>
+            Gets or sets a value indicating whether gets or sets CanRename.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.NoMlsItemDefinition.CreatedDate">
+            <summary>
+            Gets or sets CreatedDate.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.NoMlsItemDefinition.CreatedByUserId">
+            <summary>
+            Gets or sets CreatedByUserId.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.NoMlsItemDefinition.LastModifiedDate">
+            <summary>
+            Gets or sets LastModifiedDate.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.NoMlsItemDefinition.LastModifiedByUserId">
+            <summary>
+            Gets or sets LastModifiedByUserId.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.NoMlsItemDefinition.MasterItemDefinitionId">
+            <summary>
+            Gets or sets MasterItemDefinitionId.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.NoMlsItemDefinition.LastAccessSessionId">
+            <summary>
+            Gets or sets LastAccessSessionId.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.NoMlsItemDefinition.IsPublished">
+            <summary>
+            Gets or sets a value indicating whether gets or sets IsPublished.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.NoMlsItemDefinition.IsActive">
+            <summary>
+            Gets or sets a value indicating whether gets or sets IsActive.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.NoMlsItemDefinition.IconClass">
+            <summary>
+            Gets or sets IconClass.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.NoMlsItemDefinition.AutoGenerateCustomId">
+            <summary>
+            Gets or sets a value indicating whether gets or sets AutoGenerateCustomId.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.NoMlsItemDefinition.AllowModifyCustomId">
+            <summary>
+            Gets or sets a value indicating whether gets or sets AllowModifyCustomId.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.NoMlsItemDefinition.Description">
+            <summary>
+            Gets or sets Description.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.NoMlsItemDefinition.ComingDueItemAttributeDefinitionId">
+            <summary>
+            Gets or sets ComingDueItemAttributeDefinitionId.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.NoMlsItemDefinition.ActivityItemAttributeDefinitionId">
+            <summary>
+            Gets or sets ActivityItemAttributeDefinitionId.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.NoMlsItemDefinition.EnableOnMobile">
+            <summary>
+            Gets or sets a value indicating whether gets or sets EnableOnMobile.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.NoMlsItemDefinition.HideFromCreateMenu">
+            <summary>
+            Gets or sets a value indicating whether gets or sets HideFromCreateMenu.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.NoMlsItemDefinition.IsChildDisabled">
+            <summary>
+            Gets or sets a value indicating whether gets or sets IsChildDisabled.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.NoMlsItemDefinition.LanguageText">
+            <summary>
+            Gets or sets LanguageText.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.NoMlsItemDefinition.ItemTemplateType">
+            <summary>
+            Gets or sets ItemTemplateType.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.NoMlsItemDefinition.CorrectiveActionItemDefinitionId">
+            <summary>
+            Gets or sets CorrectiveActionItemDefinitionId.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.NoMlsItemDefinition.AllowAddImagesToReport">
+            <summary>
+            Gets or sets AllowAddImagesToReport.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.NoMlsItemDefinition.AllowUseFromLegalRegister">
+            <summary>
+            Gets or sets a value indicating whether gets or sets AllowUseFromLegalRegister.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.NoMlsItemDefinition.FormItemDefinitionId">
+            <summary>
+            Gets or sets FormItemDefinitionId.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.NoMlsItemDefinition.CurrentVersionId">
+            <summary>
+            Gets or sets CurrentVersionId.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.NoMlsItemDefinition.IsDeployed">
+            <summary>
+            Gets or sets IsDeployed.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.NoMlsItemDefinition.InstanceTemplateId">
+            <summary>
+            Gets or sets InstanceTemplateId.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.NoMlsItemDefinition.Uid">
+            <summary>
+            Gets or sets Uid.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.NoMlsItemDefinition.Language">
+            <summary>
+            Gets or sets Language.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.NoMlsItemDefinition.IsLanguageChecked">
+            <summary>
+            Gets or sets IsLanguageChecked.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.NoMlsItemDefinition.IsDescriptionRequired">
+            <summary>
+            Gets or sets a value indicating whether the description is required or not.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.NoMlsItemDefinition.ItemDefinitionLookupValue">
+            <summary>
+            Gets or sets ItemDefinitionLookupValue.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.NoMlsItemDefinition.ItemDefinition">
+            <summary>
+            Gets or sets ItemDefinition.
+            </summary>
+        </member>
+        <member name="T:Orion.Templates.Data.Entities.ItemDefinition">
+            <summary>
+            Item Definition.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.ItemDefinition.Id">
+            <summary>
+            Gets or sets Id.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.ItemDefinition.DefaultName">
+            <summary>
+            Gets or sets DefaultName.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.ItemDefinition.CustomName">
+            <summary>
+            Gets or sets CustomName.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.ItemDefinition.LayerId">
+            <summary>
+            Gets or sets LayerId.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.ItemDefinition.CanPush">
+            <summary>
+            Gets or sets a value indicating whether CanPush.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.ItemDefinition.CanEdit">
+            <summary>
+            Gets or sets a value indicating whether CanEdit.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.ItemDefinition.CanRename">
+            <summary>
+            Gets or sets a value indicating whether CanRename.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.ItemDefinition.CreatedDate">
+            <summary>
+            Gets or sets CreatedDate.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.ItemDefinition.CreatedByUserId">
+            <summary>
+            Gets or sets CreatedByUserId.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.ItemDefinition.LastModifiedDate">
+            <summary>
+            Gets or sets LastModifiedDate.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.ItemDefinition.LastModifiedByUserId">
+            <summary>
+            Gets or sets LastModifiedByUserId.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.ItemDefinition.MasterItemDefinitionId">
+            <summary>
+            Gets or sets MasterItemDefinitionId.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.ItemDefinition.LastAccessSessionId">
+            <summary>
+            Gets or sets LastAccessSessionId.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.ItemDefinition.IsPublished">
+            <summary>
+            Gets or sets a value indicating whether IsPublished.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.ItemDefinition.IsActive">
+            <summary>
+            Gets or sets a value indicating whether IsActive.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.ItemDefinition.IconClass">
+            <summary>
+            Gets or sets IconClass.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.ItemDefinition.AutoGenerateCustomId">
+            <summary>
+            Gets or sets a value indicating whether AutoGenerateCustomId.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.ItemDefinition.AllowModifyCustomId">
+            <summary>
+            Gets or sets a value indicating whether AllowModifyCustomId.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.ItemDefinition.Description">
+            <summary>
+            Gets or sets Description.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.ItemDefinition.ComingDueItemAttributeDefinitionId">
+            <summary>
+            Gets or sets ComingDueItemAttributeDefinitionId.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.ItemDefinition.ActivityItemAttributeDefinitionId">
+            <summary>
+            Gets or sets ActivityItemAttributeDefinitionId.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.ItemDefinition.EnableOnMobile">
+            <summary>
+            Gets or sets a value indicating whether EnableOnMobile.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.ItemDefinition.HideFromCreateMenu">
+            <summary>
+            Gets or sets a value indicating whether HideFromCreateMenu.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.ItemDefinition.IsChildDisabled">
+            <summary>
+            Gets or sets a value indicating whether IsChildDisabled.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.ItemDefinition.LanguageText">
+            <summary>
+            Gets or sets LanguageText.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.ItemDefinition.ItemTemplateType">
+            <summary>
+            Gets or sets ItemTemplateType.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.ItemDefinition.CorrectiveActionItemDefinitionId">
+            <summary>
+            Gets or sets CorrectiveActionItemDefinitionId.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.ItemDefinition.AllowAddImagesToReport">
+            <summary>
+            Gets or sets AllowAddImagesToReport.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.ItemDefinition.AllowUseFromLegalRegister">
+            <summary>
+            Gets or sets a value indicating whether AllowUseFromLegalRegister.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.ItemDefinition.FormItemDefinitionId">
+            <summary>
+            Gets or sets FormItemDefinitionId.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.ItemDefinition.CurrentVersionId">
+            <summary>
+            Gets or sets CurrentVersionId.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.ItemDefinition.IsDeployed">
+            <summary>
+            Gets or sets IsDeployed.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.ItemDefinition.InstanceTemplateId">
+            <summary>
+            Gets or sets InstanceTemplateId.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.ItemDefinition.Uid">
+            <summary>
+            Gets or sets Uid.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Data.Entities.ItemDefinition.NoMlsItemDefinitions">
+            <summary>
+            Gets or sets NoMlsItemDefinitions.
+            </summary>
+        </member>
+        <member name="T:Orion.Templates.Data.Mapping.ItemDefinitionLookupValueMapping">
+            <summary>
+            ItemDefinitionLookupValue Mapping.
+            </summary>
+        </member>
+        <member name="M:Orion.Templates.Data.Mapping.ItemDefinitionLookupValueMapping.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Templates.Data.Mapping.ItemDefinitionLookupValueMapping"/> class.
+            </summary>
+        </member>
+        <member name="T:Orion.Templates.Data.Mapping.ItemDefinitionMapping">
+            <summary>
+            Item Definition Mapping.
+            </summary>
+        </member>
+        <member name="M:Orion.Templates.Data.Mapping.ItemDefinitionMapping.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Templates.Data.Mapping.ItemDefinitionMapping"/> class.
+            </summary>
+        </member>
+        <member name="T:Orion.Templates.Data.Mapping.NoMlsItemDefinitionMapping">
+            <summary>
+            Item Definition Mapping.
+            </summary>
+        </member>
+        <member name="M:Orion.Templates.Data.Mapping.NoMlsItemDefinitionMapping.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Templates.Data.Mapping.NoMlsItemDefinitionMapping"/> class.
+            </summary>
+        </member>
+        <member name="T:Orion.Templates.Enums.ContentModuleType">
+            <summary>
+            Values that represent content module types.
+            </summary>
+            <remarks>This enum should be in sync with WK.ComplyTrack.Enums.ContentModuleType in Orion Classic.</remarks>
+        </member>
+        <member name="F:Orion.Templates.Enums.ContentModuleType.Compliance">
+            <summary> An enum constant representing the compliance content module. </summary>
+        </member>
+        <member name="F:Orion.Templates.Enums.ContentModuleType.Safety">
+            <summary> An enum constant representing the safety content module. </summary>
+        </member>
+        <member name="T:Orion.Templates.Enums.InstanceType">
+            <summary>
+            Values that represent template/instance types.
+            </summary>
+            <remarks>This enum should be in sync with WK.ComplyTrack.Core.Enums.InstanceTypes in Orion Classic.</remarks>
+        </member>
+        <member name="F:Orion.Templates.Enums.InstanceType.Undefined">
+            <summary> A no-value value. </summary>
+        </member>
+        <member name="F:Orion.Templates.Enums.InstanceType.Item">
+            <summary> Item (Action Manager). </summary>
+        </member>
+        <member name="F:Orion.Templates.Enums.InstanceType.CorrectiveAction">
+            <summary> Corrective action item (Audit Manager). </summary>
+        </member>
+        <member name="F:Orion.Templates.Enums.InstanceType.Form">
+            <summary> Form item (Incident Management). </summary>
+        </member>
+        <member name="F:Orion.Templates.Enums.InstanceType.Survey">
+            <summary> Survey item (Audit Manager). </summary>
+        </member>
+        <member name="F:Orion.Templates.Enums.InstanceType.RiskReporter">
+            <summary> Risk reporter item (Risk Reporter). </summary>
+        </member>
+        <member name="F:Orion.Templates.Enums.InstanceType.CliHotline">
+            <summary> CLI hotline item (Hotline). </summary>
+        </member>
+        <member name="F:Orion.Templates.Enums.InstanceType.GenericAudit">
+            <summary> Generic audit item (Audit Manager). </summary>
+        </member>
+        <member name="F:Orion.Templates.Enums.InstanceType.AuditRequest">
+            <summary> Audit request item (Audit Management). </summary>
+        </member>
+        <member name="F:Orion.Templates.Enums.InstanceType.Claim">
+            <summary> Claim item (Audit Management). </summary>
+        </member>
+        <member name="F:Orion.Templates.Enums.InstanceType.Appeal">
+            <summary> Appeal item (Audit Management). </summary>
+        </member>
+        <member name="F:Orion.Templates.Enums.InstanceType.CompliancyTask">
+            <summary> Compliancy task item (Legal Register). </summary>
+        </member>
+        <member name="F:Orion.Templates.Enums.InstanceType.SignalForm">
+            <summary> Signal form item (Legal Register). </summary>
+        </member>
+        <member name="F:Orion.Templates.Enums.InstanceType.Task">
+            <summary> Task item (Audit Management). </summary>
+        </member>
+        <member name="F:Orion.Templates.Enums.InstanceType.RamNgSurvey">
+            <summary> RAM NG Survey item (Risk Assessment Management). </summary>
+        </member>
+        <member name="F:Orion.Templates.Enums.InstanceType.FormSubmissionDefaultItem">
+            <summary> Form submission default item (Incident Management). </summary>
+        </member>
+        <member name="F:Orion.Templates.Enums.InstanceType.Generic">
+            <summary> Generic item (Audit Management). </summary>
+        </member>
+        <member name="F:Orion.Templates.Enums.InstanceType.Document">
+            <summary> Document item (Document Policy Management). </summary>
+        </member>
+        <member name="F:Orion.Templates.Enums.InstanceType.Contract">
+            <summary> Contract item (Contract Vendor Management). </summary>
+        </member>
+        <member name="F:Orion.Templates.Enums.InstanceType.SurveyManagement">
+            <summary> Survey item (Survey Management). </summary>
+        </member>
+        <member name="F:Orion.Templates.Enums.InstanceType.RootCauseAnalysis">
+            <summary> RCA (Root Cause Analysis). </summary>
+        </member>
+        <member name="T:Orion.Templates.ITemplatesComponent">
+            <summary>
+            Component used to work with Templates.
+            </summary>
+        </member>
+        <member name="M:Orion.Templates.ITemplatesComponent.GetTemplatesByType(Orion.Templates.Enums.InstanceType,Orion.Multilingual.Enums.Language)">
+            <summary>
+            Retrieves template info for templates of the given template type.
+            </summary>
+            <param name="instanceType">The type of the templates to retrieve.</param>
+            <param name="language">Language in which we need to get a list of templates names.</param>
+            <returns>Collection of <see cref="T:Orion.Templates.Models.TemplateInfoModel"/>'s.</returns>
+        </member>
+        <member name="M:Orion.Templates.ITemplatesComponent.GetTemplatesByTypes(System.Collections.Generic.IEnumerable{Orion.Templates.Enums.InstanceType},Orion.Multilingual.Enums.Language)">
+            <summary>
+            Retrieves templates info of the given template types.
+            </summary>
+            <param name="instanceTypes">The types of the templates to retrieve.</param>
+            <param name="language">Language in which we need to get a list of templates names.</param>
+            <returns>Collection of <see cref="T:Orion.Templates.Models.TemplateInfoModel"/>'s.</returns>
+        </member>
+        <member name="M:Orion.Templates.ITemplatesComponent.GetTemplates(System.String,Orion.Multilingual.Enums.Language)">
+            <summary>
+            Gets templates.
+            </summary>
+            <param name="templateType">Template Type.</param>
+            <param name="language">Language in which we need to get a list of templates names.</param>
+            <returns>Collection of TemplateInfoModel.</returns>
+        </member>
+        <member name="M:Orion.Templates.ITemplatesComponent.GetTemplateByUid(System.Guid,Orion.Multilingual.Enums.Language)">
+            <summary>
+            Gets template by UID.
+            </summary>
+            <param name="uid">UID.</param>
+            <param name="language">Language in which we need to get a template name.</param>
+            <returns>TemplateInfoModel.</returns>
+        </member>
+        <member name="M:Orion.Templates.ITemplatesComponent.GetAvailableCreateItemLookupValues(Orion.Multilingual.Enums.Language)">
+            <summary>
+            Get list of categories for item creation.
+            </summary>
+            <param name="language">Language.</param>
+            <returns>Collection of LookupValueModel.</returns>
+        </member>
+        <member name="M:Orion.Templates.ITemplatesComponent.GetAvailableCreateItemTemplates(Orion.Multilingual.Enums.Language)">
+            <summary>
+            Get list of templates that is available for item creation.
+            </summary>
+            <param name="language">Language.</param>
+            <returns>Collection of TemplateInfoModel.</returns>
+        </member>
+        <member name="M:Orion.Templates.ITemplatesComponent.GetAvailableCreateItemTemplatesByLookupValueId(System.Int64,Orion.Multilingual.Enums.Language)">
+            <summary>
+            Get list of templates by Lookup Value that is available for item creation.
+            </summary>
+            <param name="lookupId">Lookup Value.</param>
+            <param name="language">Language.</param>
+            <returns>Collection of TemplateInfoModel.</returns>
+        </member>
+        <member name="M:Orion.Templates.ITemplatesComponent.GetTemplateByTypeAndId(Orion.Templates.Enums.InstanceType,System.Int64,Orion.Multilingual.Enums.Language)">
+            <summary>
+            Gets template by the provided type and Id from the database.
+            </summary>
+            <param name="templateType">Type of the template.</param>
+            <param name="templateId">Template Identifier.</param>
+            <param name="language">Language in which we need to get a template name.</param>
+            <returns><see cref="T:Orion.Templates.Models.TemplateInfoModel"/>.</returns>
+        </member>
+        <member name="M:Orion.Templates.ITemplatesComponent.GetTemplateById(System.Int64,Orion.Multilingual.Enums.Language)">
+            <summary>
+            Gets template by Id.
+            </summary>
+            <param name="templateId">Template Identifier.</param>
+            <param name="language">Language in which we need to get a template name.</param>
+            <returns><see cref="T:Orion.Templates.Models.TemplateInfoModel"/>.</returns>
+        </member>
+        <member name="M:Orion.Templates.ITemplatesComponent.CopyTemplate(System.Int64,System.Boolean,System.Int64,Orion.Multilingual.Enums.Language)">
+            <summary>
+            Copies the template.
+            </summary>
+            <param name="templateId">The template identifier.</param>
+            <param name="includeWorkflowRules">A flag indicating whether workflow rules should be copied over along with template or not.</param>
+            <param name="userId">User identifier of creator for copied template.</param>
+            <param name="language">The language in which all messages will be shown.</param>
+            <returns>
+            Copied template id.
+            </returns>
+        </member>
+        <member name="M:Orion.Templates.ITemplatesComponent.GetTemplatesByTypesQueryable(System.Collections.Generic.IEnumerable{Orion.Templates.Enums.InstanceType},Orion.Multilingual.Enums.Language)">
+            <summary>
+            Returns queryable list of item templates.
+            </summary>
+            <param name="instanceTypes">The list of item template types to filter.</param>
+            <param name="language">The language which should be used for name and description fields.</param>
+            <returns>IQueryable list of item templates.</returns>
+        </member>
+        <member name="T:Orion.Templates.Models.ApplicationsLookupValueModel">
+            <summary>
+            Model describing a Lookup value for application collection. Custom value of <see cref="T:Orion.Templates.Models.LookupValueModel">LookupValueModel</see>.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Models.ApplicationsLookupValueModel.Id">
+            <summary>
+            Gets or sets the lookup value identifier.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Models.ApplicationsLookupValueModel.LookupValueName">
+            <summary>
+            Gets or sets the lookup name.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Models.ApplicationsLookupValueModel.IsActivatedValue">
+            <summary>
+            Gets or sets a value indicating whether gets or sets IsActivatedValue.
+            </summary>
+        </member>
+        <member name="T:Orion.Templates.Models.LookupValueModel">
+            <summary>
+            Model describing a Lookup value.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Models.LookupValueModel.Id">
+            <summary>
+            Gets or sets the lookup value identifier.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Models.LookupValueModel.LookupValueName">
+            <summary>
+            Gets or sets the lookup name.
+            </summary>
+        </member>
+        <member name="T:Orion.Templates.Models.OData.TemplateODataModel">
+            <summary>
+            OData model for item definition list.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Models.OData.TemplateODataModel.Id">
+            <summary>
+            Gets or sets the item Definition identifier.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Models.OData.TemplateODataModel.Name">
+            <summary>
+            Gets or sets the item definition name.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Models.OData.TemplateODataModel.Description">
+            <summary>
+            Gets or sets the item definition description.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Models.OData.TemplateODataModel.Type">
+            <summary>
+            Gets or sets the item definition type.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Models.OData.TemplateODataModel.IsActive">
+            <summary>
+            Gets or sets a value indicating whether the item definition is active or not.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Models.OData.TemplateODataModel.CreatedByUserId">
+            <summary>
+            Gets or sets the user id who created the item definition.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Models.OData.TemplateODataModel.CreatedDate">
+            <summary>
+            Gets or sets the date when item definition was created.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Models.OData.TemplateODataModel.LastModifiedByUserId">
+            <summary>
+            Gets or sets the user id who last modified the item definition.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Models.OData.TemplateODataModel.LastModifiedDate">
+            <summary>
+            Gets or sets the date when item definition was last modified.
+            </summary>
+        </member>
+        <member name="T:Orion.Templates.Models.TemplateModel">
+            <summary>
+            Model describing a Template.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Models.TemplateModel.TemplateId">
+            <summary>
+            Gets or sets the Template identifier.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Models.TemplateModel.Name">
+            <summary>
+            Gets or sets the Template name.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Models.TemplateModel.TemplateType">
+            <summary>
+            Gets or sets the 'instance type', the type of the template.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Models.TemplateModel.Description">
+            <summary>
+            Gets or sets the Template description.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Models.TemplateModel.IsDescriptionRequired">
+            <summary>
+            Gets or sets a value indicating whether the template description is required or not.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Models.TemplateModel.CreatedByUserId">
+            <summary>
+            Gets or sets who created the template.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Models.TemplateModel.CreatedDate">
+            <summary>
+            Gets or sets the date of template creation.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Models.TemplateModel.LastModifiedByUserId">
+            <summary>
+            Gets or sets who last modified the template.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Models.TemplateModel.LastModifiedDate">
+            <summary>
+            Gets or sets the date when template was last modified.
+            </summary>
+        </member>
+        <member name="T:Orion.Templates.Models.TemplateInfoModel">
+            <summary>
+            Model describing a Template.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Models.TemplateInfoModel.TemplateId">
+            <summary>
+            Gets or sets the Template identifier.
+            </summary>
+        </member>
+        <member name="P:Orion.Templates.Models.TemplateInfoModel.TemplateName">
+            <summary>
+            Gets or sets the Template name.
+            </summary>
+        </member>
+        <member name="T:Orion.Templates.TemplatesComponentAutoMapperProfile">
+            <summary>
+            Templates Component Auto Mapper Profile.
+            </summary>
+        </member>
+        <member name="M:Orion.Templates.TemplatesComponentAutoMapperProfile.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Templates.TemplatesComponentAutoMapperProfile"/> class.
+            </summary>
+        </member>
+        <member name="T:Orion.Templates.TemplatesComponentModule">
+            <summary>
+            Templates Component Module.
+            </summary>
+        </member>
+        <member name="M:Orion.Templates.TemplatesComponentModule.Load(Autofac.ContainerBuilder)">
+            <summary>
+            Add registrations to the container.
+            </summary>
+            <param name="builder">The builder through which components can be registered.</param>
+            <remarks>
+            Note that the ContainerBuilder parameter is unique to this module.
+            </remarks>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,617 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Orion.Lists</name>
+    </assembly>
+    <members>
+        <member name="T:Orion.Lists.Constants.LookupValueConstants">
+            <summary>
+            Consts of values Uid from lookup values.
+            </summary>
+        </member>
+        <member name="F:Orion.Lists.Constants.LookupValueConstants.IncidentManagerRoleLookupValueUid">
+            <summary>
+            Incident manager value from organization roles Uid value.
+            </summary>
+        </member>
+        <member name="F:Orion.Lists.Constants.LookupValueConstants.AuditManagerRoleLookupValueUid">
+            <summary>
+            Audit Manager value from organization roles Uid value.
+            </summary>
+        </member>
+        <member name="P:Orion.Lists.Data.Entities.LookupCollection.DefaultName">
+            <summary>
+            Gets or sets the default name in MLS.
+            </summary>
+        </member>
+        <member name="P:Orion.Lists.Data.Entities.LookupCollection.CustomName">
+            <summary>
+            Gets or sets the custom name in MLS.
+            </summary>
+        </member>
+        <member name="P:Orion.Lists.Data.Entities.LookupCollection.Description">
+            <summary>
+            Gets or sets the description in MLS.
+            </summary>
+        </member>
+        <member name="P:Orion.Lists.Data.Entities.LookupCollection.LanguageText">
+            <summary>
+            Gets or sets the language text in MLS.
+            </summary>
+        </member>
+        <member name="T:Orion.Lists.Enums.LookupCollectionType">
+            <summary>
+            Lookup collection types. in classic orion it's name "LookupType".
+            </summary>
+        </member>
+        <member name="F:Orion.Lists.Enums.LookupCollectionType.TwoLevelList">
+            <summary>
+            Two Level List.
+            </summary>
+        </member>
+        <member name="F:Orion.Lists.Enums.LookupCollectionType.Category">
+            <summary>
+            Category.
+            </summary>
+        </member>
+        <member name="F:Orion.Lists.Enums.LookupCollectionType.UserDefined">
+            <summary>
+            User Defined.
+            </summary>
+        </member>
+        <member name="F:Orion.Lists.Enums.LookupCollectionType.Priority">
+            <summary>
+            Priority.
+            </summary>
+        </member>
+        <member name="F:Orion.Lists.Enums.LookupCollectionType.GlobalStage">
+            <summary>
+            Global Stage.
+            </summary>
+        </member>
+        <member name="F:Orion.Lists.Enums.LookupCollectionType.Resolution">
+            <summary>
+            Resolution.
+            </summary>
+        </member>
+        <member name="F:Orion.Lists.Enums.LookupCollectionType.RiskCalculationSeverity">
+            <summary>
+            Risk Calculation Severity.
+            </summary>
+        </member>
+        <member name="F:Orion.Lists.Enums.LookupCollectionType.RiskCalculationExposure">
+            <summary>
+            Risk Calculation Exposure.
+            </summary>
+        </member>
+        <member name="F:Orion.Lists.Enums.LookupCollectionType.RiskCalculationProbability">
+            <summary>
+            Risk Calculation Probability.
+            </summary>
+        </member>
+        <member name="F:Orion.Lists.Enums.LookupCollectionType.RiskCalculationPriority">
+            <summary>
+            Risk Calculation Priority.
+            </summary>
+        </member>
+        <member name="F:Orion.Lists.Enums.LookupCollectionType.RiskCalculationRiskFactor">
+            <summary>
+            Risk Calculation Risk Factor.
+            </summary>
+        </member>
+        <member name="F:Orion.Lists.Enums.LookupCollectionType.RiskReporterCategory">
+            <summary>
+            Risk Reporter Category.
+            </summary>
+        </member>
+        <member name="F:Orion.Lists.Enums.LookupCollectionType.RiskReporterRiskLevel">
+            <summary>
+            Risk Reporter Risk Level.
+            </summary>
+        </member>
+        <member name="F:Orion.Lists.Enums.LookupCollectionType.OrganizationRole">
+            <summary>
+            Organization Role.
+            </summary>
+        </member>
+        <member name="F:Orion.Lists.Enums.LookupCollectionType.HotlineCliAnonymousCall">
+            <summary>
+            Hotline Cli Anonymous Call.
+            </summary>
+        </member>
+        <member name="F:Orion.Lists.Enums.LookupCollectionType.AuditType">
+            <summary>
+            Audit Type.
+            </summary>
+        </member>
+        <member name="F:Orion.Lists.Enums.LookupCollectionType.DenialReason">
+            <summary>
+            Denial Reason.
+            </summary>
+        </member>
+        <member name="F:Orion.Lists.Enums.LookupCollectionType.PatientType">
+            <summary>
+            Patient Type.
+            </summary>
+        </member>
+        <member name="F:Orion.Lists.Enums.LookupCollectionType.Payer">
+            <summary>
+            Payer.
+            </summary>
+        </member>
+        <member name="F:Orion.Lists.Enums.LookupCollectionType.ReasonForChange">
+            <summary>
+            Reason For Change.
+            </summary>
+        </member>
+        <member name="F:Orion.Lists.Enums.LookupCollectionType.FinancialInfoType">
+            <summary>
+            Financial Info Type.
+            </summary>
+        </member>
+        <member name="F:Orion.Lists.Enums.LookupCollectionType.InitiativeType">
+            <summary>
+            Initiative Type.
+            </summary>
+        </member>
+        <member name="F:Orion.Lists.Enums.LookupCollectionType.DocumentType">
+            <summary>
+            Document Type.
+            </summary>
+        </member>
+        <member name="F:Orion.Lists.Enums.LookupCollectionType.EntityType">
+            <summary>
+            Entity Type.
+            </summary>
+        </member>
+        <member name="F:Orion.Lists.Enums.LookupCollectionType.ContractStatus">
+            <summary>
+            Contract status
+            </summary>
+        </member>
+        <member name="F:Orion.Lists.Enums.LookupCollectionType.ContractorStatus">
+            <summary>
+            Contractor status
+            </summary>
+        </member>
+        <member name="F:Orion.Lists.Enums.LookupCollectionType.RepresentativeStatus">
+            <summary>
+            Representative status
+            </summary>
+        </member>
+        <member name="F:Orion.Lists.Enums.LookupCollectionType.CvmContractorType">
+            <summary>
+            CVM Contractor Type.
+            </summary>
+        </member>
+        <member name="F:Orion.Lists.Enums.LookupCollectionType.CvmReviewType">
+            <summary>
+            CVM Review Type.
+            </summary>
+        </member>
+        <member name="F:Orion.Lists.Enums.LookupCollectionType.CvmPermissionType">
+            <summary>
+            CVM Permission Type.
+            </summary>
+        </member>
+        <member name="F:Orion.Lists.Enums.LookupCollectionType.CvmServiceType">
+            <summary>
+            CVM Service Type.
+            </summary>
+        </member>
+        <member name="F:Orion.Lists.Enums.LookupCollectionType.CvmSignificance">
+            <summary>
+            CVM Significance.
+            </summary>
+        </member>
+        <member name="F:Orion.Lists.Enums.LookupCollectionType.CvmRenewalCycle">
+            <summary>
+            CVM Renewal Cycle.
+            </summary>
+        </member>
+        <member name="F:Orion.Lists.Enums.LookupCollectionType.CvmTermsAndConditions">
+            <summary>
+            CVM Terms &amp; Condition.
+            </summary>
+        </member>
+        <member name="F:Orion.Lists.Enums.LookupCollectionType.CvmFileLocation">
+            <summary>
+            CVM File Location.
+            </summary>
+        </member>
+        <member name="F:Orion.Lists.Enums.LookupCollectionType.CvmAgreementType">
+            <summary>
+            CVM Agreement Type.
+            </summary>
+        </member>
+        <member name="F:Orion.Lists.Enums.LookupCollectionType.CvmSpecialConditions">
+            <summary>
+            CVM Special Conditions.
+            </summary>
+        </member>
+        <member name="F:Orion.Lists.Enums.LookupCollectionType.CvmConflictOfInterest">
+            <summary>
+            CVM Conflict of Interest.
+            </summary>
+        </member>
+        <member name="F:Orion.Lists.Enums.LookupCollectionType.CvmContractReviewerList">
+            <summary>
+            CVM Contract Reviewer List.
+            </summary>
+        </member>
+        <member name="F:Orion.Lists.Enums.LookupCollectionType.States">
+            <summary>
+            List of States.
+            </summary>
+        </member>
+        <member name="F:Orion.Lists.Enums.LookupCollectionType.ClaimReasonForClosing">
+            <summary>
+            List of Claim - Reason for Closing.
+            </summary>
+        </member>
+        <member name="T:Orion.Lists.Enums.LookupCollectionSortType">
+            <summary>
+            Lookup Collection Sort Type.
+            </summary>
+        </member>
+        <member name="F:Orion.Lists.Enums.LookupCollectionSortType.Default">
+            <summary>
+            Default.
+            </summary>
+        </member>
+        <member name="F:Orion.Lists.Enums.LookupCollectionSortType.Alphabetical">
+            <summary>
+            Alphabetical.
+            </summary>
+        </member>
+        <member name="F:Orion.Lists.Enums.LookupCollectionSortType.Custom">
+            <summary>
+            Custom.
+            </summary>
+        </member>
+        <member name="F:Orion.Lists.Enums.LookupCollectionSortType.ReverseAlphabetical">
+            <summary>
+            Reverse Alphabetical.
+            </summary>
+        </member>
+        <member name="T:Orion.Lists.Extensions.LookupCollectionExtensions">
+            <summary>
+            LookupCollectionExtensions class.
+            </summary>
+        </member>
+        <member name="M:Orion.Lists.Extensions.LookupCollectionExtensions.OrderBySortType(System.Linq.IQueryable{Orion.Lists.Data.Entities.NoMlsLookupValue},Orion.Lists.Enums.LookupCollectionSortType)">
+            <summary>
+            Orders the type of the by sort.
+            </summary>
+            <param name="values">The values.</param>
+            <param name="sortType">Type of the sort.</param>
+            <returns>Queryable list of NoMlsLookupValue.</returns>
+        </member>
+        <member name="T:Orion.Lists.IListComponent">
+            <summary>
+            Component used to work with lists.
+            </summary>
+        </member>
+        <member name="M:Orion.Lists.IListComponent.GetLookupCollectionWithValuesByType(Orion.Lists.Enums.LookupCollectionType)">
+            <summary>
+            Get lookup collection with all attributes and members for the provided List Type.
+            </summary>
+            <param name="lookupCollectionType">List Type identifier, <see cref="T:Orion.Lists.Enums.LookupCollectionType"/>.</param>
+            <returns>Model describing the List with populated ListValues field.</returns>
+        </member>
+        <member name="M:Orion.Lists.IListComponent.GetLookupValuesByLookupCollectionType(Orion.Lists.Enums.LookupCollectionType,Orion.Multilingual.Enums.Language)">
+            <summary>
+            Get lookup values for the provided lookup collection type in the specified user language.
+            </summary>
+            <param name="lookupCollectionType">Lookup collection type identifier, <see cref="T:Orion.Lists.Enums.LookupCollectionType"/>.</param>
+            <param name="userLanguage">User language, <see cref="T:Orion.Multilingual.Enums.Language"/>.</param>
+            <returns>List of lookup value info models.</returns>
+        </member>
+        <member name="M:Orion.Lists.IListComponent.GetLookupValuesByLookupCollectionType(Orion.Lists.Enums.LookupCollectionType,Orion.Multilingual.Enums.Language,System.Boolean)">
+            <summary>
+            Get active lookup values for the provided lookup collection type in the specified user language.
+            </summary>
+            <param name="lookupCollectionType">Lookup collection type identifier, <see cref="T:Orion.Lists.Enums.LookupCollectionType" />.</param>
+            <param name="userLanguage">The user language.</param>
+            <param name="onlyActiveValues">if set to <c>true</c> [only active values].</param>
+            <returns>
+            List of active lookup value info models.
+            </returns>
+        </member>
+        <member name="M:Orion.Lists.IListComponent.GetLookupValuesByIds(System.Collections.Generic.IEnumerable{System.Int64})">
+            <summary>
+            Gets List Values by list element identifiers.
+            </summary>
+            <param name="lookupValueIds">List of lookup value identifiers.</param>
+            <returns>List of lookup value info models.</returns>
+        </member>
+        <member name="M:Orion.Lists.IListComponent.GetDefaultLookupValuesByIds(System.Collections.Generic.IEnumerable{System.Int64})">
+            <summary>
+            Gets a list of default lookup list values by specified list of lookup values ids.
+            </summary>
+            <param name="lookupValueIds">A list of lookup value ids.</param>
+            <returns>Returns a list of lookup values.</returns>
+        </member>
+        <member name="M:Orion.Lists.IListComponent.GetLookupValueById(System.Int64)">
+            <summary>
+            Gets List value by list element identifier.
+            </summary>
+            <param name="lookupValueId">List element identifier.</param>
+            <returns>Lookup value info model.</returns>
+        </member>
+        <member name="M:Orion.Lists.IListComponent.DoesLookupValueExist(System.Int64)">
+            <summary>
+            Does lookup value exist.
+            </summary>
+            <param name="lookupValueId">List element identifier.</param>
+            <returns>True or false.</returns>
+        </member>
+        <member name="M:Orion.Lists.ListComponent.GetLookupCollectionWithValuesByType(Orion.Lists.Enums.LookupCollectionType)">
+            <summary>
+            Gets lookup collection with lookup values by lookup collection type.
+            </summary>
+            <param name="lookupCollectionType"><see cref="T:Orion.Lists.Enums.LookupCollectionType"/>.</param>
+            <returns>Returns a lookup collection with lookup values.</returns>
+        </member>
+        <member name="M:Orion.Lists.ListComponent.GetLookupValuesByLookupCollectionType(Orion.Lists.Enums.LookupCollectionType,Orion.Multilingual.Enums.Language)">
+            <summary>
+            Gets a list of lookup values by specified lookup collection type.
+            </summary>
+            <param name="lookupCollectionType"><see cref="T:Orion.Lists.Enums.LookupCollectionType"/>.</param>
+            <param name="userLanguage"><see cref="T:Orion.Multilingual.Enums.Language"/>.</param>
+            <returns>Returns a list of lookup values.</returns>
+        </member>
+        <member name="M:Orion.Lists.ListComponent.GetLookupValuesByLookupCollectionType(Orion.Lists.Enums.LookupCollectionType,Orion.Multilingual.Enums.Language,System.Boolean)">
+            <summary>
+            Get active lookup values for the provided lookup collection type in the specified user language.
+            </summary>
+            <param name="lookupCollectionType">Lookup collection type identifier, <see cref="T:Orion.Lists.Enums.LookupCollectionType" />.</param>
+            <param name="userLanguage">The user language.</param>
+            <param name="onlyActiveValues">if set to <c>true</c> [only active values].</param>
+            <returns>
+            List of active lookup value info models.
+            </returns>
+        </member>
+        <member name="M:Orion.Lists.ListComponent.GetLookupValuesByIds(System.Collections.Generic.IEnumerable{System.Int64})">
+            <summary>
+            Gets a list of lookup values by specified list of lookup values ids.
+            </summary>
+            <param name="lookupValueIds">A list of lookup value ids.</param>
+            <returns>Returns a list of lookup values.</returns>
+        </member>
+        <member name="M:Orion.Lists.ListComponent.GetDefaultLookupValuesByIds(System.Collections.Generic.IEnumerable{System.Int64})">
+            <summary>
+            Gets a list of default lookup list values by specified list of lookup values ids.
+            </summary>
+            <param name="lookupValueIds">A list of lookup value ids.</param>
+            <returns>Returns a list of lookup values.</returns>
+        </member>
+        <member name="M:Orion.Lists.ListComponent.GetLookupValueById(System.Int64)">
+            <summary>
+            Gets lookup value by specified lookup value id.
+            </summary>
+            <param name="lookupValueId">Lookup value id.</param>
+            <returns>Returns lookup value.</returns>
+        </member>
+        <member name="M:Orion.Lists.ListComponent.DoesLookupValueExist(System.Int64)">
+            <summary>
+            Validates whether the lookup value exist or not by specified lookup value id.
+            </summary>
+            <param name="lookupValueId">Lookup value id.</param>
+            <returns>Returns true when lookup value exist, false otherwise.</returns>
+        </member>
+        <member name="T:Orion.Lists.ListComponentAutoMapperProfile">
+            <summary>
+            Provides a hook to register mappings between types using AutoMapper.
+            </summary>
+        </member>
+        <member name="M:Orion.Lists.ListComponentAutoMapperProfile.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Lists.ListComponentAutoMapperProfile"/> class.
+            </summary>
+        </member>
+        <member name="T:Orion.Lists.ListComponentModule">
+            <summary>
+            Provides a hook to register necessary concrete implementations to interfaces using AutoFac.
+            </summary>
+        </member>
+        <member name="M:Orion.Lists.ListComponentModule.Load(Autofac.ContainerBuilder)">
+            <summary>
+            Add registrations to the container.
+            </summary>
+            <param name="builder">The builder through which components can be registered.</param>
+            <remarks>
+            Note that the ContainerBuilder parameter is unique to this module.
+            </remarks>
+        </member>
+        <member name="T:Orion.Lists.Models.OrionList">
+            <summary>
+            Orion List.
+            </summary>
+        </member>
+        <member name="P:Orion.Lists.Models.OrionList.OrionListId">
+            <summary>
+            Gets or sets OrionListId.
+            </summary>
+        </member>
+        <member name="P:Orion.Lists.Models.OrionList.Name">
+            <summary>
+            Gets or sets Name.
+            </summary>
+        </member>
+        <member name="P:Orion.Lists.Models.OrionList.Description">
+            <summary>
+            Gets or sets Description.
+            </summary>
+        </member>
+        <member name="P:Orion.Lists.Models.OrionList.IsActive">
+            <summary>
+            Gets or sets a value indicating whether IsActive.
+            </summary>
+        </member>
+        <member name="P:Orion.Lists.Models.OrionList.LookupCollectionType">
+            <summary>
+            Gets or sets ListType.
+            </summary>
+        </member>
+        <member name="P:Orion.Lists.Models.OrionList.CreatedDate">
+            <summary>
+            Gets or sets CreatedDate.
+            </summary>
+        </member>
+        <member name="P:Orion.Lists.Models.OrionList.CreatedByUserId">
+            <summary>
+            Gets or sets CreatedByUserId.
+            </summary>
+        </member>
+        <member name="P:Orion.Lists.Models.OrionList.LastModifiedDate">
+            <summary>
+            Gets or sets LastModifiedDate.
+            </summary>
+        </member>
+        <member name="P:Orion.Lists.Models.OrionList.LastModifiedByUserId">
+            <summary>
+            Gets or sets LastModifiedByUserId.
+            </summary>
+        </member>
+        <member name="P:Orion.Lists.Models.OrionList.SortType">
+            <summary>
+            Gets or sets SortType.
+            </summary>
+        </member>
+        <member name="P:Orion.Lists.Models.OrionList.ListValues">
+            <summary>
+            Gets or sets ListValues.
+            </summary>
+        </member>
+        <member name="P:Orion.Lists.Models.OrionList.Uid">
+            <summary>
+            Gets or sets Uid.
+            </summary>
+        </member>
+        <member name="T:Orion.Lists.Models.OrionListValue">
+            <summary>
+            Orion List Value.
+            </summary>
+        </member>
+        <member name="P:Orion.Lists.Models.OrionListValue.OrionListValueId">
+            <summary>
+            Gets or sets OrionListValueId.
+            </summary>
+        </member>
+        <member name="P:Orion.Lists.Models.OrionListValue.LookupCollectionId">
+            <summary>
+            Gets or sets LookupCollectionId.
+            </summary>
+        </member>
+        <member name="P:Orion.Lists.Models.OrionListValue.Name">
+            <summary>
+            Gets or sets Name.
+            </summary>
+        </member>
+        <member name="P:Orion.Lists.Models.OrionListValue.IsActive">
+            <summary>
+            Gets or sets a value indicating whether IsActive.
+            </summary>
+        </member>
+        <member name="P:Orion.Lists.Models.OrionListValue.CanRename">
+            <summary>
+            Gets or sets a value indicating whether CanRename.
+            </summary>
+        </member>
+        <member name="P:Orion.Lists.Models.OrionListValue.MasterValueId">
+            <summary>
+            Gets or sets MasterValueId.
+            </summary>
+        </member>
+        <member name="P:Orion.Lists.Models.OrionListValue.CustomSortOrder">
+            <summary>
+            Gets or sets CustomSortOrder.
+            </summary>
+        </member>
+        <member name="P:Orion.Lists.Models.OrionListValue.CanEdit">
+            <summary>
+            Gets or sets a value indicating whether CanEdit.
+            </summary>
+        </member>
+        <member name="P:Orion.Lists.Models.OrionListValue.SubCollectionId">
+            <summary>
+            Gets or sets SubCollectionId.
+            </summary>
+        </member>
+        <member name="P:Orion.Lists.Models.OrionListValue.ParentLookupId">
+            <summary>
+            Gets or sets ParentLookupId.
+            </summary>
+        </member>
+        <member name="P:Orion.Lists.Models.OrionListValue.StageType">
+            <summary>
+            Gets or sets StageType.
+            </summary>
+        </member>
+        <member name="P:Orion.Lists.Models.OrionListValue.FactorValue">
+            <summary>
+            Gets or sets FactorValue.
+            </summary>
+        </member>
+        <member name="P:Orion.Lists.Models.OrionListValue.RangeMin">
+            <summary>
+            Gets or sets RangeMin.
+            </summary>
+        </member>
+        <member name="P:Orion.Lists.Models.OrionListValue.RangeMax">
+            <summary>
+            Gets or sets RangeMax.
+            </summary>
+        </member>
+        <member name="P:Orion.Lists.Models.OrionListValue.ColorValue">
+            <summary>
+            Gets or sets ColorValue.
+            </summary>
+        </member>
+        <member name="P:Orion.Lists.Models.OrionListValue.Uid">
+            <summary>
+            Gets or sets Uid.
+            </summary>
+        </member>
+        <member name="T:Orion.Lists.Models.LookupValueInfoModel">
+            <summary>
+            List Value Model.
+            </summary>
+        </member>
+        <member name="P:Orion.Lists.Models.LookupValueInfoModel.Id">
+            <summary>
+            Gets or sets Id.
+            </summary>
+        </member>
+        <member name="P:Orion.Lists.Models.LookupValueInfoModel.ParentId">
+            <summary>
+            Gets or sets the parent Id.
+            </summary>
+        </member>
+        <member name="P:Orion.Lists.Models.LookupValueInfoModel.Name">
+            <summary>
+            Gets or sets Name.
+            </summary>
+        </member>
+        <member name="P:Orion.Lists.Models.LookupValueInfoModel.Uid">
+            <summary>
+            Gets or sets Uid.
+            </summary>
+        </member>
+        <member name="P:Orion.Lists.Models.LookupValueInfoModel.IsActive">
+            <summary>
+            Gets or sets a value indicating whether gets or sets IsActive.
+            </summary>
+        </member>
+        <member name="M:Orion.Lists.Services.ListService.GetLookupValuesByLookupCollectionType(Orion.Lists.Enums.LookupCollectionType,Orion.Multilingual.Enums.Language,System.Boolean)">
+            <summary>
+            Get list values for provided ListType.
+            </summary>
+            <param name="lookupCollectionType"><see cref="T:Orion.Lists.Enums.LookupCollectionType"/>.</param>
+            <param name="userLanguage"><see cref="T:Orion.Multilingual.Enums.Language"/>.</param>
+            <param name="onlyActiveValues"><see cref="T:System.Boolean"/>.</param>
+            <returns>collection of id name values.</returns>
+        </member>
+    </members>
+</doc>

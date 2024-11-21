@@ -1,0 +1,303 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Orion.Multilingual</name>
+    </assembly>
+    <members>
+        <member name="T:Orion.Multilingual.Enums.ResourceType">
+            <summary>
+            Resource Type.
+            </summary>
+        </member>
+        <member name="F:Orion.Multilingual.Enums.ResourceType.Undefined">
+            <summary>
+            Undefined.
+            </summary>
+        </member>
+        <member name="F:Orion.Multilingual.Enums.ResourceType.SystemMessage">
+            <summary>
+            System Message.
+            </summary>
+        </member>
+        <member name="F:Orion.Multilingual.Enums.ResourceType.MenuItemLabel">
+            <summary>
+            Menu Item Label.
+            </summary>
+        </member>
+        <member name="F:Orion.Multilingual.Enums.ResourceType.ButtonLabel">
+            <summary>
+            Button Label.
+            </summary>
+        </member>
+        <member name="F:Orion.Multilingual.Enums.ResourceType.FieldLabel">
+            <summary>
+            Field Label.
+            </summary>
+        </member>
+        <member name="F:Orion.Multilingual.Enums.ResourceType.ValidationMessage">
+            <summary>
+            Validation Message.
+            </summary>
+        </member>
+        <member name="F:Orion.Multilingual.Enums.ResourceType.PageTitle">
+            <summary>
+            Page Title.
+            </summary>
+        </member>
+        <member name="F:Orion.Multilingual.Enums.ResourceType.ImageLabel">
+            <summary>
+            Image Label.
+            </summary>
+        </member>
+        <member name="F:Orion.Multilingual.Enums.ResourceType.WidgetLabel">
+            <summary>
+            Widget Label.
+            </summary>
+        </member>
+        <member name="F:Orion.Multilingual.Enums.ResourceType.SearchLabel">
+            <summary>
+            Search Label.
+            </summary>
+        </member>
+        <member name="F:Orion.Multilingual.Enums.ResourceType.ImportResources">
+            <summary>
+            Import Resources.
+            </summary>
+        </member>
+        <member name="F:Orion.Multilingual.Enums.ResourceType.ReportingResources">
+            <summary>
+            Reporting Resources.
+            </summary>
+        </member>
+        <member name="F:Orion.Multilingual.Enums.ResourceType.MobileResources">
+            <summary>
+            Mobile Resources.
+            </summary>
+        </member>
+        <member name="F:Orion.Multilingual.Enums.ResourceType.TemplateParserPlaceholders">
+            <summary>
+            Template Parser Placeholders.
+            </summary>
+        </member>
+        <member name="F:Orion.Multilingual.Enums.ResourceType.TextPlaceholder">
+            <summary>
+            Text Placeholder.
+            </summary>
+        </member>
+        <member name="T:Orion.Multilingual.Enums.Language">
+            <summary>
+            Language.
+            </summary>
+        </member>
+        <member name="F:Orion.Multilingual.Enums.Language.Undefined">
+            <summary>
+            Undefined.
+            </summary>
+        </member>
+        <member name="F:Orion.Multilingual.Enums.Language.English">
+            <summary>
+            English.
+            </summary>
+        </member>
+        <member name="F:Orion.Multilingual.Enums.Language.Spanish">
+            <summary>
+            Spanish.
+            </summary>
+        </member>
+        <member name="F:Orion.Multilingual.Enums.Language.Dutch">
+            <summary>
+            Dutch.
+            </summary>
+        </member>
+        <member name="F:Orion.Multilingual.Enums.Language.French">
+            <summary>
+            French.
+            </summary>
+        </member>
+        <member name="F:Orion.Multilingual.Enums.Language.ChineseSimplified">
+            <summary>
+            Chinese Simplified.
+            </summary>
+        </member>
+        <member name="F:Orion.Multilingual.Enums.Language.German">
+            <summary>
+            German.
+            </summary>
+        </member>
+        <member name="F:Orion.Multilingual.Enums.Language.Hebrew">
+            <summary>
+            Hebrew.
+            </summary>
+        </member>
+        <member name="F:Orion.Multilingual.Enums.Language.Polish">
+            <summary>
+            Polish.
+            </summary>
+        </member>
+        <member name="F:Orion.Multilingual.Enums.Language.AuditCoverage">
+            <summary>
+            Audit Coverage (this language setting is used to test soft label coverage in multilingual client. Shows if the soft labels exist or not).
+            </summary>
+        </member>
+        <member name="F:Orion.Multilingual.Enums.Language.AuditKey">
+            <summary>
+            Audit Key (this language settings is used to test soft label coverage in multilingual client. Shows the soft label keys which should be translated).
+            </summary>
+        </member>
+        <member name="T:Orion.Multilingual.IMultilingualComponent">
+            <summary>
+            Component used to work with language related things.
+            </summary>
+        </member>
+        <member name="M:Orion.Multilingual.IMultilingualComponent.Initialize">
+            <summary>
+            Initialize the Multilingual Component, should be called just once on application start.
+            </summary>
+        </member>
+        <member name="M:Orion.Multilingual.IMultilingualComponent.GetSoftLabel(System.String,Orion.Multilingual.Enums.ResourceType,Orion.Multilingual.Enums.Language,System.Object[])">
+            <summary>
+            Gets Soft Label string.
+            </summary>
+            <param name="key">Key.</param>
+            <param name="resourceType">Resource Type of soft label.</param>
+            <param name="language">Language to use.</param>
+            <param name="args">Args.</param>
+            <returns>Soft Label value.</returns>
+        </member>
+        <member name="T:Orion.Multilingual.Models.MultilingualDictionary">
+            <summary>
+            MultilingualDictionary class.
+            </summary>
+        </member>
+        <member name="M:Orion.Multilingual.Models.MultilingualDictionary.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Multilingual.Models.MultilingualDictionary"/> class.
+            </summary>
+        </member>
+        <member name="M:Orion.Multilingual.Models.MultilingualDictionary.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Multilingual.Models.MultilingualDictionary"/> class.
+            </summary>
+            <param name="serializationInfo">The serialization information.</param>
+            <param name="streamingContext">The streaming context.</param>
+        </member>
+        <member name="T:Orion.Multilingual.Models.SoftLabelResourceModel">
+            <summary>
+            Soft Label Resource Model.
+            </summary>
+        </member>
+        <member name="P:Orion.Multilingual.Models.SoftLabelResourceModel.KeyName">
+            <summary>
+            Gets or sets KeyName.
+            </summary>
+        </member>
+        <member name="P:Orion.Multilingual.Models.SoftLabelResourceModel.ResourceType">
+            <summary>
+            Gets or sets ResourceType.
+            </summary>
+        </member>
+        <member name="P:Orion.Multilingual.Models.SoftLabelResourceModel.Text">
+            <summary>
+            Gets or sets Text.
+            </summary>
+        </member>
+        <member name="P:Orion.Multilingual.Models.SoftLabelResourceModel.Language">
+            <summary>
+            Gets or sets Language.
+            </summary>
+        </member>
+        <member name="T:Orion.Multilingual.MultilingualComponent">
+            <summary>
+            Multilingual Component.
+            </summary>
+        </member>
+        <member name="M:Orion.Multilingual.MultilingualComponent.#ctor(Orion.Multilingual.Services.ISoftLabelResourceService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Multilingual.MultilingualComponent"/> class.
+            </summary>
+            <param name="softLabelResourceService">Soft label resource service.</param>
+        </member>
+        <member name="M:Orion.Multilingual.MultilingualComponent.GetValueFromMls(System.String,Orion.Multilingual.Enums.Language)">
+            <summary>
+            Gets Value From Mls.
+            </summary>
+            <param name="mls">Mls.</param>
+            <param name="language">Language.</param>
+            <returns>String.</returns>
+        </member>
+        <member name="M:Orion.Multilingual.MultilingualComponent.Initialize">
+            <summary>
+            Initialize.
+            </summary>
+        </member>
+        <member name="M:Orion.Multilingual.MultilingualComponent.GetSoftLabel(System.String,Orion.Multilingual.Enums.ResourceType,Orion.Multilingual.Enums.Language,System.Object[])">
+            <summary>
+            Gets Soft Label string.
+            </summary>
+            <param name="key">Key.</param>
+            <param name="resourceType">Resource Type of soft label.</param>
+            <param name="language">Language to use.</param>
+            <param name="args">Args.</param>
+            <returns>Soft Label value.</returns>
+        </member>
+        <member name="T:Orion.Multilingual.MultilingualComponentModule">
+            <summary>
+            Multilingual Component Module.
+            </summary>
+        </member>
+        <member name="M:Orion.Multilingual.MultilingualComponentModule.Load(Autofac.ContainerBuilder)">
+            <summary>
+            Add registrations to the container.
+            </summary>
+            <param name="builder">The builder through which components can be registered.</param>
+            <remarks>
+            Note that the ContainerBuilder parameter is unique to this module.
+            </remarks>
+        </member>
+        <member name="T:Orion.Multilingual.Services.ISoftLabelResourceService">
+            <summary>
+            ISoftLabelResourceService.
+            </summary>
+        </member>
+        <member name="M:Orion.Multilingual.Services.ISoftLabelResourceService.InitializeSoftLabels">
+            <summary>
+            Initializes All SoftLabels.
+            </summary>
+        </member>
+        <member name="M:Orion.Multilingual.Services.ISoftLabelResourceService.GetSoftLabel(System.String,Orion.Multilingual.Enums.ResourceType,Orion.Multilingual.Enums.Language,System.Object[])">
+            <summary>
+            Gets SoftLabel.
+            </summary>
+            <param name="key">Key.</param>
+            <param name="resourceType">Resource Type.</param>
+            <param name="language">Language.</param>
+            <param name="args">Args.</param>
+            <returns>Soft label.</returns>
+        </member>
+        <member name="M:Orion.Multilingual.Services.SoftLabelResourceService.InitializeSoftLabels">
+            <summary>
+            Initializes All SoftLabels.
+            </summary>
+        </member>
+        <member name="M:Orion.Multilingual.Services.SoftLabelResourceService.GetSoftLabel(System.String,Orion.Multilingual.Enums.ResourceType,Orion.Multilingual.Enums.Language,System.Object[])">
+            <summary>
+            Gets SoftLabel.
+            </summary>
+            <param name="key">Key.</param>
+            <param name="resourceType">Resource Type.</param>
+            <param name="language">Language.</param>
+            <param name="args">Args.</param>
+            <returns>Soft label.</returns>
+        </member>
+        <member name="T:Orion.Multilingual.MultilingualComponentAutoMapperProfile">
+            <summary>
+            Multilingual Component Auto Mapper Profile.
+            </summary>
+        </member>
+        <member name="M:Orion.Multilingual.MultilingualComponentAutoMapperProfile.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Multilingual.MultilingualComponentAutoMapperProfile"/> class.
+            </summary>
+        </member>
+    </members>
+</doc>

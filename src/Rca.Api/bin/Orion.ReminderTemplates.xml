@@ -1,0 +1,458 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Orion.ReminderTemplates</name>
+    </assembly>
+    <members>
+        <member name="T:Orion.ReminderTemplates.Constants.ReminderTemplateParserConstants">
+            <summary>
+            Reminder Template Parser Constants.
+            </summary>
+        </member>
+        <member name="F:Orion.ReminderTemplates.Constants.ReminderTemplateParserConstants.Parser">
+            <summary>
+            Parser.
+            </summary>
+        </member>
+        <member name="F:Orion.ReminderTemplates.Constants.ReminderTemplateParserConstants.ReplacementPrefix">
+            <summary>
+            Replacement Prefix.
+            </summary>
+        </member>
+        <member name="T:Orion.ReminderTemplates.Data.Entities.ReminderTemplate">
+            <summary>
+            Reminder Template.
+            </summary>
+        </member>
+        <member name="P:Orion.ReminderTemplates.Data.Entities.ReminderTemplate.Id">
+            <summary>
+            Gets or sets Id.
+            </summary>
+        </member>
+        <member name="P:Orion.ReminderTemplates.Data.Entities.ReminderTemplate.ItemDefinitionId">
+            <summary>
+            Gets or sets ItemDefinitionId.
+            </summary>
+        </member>
+        <member name="P:Orion.ReminderTemplates.Data.Entities.ReminderTemplate.DefaultName">
+            <summary>
+            Gets or sets DefaultName.
+            </summary>
+        </member>
+        <member name="P:Orion.ReminderTemplates.Data.Entities.ReminderTemplate.CustomName">
+            <summary>
+            Gets or sets CustomName.
+            </summary>
+        </member>
+        <member name="P:Orion.ReminderTemplates.Data.Entities.ReminderTemplate.CanPush">
+            <summary>
+            Gets or sets a value indicating whether CanPush.
+            </summary>
+        </member>
+        <member name="P:Orion.ReminderTemplates.Data.Entities.ReminderTemplate.LayerId">
+            <summary>
+            Gets or sets LayerId.
+            </summary>
+        </member>
+        <member name="P:Orion.ReminderTemplates.Data.Entities.ReminderTemplate.CanEdit">
+            <summary>
+            Gets or sets a value indicating whether CanEdit.
+            </summary>
+        </member>
+        <member name="P:Orion.ReminderTemplates.Data.Entities.ReminderTemplate.CanRename">
+            <summary>
+            Gets or sets a value indicating whether CanRename.
+            </summary>
+        </member>
+        <member name="P:Orion.ReminderTemplates.Data.Entities.ReminderTemplate.CreatedDate">
+            <summary>
+            Gets or sets CreatedDate.
+            </summary>
+        </member>
+        <member name="P:Orion.ReminderTemplates.Data.Entities.ReminderTemplate.CreatedByUserId">
+            <summary>
+            Gets or sets CreatedByUserId.
+            </summary>
+        </member>
+        <member name="P:Orion.ReminderTemplates.Data.Entities.ReminderTemplate.LastModifiedDate">
+            <summary>
+            Gets or sets LastModifiedDate.
+            </summary>
+        </member>
+        <member name="P:Orion.ReminderTemplates.Data.Entities.ReminderTemplate.LastModifiedByUserId">
+            <summary>
+            Gets or sets LastModifiedByUserId.
+            </summary>
+        </member>
+        <member name="P:Orion.ReminderTemplates.Data.Entities.ReminderTemplate.IsActive">
+            <summary>
+            Gets or sets a value indicating whether IsActive.
+            </summary>
+        </member>
+        <member name="P:Orion.ReminderTemplates.Data.Entities.ReminderTemplate.Description">
+            <summary>
+            Gets or sets Description.
+            </summary>
+        </member>
+        <member name="P:Orion.ReminderTemplates.Data.Entities.ReminderTemplate.Body">
+            <summary>
+            Gets or sets Body.
+            </summary>
+        </member>
+        <member name="P:Orion.ReminderTemplates.Data.Entities.ReminderTemplate.LanguageText">
+            <summary>
+            Gets or sets LanguageText.
+            </summary>
+        </member>
+        <member name="P:Orion.ReminderTemplates.Data.Entities.ReminderTemplate.IsDeleted">
+            <summary>
+            Gets or sets a value indicating whether IsDeleted.
+            </summary>
+        </member>
+        <member name="P:Orion.ReminderTemplates.Data.Entities.ReminderTemplate.DeletedDate">
+            <summary>
+            Gets or sets DeletedDate.
+            </summary>
+        </member>
+        <member name="P:Orion.ReminderTemplates.Data.Entities.ReminderTemplate.Subject">
+            <summary>
+            Gets or sets Subject.
+            </summary>
+        </member>
+        <member name="P:Orion.ReminderTemplates.Data.Entities.ReminderTemplate.FromName">
+            <summary>
+            Gets or sets FromName.
+            </summary>
+        </member>
+        <member name="P:Orion.ReminderTemplates.Data.Entities.ReminderTemplate.TemplateType">
+            <summary>
+            Gets or sets TemplateType.
+            </summary>
+        </member>
+        <member name="P:Orion.ReminderTemplates.Data.Entities.ReminderTemplate.InstanceType">
+            <summary>
+            Gets or sets InstanceType.
+            </summary>
+        </member>
+        <member name="P:Orion.ReminderTemplates.Data.Entities.ReminderTemplate.EventType">
+            <summary>
+            Gets or sets EventType.
+            </summary>
+        </member>
+        <member name="P:Orion.ReminderTemplates.Data.Entities.ReminderTemplate.Uid">
+            <summary>
+            Gets or sets Uid.
+            </summary>
+        </member>
+        <member name="T:Orion.ReminderTemplates.Data.Mappings.ReminderTemplateMapping">
+            <summary>
+            Reminder Template Mapping.
+            </summary>
+        </member>
+        <member name="M:Orion.ReminderTemplates.Data.Mappings.ReminderTemplateMapping.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.ReminderTemplates.Data.Mappings.ReminderTemplateMapping"/> class.
+            </summary>
+        </member>
+        <member name="T:Orion.ReminderTemplates.IReminderTemplatesComponent">
+            <summary>
+            IReminderTemplatesComponent.
+            </summary>
+        </member>
+        <member name="M:Orion.ReminderTemplates.IReminderTemplatesComponent.GetReminderTemplatesByItemId(System.Int64)">
+            <summary>
+            Gets Reminder Templates By Item Id.
+            </summary>
+            <param name="itemId">Item Id.</param>
+            <returns>Collection of ReminderTemplateSummaryModel.</returns>
+        </member>
+        <member name="M:Orion.ReminderTemplates.IReminderTemplatesComponent.GetReminderTemplatesByUId(System.Guid)">
+            <summary>
+            Gets Reminder Templates By UId.
+            </summary>
+            <param name="uid">Reminder Template Uid.</param>
+            <returns>Collection of ReminderTemplateSummaryModel.</returns>
+        </member>
+        <member name="M:Orion.ReminderTemplates.IReminderTemplatesComponent.GetReminderTemplateById(System.Int64)">
+            <summary>
+            Gets Reminder Template By Id.
+            </summary>
+            <param name="reminderTemplateId">Reminder Template Id.</param>
+            <returns>ReminderTemplateModel.</returns>
+        </member>
+        <member name="M:Orion.ReminderTemplates.IReminderTemplatesComponent.GetEmailTemplateByUId(System.Guid)">
+            <summary>
+            Gets Email Template By UId.
+            </summary>
+            <param name="uid">Uid.</param>
+            <returns>ReminderTemplateModel.</returns>
+        </member>
+        <member name="M:Orion.ReminderTemplates.IReminderTemplatesComponent.GetEmailTemplateStatus(System.Guid)">
+            <summary>
+            Gets Email Template Status By UId.
+            </summary>
+            <param name="uid">Uid.</param>
+            <returns>Email Template Status.</returns>
+        </member>
+        <member name="M:Orion.ReminderTemplates.IReminderTemplatesComponent.GetEmailTemplatesByItemId(System.Int64)">
+            <summary>
+            Gets Email Templates By Item Id.
+            </summary>
+            <param name="itemId">Item Id.</param>
+            <returns>List of ReminderTemplateSummaryModel.</returns>
+        </member>
+        <member name="M:Orion.ReminderTemplates.IReminderTemplatesComponent.GetEmailTemplateById(System.Int64)">
+            <summary>
+            Gets Email Template By Id.
+            </summary>
+            <param name="emailTemplateId">Email Template Id.</param>
+            <returns>ReminderTemplateModel.</returns>
+        </member>
+        <member name="M:Orion.ReminderTemplates.IReminderTemplatesComponent.GetReminderTokenFromAttributeDefinitionId(System.Int64)">
+            <summary>
+            Gets a reminder token for the given attribute definition id.
+            </summary>
+            <example>
+            Given: 123
+            Returns: [[Some_Field_Name]].
+            </example>
+            <param name="attributeDefinitionId">Identifier of the attribute definition to get a reminder token for.</param>
+            <returns>Reminder token.</returns>
+        </member>
+        <member name="M:Orion.ReminderTemplates.IReminderTemplatesComponent.GetReplacedReminderMessage(System.Int64,System.String,System.Boolean)">
+            <summary>
+            Gets Replaced Reminder Message.
+            </summary>
+            <param name="itemDefinitionId">Item Definition Id.</param>
+            <param name="initialReminderMessage">Initial Reminder Message.</param>
+            <param name="isReverseReplacement">Is Reverse Replacement.</param>
+            <returns>Message.</returns>
+        </member>
+        <member name="M:Orion.ReminderTemplates.IReminderTemplatesComponent.GetReplacedReminderMessage(System.String,System.Collections.Generic.List{Orion.ReminderTemplates.Models.ReminderTemplateTokenReplacementModel})">
+            <summary>
+            Gets Replaced Reminder Message.
+            </summary>
+            <param name="templateMessage">Template Message.</param>
+            <param name="replacementTokens">Replacement Tokens.</param>
+            <returns>Message.</returns>
+        </member>
+        <member name="M:Orion.ReminderTemplates.IReminderTemplatesComponent.GetReplacedReminderMessages(System.Int64,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Gets Replaced Reminder Messages.
+            </summary>
+            <param name="itemDefinitionId">Item Definition Id.</param>
+            <param name="initialReminderMessages">Initial Reminder Messages.</param>
+            <returns>Dictionary of messages.</returns>
+        </member>
+        <member name="M:Orion.ReminderTemplates.IReminderTemplatesComponent.GetReplacedReminderMessage(System.String,System.Collections.Generic.IEnumerable{Orion.Items.Models.UserDefinedFieldMetadataBase},System.Boolean)">
+            <summary>
+            Gets Replaced Reminder Message.
+            </summary>
+            <param name="initialReminderMessage">Initial Reminder Message.</param>
+            <param name="udfTemplateData">Udf Template Data.</param>
+            <param name="isReverseReplacement">Is Reverse Replacement.</param>
+            <returns>Message.</returns>
+        </member>
+        <member name="T:Orion.ReminderTemplates.Models.ReminderTemplateSummaryModel">
+            <summary>
+            Reminder Template Summary Model.
+            </summary>
+        </member>
+        <member name="P:Orion.ReminderTemplates.Models.ReminderTemplateSummaryModel.Id">
+            <summary>
+            Gets or sets Id.
+            </summary>
+        </member>
+        <member name="P:Orion.ReminderTemplates.Models.ReminderTemplateSummaryModel.Name">
+            <summary>
+            Gets or sets Name.
+            </summary>
+        </member>
+        <member name="T:Orion.ReminderTemplates.Models.ReminderTemplateModel">
+            <summary>
+            Reminder Template Model.
+            </summary>
+        </member>
+        <member name="P:Orion.ReminderTemplates.Models.ReminderTemplateModel.Id">
+            <summary>
+            Gets or sets Id.
+            </summary>
+        </member>
+        <member name="P:Orion.ReminderTemplates.Models.ReminderTemplateModel.ItemDefinitionId">
+            <summary>
+            Gets or sets ItemDefinitionId.
+            </summary>
+        </member>
+        <member name="P:Orion.ReminderTemplates.Models.ReminderTemplateModel.Name">
+            <summary>
+            Gets or sets Name.
+            </summary>
+        </member>
+        <member name="P:Orion.ReminderTemplates.Models.ReminderTemplateModel.CanEdit">
+            <summary>
+            Gets or sets a value indicating whether CanEdit.
+            </summary>
+        </member>
+        <member name="P:Orion.ReminderTemplates.Models.ReminderTemplateModel.CanRename">
+            <summary>
+            Gets or sets a value indicating whether CanRename.
+            </summary>
+        </member>
+        <member name="P:Orion.ReminderTemplates.Models.ReminderTemplateModel.CreatedDate">
+            <summary>
+            Gets or sets CreatedDate.
+            </summary>
+        </member>
+        <member name="P:Orion.ReminderTemplates.Models.ReminderTemplateModel.CreatedByUserId">
+            <summary>
+            Gets or sets CreatedByUserId.
+            </summary>
+        </member>
+        <member name="P:Orion.ReminderTemplates.Models.ReminderTemplateModel.LastModifiedDate">
+            <summary>
+            Gets or sets LastModifiedDate.
+            </summary>
+        </member>
+        <member name="P:Orion.ReminderTemplates.Models.ReminderTemplateModel.LastModifiedByUserId">
+            <summary>
+            Gets or sets LastModifiedByUserId.
+            </summary>
+        </member>
+        <member name="P:Orion.ReminderTemplates.Models.ReminderTemplateModel.Description">
+            <summary>
+            Gets or sets Description.
+            </summary>
+        </member>
+        <member name="P:Orion.ReminderTemplates.Models.ReminderTemplateModel.Body">
+            <summary>
+            Gets or sets Body.
+            </summary>
+        </member>
+        <member name="P:Orion.ReminderTemplates.Models.ReminderTemplateModel.Subject">
+            <summary>
+            Gets or sets Subject.
+            </summary>
+        </member>
+        <member name="P:Orion.ReminderTemplates.Models.ReminderTemplateModel.FromName">
+            <summary>
+            Gets or sets FromName.
+            </summary>
+        </member>
+        <member name="T:Orion.ReminderTemplates.Models.ReminderTemplateTokenReplacementModel">
+            <summary>
+            Reminder Template Token Replacement Model.
+            </summary>
+        </member>
+        <member name="P:Orion.ReminderTemplates.Models.ReminderTemplateTokenReplacementModel.OldToken">
+            <summary>
+            Gets or sets OldToken.
+            </summary>
+        </member>
+        <member name="P:Orion.ReminderTemplates.Models.ReminderTemplateTokenReplacementModel.ReplacementToken">
+            <summary>
+            Gets or sets ReplacementToken.
+            </summary>
+        </member>
+        <member name="M:Orion.ReminderTemplates.ReminderTemplatesComponent.GetEmailTemplateStatus(System.Guid)">
+            <summary>
+            Gets Email template status by UID.
+            </summary>
+            <param name="uid">Email UID.</param>
+            <returns>Email template status.</returns>
+        </member>
+        <member name="M:Orion.ReminderTemplates.ReminderTemplatesComponent.GetEmailTemplatesByItemId(System.Int64)">
+            <summary>
+            Gets Email Templates By Item Id.
+            </summary>
+            <param name="itemId">Item Id.</param>
+            <returns>List of ReminderTemplateSummaryModel.</returns>
+        </member>
+        <member name="M:Orion.ReminderTemplates.ReminderTemplatesComponent.GetEmailTemplateById(System.Int64)">
+            <summary>
+            Gets Email Template By Id.
+            </summary>
+            <param name="emailTemplateId">Email Template Id.</param>
+            <returns>ReminderTemplateModel.</returns>
+        </member>
+        <member name="M:Orion.ReminderTemplates.ReminderTemplatesComponent.GetReminderTokenFromAttributeDefinitionId(System.Int64)">
+            <summary>
+            Gets a reminder token for the given attribute definition id.
+            </summary>
+            <example>
+            Given: 123
+            Returns: [[Some_Field_Name]].
+            </example>
+            <param name="attributeDefinitionId">identifier of the attribute definition to get a reminder token for.</param>
+            <returns>Reminder token.</returns>
+        </member>
+        <member name="T:Orion.ReminderTemplates.ReminderTemplatesAutoMapperProfile">
+            <summary>
+            Reminder Templates Auto Mapper Profile.
+            </summary>
+        </member>
+        <member name="M:Orion.ReminderTemplates.ReminderTemplatesAutoMapperProfile.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.ReminderTemplates.ReminderTemplatesAutoMapperProfile"/> class.
+            </summary>
+        </member>
+        <member name="T:Orion.ReminderTemplates.ReminderTemplatesComponentModule">
+            <summary>
+            Reminder Templates Component Module.
+            </summary>
+        </member>
+        <member name="M:Orion.ReminderTemplates.ReminderTemplatesComponentModule.Load(Autofac.ContainerBuilder)">
+            <summary>
+            Add registrations to the container.
+            </summary>
+            <param name="builder">The builder through which components can be registered.</param>
+            <remarks>
+            Note that the ContainerBuilder parameter is unique to this module.
+            </remarks>
+        </member>
+        <member name="M:Orion.ReminderTemplates.Services.IReminderTemplateTokenService.GetReminderTokenFromAttributeDefinitionId(System.Int64)">
+            <summary>
+            Gets a reminder token for the given attribute definition id.
+            </summary>
+            <example>
+            Given: 123
+            Returns: [[Some_Field_Name]].
+            </example>
+            <param name="attributeDefinitionId">identifier of the attribute definition to get a reminder token for.</param>
+            <returns>Reminder token.</returns>
+        </member>
+        <member name="M:Orion.ReminderTemplates.Services.IReminderTemplateParserService.ReplaceTokens(System.String,System.Collections.Generic.IEnumerable{Orion.ReminderTemplates.Models.ReminderTemplateTokenReplacementModel})">
+            <summary>
+            Replaces a placeholder token with a new token in the given reminderTemplateBody.
+            </summary>
+            <param name="reminderTemplateBody">the body of the reminder template for which to replace placeholder tokens with updated tokens.</param>
+            <param name="reminderTemplateTokenReplacementModels">collectoin of models that contain placeholder tokens and their corresponding replacement tokens.</param>
+            <returns>.</returns>
+        </member>
+        <member name="T:Orion.ReminderTemplates.Helpers.ReminderTemplateTokenHelper">
+            <summary>
+            Reminder Template Token Helper.
+            </summary>
+        </member>
+        <member name="M:Orion.ReminderTemplates.Helpers.ReminderTemplateTokenHelper.GetInternalReminderTemplateTokenFromCustomAttributeDefinitionId(System.Int64)">
+            <summary>
+            Takes an attributeDefinitionId and returns a token string of how the attribute used in an internal reminder template would look like.
+            </summary>
+            <param name="attributeDefinitionId">Identifier of the attribute definition to get a reminder token for.</param>
+            <returns>Reminder token.</returns>
+            <example>
+            Given: 123
+            Returns: [[Parser123]].
+            </example>
+            <remarks>
+            NOTE: this returns a token for how a custom attribute field is represented in a reminder template in the repository. Recall that the user sees the custom attribute field token in a different form.
+            </remarks>
+        </member>
+        <member name="M:Orion.ReminderTemplates.Helpers.ReminderTemplateTokenHelper.GetReminderTemplateTokenFromUdfFieldName(System.String)">
+            <summary>
+            Gets Reminder Template Token From Udf Field Name.
+            </summary>
+            <param name="fieldName">Field Name.</param>
+            <returns>Template token.</returns>
+        </member>
+    </members>
+</doc>

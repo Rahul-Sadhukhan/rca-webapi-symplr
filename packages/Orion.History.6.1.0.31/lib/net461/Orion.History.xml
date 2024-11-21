@@ -1,0 +1,1004 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Orion.History</name>
+    </assembly>
+    <members>
+        <member name="T:Orion.History.Converters.IHistoryConverter`1">
+            <summary>
+            Generic interface for a history converter.
+            </summary>
+            <typeparam name="T">Specific history entity type derived from <see cref="T:Orion.History.Data.Projections.HistoryBase"/>.</typeparam>
+        </member>
+        <member name="M:Orion.History.Converters.IHistoryConverter`1.Convert(`0)">
+            <summary>
+            Convert the given history record into unified <see cref="T:Orion.History.Models.HistoryModel"/>.
+            </summary>
+            <param name="history">A history record to convert.</param>
+            <returns>Unified history model.</returns>
+        </member>
+        <member name="T:Orion.History.Converters.ItemHistoryConverter`1">
+            <summary>
+            Generic class for a base/typical Item history converter.
+            </summary>
+            <typeparam name="T">Specific history entity type derived from <see cref="T:Orion.History.Data.Projections.HistoryBase"/>.</typeparam>
+        </member>
+        <member name="M:Orion.History.Converters.ItemHistoryConverter`1.Convert(`0)">
+            <summary>
+            Convert the given history record into unified <see cref="T:Orion.History.Models.HistoryModel"/>.
+            </summary>
+            <param name="history">A history record to convert.</param>
+            <returns>Unified history model.</returns>
+        </member>
+        <member name="M:Orion.History.Converters.ItemHistoryConverter`1.ProcessItemAttributePolicyHistory(`0,Orion.History.Models.HistoryModel)">
+            <summary>
+            Convert fields for item attribute  history record.
+            </summary>
+            <param name="history">A history record to convert.</param>
+            <param name="historyModel">Unified history model.</param>
+        </member>
+        <member name="T:Orion.History.Enums.HistoryValueFormat">
+            <summary>
+            Value formatting to use for a History Detail record.
+            </summary>
+            <remarks>
+            See [Logging].[ValueFormat] table in the database.
+            </remarks>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryValueFormat.FileSize">
+            <summary>
+            The file size.
+            </summary>
+        </member>
+        <member name="T:Orion.History.Enums.HistoryControlType">
+            <summary>
+            HistoryControlType enumeration.
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryControlType.None">
+            <summary>
+            The none
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryControlType.SingleLineText">
+            <summary>
+            The single line text
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryControlType.MultiLineText">
+            <summary>
+            The multi line text
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryControlType.Decimal">
+            <summary>
+            The decimal
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryControlType.Date">
+            <summary>
+            The date
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryControlType.RadioButton">
+            <summary>
+            The RadioButton
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryControlType.CheckBox">
+            <summary>
+            The CheckBox
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryControlType.SingleSelectDropList">
+            <summary>
+            The single select drop list
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryControlType.MultiSelectDropList">
+            <summary>
+            The multi select drop list
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryControlType.CheckboxList">
+            <summary>
+            The checkbox list
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryControlType.PrimaryOrganization">
+            <summary>
+            The primary organization
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryControlType.AssociatedOrganization">
+            <summary>
+            The associated organization
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryControlType.Category">
+            <summary>
+            The category
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryControlType.Workflow">
+            <summary>
+            The workflow
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryControlType.InfoArea">
+            <summary>
+            The information area
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryControlType.Currency">
+            <summary>
+            The currency
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryControlType.Integer">
+            <summary>
+            The integer
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryControlType.Email">
+            <summary>
+            The email
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryControlType.Url">
+            <summary>
+            The URL
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryControlType.RadioButtonList">
+            <summary>
+            The RadioButton list
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryControlType.PhoneNumber">
+            <summary>
+            The phone number
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryControlType.Status">
+            <summary>
+            The status
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryControlType.OrgProfileSingleSelection">
+            <summary>
+            The org profile single selection
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryControlType.OwnerSingleSelection">
+            <summary>
+            The owner single selection
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryControlType.OwnerMultiSelection">
+            <summary>
+            The owner multi selection
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryControlType.Person">
+            <summary>
+            The person
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryControlType.Step">
+            <summary>
+            The step
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryControlType.AssignToSingleSelection">
+            <summary>
+            The assign to single selection
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryControlType.AssignToMultiSelection">
+            <summary>
+            The assign to multi selection
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryControlType.ChildControl">
+            <summary>
+            The child control
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryControlType.Percentage">
+            <summary>
+            The percentage
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryControlType.OrgProfileMultiSelection">
+            <summary>
+            The org profile multi selection
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryControlType.Text">
+            <summary>
+            The text
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryControlType.RiskCalculatorCalculate">
+            <summary>
+            The risk calculator calculate
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryControlType.RiskCalculatorSelectPriority">
+            <summary>
+            The risk calculator select priority
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryControlType.RiskCalculatorChooseMethod">
+            <summary>
+            The risk calculator choose method
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryControlType.Comments">
+            <summary>
+            The comments
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryControlType.Panel">
+            <summary>
+            The panel
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryControlType.Approval">
+            <summary>
+            The approval
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryControlType.ItemScheduler">
+            <summary>
+            The item scheduler
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryControlType.AuditInstances">
+            <summary>
+            The audit instances
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryControlType.NpiNumber">
+            <summary>
+            The npi number
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryControlType.AnyValue">
+            <summary>
+            Any value
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryControlType.SpecificValue">
+            <summary>
+            The specific value
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryControlType.NoValue">
+            <summary>
+            The no value
+            </summary>
+        </member>
+        <member name="T:Orion.History.Enums.HistoryDateTimeType">
+            <summary>
+            HistoryDateTimeType enumeration.
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryDateTimeType.Date">
+            <summary>
+            The date
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryDateTimeType.Time">
+            <summary>
+            The time
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryDateTimeType.DateTime">
+            <summary>
+            The date time
+            </summary>
+        </member>
+        <member name="T:Orion.History.Enums.HistoryOperation">
+            <summary>
+            HistoryOperation enum.
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryOperation.None">
+            <summary>
+            None
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryOperation.Add">
+            <summary>
+            Add
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryOperation.Modify">
+            <summary>
+            Modify
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryOperation.Delete">
+            <summary>
+            Delete
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryOperation.Unknown">
+            <summary>
+            Unknown
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryOperation.Disassociate">
+            <summary>
+            Disassociate
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryOperation.Remove">
+            <summary>
+            Remove
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryOperation.View">
+            <summary>
+            View
+            </summary>
+        </member>
+        <member name="T:Orion.History.Enums.HistoryValueType">
+            <summary>
+            Enumerates possible value types for history records.
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryValueType.StringValue">
+            <summary>
+            String type.
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryValueType.NumericValue">
+            <summary>
+            Numeric (decimal) type.
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryValueType.DateTimeValue">
+            <summary>
+            DateTimeOffset type.
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.HistoryValueType.FileSizeValue">
+            <summary>
+            FileSize type.
+            </summary>
+        </member>
+        <member name="T:Orion.History.Enums.ItemHistorySource">
+            <summary>
+            ItemHistorySource enum.
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.ItemHistorySource.None">
+            <summary>
+            None
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.ItemHistorySource.FixedAttribute">
+            <summary>
+            FixedAttribute
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.ItemHistorySource.Attribute">
+            <summary>
+            Attribute
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.ItemHistorySource.Stage">
+            <summary>
+            Stage
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.ItemHistorySource.LinkUri">
+            <summary>
+            LinkUri
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.ItemHistorySource.File">
+            <summary>
+            File
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.ItemHistorySource.Reminder">
+            <summary>
+            Reminder
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.ItemHistorySource.UserFavorite">
+            <summary>
+            UserFavorite
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.ItemHistorySource.Children">
+            <summary>
+            Children
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.ItemHistorySource.Security">
+            <summary>
+            Security
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.ItemHistorySource.ItemItself">
+            <summary>
+            ItemItself
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.ItemHistorySource.Report">
+            <summary>
+            Report
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.ItemHistorySource.Watch">
+            <summary>
+            Watch
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.ItemHistorySource.AuditInstance">
+            <summary>
+            AuditInstance
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.ItemHistorySource.SendAuditTo">
+            <summary>
+            SendAuditTo
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.ItemHistorySource.CorrectiveAction">
+            <summary>
+            CorrectiveAction
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.ItemHistorySource.SurveyDeployment">
+            <summary>
+            SurveyDeployment
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.ItemHistorySource.SurveySubmitting">
+            <summary>
+            SurveySubmitting
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.ItemHistorySource.SurveyResponseFile">
+            <summary>
+            SurveyResponseFile
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.ItemHistorySource.QuestionsQuery">
+            <summary>
+            QuestionsQuery
+            </summary>
+        </member>
+        <member name="F:Orion.History.Enums.ItemHistorySource.Owner">
+            <summary>
+            Owner
+            </summary>
+        </member>
+        <member name="T:Orion.History.Helpers.HistoryRequestParserHelper">
+            <summary>
+            Helper class to use in history controllers to parse input parameters from the URL.
+            </summary>
+        </member>
+        <member name="M:Orion.History.Helpers.HistoryRequestParserHelper.ParseHistoryQueryParameters(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})">
+            <summary>
+            Parse history query parameters from the URL.
+            </summary>
+            <param name="queryNameValuePairs">Parsed URL query string as a collection of key-value pairs.</param>
+            <returns>Model with history query parameters.</returns>
+        </member>
+        <member name="T:Orion.History.Helpers.ItemAttributeHistoryHelper">
+            <summary>
+            ItemAttributeHistoryHelper class.
+            </summary>
+        </member>
+        <member name="M:Orion.History.Helpers.ItemAttributeHistoryHelper.SetCurrentAndPreviousValueFromHistory(Orion.History.Models.HistoryModel,Orion.History.Data.Projections.HistoryBase)">
+            <summary>
+            Sets the historyModel's previous and current values based on the history ControlType.
+            </summary>
+            <param name="historyModel">The model to set CurrentValue and PreviousValue for.</param>
+            <param name="history">The source, a History record projection.</param>
+        </member>
+        <member name="T:Orion.History.Data.Entities.HistoryDetail">
+            <summary>
+            Entity representing a History Detail record.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Data.Entities.HistoryDetail.FieldName">
+            <summary>
+            Gets or sets Field Name.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Data.Entities.HistoryDetail.PreviousValueString">
+            <summary>
+            Gets or sets old value of type String.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Data.Entities.HistoryDetail.ValueString">
+            <summary>
+            Gets or sets new value of type String.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Data.Entities.HistoryDetail.PreviousValueInt">
+            <summary>
+            Gets or sets old value of type Int64.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Data.Entities.HistoryDetail.ValueInt">
+            <summary>
+            Gets or sets new value of type Int64.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Data.Entities.HistoryDetail.PreviousValueDecimal">
+            <summary>
+            Gets or sets old value of type Decimal.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Data.Entities.HistoryDetail.ValueDecimal">
+            <summary>
+            Gets or sets new value of type Decimal.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Data.Entities.HistoryDetail.PreviousValueDateTime">
+            <summary>
+            Gets or sets old value of type DateTime.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Data.Entities.HistoryDetail.ValueDateTime">
+            <summary>
+            Gets or sets new value of type DateTime.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Data.Entities.HistoryDetail.PreviousValueDate">
+            <summary>
+            Gets or sets old value of type Date.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Data.Entities.HistoryDetail.ValueDate">
+            <summary>
+            Gets or sets new value of type Date.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Data.Entities.HistoryDetail.PreviousValueTime">
+            <summary>
+            Gets or sets old value of type Time.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Data.Entities.HistoryDetail.ValueTime">
+            <summary>
+            Gets or sets new value of type Time.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Data.Entities.HistoryDetail.PreviousValueBoolean">
+            <summary>
+            Gets or sets old value of type Boolean.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Data.Entities.HistoryDetail.ValueBoolean">
+            <summary>
+            Gets or sets new value of type Boolean.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Data.Entities.HistoryDetail.PreviousValueEnumeration">
+            <summary>
+            Gets or sets old value of type Enumeration.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Data.Entities.HistoryDetail.ValueEnumeration">
+            <summary>
+            Gets or sets new value of type Enumeration.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Data.Entities.HistoryDetail.ValueFormatId">
+            <summary>
+            Gets or sets value formatting type.
+            </summary>
+        </member>
+        <member name="T:Orion.History.Data.Projections.HistoryBase">
+            <summary>
+            Base class for Audit/Claim history record projections.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Data.Projections.HistoryBase.SuperSourceId">
+            <summary>
+             Gets or sets Super Source identifier.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Data.Projections.HistoryBase.SourceId">
+            <summary>
+            Gets or sets SourceId. Depends on SuperSourceId.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Data.Projections.HistoryBase.SubSourceId">
+            <summary>
+            Gets or sets SubSourceId. Depends on SourceId.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Data.Projections.HistoryBase.GroupingId">
+            <summary>
+            Gets or sets GroupingId.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Data.Projections.HistoryBase.GroupId">
+            <summary>
+            Gets or sets GroupId.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Data.Projections.HistoryBase.ChangeId">
+            <summary>
+            Gets or sets ChangeId.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Data.Projections.HistoryBase.PreviousChangeId">
+            <summary>
+            Gets or sets PreviousChangeId.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Data.Projections.HistoryBase.DetailsId">
+            <summary>
+            Gets or sets DetailsId.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Data.Projections.HistoryBase.StartTime">
+            <summary>
+            Gets or sets StartTime.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Data.Projections.HistoryBase.UserName">
+            <summary>
+            Gets or sets UserName.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Data.Projections.HistoryBase.FullName">
+            <summary>
+            Gets or sets FullName.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Data.Projections.HistoryBase.Operation">
+            <summary>
+            Gets or sets Operation.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Data.Projections.HistoryBase.FieldId">
+            <summary>
+            Gets or sets FieldId.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Data.Projections.HistoryBase.FieldName">
+            <summary>
+            Gets or sets FieldName.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Data.Projections.HistoryBase.NewValueString">
+            <summary>
+            Gets or sets new value of type string.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Data.Projections.HistoryBase.OldValueString">
+            <summary>
+            Gets or sets old value of type string.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Data.Projections.HistoryBase.NewValueMls">
+            <summary>
+            Gets or sets new value of type MLS.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Data.Projections.HistoryBase.OldValueMls">
+            <summary>
+            Gets or sets old value of type MLS.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Data.Projections.HistoryBase.NewValueNumber">
+            <summary>
+            Gets or sets new value of type Number.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Data.Projections.HistoryBase.OldValueNumber">
+            <summary>
+            Gets or sets old value of type Number.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Data.Projections.HistoryBase.NewValueDateTime">
+            <summary>
+            Gets or sets new value of type DateTimeOffset.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Data.Projections.HistoryBase.OldValueDateTime">
+            <summary>
+            Gets or sets old value of type DateTimeOffset.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Data.Projections.HistoryBase.NewValueBoolean">
+            <summary>
+            Gets or sets new value of type Boolean.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Data.Projections.HistoryBase.OldValueBoolean">
+            <summary>
+            Gets or sets old value of type Boolean.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Data.Projections.HistoryBase.NewValueEnumeration">
+            <summary>
+            Gets or sets new value of type Enumeration.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Data.Projections.HistoryBase.OldValueEnumeration">
+            <summary>
+            Gets or sets old value of type Enumeration.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Data.Projections.HistoryBase.ControlType">
+            <summary>
+            Gets or sets ControlType.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Data.Projections.HistoryBase.DateTimeType">
+            <summary>
+            Gets or sets DateTimeType.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Data.Projections.HistoryBase.ShowViewing">
+            <summary>
+            Gets or sets a value indicating whether to show viewing information.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Data.Projections.HistoryBase.Tooltip">
+            <summary>
+            Gets or sets Tooltip string.
+            </summary>
+        </member>
+        <member name="T:Orion.History.HistoryComponentModule">
+            <summary>
+            Autofac module for the History component.
+            </summary>
+        </member>
+        <member name="M:Orion.History.HistoryComponentModule.Load(Autofac.ContainerBuilder)">
+            <summary>
+            Add registrations to the container.
+            </summary>
+            <param name="builder">The builder through which components can be registered.</param>
+        </member>
+        <member name="T:Orion.History.IHistoryComponent">
+            <summary>
+            Component used to work with History (Audit Trail).
+            </summary>
+        </member>
+        <member name="M:Orion.History.IHistoryComponent.GetHistoryDetails(System.Int16,System.Nullable{System.Int64},System.Int64,Orion.Multilingual.Enums.Language)">
+            <summary>
+            Retrieve history details records.
+            </summary>
+            <param name="detailsId">Details Id, defines the details block to use.</param>
+            <param name="previousChangeId">Previous change Id, optional.</param>
+            <param name="changeId">Change Id.</param>
+            <param name="language">Language to use.</param>
+            <returns>List of history detail records.</returns>
+        </member>
+        <member name="T:Orion.History.Models.HistoryDetailsModel">
+            <summary>
+            Model representing History Details.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Models.HistoryDetailsModel.FieldName">
+            <summary>
+            Gets or sets Field Name.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Models.HistoryDetailsModel.HistoryValueType">
+            <summary>
+            Gets or sets history value type.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Models.HistoryDetailsModel.PreviousValueNumeric">
+            <summary>
+            Gets or sets previous value of type Decimal.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Models.HistoryDetailsModel.PreviousValueDateTime">
+            <summary>
+            Gets or sets previous value of type DateTime.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Models.HistoryDetailsModel.PreviousValue">
+            <summary>
+            Gets or sets previous value of type String.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Models.HistoryDetailsModel.CurrentValueNumeric">
+            <summary>
+            Gets or sets current value of type Decimal.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Models.HistoryDetailsModel.CurrentValueDateTime">
+            <summary>
+            Gets or sets current value of type DateTime.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Models.HistoryDetailsModel.CurrentValue">
+            <summary>
+            Gets or sets current value of type String.
+            </summary>
+        </member>
+        <member name="T:Orion.History.Models.HistoryDetailsResultModel">
+            <summary>
+            Model representing result of request for history details.
+            </summary>
+        </member>
+        <member name="M:Orion.History.Models.HistoryDetailsResultModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.History.Models.HistoryDetailsResultModel"/> class.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Models.HistoryDetailsResultModel.Value">
+            <summary>
+            Gets or sets the collection of items representing history details records.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Models.HistoryDetailsResultModel.TotalCount">
+            <summary>
+            Gets or sets the total count of items in the result.
+            </summary>
+        </member>
+        <member name="T:Orion.History.Models.HistoryModel">
+            <summary>
+            Model representing History records.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Models.HistoryModel.KeyId">
+            <summary>
+            Gets or sets the identifier of the object (like Audit/Claim/Task/etc).
+            </summary>
+        </member>
+        <member name="P:Orion.History.Models.HistoryModel.ChangeId">
+            <summary>
+            Gets or sets Change Id value.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Models.HistoryModel.PreviousChangeId">
+            <summary>
+            Gets or sets Previous Change Id value.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Models.HistoryModel.DetailsId">
+            <summary>
+            Gets or sets Details Id value.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Models.HistoryModel.SourceId">
+            <summary>
+            Gets or sets Source Id value.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Models.HistoryModel.Date">
+            <summary>
+            Gets or sets Action Date value.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Models.HistoryModel.Action">
+            <summary>
+            Gets or sets Action.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Models.HistoryModel.Field">
+            <summary>
+            Gets or sets Field name.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Models.HistoryModel.HistoryValueType">
+            <summary>
+            Gets or sets history value type.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Models.HistoryModel.PreviousValueNumeric">
+            <summary>
+            Gets or sets previous value of type Decimal.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Models.HistoryModel.PreviousValueDateTime">
+            <summary>
+            Gets or sets previous value of type DateTime.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Models.HistoryModel.PreviousValue">
+            <summary>
+            Gets or sets previous value of type String.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Models.HistoryModel.CurrentValueNumeric">
+            <summary>
+            Gets or sets current value of type Decimal.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Models.HistoryModel.CurrentValueDateTime">
+            <summary>
+            Gets or sets current value of type DateTime.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Models.HistoryModel.CurrentValue">
+            <summary>
+            Gets or sets current value of type String.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Models.HistoryModel.By">
+            <summary>
+            Gets or sets Modified By string.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Models.HistoryModel.Username">
+            <summary>
+            Gets or sets User Name string.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Models.HistoryModel.Tooltip">
+            <summary>
+            Gets or sets Tooltip string.
+            </summary>
+        </member>
+        <member name="T:Orion.History.Models.HistoryOperationTypeModel">
+            <summary>
+            Model representing an Operation Type.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Models.HistoryOperationTypeModel.HistoryOperationTypeId">
+            <summary>
+            Gets or sets Operation Type identifier.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Models.HistoryOperationTypeModel.Name">
+            <summary>
+            Gets or sets Operation Type name.
+            </summary>
+        </member>
+        <member name="T:Orion.History.Models.HistoryQueryParamsModel">
+            <summary>
+            Model describing parameters for a history query.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Models.HistoryQueryParamsModel.Take">
+            <summary>
+            Gets or sets maximum number of records to retrieve.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Models.HistoryQueryParamsModel.Skip">
+            <summary>
+            Gets or sets number of records to skip.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Models.HistoryQueryParamsModel.SortColumns">
+            <summary>
+            Gets or sets sorting columns.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Models.HistoryQueryParamsModel.Filter">
+            <summary>
+            Gets or sets query filter.
+            </summary>
+        </member>
+        <member name="T:Orion.History.Models.HistoryResultModel">
+            <summary>
+            Model representing result of request for an object history.
+            </summary>
+        </member>
+        <member name="M:Orion.History.Models.HistoryResultModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.History.Models.HistoryResultModel"/> class.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Models.HistoryResultModel.Value">
+            <summary>
+            Gets or sets the collection of items representing history records.
+            </summary>
+        </member>
+        <member name="P:Orion.History.Models.HistoryResultModel.TotalCount">
+            <summary>
+            Gets or sets the total count of items in the result.
+            </summary>
+        </member>
+    </members>
+</doc>

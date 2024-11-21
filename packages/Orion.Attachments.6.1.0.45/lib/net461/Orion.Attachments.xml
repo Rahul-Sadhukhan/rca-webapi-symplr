@@ -1,0 +1,222 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Orion.Attachments</name>
+    </assembly>
+    <members>
+        <member name="T:Orion.Attachments.AttachmentComponentModule">
+            <summary>
+            Attachment Component Module.
+            </summary>
+        </member>
+        <member name="M:Orion.Attachments.AttachmentComponentModule.Load(Autofac.ContainerBuilder)">
+            <summary>
+            Add registrations to the container.
+            </summary>
+            <param name="builder">The builder through which components can be registered.</param>
+            <remarks>
+            Note that the ContainerBuilder parameter is unique to this module.
+            </remarks>
+        </member>
+        <member name="T:Orion.Attachments.AttachmentsComponentAutoMapperProfile">
+            <summary>
+            Attachment component auto mapper profile.
+            </summary>
+        </member>
+        <member name="M:Orion.Attachments.AttachmentsComponentAutoMapperProfile.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Attachments.AttachmentsComponentAutoMapperProfile"/> class.
+            Register all mapping.
+            </summary>
+        </member>
+        <member name="T:Orion.Attachments.Data.Entities.FilesExt">
+            <summary>
+            FilesExt presents information about links from attachments to files.
+            </summary>
+            <remarks>If IsUsage flag is set in true it means that attachments have link to that file.</remarks>
+        </member>
+        <member name="M:Orion.Attachments.Data.Repositories.AttachmentRepository.CheckFileUsage(System.Int32)">
+            <summary>
+            Check that file is linked to any attachment.
+            </summary>
+            <param name="fileId">The file identifier.</param>
+            <returns>Result of check: true - file in use(can't be removed) , false - file isn't in use (can be removed).</returns>
+        </member>
+        <member name="M:Orion.Attachments.Data.Repositories.IAttachmentRepository.CheckFileUsage(System.Int32)">
+            <summary>
+            Check that file is linked to any attachment.
+            </summary>
+            <param name="fileId">The file identifier.</param>
+            <returns>Result of check: true - file in use(can't be removed) , false - file isn't in use (can be removed).</returns>
+        </member>
+        <member name="T:Orion.Attachments.IAttachmentComponent">
+            <summary>
+            Attachment component.
+            </summary>
+        </member>
+        <member name="M:Orion.Attachments.IAttachmentComponent.AddAttachment(System.Guid,System.String,System.String,System.Net.Http.StreamContent)">
+            <summary>
+            Adds attachment to the Entity.
+            </summary>
+            <param name="entityId">Entity identifier (UID).</param>
+            <param name="name">Name of the attachment.</param>
+            <param name="description">Description of the attachment.</param>
+            <param name="attachment">StreamContent with attachment binary data.</param>
+            <returns>Attachment model.</returns>
+        </member>
+        <member name="M:Orion.Attachments.IAttachmentComponent.AddImageAttachment(System.Guid,System.String,System.String,System.Net.Http.StreamContent,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Adds attachment to the Entity.
+            </summary>
+            <param name="entityId">Entity identifier (UID).</param>
+            <param name="name">Name of the image attachment.</param>
+            <param name="description">Description of the image attachment.</param>
+            <param name="attachment">StreamContent with attachment binary data.</param>
+            <param name="allowedExtensions"> allowedExtensions.</param>
+            <returns>Attachment model.</returns>
+        </member>
+        <member name="M:Orion.Attachments.IAttachmentComponent.DeleteAttachment(System.Int32)">
+            <summary>
+            Deletes the attachment.
+            </summary>
+            <param name="attachmentId">Attachment identifier.</param>
+        </member>
+        <member name="M:Orion.Attachments.IAttachmentComponent.DeleteAttachments(System.Guid)">
+            <summary>
+            Deletes all attachments of the Entity.
+            </summary>
+            <param name="entityId">Entity identifier (UID).</param>
+        </member>
+        <member name="M:Orion.Attachments.IAttachmentComponent.DownloadAttachment(System.Int32)">
+            <summary>
+            Downloads the attachment.
+            </summary>
+            <param name="attachmentId">Attachment identifier.</param>
+            <returns>Attachment model.</returns>
+        </member>
+        <member name="M:Orion.Attachments.IAttachmentComponent.GetAttachmentMetadata(System.Int32)">
+            <summary>
+            Gets attachment metadata.
+            </summary>
+            <param name="attachmentId">Attachment identifier.</param>
+            <returns>Model with attachment metadata.</returns>
+        </member>
+        <member name="M:Orion.Attachments.IAttachmentComponent.GetAttachmentMetadataQueryable(System.Guid)">
+            <summary>
+            Gets list of attachments metadata of entity.
+            </summary>
+            <param name="entityId">Entity identifier (UID) for the attachment.</param>
+            <returns>Query with attachments metadata.</returns>
+        </member>
+        <member name="M:Orion.Attachments.IAttachmentComponent.UpdateAttachmentMetadata(System.Int32,Orion.Attachments.Models.AttachmentMetadataModel)">
+            <summary>
+            Updates attachment metadata.
+            </summary>
+            <param name="attachmentId">Attachment identifier.</param>
+            <param name="attachmentMetadata">Attachment metadata model.</param>
+            <returns>Updated attachment metadata model.</returns>
+        </member>
+        <member name="M:Orion.Attachments.IAttachmentComponent.DoesAttachmentBelongToEntity(System.Int32,System.Guid)">
+            <summary>
+            Checks if the attachment belongs to the entity.
+            </summary>
+            <param name="attachmentId">The attachment identifier.</param>
+            <param name="entityId">The entity identifier.</param>
+            <returns>Result of check.</returns>
+        </member>
+        <member name="M:Orion.Attachments.IAttachmentComponent.GetAttachmentFileId(System.Int32)">
+            <summary>
+            Gets the attachment file identifier.
+            </summary>
+            <param name="attachmentId">The attachment identifier.</param>
+            <returns>The attachment file identifier.</returns>
+        </member>
+        <member name="M:Orion.Attachments.IAttachmentComponent.GetAttachmentMetadataByFileId(System.Int32)">
+            <summary>
+            Gets attachment metadata model by the file identifier.
+            </summary>
+            <param name="fileId">File identifier.</param>
+            <returns>Attachment metadata model, or null value if not found.</returns>
+        </member>
+        <member name="T:Orion.Attachments.Models.AttachmentMetadataModel">
+            <summary>
+            Model with attachment metadata.
+            </summary>
+        </member>
+        <member name="P:Orion.Attachments.Models.AttachmentMetadataModel.AttachmentId">
+            <summary>
+            Gets or sets attachment identifier.
+            </summary>
+        </member>
+        <member name="P:Orion.Attachments.Models.AttachmentMetadataModel.Name">
+            <summary>
+            Gets or sets attachment name.
+            </summary>
+        </member>
+        <member name="P:Orion.Attachments.Models.AttachmentMetadataModel.Description">
+            <summary>
+            Gets or sets attachment description.
+            </summary>
+        </member>
+        <member name="P:Orion.Attachments.Models.AttachmentMetadataModel.FileSize">
+            <summary>
+            Gets or sets attachment file size.
+            </summary>
+        </member>
+        <member name="P:Orion.Attachments.Models.AttachmentMetadataModel.AttachedOn">
+            <summary>
+            Gets or sets attachment date/time (UTC).
+            </summary>
+        </member>
+        <member name="P:Orion.Attachments.Models.AttachmentMetadataModel.AttachedBy">
+            <summary>
+            Gets or sets author of the attachment (user's first/last name).
+            </summary>
+        </member>
+        <member name="P:Orion.Attachments.Models.AttachmentMetadataModel.EntityId">
+            <summary>
+            Gets or sets attachment Entity identifier (UID).
+            </summary>
+        </member>
+        <member name="T:Orion.Attachments.Models.AttachmentModel">
+            <summary>
+            Attachment model.
+            </summary>
+        </member>
+        <member name="P:Orion.Attachments.Models.AttachmentModel.AttachmentId">
+            <summary>
+            Gets or sets attachment identifier.
+            </summary>
+        </member>
+        <member name="P:Orion.Attachments.Models.AttachmentModel.Name">
+            <summary>
+            Gets or sets attachment name.
+            </summary>
+        </member>
+        <member name="P:Orion.Attachments.Models.AttachmentModel.Description">
+            <summary>
+            Gets or sets attachment description.
+            </summary>
+        </member>
+        <member name="P:Orion.Attachments.Models.AttachmentModel.BinaryData">
+            <summary>
+            Gets or sets binary data of attachment file.
+            </summary>
+        </member>
+        <member name="P:Orion.Attachments.Models.AttachmentModel.BinaryDataLength">
+            <summary>
+            Gets or sets binary data length of attachment file.
+            </summary>
+        </member>
+        <member name="P:Orion.Attachments.Models.AttachmentModel.UploadTime">
+            <summary>
+            Gets or sets attachment upload time (UTC).
+            </summary>
+        </member>
+        <member name="P:Orion.Attachments.Models.AttachmentModel.EntityId">
+            <summary>
+            Gets or sets attachment Entity identifier (UID).
+            </summary>
+        </member>
+    </members>
+</doc>

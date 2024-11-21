@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4E597768-1960-4F6B-8992-0F8E67089DDB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Rca</RootNamespace>
+    <AssemblyName>Rca</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS;CODE_ANALYSIS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <DocumentationFile>bin\Debug\Rca.xml</DocumentationFile>
+    <CodeAnalysisRuleSet>..\..\Orion.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=5.2.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Autofac.5.2.0\lib\net461\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.WebApi, Version=5.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Autofac.WebApi2.5.0.0\lib\net461\Autofac.Integration.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper, Version=5.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\AutoMapper.5.1.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FluentValidation.7.2.1\lib\net45\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NLog.4.7.3\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="Orion.Api, Version=6.0.0.30, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Orion.Api.6.0.0.30\lib\net461\Orion.Api.dll</HintPath>
+    </Reference>
+    <Reference Include="Orion.Clients, Version=6.0.0.30, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Orion.Clients.6.0.0.30\lib\net461\Orion.Clients.dll</HintPath>
+    </Reference>
+    <Reference Include="Orion.Cognos, Version=6.0.0.30, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Orion.Cognos.6.0.0.30\lib\net461\Orion.Cognos.dll</HintPath>
+    </Reference>
+    <Reference Include="Orion.Common, Version=6.0.0.30, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Orion.Common.6.0.0.30\lib\net461\Orion.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Orion.Configuration, Version=6.0.0.30, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Orion.Configuration.6.0.0.30\lib\net461\Orion.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Orion.Encryption, Version=6.0.0.30, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Orion.Encryption.6.0.0.30\lib\net461\Orion.Encryption.dll</HintPath>
+    </Reference>
+    <Reference Include="Orion.FileExport, Version=6.0.0.30, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Orion.FileExport.6.0.0.30\lib\net461\Orion.FileExport.dll</HintPath>
+    </Reference>
+    <Reference Include="Orion.Logging, Version=6.0.0.30, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Orion.Logging.6.0.0.30\lib\net461\Orion.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Orion.Multilingual, Version=6.0.0.30, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Orion.Multilingual.6.0.0.30\lib\net461\Orion.Multilingual.dll</HintPath>
+    </Reference>
+    <Reference Include="Orion.Permissions, Version=6.0.0.30, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Orion.Permissions.6.0.0.30\lib\net461\Orion.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="Orion.Users, Version=6.0.0.30, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Orion.Users.6.0.0.30\lib\net461\Orion.Users.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.ComponentModel.Annotations.4.4.1\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.ComponentModel.Primitives, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.ComponentModel.Primitives.4.3.0\lib\net45\System.ComponentModel.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\SolutionInfo.cs">
+      <Link>Properties\SolutionInfo.cs</Link>
+    </Compile>
+    <Compile Include="AutoMapperConfig.cs" />
+    <Compile Include="Configuration\RcaAppSettingsConfig.cs" />
+    <Compile Include="Configuration\RcaConfigModel.cs" />
+    <Compile Include="Configuration\RcaConfigurationResolver.cs" />
+    <Compile Include="Data\Entities\Incident.cs" />
+    <Compile Include="Data\Entities\Participant.cs" />
+    <Compile Include="Constants\ClassificationConstant.cs" />
+    <Compile Include="Data\Entities\Classification.cs" />
+    <Compile Include="Data\Entities\Cause.cs" />
+    <Compile Include="Data\Entities\Item.cs" />
+    <Compile Include="Data\Entities\RCADashboardInfoView.cs" />
+    <Compile Include="Data\Entities\RootCauseAnalysis.cs" />
+    <Compile Include="Data\Entities\RootCauseParticipant.cs" />
+    <Compile Include="Data\Entities\RootCauseAnalysisDetails.cs" />
+    <Compile Include="Data\IRcaDbContext.cs" />
+    <Compile Include="Data\IRcaUnitOfWork.cs" />
+    <Compile Include="Data\Mapping\IncidentMapping.cs" />
+    <Compile Include="Data\Mapping\ParticipantMapping.cs" />
+    <Compile Include="Data\Mapping\CauseMapping.cs" />
+    <Compile Include="Data\Mapping\ClassificationMapping.cs" />
+    <Compile Include="Data\Mapping\ItemMapping.cs" />
+    <Compile Include="Data\Mapping\RCADashboardInfoViewMapping.cs" />
+    <Compile Include="Data\Mapping\RootCauseAnalysisMapping.cs" />
+    <Compile Include="Data\Mapping\RootCauseParticipantMapping.cs" />
+    <Compile Include="Data\RcaDbContext.cs" />
+    <Compile Include="Data\RcaUnitOfWork.cs" />
+    <Compile Include="Data\Repositories\IIncidentRepository.cs" />
+    <Compile Include="Data\Repositories\IncidentRepository.cs" />
+    <Compile Include="Data\Repositories\IParticipantRepository.cs" />
+    <Compile Include="Data\Repositories\ParticipantRepository.cs" />
+    <Compile Include="Data\Repositories\ClassificationRepository.cs" />
+    <Compile Include="Data\Repositories\ICauseRepository.cs" />
+    <Compile Include="Data\Repositories\IClassificationRepository.cs" />
+    <Compile Include="Data\Repositories\Queryable\IItemQueryableRepository.cs" />
+    <Compile Include="Data\Repositories\Queryable\IRcaDashboardQueryableRepository.cs" />
+    <Compile Include="Data\Repositories\Queryable\IParticipantQueryableRepository.cs" />
+    <Compile Include="Data\Repositories\Queryable\ItemQueryableRepository.cs" />
+    <Compile Include="Data\Repositories\Queryable\RcaDashboardQueryableRepository.cs" />
+    <Compile Include="Data\Repositories\Queryable\ParticipantQueryableRepository.cs" />
+    <Compile Include="Data\Repositories\CauseRepository.cs" />
+    <Compile Include="Data\Repositories\RootCauseAnalysisRepository.cs" />
+    <Compile Include="Data\Repositories\IRootCauseAnalysisRepository.cs" />
+    <Compile Include="Data\Repositories\IRootCauseParticipantRepository.cs" />
+    <Compile Include="Data\Repositories\RootCauseParticipantRepository.cs" />
+    <Compile Include="Enums\FieldLabel.cs" />
+    <Compile Include="Extension\BaseUnitOfWorkExtension.cs" />
+    <Compile Include="Models\CreateParticipantModel.cs" />
+    <Compile Include="Models\CreateRCAModel.cs" />
+    <Compile Include="Models\CreateRCAResponse.cs" />
+    <Compile Include="Models\ParticipantModel.cs" />
+    <Compile Include="Enums\ClassificationType.cs" />
+    <Compile Include="Enums\RootCauseAnalysisStatus.cs" />
+    <Compile Include="Enums\ValidationMessage.cs" />
+    <Compile Include="Models\OData\ItemODataModel.cs" />
+    <Compile Include="Models\OData\RcaDashboardODataModel.cs" />
+    <Compile Include="Models\CauseSelectListModel.cs" />
+    <Compile Include="Models\OData\ParticipantODataModel.cs" />
+    <Compile Include="Models\LinkedItemModel.cs" />
+    <Compile Include="Models\CauseModel.cs" />
+    <Compile Include="Models\ClassificationModel.cs" />
+    <Compile Include="Models\RootCauseAnalysisDetailModel.cs" />
+    <Compile Include="Models\RootCauseAnalysisModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RcaAutoMapperProfile.cs" />
+    <Compile Include="RcaModule.cs" />
+    <Compile Include="Resolvers\SecurityItemResolver.cs" />
+    <Compile Include="Services\ICauseService.cs" />
+    <Compile Include="Services\IRootCauseAnalysisService.cs" />
+    <Compile Include="Services\ISoftLabelResourceService.cs" />
+    <Compile Include="Services\OData\IItemODataService.cs" />
+    <Compile Include="Services\OData\IRcaDashboardODataService.cs" />
+    <Compile Include="Services\OData\IParticipantODataService.cs" />
+    <Compile Include="Services\OData\ItemODataService.cs" />
+    <Compile Include="Services\OData\RcaDashboardODataService.cs" />
+    <Compile Include="Services\OData\ParticipantODataService.cs" />
+    <Compile Include="Services\CauseService.cs" />
+    <Compile Include="Services\RootCauseAnalysisService.cs" />
+    <Compile Include="Validators\IRootCauseAnalysisModelValidator.cs" />
+    <Compile Include="Validators\ParticipantValidator.cs" />
+    <Compile Include="Validators\RootCauseAnalysisModelValidator.cs" />
+    <Compile Include="Services\SoftLabelResourceService.cs" />
+    <Compile Include="Validators\CauseModelValidator.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

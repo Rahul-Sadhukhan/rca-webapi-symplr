@@ -1,0 +1,737 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Orion.Permissions</name>
+    </assembly>
+    <members>
+        <member name="T:Orion.Permissions.Data.Entities.UserFunctionalPermission">
+            <summary>
+            UserFunctionalPermission class.
+            </summary>
+        </member>
+        <member name="P:Orion.Permissions.Data.Entities.UserFunctionalPermission.UserId">
+            <summary>
+            Gets or sets the user identifier.
+            </summary>
+        </member>
+        <member name="P:Orion.Permissions.Data.Entities.UserFunctionalPermission.FunctionalPermission">
+            <summary>
+            Gets or sets the functional permission.
+            </summary>
+        </member>
+        <member name="P:Orion.Permissions.Data.Entities.UserFunctionalPermission.Allow">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:Orion.Permissions.Data.Entities.UserFunctionalPermission"/> is allow.
+            </summary>
+            <value>
+              <c>true</c> if allow; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:Orion.Permissions.Data.Mapping.UserFunctionalPermissionsMap">
+            <summary>
+            UserFunctionalPermissionsMap class.
+            </summary>
+        </member>
+        <member name="M:Orion.Permissions.Data.Mapping.UserFunctionalPermissionsMap.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Permissions.Data.Mapping.UserFunctionalPermissionsMap"/> class.
+            </summary>
+        </member>
+        <member name="T:Orion.Permissions.Enums.PermissionType">
+            <summary>
+            Permission Type.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.PermissionType.None">
+            <summary>
+            None.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.PermissionType.Allow">
+            <summary>
+            Allow.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.PermissionType.Deny">
+            <summary>
+            Deny.
+            </summary>
+        </member>
+        <member name="T:Orion.Permissions.Enums.FunctionalPermissionType">
+            <summary>
+            Group Features Type.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.FunctionalPermissionType.None">
+            <summary>
+            None.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.FunctionalPermissionType.AuditingBodiesModify">
+            <summary>
+            AuditingBodiesModify.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.FunctionalPermissionType.AuditingBodiesRead">
+            <summary>
+            AuditingBodiesRead.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.FunctionalPermissionType.AuditConfigurationsModify">
+            <summary>
+            AuditConfigurationsModify.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.FunctionalPermissionType.AuditConfigurationsRead">
+            <summary>
+            AuditConfigurationsRead.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.FunctionalPermissionType.ManageAudits">
+            <summary>
+            ManageAudits.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.FunctionalPermissionType.AuditRequestCreate">
+            <summary>
+            AuditRequestCreate.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.FunctionalPermissionType.DivisionSettingRead">
+            <summary>
+            DivisionSettingRead.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.FunctionalPermissionType.EmailTemplateRead">
+            <summary>
+            EmailTemplateRead.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.FunctionalPermissionType.ChangeItemOwnershipAndAssignmentModify">
+            <summary>
+            ChangeItemOwnershipAndAssignmentModify.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.FunctionalPermissionType.CreateItemOfAllTemplates">
+            <summary>
+            CreateItemOfAllTemplates.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.FunctionalPermissionType.DeletedItemsRead">
+            <summary>
+            DeletedItemsRead.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.FunctionalPermissionType.ItemTemplateRead">
+            <summary>
+            ItemTemplateRead.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.FunctionalPermissionType.LegalRegister">
+            <summary>
+            LegalRegister.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.FunctionalPermissionType.ListManagementRead">
+            <summary>
+            ListManagementRead.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.FunctionalPermissionType.ManageQuestionsModify">
+            <summary>
+            ManageQuestionsModify.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.FunctionalPermissionType.ManageQuestionsRead">
+            <summary>
+            ManageQuestionsRead.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.FunctionalPermissionType.ManageRiskAssessments">
+            <summary>
+            ManageRiskAssessments.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.FunctionalPermissionType.ReminderTemplateRead">
+            <summary>
+            ReminderTemplateRead.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.FunctionalPermissionType.ReportCenterRead">
+            <summary>
+            ReportCenterRead.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.FunctionalPermissionType.SecurityGroupRead">
+            <summary>
+            SecurityGroupRead.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.FunctionalPermissionType.SystemTypeRead">
+            <summary>
+            SystemTypeRead.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.FunctionalPermissionType.OrgProfileRead">
+            <summary>
+            OrgProfileRead.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.FunctionalPermissionType.UsersRead">
+            <summary>
+            UsersRead.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.FunctionalPermissionType.UsersLoginInformationRead">
+            <summary>
+            UsersLoginInformationRead.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.FunctionalPermissionType.ManageDocuments">
+            <summary>
+            Controls user read access to documents.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.FunctionalPermissionType.ManageDocumentsCreate">
+            <summary>
+            Controls user create access to documents.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.FunctionalPermissionType.DocumentConfigurationRead">
+            <summary>
+            Controls user read access to document configuration administration.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.FunctionalPermissionType.DocumentConfigurationModify">
+            <summary>
+            Controls user modify access to document configuration administration.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.FunctionalPermissionType.ExportPerson">
+            <summary>
+            Controls export users feature on users managements.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.FunctionalPermissionType.ManageContracts">
+            <summary>
+            Controls user read access to contracts.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.FunctionalPermissionType.ManageContractsCreate">
+            <summary>
+            Controls user create access to contracts.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.FunctionalPermissionType.ManageContractors">
+            <summary>
+            Controls user read access to contractors.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.FunctionalPermissionType.ManageContractorsCreate">
+            <summary>
+            Controls user create access to contractors.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.FunctionalPermissionType.ContractConfigurationRead">
+            <summary>
+            Controls user read access to contract configuration administration.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.FunctionalPermissionType.ContractConfigurationModify">
+            <summary>
+            Controls user modify access to contract configuration administration.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.FunctionalPermissionType.ItemIdModify">
+            <summary>
+            Controls Item Id Modify.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.FunctionalPermissionType.CopyItem">
+            <summary>
+            Controls  Copy Item.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.FunctionalPermissionType.ManageSurveys">
+            <summary>
+            ManageSurveys.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.FunctionalPermissionType.ManageSurveysCreate">
+            <summary>
+            ManageSurveysCreate.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.FunctionalPermissionType.ManageRootCauseAnalysis">
+            <summary>
+            ManageRootCauseAnalysis.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.FunctionalPermissionType.ManageRootCauseAnalysisCreate">
+            <summary>
+            ManageRootCauseAnalysisCreate.
+            </summary>
+        </member>
+        <member name="T:Orion.Permissions.Enums.IdentityType">
+            <summary>
+            Identity Type.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.IdentityType.User">
+            <summary>
+            User.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.IdentityType.Group">
+            <summary>
+            Group.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.IdentityType.OrganizationUnit">
+            <summary>
+            Organization Unit.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.IdentityType.PrimaryOrganizationUnit">
+            <summary>
+            Primary Organization Unit.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.IdentityType.Owner">
+            <summary>
+            Owner.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.IdentityType.Creator">
+            <summary>
+            Creator.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.IdentityType.AssignedTo">
+            <summary>
+            Assigned To.
+            </summary>
+        </member>
+        <member name="T:Orion.Permissions.Enums.IdentityPermission">
+            <summary>
+            Identity Permission.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.IdentityPermission.GrantAll">
+            <summary>
+            Grant All.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.IdentityPermission.None">
+            <summary>
+            None.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.IdentityPermission.Read">
+            <summary>
+            Read.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.IdentityPermission.Modify">
+            <summary>
+            Modify.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.IdentityPermission.Delete">
+            <summary>
+            Delete.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.IdentityPermission.Archive">
+            <summary>
+            Archive.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.IdentityPermission.Tagging">
+            <summary>
+            Tagging.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.IdentityPermission.CloseAnItem">
+            <summary>
+            Close An Item.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.IdentityPermission.ViewAttachments">
+            <summary>
+            View Attachments.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.IdentityPermission.ModifyAttachments">
+            <summary>
+            Modify Attachments.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.IdentityPermission.ViewModifyYourReminders">
+            <summary>
+            View Modify Your Reminders.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.IdentityPermission.ViewSecurity">
+            <summary>
+            View Security.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.IdentityPermission.ModifySecurity">
+            <summary>
+            Modify Security.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.IdentityPermission.ViewChildrenItems">
+            <summary>
+            View Children Items.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.IdentityPermission.ModifyChildrenItems">
+            <summary>
+            Modify Children Items.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.IdentityPermission.ViewLinkedItems">
+            <summary>
+            View Linked Items.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.IdentityPermission.ModifyLinkedItems">
+            <summary>
+            Modify Linked Items.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.IdentityPermission.ViewAuditHistory">
+            <summary>
+            View Audit History.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.IdentityPermission.ViewWorkflowsRules">
+            <summary>
+            View Workflows Rules.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.IdentityPermission.ModifyWorkflowsRules">
+            <summary>
+            Modify Workflows Rules.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.IdentityPermission.ViewSettings">
+            <summary>
+            View Settings.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.IdentityPermission.ModifySettings">
+            <summary>
+            Modify Settings.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.IdentityPermission.ViewRulesEngine">
+            <summary>
+            View Rules Engine.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.IdentityPermission.ModifyRulesEngine">
+            <summary>
+            Modify Rules Engine.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.IdentityPermission.DivisionSettingsModify">
+            <summary>
+            Division Settings Modify.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.IdentityPermission.DivisionSettingsRead">
+            <summary>
+            Division Settings Read.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.IdentityPermission.Admin">
+            <summary>
+            Admin.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.IdentityPermission.ProxyUser">
+            <summary>
+            Proxy User.
+            </summary>
+        </member>
+        <member name="T:Orion.Permissions.Enums.IdentityPermissionValue">
+            <summary>
+            Identity Permission Value.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.IdentityPermissionValue.None">
+            <summary>
+            None.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.IdentityPermissionValue.Allow">
+            <summary>
+            Allow.
+            </summary>
+        </member>
+        <member name="F:Orion.Permissions.Enums.IdentityPermissionValue.Deny">
+            <summary>
+            Deny.
+            </summary>
+        </member>
+        <member name="T:Orion.Permissions.Models.ModulePermissionModel">
+            <summary>
+            ModulePermissionModel class.
+            </summary>
+        </member>
+        <member name="P:Orion.Permissions.Models.ModulePermissionModel.Identities">
+            <summary>
+            Gets or sets the identities available for module.
+            </summary>
+        </member>
+        <member name="P:Orion.Permissions.Models.ModulePermissionModel.Permissions">
+            <summary>
+            Gets or sets the permissions available for module.
+            </summary>
+        </member>
+        <member name="T:Orion.Permissions.Models.SecurityGroupItemDefinitionPermissionsModel">
+            <summary>
+            Security Group Item Definition Permissions.
+            </summary>
+        </member>
+        <member name="P:Orion.Permissions.Models.SecurityGroupItemDefinitionPermissionsModel.PermissionType">
+            <summary>
+            Gets or sets Permission Type.
+            </summary>
+        </member>
+        <member name="P:Orion.Permissions.Models.SecurityGroupItemDefinitionPermissionsModel.ItemDefinitionId">
+            <summary>
+            Gets or sets Item Definition Id.
+            </summary>
+        </member>
+        <member name="T:Orion.Permissions.Models.FunctionalPermissionModel">
+            <summary>
+            Functional Permissions Model.
+            </summary>
+        </member>
+        <member name="P:Orion.Permissions.Models.FunctionalPermissionModel.Type">
+            <summary>
+            Gets or sets Type.
+            </summary>
+        </member>
+        <member name="P:Orion.Permissions.Models.FunctionalPermissionModel.Allow">
+            <summary>
+            Gets or sets a value indicating whether type is Allow.
+            </summary>
+        </member>
+        <member name="T:Orion.Permissions.Models.IdentityPermissionsModel">
+            <summary>
+            Identity Permissions Model.
+            </summary>
+        </member>
+        <member name="P:Orion.Permissions.Models.IdentityPermissionsModel.Identity">
+            <summary>
+            Gets or sets Identity.
+            </summary>
+        </member>
+        <member name="P:Orion.Permissions.Models.IdentityPermissionsModel.Permissions">
+            <summary>
+            Gets or sets Permissions.
+            </summary>
+        </member>
+        <member name="T:Orion.Permissions.Models.Identity.OrgUnitIdentityModel">
+            <summary>
+            Org Unit Identity Model.
+            </summary>
+        </member>
+        <member name="P:Orion.Permissions.Models.Identity.OrgUnitIdentityModel.Path">
+            <summary>
+            Gets or sets Path.
+            </summary>
+        </member>
+        <member name="T:Orion.Permissions.Models.Identity.IdentityModel">
+            <summary>
+            Identity Model.
+            </summary>
+        </member>
+        <member name="P:Orion.Permissions.Models.Identity.IdentityModel.IdentityId">
+            <summary>
+            Gets or sets IdentityId.
+            </summary>
+        </member>
+        <member name="P:Orion.Permissions.Models.Identity.IdentityModel.IdentityType">
+            <summary>
+            Gets or sets IdentityType.
+            </summary>
+        </member>
+        <member name="P:Orion.Permissions.Models.Identity.IdentityModel.Name">
+            <summary>
+            Gets or sets Name.
+            </summary>
+        </member>
+        <member name="P:Orion.Permissions.Models.Identity.IdentityModel.IsDefaultIdentity">
+            <summary>
+            Gets or sets a value indicating whether IsDefaultIdentity.
+            </summary>
+        </member>
+        <member name="T:Orion.Permissions.Models.ItemPermissionsModel">
+            <summary>
+            Item Permissions Model.
+            </summary>
+        </member>
+        <member name="M:Orion.Permissions.Models.ItemPermissionsModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Permissions.Models.ItemPermissionsModel"/> class.
+            </summary>
+        </member>
+        <member name="M:Orion.Permissions.Models.ItemPermissionsModel.#ctor(System.Int64,System.Collections.Generic.IEnumerable{Orion.Permissions.Models.IdentityPermissionsModel},Orion.Permissions.Models.ItemPermissionsModel)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Permissions.Models.ItemPermissionsModel"/> class.
+            </summary>
+            <param name="itemId">Item id.</param>
+            <param name="identitiesPermissions">Identities permissions.</param>
+            <param name="inheritsFrom">Inherits from.</param>
+        </member>
+        <member name="P:Orion.Permissions.Models.ItemPermissionsModel.ItemId">
+            <summary>
+            Gets or sets ItemId.
+            </summary>
+        </member>
+        <member name="P:Orion.Permissions.Models.ItemPermissionsModel.IdentitiesPermissions">
+            <summary>
+            Gets or sets IdentitiesPermissions.
+            </summary>
+        </member>
+        <member name="P:Orion.Permissions.Models.ItemPermissionsModel.InheritsFrom">
+            <summary>
+            Gets or sets InheritsFrom.
+            </summary>
+        </member>
+        <member name="T:Orion.Permissions.Models.Permission.PermissionModel">
+            <summary>
+            Permission Model.
+            </summary>
+        </member>
+        <member name="P:Orion.Permissions.Models.Permission.PermissionModel.Name">
+            <summary>
+            Gets or sets Name.
+            </summary>
+        </member>
+        <member name="P:Orion.Permissions.Models.Permission.PermissionModel.Value">
+            <summary>
+            Gets or sets Value.
+            </summary>
+        </member>
+        <member name="T:Orion.Permissions.IPermissionsComponent">
+            <summary>
+            IPermissionsComponent.
+            </summary>
+        </member>
+        <member name="M:Orion.Permissions.IPermissionsComponent.GetItemPermissions(System.Int64)">
+            <summary>
+            Gets Item Permissions.
+            </summary>
+            <param name="itemId">Item Id.</param>
+            <returns>ItemPermissionsModel.</returns>
+        </member>
+        <member name="M:Orion.Permissions.IPermissionsComponent.UpdateItemPermissions(System.Int64,Orion.Permissions.Models.ItemPermissionsModel)">
+            <summary>
+            Updates Item Permissions.
+            </summary>
+            <param name="itemId">Item Id.</param>
+            <param name="model">ItemPermissionsModel model.</param>
+            <returns>Updated ItemPermissionsModel model.</returns>
+        </member>
+        <member name="M:Orion.Permissions.IPermissionsComponent.UpdateItemPermissionsInheritance(System.Int64,System.Boolean)">
+            <summary>
+            Updates Item Permissions Inheritance.
+            </summary>
+            <param name="itemId">Item Id.</param>
+            <param name="shouldPermissionsBeInherited">Should Permissions Be Inherited.</param>
+            <returns>ItemPermissionsModel.</returns>
+        </member>
+        <member name="M:Orion.Permissions.IPermissionsComponent.GetItemPermissionsForUser(System.Int64,System.Int64)">
+            <summary>
+            Gets Item Permissions For User.
+            </summary>
+            <param name="itemId">Item Id.</param>
+            <param name="userId">User Id.</param>
+            <returns>ItemPermissionsModel.</returns>
+        </member>
+        <member name="M:Orion.Permissions.IPermissionsComponent.GetFullGroupFunctionalPermissions(System.Int64)">
+            <summary>
+            Gets Full Group Features Permissions List By User Id.
+            </summary>
+            <param name="userId">User Id.</param>
+            <returns>GroupFeaturesPermissionsModel.</returns>
+        </member>
+        <member name="M:Orion.Permissions.IPermissionsComponent.GetSecurityGroupItemDefinitionPermissionsByUserId(System.Int64)">
+            <summary>
+            Gets Security Group Item Definition Permissions By UserId.
+            </summary>
+            <param name="userId">User Id.</param>
+            <returns>Collection of SecurityGroupItemDefinitionPermissionsModel.</returns>
+        </member>
+        <member name="M:Orion.Permissions.IPermissionsComponent.GetSecurityGroupItemDefinitionPermissionByUserIdAndTemplateId(System.Int64,System.Int64)">
+            <summary>
+            Gets Security Group based permission for the given user and template.
+            </summary>
+            <param name="userId">User identifier.</param>
+            <param name="templateId">Item Definition identifier.</param>
+            <returns>The permission enum value.</returns>
+        </member>
+        <member name="M:Orion.Permissions.IPermissionsComponent.GetGroupFunctionalPermissions(System.Int64)">
+            <summary>
+            Gets Group Features Permissions By User Id.
+            </summary>
+            <param name="userId">User Id.</param>
+            <returns>GroupFeaturesPermissionsModel.</returns>
+        </member>
+        <member name="M:Orion.Permissions.IPermissionsComponent.GetItemPermissionsForUser(System.Int64,System.Int64,System.Collections.Generic.IEnumerable{Orion.Permissions.Enums.IdentityPermission})">
+            <summary>
+            Gets the item permissions for user.
+            </summary>
+            <param name="itemId">The item identifier.</param>
+            <param name="userId">The user identifier.</param>
+            <param name="permissionFilter">The permission filter.</param>
+            <returns>ItemPermissionsModel.</returns>
+        </member>
+        <member name="M:Orion.Permissions.IPermissionsComponent.FilterItemIdsByReadPermissionsForUser(System.Collections.Generic.IEnumerable{System.Int64},System.Int64)">
+            <summary>
+            Check items read permissions for the user.
+            </summary>
+            <param name="itemIds">Item identifiers.</param>
+            <param name="userId">User identifier.</param>
+            <returns>Array of item identifiers passed the check.</returns>
+        </member>
+        <member name="M:Orion.Permissions.IPermissionsComponent.GetAllowedItemIdsForUser(System.Int64)">
+            <summary>
+            Gets all item ids to which user has Read permission setup to Allowed.
+            </summary>
+            <param name="userId">User identifier.</param>
+            <returns>List of item ids allowed to user by read permission.</returns>
+        </member>
+        <member name="T:Orion.Permissions.PermissionsComponentModule">
+            <summary>
+            Permissions Component Module.
+            </summary>
+        </member>
+        <member name="M:Orion.Permissions.PermissionsComponentModule.Load(Autofac.ContainerBuilder)">
+            <summary>
+            Add registrations to the container.
+            </summary>
+            <param name="builder">The builder through which components can be registered.</param>
+            <remarks>
+            Note that the ContainerBuilder parameter is unique to this module.
+            </remarks>
+        </member>
+        <member name="T:Orion.Permissions.PermissionsComponentAutoMapperProfile">
+            <summary>
+            Permissions Component Auto Mapper Profile.
+            </summary>
+        </member>
+        <member name="M:Orion.Permissions.PermissionsComponentAutoMapperProfile.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Permissions.PermissionsComponentAutoMapperProfile"/> class.
+            </summary>
+        </member>
+    </members>
+</doc>

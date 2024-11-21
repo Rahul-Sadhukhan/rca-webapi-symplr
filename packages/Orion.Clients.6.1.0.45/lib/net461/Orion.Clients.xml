@@ -1,0 +1,1162 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Orion.Clients</name>
+    </assembly>
+    <members>
+        <member name="T:Orion.Clients.ClientComponentAutoMapperProfile">
+            <summary>
+            Client Component Auto Mapper Profile.
+            </summary>
+        </member>
+        <member name="M:Orion.Clients.ClientComponentAutoMapperProfile.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Clients.ClientComponentAutoMapperProfile"/> class.
+            </summary>
+        </member>
+        <member name="T:Orion.Clients.ClientComponentModule">
+            <summary>
+            Client Component Module.
+            </summary>
+        </member>
+        <member name="M:Orion.Clients.ClientComponentModule.Load(Autofac.ContainerBuilder)">
+            <summary>
+            Add registrations to the container.
+            </summary>
+            <param name="builder">The builder through which components can be registered.</param>
+            <remarks>
+            Note that the ContainerBuilder parameter is unique to this module.
+            </remarks>
+        </member>
+        <member name="T:Orion.Clients.Enums.Feature">
+            <summary>
+            Application features.
+            </summary>
+            <remarks>
+            See dbo.Feature table in ComplyTrackMaster database.
+            </remarks>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.UnknownFeature">
+            <summary>
+            Unknown Feature.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.ItemTemplateQuestionnaireForm">
+            <summary>
+            Item Template Questionnaire Form.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.ItemTemplateQuestionnaireSurvey">
+            <summary>
+            Item Template Questionnaire Survey.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.LegalRegister">
+            <summary>
+            Legal Register.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.Libraries">
+            <summary>
+            Libraries.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.ItemTemplatePeopleControlForm">
+            <summary>
+            Item Template People Control Form.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.FormTemplatePeopleControlForm">
+            <summary>
+            Form Template People Control Form.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.FormTemplate">
+            <summary>
+            Form Template.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.ImportQuestion">
+            <summary>
+            Import Question.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.Portal">
+            <summary>
+            Portal.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.SentralLogin">
+            <summary>
+            Sentral Login.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.Survey">
+            <summary>
+            Survey.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.Form">
+            <summary>
+            Form.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.CorrectiveAction">
+            <summary>
+            Corrective Action.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.Hotline">
+            <summary>
+            Hotline.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.InboxWidget">
+            <summary>
+            Inbox Widget.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.OwnedItemWidget">
+            <summary>
+            Owned Item Widget.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.WatchedItemWidget">
+            <summary>
+            Watched Item Widget.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.LegalRegisterRecentUpdatesWidget">
+            <summary>
+            Legal Register Recent Updates Widget.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.LegalRegisterComplianceWidget">
+            <summary>
+            Legal Register Compliance Widget.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.HistoryTab">
+            <summary>
+            History Tab.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.FavoritesTab">
+            <summary>
+            Favorites Tab.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.SearchBar">
+            <summary>
+            Search Bar.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.Notifications">
+            <summary>
+            Notifications.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.LegalRegisterSearchBar">
+            <summary>
+            Legal Register Search Bar.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.ItemTemplate">
+            <summary>
+            Item Template.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.Item">
+            <summary>
+            Item.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.UserWatchedItem">
+            <summary>
+            User Watched Item.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.UserSavedSearch">
+            <summary>
+            User Saved Search.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.UserItemReminder">
+            <summary>
+            User Item Reminder.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.UserPreferenceItemWatchSetting">
+            <summary>
+            User Preference Item Watch Setting.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.UserPreferenceEmailNotification">
+            <summary>
+            User Preference Email Notification.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.UserPreferenceSentralLogin">
+            <summary>
+            User Preference Sentral Login.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.SecurityGroupItemTemplate">
+            <summary>
+            Security Group Item Template.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.SecurityGroupReminderTemplate">
+            <summary>
+            Security Group Reminder Template.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.SecurityGroupCreateAllItem">
+            <summary>
+            Security Group Create All Item.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.SecurityGroupLegalRegister">
+            <summary>
+            Security Group Legal Register.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.DivisionSettingUniqueId">
+            <summary>
+            Division Setting Unique Id.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.DivisionSettingIntegration">
+            <summary>
+            Division Setting Integration
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.DivisionSettingLegalRegister">
+            <summary>
+            Division Setting Legal Register.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.DivisionSettingIntegrationTab">
+            <summary>
+            Division Setting Integration Tab.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.DivisionSettingLegalRegisterTab">
+            <summary>
+            Division Setting Legal Register Tab.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.ListManagementDefaultList">
+            <summary>
+            List Management Default List.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.ListManagementPriorityList">
+            <summary>
+            List Management Priority List.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.ReminderTemplate">
+            <summary>
+            Reminder Template.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.RiskReporter">
+            <summary>
+            Risk Reporter.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.WorkflowEngine">
+            <summary>
+            Workflow Engine.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.NationalProviderIdentifier">
+            <summary>
+            National Provider Identifier.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.AuditRequestTemplate">
+            <summary>
+            Audit Request Template.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.ClaimTemplate">
+            <summary>
+            Claim Template.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.AuditingBody">
+            <summary>
+            Auditing Body.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.AuditingConfig">
+            <summary>
+            Auditing Config.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.Dashboard">
+            <summary>
+            Dashboard.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.ReportCenter">
+            <summary>
+            Report Center.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.Template">
+            <summary>
+            Template.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.AppealTemplate">
+            <summary>
+            Appeal Template.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.TaskTemplate">
+            <summary>
+            Task Template.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.EmailTemplate">
+            <summary>
+            Email Template.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.RamDashboard">
+            <summary>
+            Ram Dashboard.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.ClaimsHub">
+            <summary>
+            Claims Hub.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.UnifiedDashboard">
+            <summary>
+            Unified Dashboard.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.SearchEnhancement">
+            <summary>
+            Search Enhancement.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.ActivityDate">
+            <summary>
+            Activity Date.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.DocumentDashboard">
+            <summary>
+            Controls the Documents link in NAV panel to get access to the application
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.DivisionSettings">
+            <summary>
+            Division Settings.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.DivisionSettingsIntegration">
+            <summary>
+            Division Settings Integration.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.EmailTemplateCreateDelete">
+            <summary>
+            Email Template Create Delete.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.EmailTemplateReadModify">
+            <summary>
+            Email Template Read Modify.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.ItemTemplateDelete">
+            <summary>
+            Item Template Delete.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.ItemTemplateDesignerTab">
+            <summary>
+            Item Template Designer Tab.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.ItemTemplateGeneral">
+            <summary>
+            Item Template General.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.ItemTemplateOtherTabs">
+            <summary>
+            Item Template Other Tabs.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.ListManagementCreateDelete">
+            <summary>
+            List Management Create Delete
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.ListManagementReadModify">
+            <summary>
+            List Management Read Modify
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.UsersSecurityGroupsOrgunits">
+            <summary>
+            Users Security Groups Orgunits.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.ElectronicSubmissionOfMedicalDocumentation">
+            <summary>
+            Electronic Submission of Medical Documentation.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.DocumentConfiguration">
+            <summary>
+            Controls document configuration screens, menu and respective functional permissions
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.GenericTemplate">
+            <summary>
+            Controls Generic templates work independently from specific modules.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.DocumentPublishingPortal">
+            <summary>
+            Controls whether DPM Publish actions use Document Publishing Portal
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.Contract">
+            <summary>
+            Contract feature for CVM module
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.Contractor">
+            <summary>
+            Contractor feature for CVM module
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.ESign">
+            <summary>
+            ESign feature for CVM module
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.AdvanceFilter">
+            <summary>
+            Advance Filter feature for Advance Search Module
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.Safety">
+            <summary>
+            Safety feature for Safety Module
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.Compliance">
+            <summary>
+            Compliance feature for Issue And Action Management Module
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.RamReminders">
+            <summary>
+            RamReminders feature for Risk Assessment Management Module
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.SurveyDashboard">
+            <summary>
+            Controls the Surveys link in NAV panel to get access to the application
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Feature.RootCauseAnalysisDashboard">
+            <summary>
+            Controls the RootCauseAnalysis link in NAV panel to get access to the application
+            </summary>
+        </member>
+        <member name="T:Orion.Clients.Enums.LayerType">
+            <summary>
+            Layer Type.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.LayerType.None">
+            <summary>
+            None.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.LayerType.BI">
+            <summary>
+            BI.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.LayerType.Domain">
+            <summary>
+            Domain.
+            </summary>
+        </member>
+        <member name="T:Orion.Clients.Enums.Module">
+            <summary>
+            Describes different modules.
+            </summary>
+            <remarks>
+            See dbo.Module table in the ComplyTrackMaster database.
+            </remarks>
+        </member>
+        <member name="F:Orion.Clients.Enums.Module.UnknownModule">
+            <summary>
+            Unknown module.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Module.ActionManager">
+            <summary>
+            Action Manager.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Module.IncidentManagement">
+            <summary>
+            Incident Management.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Module.Hotline">
+            <summary>
+            Hotline.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Module.LegalRegister">
+            <summary>
+            Legal Register.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Module.AuditManager">
+            <summary>
+            Audit Manager.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Module.RiskReporter">
+            <summary>
+            Risk Reporter.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Module.WorkflowEngine">
+            <summary>
+            Workflow Engine.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Module.AuditManagement">
+            <summary>
+            Audit Management.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Module.RiskAssessmentManagement">
+            <summary>
+            Risk Assessment Management.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Module.ClaimsHub">
+            <summary>
+            Claims Hub.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Module.IssueAndActionManagement">
+            <summary>
+            Issue And Action Management.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Module.DocumentPolicyManagement">
+            <summary>
+            Document Policy Management.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Module.ElectronicSubmissionOfMedicalDocumentation">
+            <summary>
+            Electronic Submission Of Medical Documentation.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Module.DocumentPublishingPortal">
+            <summary>
+            Electronic Submission Of Medical Documentation.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Module.ContractVendorManagement">
+            <summary>
+            Contract Vendor Management.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Module.FourLevelControl">
+            <summary>
+            Four Level Control.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Module.Safety">
+            <summary>
+            Safety.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Module.SurveyManagement">
+            <summary>
+            Survey Management.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.Module.RootCauseAnalysis">
+            <summary>
+            Root Cause Analysis.
+            </summary>
+        </member>
+        <member name="T:Orion.Clients.Enums.TimeDisplayFormatTypes">
+            <summary>
+            Describes different TimeDisplayFormatTypes.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.TimeDisplayFormatTypes.TwelveHourTime">
+            <summary>
+            TwelveHourTime.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.TimeDisplayFormatTypes.TwentyFourHourTime">
+            <summary>
+            TwentyFourHourTime.
+            </summary>
+        </member>
+        <member name="T:Orion.Clients.Enums.TimeZoneDisplayTypes">
+            <summary>
+            Describes different TimeZoneDisplayTypes.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.TimeZoneDisplayTypes.ThreeLetterISOCode">
+            <summary>
+            ThreeLetterISOCode.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.TimeZoneDisplayTypes.Both">
+            <summary>
+            Both.
+            </summary>
+        </member>
+        <member name="F:Orion.Clients.Enums.TimeZoneDisplayTypes.GMTOffset">
+            <summary>
+            GMTOffset.
+            </summary>
+        </member>
+        <member name="T:Orion.Clients.IClientComponent">
+            <summary>
+            Component is used to work with Clients.
+            </summary>
+        </member>
+        <member name="P:Orion.Clients.IClientComponent.CurrentClient">
+            <summary>
+            Gets Client model for the current Client.
+            </summary>
+        </member>
+        <member name="M:Orion.Clients.IClientComponent.GetClientById(System.Int64)">
+            <summary>
+            Retrieves model for a Client by Client identifier.
+            </summary>
+            <param name="clientId">Client identifier.</param>
+            <returns>Client model.</returns>
+        </member>
+        <member name="M:Orion.Clients.IClientComponent.SetClient(Orion.Clients.Models.ClientModel)">
+            <summary>
+            Sets the current Client.
+            </summary>
+            <param name="clientModel">Client model.</param>
+        </member>
+        <member name="M:Orion.Clients.IClientComponent.ParseDateTimeOffset(System.String,System.Int64)">
+            <summary>
+            Parses the given string into date/time using the Client's timezone.
+            </summary>
+            <param name="dateTimeOffsetString">Date/time as a string.</param>
+            <param name="clientId">Client identifier.</param>
+            <returns>Parsed date/time.</returns>
+        </member>
+        <member name="M:Orion.Clients.IClientComponent.ParseDateTimeOffset(System.String,System.String)">
+            <summary>
+            Parses the given string into date/time using the given Culture.
+            </summary>
+            <param name="dateTimeOffsetString">Date/time as a string.</param>
+            <param name="cultureName">Culture name.</param>
+            <returns>Parsed date/time.</returns>
+        </member>
+        <member name="M:Orion.Clients.IClientComponent.ConvertWithClientTimezone(System.DateTimeOffset)">
+            <summary>
+            Converts the given date/time into Client's timezone.
+            </summary>
+            <param name="datetimeOffset">Date/time.</param>
+            <returns>Date/time in the Client's timezone.</returns>
+        </member>
+        <member name="M:Orion.Clients.IClientComponent.GetClientIds">
+            <summary>
+            Retrieves list of identifiers for all active Clients.
+            </summary>
+            <returns>List of Client identifiers.</returns>
+        </member>
+        <member name="M:Orion.Clients.IClientComponent.GetClientByUrl(System.String)">
+            <summary>
+            Retrieves model for a Client by the Client URL.
+            </summary>
+            <param name="url">Client URL.</param>
+            <returns>Client model.</returns>
+        </member>
+        <member name="M:Orion.Clients.IClientComponent.GetClientIdsByServiceId(System.Int32)">
+            <summary>
+            Retrieves list of Client identifiers filtered by Service identifier.
+            </summary>
+            <param name="serviceId">Service identifier.</param>
+            <returns>List of Client identifiers.</returns>
+        </member>
+        <member name="M:Orion.Clients.IClientComponent.GetClientIdsByModuleId(System.Int64)">
+            <summary>
+            Retrieves list of Client identifiers filtered by Module identifier.
+            </summary>
+            <param name="moduleId">Module identifier.</param>
+            <returns>List of Client identifiers.</returns>
+        </member>
+        <member name="M:Orion.Clients.IClientComponent.GetCurrentClientAvailableModules">
+            <summary>
+            Retrieves list of all Modules turned on for the current Client.
+            </summary>
+            <returns>List of Modules.</returns>
+        </member>
+        <member name="M:Orion.Clients.IClientComponent.GetCurrentClientEnabledFeatures">
+            <summary>
+            Retrieves list of all Features available for the current Client.
+            </summary>
+            <returns>List of Features.</returns>
+        </member>
+        <member name="M:Orion.Clients.IClientComponent.GetActiveAndOperableClientDatabases">
+            <summary>
+            Retrieves list of all active and operable client databases.
+            </summary>
+            <returns>List of client database models.</returns>
+        </member>
+        <member name="M:Orion.Clients.IClientComponent.GetClientActiveLanguages">
+            <summary>
+            Retrieves list of all active client languages.
+            </summary>
+            <returns>List of client language models.</returns>
+        </member>
+        <member name="M:Orion.Clients.IClientComponent.ConvertToStringWithClientFormat(System.DateTimeOffset,System.String)">
+            <summary>
+            Converts the given date/time into string in client format.
+            </summary>
+            <param name="datetimeOffset">Date/time.</param>
+            <param name="cultureName">Culture name.</param>
+            <returns>String with Date/time in the Client's timezone in Client's format.</returns>
+        </member>
+        <member name="M:Orion.Clients.IClientComponent.ConvertToStringWithClientFormatInClientTimezone(System.DateTimeOffset,System.String)">
+            <summary>
+            Converts the given date/time into string into Client's timezone and format.
+            </summary>
+            <param name="datetimeOffset">Date/time.</param>
+            <param name="cultureName">Culture name.</param>
+            <returns>String with Date/time in the Client's timezone in Client's format.</returns>
+        </member>
+        <member name="M:Orion.Clients.IClientComponent.GetCurrentClientTimeZoneDetails">
+            <summary>
+            Retrieves timezone details of current client.
+            </summary>
+            <returns>TimeZoneDetails Model.</returns>
+        </member>
+        <member name="M:Orion.Clients.IClientComponent.CheckValidUtcDateTime(System.DateTimeOffset)">
+            <summary>
+            Check Utc Date Time is valid or not.
+            </summary>
+            <param name="dateTimeOffset">DateTimeOffset.</param>
+            <returns>Boolean flag of valid UtcDateTime.</returns>
+        </member>
+        <member name="M:Orion.Clients.IClientComponent.GetLogoInfoByModuleId(System.Int32,System.Int64)">
+            <summary>
+            Get logo information based on moduleId.
+            </summary>
+            <param name="moduleId">The module identifier.</param>
+            <param name="layerId">The layer identifier.</param>
+            <returns>logo information based on moduleId.</returns>
+        </member>
+        <member name="M:Orion.Clients.IClientComponent.ConvertWithClientTimeZone(System.DateTimeOffset)">
+            <summary>
+            Adjust day light time by daylight delta.
+            </summary>
+            <param name="dateTime">The date time.</param>
+            <returns>Adjusted date tuime..</returns>
+        </member>
+        <member name="M:Orion.Clients.IClientComponent.ReConvertWithClientTimeZone(System.DateTimeOffset)">
+            <summary>
+            Remove the day light time adjusted by daylight delta for display on date calender.
+            </summary>
+            <param name="dateTime">The date time.</param>
+            <returns>Adjusted date tuime..</returns>
+        </member>
+        <member name="T:Orion.Clients.Models.ClientDatabaseModel">
+            <summary>
+            Represents Client's database.
+            </summary>
+        </member>
+        <member name="P:Orion.Clients.Models.ClientDatabaseModel.ClientId">
+            <summary>
+            Gets or sets Client identifier.
+            </summary>
+        </member>
+        <member name="P:Orion.Clients.Models.ClientDatabaseModel.DatabaseName">
+            <summary>
+            Gets or sets Client database name.
+            </summary>
+        </member>
+        <member name="T:Orion.Clients.Models.LanguageModel">
+            <summary>
+            Represents client's language.
+            </summary>
+        </member>
+        <member name="P:Orion.Clients.Models.LanguageModel.Id">
+            <summary>
+            Gets or sets language identifier.
+            </summary>
+        </member>
+        <member name="P:Orion.Clients.Models.LanguageModel.SoftLabelName">
+            <summary>
+            Gets or sets language softLabel name.
+            </summary>
+        </member>
+        <member name="P:Orion.Clients.Models.LanguageModel.Name">
+            <summary>
+            Gets or sets language name.
+            </summary>
+        </member>
+        <member name="P:Orion.Clients.Models.LanguageModel.HseLanguageCode">
+            <summary>
+            Gets or sets language hse code.
+            </summary>
+        </member>
+        <member name="P:Orion.Clients.Models.LanguageModel.LanguageCode">
+            <summary>
+            Gets or sets language code.
+            </summary>
+        </member>
+        <member name="P:Orion.Clients.Models.LanguageModel.NativeName">
+            <summary>
+            Gets or sets language native name.
+            </summary>
+        </member>
+        <member name="T:Orion.Clients.Models.LogoInfoModel">
+            <summary>
+            Represents the Logo info details.
+            </summary>
+        </member>
+        <member name="P:Orion.Clients.Models.LogoInfoModel.LogoFileId">
+            <summary>
+            Gets or sets logo file identifier.
+            </summary>
+        </member>
+        <member name="P:Orion.Clients.Models.LogoInfoModel.ModuleId">
+            <summary>
+            Gets or sets module identifier.
+            </summary>
+        </member>
+        <member name="P:Orion.Clients.Models.LogoInfoModel.LayerId">
+            <summary>
+            Gets or sets layer identifier.
+            </summary>
+        </member>
+        <member name="T:Orion.Clients.Models.TimeZoneDetailsModel">
+            <summary>
+            Represents the TimeZoneDetails.
+            </summary>
+        </member>
+        <member name="P:Orion.Clients.Models.TimeZoneDetailsModel.TimeZoneId">
+            <summary>
+            Gets or sets TimeZone identifier.
+            </summary>
+        </member>
+        <member name="P:Orion.Clients.Models.TimeZoneDetailsModel.TimeDisplayFormatType">
+            <summary>
+            Gets or sets Time Display Format Type.
+            </summary>
+        </member>
+        <member name="P:Orion.Clients.Models.TimeZoneDetailsModel.TimeZoneDisplayName">
+            <summary>
+            Gets or sets TimeZone DisplayName.
+            </summary>
+        </member>
+        <member name="P:Orion.Clients.Models.TimeZoneDetailsModel.TimeZoneOffset">
+            <summary>
+            Gets or sets TimeZone Offset.
+            </summary>
+        </member>
+        <member name="T:Orion.Clients.Models.ClientModel">
+            <summary>
+            Represents a Client.
+            </summary>
+        </member>
+        <member name="P:Orion.Clients.Models.ClientModel.ClientId">
+            <summary>
+            Gets or sets client identifier.
+            </summary>
+        </member>
+        <member name="P:Orion.Clients.Models.ClientModel.LayerId">
+            <summary>
+            Gets or sets layer identifier for the client. Please try to avoid using it as much as possible.
+            </summary>
+        </member>
+        <member name="P:Orion.Clients.Models.ClientModel.ConnectionString">
+            <summary>
+            Gets or sets connection string for the client database.
+            </summary>
+        </member>
+        <member name="P:Orion.Clients.Models.ClientModel.IsActive">
+            <summary>
+            Gets or sets a value indicating whether the client is active or not.
+            </summary>
+        </member>
+        <member name="P:Orion.Clients.Models.ClientModel.LockSessionTimeOut">
+            <summary>
+            Gets or sets a value indicating whether to lock session timeout. True is session should be locked for timeout, false otherwise.
+            </summary>
+        </member>
+        <member name="P:Orion.Clients.Models.ClientModel.SessionTimeoutInMinutes">
+            <summary>
+            Gets or sets amount of time, in minutes, allowed between requests before a user should be logged out.
+            </summary>
+        </member>
+        <member name="P:Orion.Clients.Models.ClientModel.LanguageId">
+            <summary>
+            Gets or sets identifier for the layer's default language.
+            </summary>
+        </member>
+        <member name="P:Orion.Clients.Models.ClientModel.CultureName">
+            <summary>
+            Gets or sets name of the culture of the layer. This is useful for date, time, and number formatting.
+            </summary>
+            <example>
+            'en-US', 'fr-BE', ...
+            </example>
+        </member>
+        <member name="P:Orion.Clients.Models.ClientModel.IsDaylightSavings">
+            <summary>
+            Gets or sets a value indicating whether the current culture observes daylight savings.
+            </summary>
+        </member>
+        <member name="P:Orion.Clients.Models.ClientModel.TimezoneDisplayType">
+            <summary>
+            Gets or sets how to display the division's timezone offset for dates.
+            </summary>
+            <remarks>
+             ThreeLetterISOCode = 0,
+             Both = 1,
+             GMTOffset = 2.
+            </remarks>
+        </member>
+        <member name="P:Orion.Clients.Models.ClientModel.TimeZoneId">
+            <summary>
+            Gets or sets timezone of the layer.
+            </summary>
+            <example>
+            "Eastern Standard Time".
+            </example>
+        </member>
+        <member name="P:Orion.Clients.Models.ClientModel.ImportDelimiter">
+            <summary>
+            Gets or sets the string which will separate values in an imported data file.
+            </summary>
+        </member>
+        <member name="P:Orion.Clients.Models.ClientModel.ImportMultiselectDelimiter">
+            <summary>
+            Gets or sets the string that will separate multi-select values within a data field of a file that has already been parsed by <see cref="P:Orion.Clients.Models.ClientModel.ImportDelimiter"/>.
+            </summary>
+            <remarks>
+            When imported data field maps to a multi-select control, this is the value that separates the multi-select data items.
+            </remarks>
+        </member>
+        <member name="P:Orion.Clients.Models.ClientModel.ImportUniqueIdPrefix">
+            <summary>
+            Gets or sets prefix to add to imported users' identifier.
+            </summary>
+            <remarks>
+            By default this is "CT-".
+            </remarks>
+        </member>
+        <member name="P:Orion.Clients.Models.ClientModel.TimeDisplayFormatType">
+            <summary>
+            Gets or sets whether to display times in 12 hour format or 24 hour format.
+            </summary>
+            <remarks>
+            Value of 0 is for 12 hour time format.
+            Value of 1 is for 24 hour time format.
+            </remarks>
+        </member>
+        <member name="P:Orion.Clients.Models.ClientModel.ClientName">
+            <summary>
+            Gets or sets the name of the client.
+            </summary>
+        </member>
+        <member name="P:Orion.Clients.Models.ClientModel.ShowItemViewingInformation">
+            <summary>
+            Gets or sets a value indicating whether gets or sets flag
+            Show Item viewing information it's a security permission that gives an ability to show information about
+            view entity attempt.
+            </summary>
+        </member>
+        <member name="P:Orion.Clients.Models.ClientModel.DefaultFormAssignToAndOwnerSecurityGroup">
+            <summary>
+            Gets or sets the unique identifier of the security group to assign and own fall-back default items for when a form is submitted but no accompanying item is automatically created.
+            </summary>
+        </member>
+        <member name="P:Orion.Clients.Models.ClientModel.DefaultFormAssignToAndOwnerUser">
+            <summary>
+            Gets or sets the unique identifier of the user to assign and own fall-back default items for when a form is submitted but no accompanying item is automatically created.
+            </summary>
+        </member>
+        <member name="P:Orion.Clients.Models.ClientModel.Url">
+            <summary>
+            Gets or sets the active url of the client.
+            </summary>
+        </member>
+        <member name="P:Orion.Clients.Models.ClientModel.CorrectiveActionItemDefinitionId">
+            <summary>
+            Gets or sets template Id for create corrective action plan items.
+            </summary>
+        </member>
+        <member name="P:Orion.Clients.Models.ClientModel.ContractorItemDefinitionId">
+            <summary>
+            Gets or sets template Id to create Contractor items.
+            </summary>
+        </member>
+        <member name="P:Orion.Clients.Models.ClientModel.ClaimsHubToken">
+            <summary>
+            Gets or sets Claims Hub Token.
+            </summary>
+        </member>
+        <member name="P:Orion.Clients.Models.ClientModel.ApplicationName">
+            <summary>
+            Gets or sets Application Name.
+            </summary>
+        </member>
+        <member name="P:Orion.Clients.Models.ClientModel.IsSsoEnabled">
+            <summary>
+            Gets or sets a value indicating whether Sso is enabled.
+            </summary>
+        </member>
+        <member name="P:Orion.Clients.Models.ClientModel.IsSsoManaged">
+            <summary>
+            Gets or sets a value indicating whether Sso is managed.
+            </summary>
+        </member>
+        <member name="P:Orion.Clients.Models.ClientModel.QualityReviewApiKeyName">
+            <summary>
+            Gets or sets Quality Review ApiKey Name.
+            </summary>
+        </member>
+        <member name="P:Orion.Clients.Models.ClientModel.QualityReviewApiKeyValue">
+            <summary>
+            Gets or sets Quality Review ApiKey Value.
+            </summary>
+        </member>
+        <member name="P:Orion.Clients.Models.ClientModel.QualityReviewSignature">
+            <summary>
+            Gets or sets Quality Review Signature.
+            </summary>
+        </member>
+        <member name="M:Orion.Clients.Services.DateTimeService.ReplaceWith24HourClockFormat(System.String)">
+            <summary>
+            http://msdn.microsoft.com/en-us/library/system.globalization.datetimeformatinfo(v=vs.110).aspx
+            For many cultures in the .NET Framework, the time is expressed by using a 12-hour clock and an AM/PM designator.
+            The following example defines a ReplaceWith24HourClock method that replaces any time format that uses a 12-hour clock with a format that uses a 24-hour clock.
+            </summary>
+            <param name="format">Format.</param>
+            <returns>Replaced text value.</returns>
+        </member>
+        <member name="M:Orion.Clients.Services.IDateTimeService.ConvertWithClientTimezone(System.DateTimeOffset,System.String)">
+            <summary>
+            Applies the client's timezone setting to the given date.
+            </summary>
+            <param name="datetimeOffset">the UTC date.</param>
+            <param name="timeZoneId">Time zone id from client layer settings.</param>
+            <returns>DateTimeOffset with client's timezone applied.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">throws when the given DateTimeOffset is not UTC.</exception>
+        </member>
+        <member name="M:Orion.Clients.Services.IDateTimeService.ParseDateTimeOffset(System.String,System.String)">
+            <summary>
+            Parses the given string to a DateTimeOffset using the current layer setting.
+            </summary>
+            <remarks>
+            The string can be a date-part only or datetimeoffset string.
+            </remarks>
+            <param name="dateTimeOffsetString">string representation of a datetime in the current layer setting format.</param>
+            <param name="cultureName">The name of current culture in division settings. This is used to retrieve the date format.</param>
+            <returns>DateTimeOffset parsed using the current layer setting culture format IFF the given string could be parsed, null otherwise.</returns>
+        </member>
+        <member name="M:Orion.Clients.Services.IDateTimeService.ParseDateTimeOffset(System.String,System.Int64)">
+            <summary>
+            Parses the given string to a DateTimeOffset using the current layer setting.
+            </summary>
+            <remarks>
+            The string can be a date-part only or datetimeoffset string.
+            </remarks>
+            <param name="dateTimeOffsetString">string representation of a datetime in the current layer setting format.</param>
+            <param name="clientId">Identifier of the layer to parse the given date time offset string for. This is used to retrieve the date format.</param>
+            <returns>DateTimeOffset parsed using the current layer setting culture format IFF the given string could be parsed, null otherwise.</returns>
+        </member>
+        <member name="M:Orion.Clients.Services.IDateTimeService.ConvertDateTimeToClientFormatDateTimeString(System.DateTimeOffset,Orion.Clients.Enums.TimeDisplayFormatTypes,System.String)">
+            <summary>
+            Converts the DateTimeOffset to client format date time string using the current layer setting.
+            </summary>
+            <param name="datetimeOffset">the UTC date.</param>
+            <param name="formatType">Type of the format.</param>
+            <param name="cultureName">The name of current culture in division settings. This is used to retrieve the date format.</param>
+            <returns>
+            String contained date time in format specified in client settings.
+            </returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">throws when the given DateTimeOffset is not UTC.</exception>
+        </member>
+        <member name="M:Orion.Clients.Services.IDateTimeService.ConvertDateTimeToClientFormatDateTimeStringWithClientTimezone(System.DateTimeOffset,Orion.Clients.Enums.TimeDisplayFormatTypes,System.String,System.String)">
+            <summary>
+            Applies the client's timezone setting to the given date and converts it to string in appropriate format using the current layer setting.
+            </summary>
+            <param name="datetimeOffset">the UTC date.</param>
+            <param name="formatType">Type of the format.</param>
+            <param name="cultureName">The name of current culture in division settings. This is used to retrieve the date format.</param>
+            <param name="timeZoneId">Time zone id from client layer settings.</param>
+            <returns>
+            String contained date time in client timezone and in format specified in client settings.
+            </returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">throws when the given DateTimeOffset is not UTC.</exception>
+        </member>
+        <member name="M:Orion.Clients.Services.IDateTimeService.GetClientTimeZoneDetails(Orion.Clients.Models.ClientModel)">
+            <summary>
+            Retrieve CurrentClient TimeZoneDetails.
+            </summary>
+            <param name="currentClient">CurrentClient.</param>
+            <returns>TimeZoneDetailsModel.</returns>
+        </member>
+        <member name="M:Orion.Clients.Services.IDateTimeService.CheckValidUtcDateTime(System.DateTimeOffset)">
+            <summary>
+            Validate valid utc date time.
+            </summary>
+            <param name="dateTimeOffset">The date time offset.</param>
+            <returns>Boolean flag of valid UtcDateTime.</returns>
+        </member>
+        <member name="M:Orion.Clients.Services.IDateTimeService.ConvertWithClientTimeZone(System.DateTimeOffset,Orion.Clients.Models.ClientModel)">
+            <summary>
+            Adjust day light time by daylight delta.
+            </summary>
+            <param name="dateTime">The date time.</param>
+            <param name="currentClient">The currentClient.</param>
+            <returns>Adjusted date tuime..</returns>
+        </member>
+        <member name="M:Orion.Clients.Services.IDateTimeService.ReConvertWithClientTimeZone(System.DateTimeOffset,Orion.Clients.Models.ClientModel)">
+            <summary>
+            Remove the day light time adjusted by daylight delta for display on date calender.
+            </summary>
+            <param name="dateTime">The date time.</param>
+            <param name="currentClient">The currentClient.</param>
+            <returns>Adjusted date tuime..</returns>
+        </member>
+        <member name="M:Orion.Clients.Services.ILogoInfoService.GetLogoInfoByModuleId(System.Int32,System.Int64)">
+            <summary>
+            Get logo info based on moduleId.
+            </summary>
+            <param name="moduleId">The module identifier.</param>
+            <param name="layerId">The layer identifier.</param>
+            <returns>logo infp based on moduleId.</returns>
+        </member>
+    </members>
+</doc>

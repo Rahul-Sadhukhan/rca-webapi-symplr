@@ -1,0 +1,262 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Orion.Emails</name>
+    </assembly>
+    <members>
+        <member name="M:Orion.Emails.Data.Repositories.EmailHistoryRepository.DoesMessageIdExists(System.String)">
+            <summary>
+            Check if Message Id already exists.
+            </summary>
+            <param name="messageId">Message Id.</param>
+            <returns>Boolean flag if Message Id exists or not.</returns>
+        </member>
+        <member name="M:Orion.Emails.Data.Repositories.EmailHistoryRepository.GetEmailHistoryWithMessageId(System.String)">
+            <summary>
+            Gets the Email History model using MessageId.
+            </summary>
+            <param name="messageId">MessageId.</param>
+            <returns>Email History.</returns>
+        </member>
+        <member name="M:Orion.Emails.Data.Repositories.EmailHistoryRepository.UpdateEmailHistoryResponse(System.Collections.Generic.IEnumerable{Orion.Emails.Data.Entities.SendGridResponse})">
+            <summary>
+            Updates Email History Response.
+            </summary>
+            <param name="sendGridResponseList">sendGridResponseList.</param>
+        </member>
+        <member name="M:Orion.Emails.Data.Repositories.IEmailHistoryRepository.DoesMessageIdExists(System.String)">
+            <summary>
+            Check if Message Id already exists.
+            </summary>
+            <param name="messageId">Message Id.</param>
+            <returns>Boolean flag if Message Id exists or not.</returns>
+        </member>
+        <member name="M:Orion.Emails.Data.Repositories.IEmailHistoryRepository.GetEmailHistoryWithMessageId(System.String)">
+            <summary>
+            Gets the Email History model using MessageId.
+            </summary>
+            <param name="messageId">MessageId.</param>
+            <returns>Email History.</returns>
+        </member>
+        <member name="M:Orion.Emails.Data.Repositories.IEmailHistoryRepository.UpdateEmailHistoryResponse(System.Collections.Generic.IEnumerable{Orion.Emails.Data.Entities.SendGridResponse})">
+            <summary>
+            Updates Email History Response.
+            </summary>
+            <param name="sendGridResponseList">sendGridResponseList.</param>
+        </member>
+        <member name="M:Orion.Emails.Data.Repositories.IEmailRepository.SendItemAssignedTemplateEmail(System.Int64,System.String)">
+            <summary>
+            Queues an assign-to email to be delivered for an item.
+            </summary>
+            <param name="itemId">Unique identifier of the item to send an assign-to email for.</param>
+            <param name="itemEditUrl">Url of the item edit page.</param>
+        </member>
+        <member name="T:Orion.Emails.EmailsComponentModule">
+            <summary>
+            Emails Component Module.
+            </summary>
+        </member>
+        <member name="M:Orion.Emails.EmailsComponentModule.Load(Autofac.ContainerBuilder)">
+            <summary>
+            Add registrations to the container.
+            </summary>
+            <param name="builder">The builder through which components can be registered.</param>
+            <remarks>
+            Note that the ContainerBuilder parameter is unique to this module.
+            </remarks>
+        </member>
+        <member name="T:Orion.Emails.IEmailsComponent">
+            <summary>
+            Component used to send email messages.
+            </summary>
+        </member>
+        <member name="M:Orion.Emails.IEmailsComponent.AddEmailToQueue(Orion.Emails.Models.EmailModel)">
+            <summary>
+            Adds new email message to the Email queue with data extracted from the <see cref="T:Orion.Emails.Models.EmailModel"/>.
+            </summary>
+            <param name="emailModel">Represents all fields for email message.</param>
+            <returns> <see cref="T:Orion.Emails.Models.EmailModel"/> for the queued email message.</returns>
+        </member>
+        <member name="M:Orion.Emails.IEmailsComponent.SendItemAssignedTemplateEmail(System.Int64)">
+            <summary>
+            Adds email for assignees with link to item into email message queue.
+            </summary>
+            <param name="itemId">Item identifier.</param>
+            <remarks>
+            Implemented using SQL SendItemAssignedTemplateEmail stored procedure.
+            </remarks>
+        </member>
+        <member name="M:Orion.Emails.IEmailsComponent.SendUserActivatedEmail(System.Int64,System.Guid,System.Nullable{System.Int64})">
+            <summary>
+            Adds email with link to reset password for newly created user into email message queue.
+            </summary>
+            <param name="userId">Identifier of the user which was newly created with Active Login without SSO enabled.</param>
+            <param name="passwordResetHash">Generated PasswordResetHash which is used to be inserted into ResetPasswordUrl.</param>
+            <param name="languageId">Optional LanguageId which is used to be inserted into ResetPasswordUrl.</param>
+            <remarks>
+            Implemented using SQL SendUserActivatedEmail stored procedure.
+            </remarks>
+        </member>
+        <member name="M:Orion.Emails.IEmailsComponent.GenerateMessageId">
+            <summary>
+            Generates unique message id to send to SMTP server.
+            </summary>
+            <returns> Messgae Id. </returns>
+        </member>
+        <member name="M:Orion.Emails.IEmailsComponent.SaveEmailHistoryDetails(Orion.Emails.Models.EmailHistoryModel)">
+            <summary>
+            Saves the email history details in the EmailHistory table <see cref="T:Orion.Emails.Models.EmailHistoryModel"/>.
+            </summary>
+            <param name="emailHistory">Represents all fields for email message.</param>
+            <returns> <see cref="T:Orion.Emails.Models.EmailHistoryModel"/> for the queued email message.</returns>
+        </member>
+        <member name="M:Orion.Emails.IEmailsComponent.UpdateEmailHistoryResponse(System.Collections.Generic.List{Orion.Emails.Models.EmailHistoryModel})">
+            <summary>
+            Saves the email history details in the EmailHistory table <see cref="T:Orion.Emails.Models.EmailHistoryModel"/>.
+            </summary>
+            <param name="emailHistory">Represents all fields for email history.</param>
+            <returns>True/False.</returns>
+        </member>
+        <member name="T:Orion.Emails.Models.EmailHistoryModel">
+            <summary>
+            Represents an email message.
+            </summary>
+        </member>
+        <member name="P:Orion.Emails.Models.EmailHistoryModel.Id">
+            <summary>
+            Gets or sets the email message identifier.
+            </summary>
+        </member>
+        <member name="P:Orion.Emails.Models.EmailHistoryModel.FromAddress">
+            <summary>
+            Gets or sets the from address for this email message.
+            </summary>
+        </member>
+        <member name="P:Orion.Emails.Models.EmailHistoryModel.ToAddress">
+            <summary>
+            Gets or sets addresses for the To field with list of recipients of this email message.
+            </summary>
+        </member>
+        <member name="P:Orion.Emails.Models.EmailHistoryModel.CcAddress">
+            <summary>
+            Gets or sets addresses for CC field with list of carbon copy recipients of this email message.
+            </summary>
+        </member>
+        <member name="P:Orion.Emails.Models.EmailHistoryModel.Subject">
+            <summary>
+            Gets or sets the subject line for this email message.
+            </summary>
+        </member>
+        <member name="P:Orion.Emails.Models.EmailHistoryModel.SentTimeStamp">
+            <summary>
+            Gets or sets the sent time for this email message.
+            </summary>
+        </member>
+        <member name="P:Orion.Emails.Models.EmailHistoryModel.Module">
+            <summary>
+            Gets or sets the Module from which email is sent.
+            </summary>
+        </member>
+        <member name="P:Orion.Emails.Models.EmailHistoryModel.MessageId">
+            <summary>
+            Gets or sets a unique message id.
+            </summary>
+        </member>
+        <member name="P:Orion.Emails.Models.EmailHistoryModel.Status">
+            <summary>
+            Gets or sets status for the email.
+            </summary>
+        </member>
+        <member name="P:Orion.Emails.Models.EmailHistoryModel.ResponseTimeStammp">
+            <summary>
+            Gets or sets ResponseTimeStammp.
+            </summary>
+        </member>
+        <member name="P:Orion.Emails.Models.EmailHistoryModel.Reason">
+            <summary>
+            Gets or sets reason of email failure.
+            </summary>
+        </member>
+        <member name="T:Orion.Emails.Models.EmailModel">
+            <summary>
+            Represents an outgoing email message.
+            </summary>
+        </member>
+        <member name="P:Orion.Emails.Models.EmailModel.Id">
+            <summary>
+            Gets or sets the email message identifier.
+            </summary>
+        </member>
+        <member name="P:Orion.Emails.Models.EmailModel.FromAddress">
+            <summary>
+            Gets or sets the from address for this email message.
+            </summary>
+        </member>
+        <member name="P:Orion.Emails.Models.EmailModel.ToAddress">
+            <summary>
+            Gets or sets addresses for the To field with list of recipients of this email message.
+            </summary>
+        </member>
+        <member name="P:Orion.Emails.Models.EmailModel.CcAddress">
+            <summary>
+            Gets or sets addresses for CC field with list of carbon copy recipients of this email message.
+            </summary>
+        </member>
+        <member name="P:Orion.Emails.Models.EmailModel.Subject">
+            <summary>
+            Gets or sets the subject line for this email message.
+            </summary>
+        </member>
+        <member name="P:Orion.Emails.Models.EmailModel.Body">
+            <summary>
+            Gets or sets the email message body.
+            </summary>
+        </member>
+        <member name="P:Orion.Emails.Models.EmailModel.IsHtml">
+            <summary>
+            Gets or sets a value indicating whether the email message body is in HTML format.
+            </summary>
+        </member>
+        <member name="P:Orion.Emails.Models.EmailModel.DisplayName">
+            <summary>
+            Gets or sets Display Name for the email.
+            </summary>
+        </member>
+        <member name="P:Orion.Emails.Models.EmailModel.FailedToSend">
+            <summary>
+            Gets or sets a value indicating whether the email message was failed to send.
+            </summary>
+        </member>
+        <member name="P:Orion.Emails.Models.EmailModel.InTransit">
+            <summary>
+            Gets or sets a value indicating whether the email message is in transit.
+            </summary>
+        </member>
+        <member name="P:Orion.Emails.Models.EmailModel.IsSent">
+            <summary>
+            Gets or sets a value indicating whether the email message is sent.
+            </summary>
+        </member>
+        <member name="P:Orion.Emails.Models.EmailModel.CreatedDate">
+            <summary>
+            Gets or sets date/time (UTC) when the email message was created.
+            </summary>
+        </member>
+        <member name="M:Orion.Emails.Services.EmailService.GenerateMessageId">
+            <summary>
+            Generates unique message id.
+            </summary>
+            <returns>Message Id.</returns>
+        </member>
+        <member name="T:Orion.Emails.EmailsComponentAutoMapperProfile">
+            <summary>
+            Emails Component Auto Mapper Profile.
+            </summary>
+        </member>
+        <member name="M:Orion.Emails.EmailsComponentAutoMapperProfile.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Emails.EmailsComponentAutoMapperProfile"/> class.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,332 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Orion.Entities</name>
+    </assembly>
+    <members>
+        <member name="T:Orion.Entities.Data.Entities.Entity">
+            <summary>
+            Represents an Entity.
+            </summary>
+        </member>
+        <member name="P:Orion.Entities.Data.Entities.Entity.EntityId">
+            <summary>
+            Gets or sets Entity identifier (UID).
+            </summary>
+        </member>
+        <member name="P:Orion.Entities.Data.Entities.Entity.ParentEntityId">
+            <summary>
+            Gets or sets parent Entity identifier (UID).
+            </summary>
+        </member>
+        <member name="P:Orion.Entities.Data.Entities.Entity.EntityKey">
+            <summary>
+            Gets or sets Entity key.
+            </summary>
+        </member>
+        <member name="P:Orion.Entities.Data.Entities.Entity.EntityTypeId">
+            <summary>
+            Gets or sets Entity type Id; available values see in <see cref="T:Orion.Entities.Enums.EntityType"/>.
+            </summary>
+        </member>
+        <member name="P:Orion.Entities.Data.Entities.Entity.EntityType">
+            <summary>
+            Gets or sets Entity type as a string.
+            </summary>
+        </member>
+        <member name="P:Orion.Entities.Data.Entities.Entity.EntityName">
+            <summary>
+            Gets or sets Entity name.
+            </summary>
+        </member>
+        <member name="P:Orion.Entities.Data.Entities.Entity.ItemId">
+            <summary>
+            Gets or sets identifier of the Item associated with the Entity.
+            </summary>
+        </member>
+        <member name="T:Orion.Entities.Data.Entities.EntityInheritedPermissionsItem">
+            <summary>
+            Entity Inherited Permissions Item.
+            </summary>
+        </member>
+        <member name="P:Orion.Entities.Data.Entities.EntityInheritedPermissionsItem.EntityId">
+            <summary>
+            Gets or sets EntityId.
+            </summary>
+        </member>
+        <member name="P:Orion.Entities.Data.Entities.EntityInheritedPermissionsItem.InheritedPermissionsItemId">
+            <summary>
+            Gets or sets InheritedPermissionsItemId.
+            </summary>
+        </member>
+        <member name="T:Orion.Entities.Data.Entities.OneToManyAssociation">
+            <summary>
+            Model for OneToManyAssociation.
+            </summary>
+        </member>
+        <member name="P:Orion.Entities.Data.Entities.OneToManyAssociation.EntityId">
+            <summary>
+            Gets or sets EntityId.
+            </summary>
+        </member>
+        <member name="P:Orion.Entities.Data.Entities.OneToManyAssociation.AssociatedEntityId">
+            <summary>
+            Gets or sets AssociatedEntityId.
+            </summary>
+        </member>
+        <member name="P:Orion.Entities.Data.Entities.OneToManyAssociation.CreatedByUserId">
+            <summary>
+            Gets or sets CreatedByUserId.
+            </summary>
+        </member>
+        <member name="P:Orion.Entities.Data.Entities.OneToManyAssociation.CreatedDate">
+            <summary>
+            Gets or sets CreatedDate.
+            </summary>
+        </member>
+        <member name="P:Orion.Entities.Data.Entities.OneToManyAssociation.LastModifiedDate">
+            <summary>
+            Gets or sets LastModifiedDate.
+            </summary>
+        </member>
+        <member name="P:Orion.Entities.Data.Entities.OneToManyAssociation.LastModifiedByUserId">
+            <summary>
+            Gets or sets LastModifiedByUserId.
+            </summary>
+        </member>
+        <member name="T:Orion.Entities.Data.Mapping.EntityInheritedPermissionsItemMapping">
+            <summary>
+            Entity Inherited Permissions Item Mapping.
+            </summary>
+        </member>
+        <member name="M:Orion.Entities.Data.Mapping.EntityInheritedPermissionsItemMapping.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Entities.Data.Mapping.EntityInheritedPermissionsItemMapping"/> class.
+            </summary>
+        </member>
+        <member name="T:Orion.Entities.EntitiesModule">
+            <summary>
+            Entities Module.
+            </summary>
+        </member>
+        <member name="M:Orion.Entities.EntitiesModule.Load(Autofac.ContainerBuilder)">
+            <summary>
+            Add registrations to the container.
+            </summary>
+            <param name="builder">The builder through which components can be registered.</param>
+            <remarks>
+            Note that the ContainerBuilder parameter is unique to this module.
+            </remarks>
+        </member>
+        <member name="T:Orion.Entities.EntityComponentAutoMapperProfile">
+            <summary>
+            Entity Component Auto Mapper Profile.
+            </summary>
+        </member>
+        <member name="M:Orion.Entities.EntityComponentAutoMapperProfile.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Entities.EntityComponentAutoMapperProfile"/> class.
+            </summary>
+        </member>
+        <member name="T:Orion.Entities.Enums.ApplicationName">
+            <summary>
+            Application Name.
+            </summary>
+        </member>
+        <member name="F:Orion.Entities.Enums.ApplicationName.None">
+            <summary>
+            None.
+            </summary>
+        </member>
+        <member name="F:Orion.Entities.Enums.ApplicationName.AuditManagement">
+            <summary>
+            Audit Management.
+            </summary>
+        </member>
+        <member name="T:Orion.Entities.Enums.EntityType">
+            <summary>
+            Entity types available in Entities Component.
+            </summary>
+        </member>
+        <member name="F:Orion.Entities.Enums.EntityType.None">
+            <summary>
+            None, default value.
+            </summary>
+        </member>
+        <member name="F:Orion.Entities.Enums.EntityType.AuditRequest">
+            <summary>
+            Audit Request.
+            </summary>
+        </member>
+        <member name="F:Orion.Entities.Enums.EntityType.Claim">
+            <summary>
+            Claim.
+            </summary>
+        </member>
+        <member name="F:Orion.Entities.Enums.EntityType.File">
+            <summary>
+            File.
+            </summary>
+        </member>
+        <member name="F:Orion.Entities.Enums.EntityType.Task">
+            <summary>
+            Task.
+            </summary>
+        </member>
+        <member name="F:Orion.Entities.Enums.EntityType.SubTask">
+            <summary>
+            Sub-task.
+            </summary>
+        </member>
+        <member name="F:Orion.Entities.Enums.EntityType.Response">
+            <summary>
+            Response.
+            </summary>
+        </member>
+        <member name="F:Orion.Entities.Enums.EntityType.Survey">
+            <summary>
+            Survey.
+            </summary>
+        </member>
+        <member name="F:Orion.Entities.Enums.EntityType.Item">
+            <summary>
+            Item.
+            </summary>
+        </member>
+        <member name="F:Orion.Entities.Enums.EntityType.PolicyVersion">
+            <summary>
+            Policy version.
+            </summary>
+        </member>
+        <member name="T:Orion.Entities.IEntityComponent">
+            <summary>
+            Component used to work with Entities.
+            </summary>
+        </member>
+        <member name="M:Orion.Entities.IEntityComponent.GetEntityByEntityId(System.Guid)">
+            <summary>
+            Retrieve Entity by Entity identifier.
+            </summary>
+            <param name="entityId">Entity identifier (UID).</param>
+            <returns>Entity object.</returns>
+        </member>
+        <member name="M:Orion.Entities.IEntityComponent.CheckIfEntityExists(System.Guid)">
+            <summary>
+            Find out if this Entity exists or not.
+            </summary>
+            <param name="entityId">Entity identifier (UID).</param>
+            <returns>true if this Entity exists, false if not.</returns>
+        </member>
+        <member name="M:Orion.Entities.IEntityComponent.GetEntityKeyByTypeAndItemId(System.Int64,Orion.Entities.Enums.EntityType)">
+            <summary>
+            Retrieve Entity key using Item identifier and Entity type.
+            </summary>
+            <param name="itemId">Item identifier.</param>
+            <param name="entityType">Entity type.</param>
+            <returns>Entity key or null if not found.</returns>
+        </member>
+        <member name="M:Orion.Entities.IEntityComponent.GetEntitiesByEntitiesIds(System.Collections.Generic.IEnumerable{System.Guid})">
+            <summary>
+            Retrieve Entities using list of Entity identifiers.
+            </summary>
+            <param name="entityIds">List of Entity identifiers (UIDs).</param>
+            <returns>List of Entities.</returns>
+        </member>
+        <member name="M:Orion.Entities.IEntityComponent.GetEntityIdsByParentEntityId(System.Guid,Orion.Entities.Enums.EntityType[])">
+            <summary>
+            Using <paramref name="parentEntityId"/> and <paramref name="entityTypes"/>
+            will find all entities what have parentEntityId same as argument.
+            </summary>
+            <param name="parentEntityId">Mandatory argument with right GUID.</param>
+            <param name="entityTypes">Mandatory argument for better performance.</param>
+            <returns>List of Entity identifiers (UIDs) that have parent identifier <paramref name="parentEntityId"/>.</returns>
+            <exception cref="T:Orion.Common.Exceptions.ValidationPlatformException"> in case there is no <paramref name="parentEntityId"/>
+            or <paramref name="entityTypes"/> provided.</exception>
+        </member>
+        <member name="M:Orion.Entities.IEntityComponent.CreateAssociation(System.Guid,System.Guid)">
+            <summary>
+            Create one-to-many association between entities.
+            </summary>
+            <param name="entityId">Parent entity identifier (UID).</param>
+            <param name="associatedEntityId">Child entity identifier (UID).</param>
+        </member>
+        <member name="M:Orion.Entities.IEntityComponent.RemoveAssociation(System.Guid,System.Guid)">
+            <summary>
+            Remove one-to-many association between entities.
+            </summary>
+            <param name="entityId">Parent entity identifier (UID).</param>
+            <param name="associatedEntityId">Child entity identifier (UID).</param>
+        </member>
+        <member name="M:Orion.Entities.IEntityComponent.CheckIfAssociationExists(System.Guid,System.Guid)">
+            <summary>
+            Check if the given one-to-many association exists.
+            </summary>
+            <param name="entityId">Parent entity identifier (UID).</param>
+            <param name="associatedEntityId">Child entity identifier (UID).</param>
+            <returns>Flag indicating that the given one-to-many association exists.</returns>
+        </member>
+        <member name="M:Orion.Entities.IEntityComponent.GetEntityIdByAssociatedEntityId(System.Guid)">
+            <summary>
+            Get Entity identifier by Associated Entity identifier.
+            </summary>
+            <param name="associatedEntityId">Associated Entity identifier (UID).</param>
+            <returns>Entity identifier (UID).</returns>
+        </member>
+        <member name="M:Orion.Entities.IEntityComponent.GetAssociatedEntityIdsByEntityId(System.Guid)">
+            <summary>
+            Get list of Associated Entity identifiers.
+            </summary>
+            <param name="entityId">Entity identifier (UID).</param>
+            <returns>List of Associated Entity identifiers (UIDs).</returns>
+        </member>
+        <member name="M:Orion.Entities.IEntityComponent.GetInheritedPermissionsItemIdByEntityId(System.Guid)">
+            <summary>
+            For the given Entity identifier gives Item identifier used to inherit permissions for a newly created Item.
+            </summary>
+            <param name="entityId">Entity identifier (UID).</param>
+            <returns>Item identifier to inherit permissions from.</returns>
+        </member>
+        <member name="M:Orion.Entities.IEntityComponent.SetEntityViewedByCurrentUser(System.Guid,Orion.Entities.Enums.EntityType)">
+            <summary>
+            Log the fact that the current user viewed this Entity.
+            </summary>
+            <param name="entityId">The entity identifier.</param>
+            <param name="entityType">The entity type.</param>
+        </member>
+        <member name="T:Orion.Entities.Models.EntityInfoModel">
+            <summary>
+            Entity Info Model.
+            </summary>
+        </member>
+        <member name="P:Orion.Entities.Models.EntityInfoModel.EntityId">
+            <summary>
+            Gets or sets EntityId.
+            </summary>
+        </member>
+        <member name="P:Orion.Entities.Models.EntityInfoModel.EntityKey">
+            <summary>
+            Gets or sets EntityKey.
+            </summary>
+        </member>
+        <member name="P:Orion.Entities.Models.EntityInfoModel.EntityType">
+            <summary>
+            Gets or sets EntityType.
+            </summary>
+        </member>
+        <member name="T:Orion.Entities.Models.EntityTypeModel">
+            <summary>
+            Entity Type Model.
+            </summary>
+        </member>
+        <member name="P:Orion.Entities.Models.EntityTypeModel.EntityType">
+            <summary>
+            Gets or sets EntityType.
+            </summary>
+        </member>
+        <member name="P:Orion.Entities.Models.EntityTypeModel.ApplicationName">
+            <summary>
+            Gets or sets ApplicationName.
+            </summary>
+        </member>
+    </members>
+</doc>

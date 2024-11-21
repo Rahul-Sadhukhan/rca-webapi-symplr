@@ -1,0 +1,149 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Orion.Logging</name>
+    </assembly>
+    <members>
+        <member name="T:Orion.Logging.Enums.LoggerType">
+            <summary>
+            Logger Type.
+            </summary>
+        </member>
+        <member name="F:Orion.Logging.Enums.LoggerType.Default">
+            <summary>
+            Default.
+            </summary>
+        </member>
+        <member name="F:Orion.Logging.Enums.LoggerType.Performance">
+            <summary>
+            Performance.
+            </summary>
+        </member>
+        <member name="T:Orion.Logging.Enums.LogLevel">
+            <summary>
+            Log Level.
+            </summary>
+        </member>
+        <member name="F:Orion.Logging.Enums.LogLevel.Debug">
+            <summary>
+            Debug.
+            </summary>
+        </member>
+        <member name="F:Orion.Logging.Enums.LogLevel.Warn">
+            <summary>
+            Warn.
+            </summary>
+        </member>
+        <member name="F:Orion.Logging.Enums.LogLevel.Trace">
+            <summary>
+            Trace.
+            </summary>
+        </member>
+        <member name="F:Orion.Logging.Enums.LogLevel.Fatal">
+            <summary>
+            Fatal.
+            </summary>
+        </member>
+        <member name="F:Orion.Logging.Enums.LogLevel.Error">
+            <summary>
+            Error.
+            </summary>
+        </member>
+        <member name="F:Orion.Logging.Enums.LogLevel.Info">
+            <summary>
+            Info.
+            </summary>
+        </member>
+        <member name="T:Orion.Logging.ILoggingComponent">
+            <summary>
+            ILoggingComponent.
+            </summary>
+        </member>
+        <member name="M:Orion.Logging.ILoggingComponent.LogInfo(System.String,System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64})">
+            <summary>
+            Logs with Info level. Used for some information.
+            </summary>
+            <param name="infoMessage">Message.</param>
+            <param name="userId">User Identifier.</param>
+            <param name="clientId">Client Identifier.</param>
+            <param name="layerId">Layer Identifier.</param>
+        </member>
+        <member name="M:Orion.Logging.ILoggingComponent.LogWarning(System.String,System.Exception,System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64})">
+            <summary>
+            Logs with Warn level. Used for expected Validation errors (400) or any other errors that are not info but should not be written to DB.
+            </summary>
+            <param name="warningMessage">Message.</param>
+            <param name="ex">Exception, can be null if nothing to pass.</param>
+            <param name="userId">User Identifier.</param>
+            <param name="clientId">Client Identifier.</param>
+            <param name="layerId">Layer Identifier.</param>
+        </member>
+        <member name="M:Orion.Logging.ILoggingComponent.LogError(System.String,System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64})">
+            <summary>
+            Logs with Error level. Used for Internal Server errors (500), security specific auth or permissions related errors (401, 403 etc.), any other unexpected errors.
+            </summary>
+            <param name="errorMessage">Message.</param>
+            <param name="userId">User Identifier.</param>
+            <param name="clientId">Client Identifier.</param>
+            <param name="layerId">Layer Identifier.</param>
+        </member>
+        <member name="M:Orion.Logging.ILoggingComponent.LogError(System.Exception,System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64})">
+            <summary>
+            Logs with Error level. Used for Internal Server errors (500), security specific auth or permissions related errors (401, 403 etc.), any other unexpected errors.
+            </summary>
+            <param name="ex">Exception.</param>
+            <param name="userId">User Identifier.</param>
+            <param name="clientId">Client Identifier.</param>
+            <param name="layerId">Layer Identifier.</param>
+        </member>
+        <member name="M:Orion.Logging.ILoggingComponent.LogError(System.Exception,System.String,System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64})">
+            <summary>
+            Logs with Error level. Used for Internal Server errors (500), security specific auth or permissions related errors (401, 403 etc.), any other unexpected errors.
+            </summary>
+            <param name="ex">Exception.</param>
+            <param name="errorMessage">Message.</param>
+            <param name="userId">User Identifier.</param>
+            <param name="clientId">Client Identifier.</param>
+            <param name="layerId">Layer Identifier.</param>
+        </member>
+        <member name="M:Orion.Logging.ILoggingComponent.Log(Orion.Logging.Enums.LogLevel,Orion.Logging.Enums.LoggerType,System.String,System.Exception,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64})">
+            <summary>
+            Logs message using custom params of logger.
+            </summary>
+            <param name="logLevel">Log Level.</param>
+            <param name="loggerType">Logger Type.</param>
+            <param name="message">Message.</param>
+            <param name="exception">Exception.</param>
+            <param name="properties">Properties.</param>
+            <param name="userId">UserId.</param>
+            <param name="clientId">ClientId.</param>
+            <param name="layerId">LayerId.</param>
+        </member>
+        <member name="T:Orion.Logging.Extensions.LogLevelExtension">
+            <summary>
+            Log Level Extension.
+            </summary>
+        </member>
+        <member name="M:Orion.Logging.Extensions.LogLevelExtension.ToLogLevel(Orion.Logging.Enums.LogLevel)">
+            <summary>
+            To Log Level.
+            </summary>
+            <param name="logLevel">Log Level.</param>
+            <returns>NLog.LogLevel.</returns>
+        </member>
+        <member name="T:Orion.Logging.LoggingComponentModule">
+            <summary>
+            Logging Component Module.
+            </summary>
+        </member>
+        <member name="M:Orion.Logging.LoggingComponentModule.Load(Autofac.ContainerBuilder)">
+            <summary>
+            Add registrations to the container.
+            </summary>
+            <param name="builder">The builder through which components can be registered.</param>
+            <remarks>
+            Note that the ContainerBuilder parameter is unique to this module.
+            </remarks>
+        </member>
+    </members>
+</doc>

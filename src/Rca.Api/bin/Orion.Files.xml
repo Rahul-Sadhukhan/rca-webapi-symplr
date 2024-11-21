@@ -1,0 +1,289 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Orion.Files</name>
+    </assembly>
+    <members>
+        <member name="M:Orion.Files.Converters.FileContentConverter.StreamToByteArray(System.IO.Stream)">
+            <summary>
+            Converts Stream to Byte array.
+            </summary>
+            <param name="fileStream">Stream input.</param>
+            <returns>Byte array.</returns>
+        </member>
+        <member name="T:Orion.Files.Data.Entities.EncryptionAlgorithm">
+            <summary>
+            Encryption Algorithm.
+            </summary>
+        </member>
+        <member name="F:Orion.Files.Data.Entities.EncryptionAlgorithm.Aes256">
+            <summary>
+            Aes256.
+            </summary>
+        </member>
+        <member name="T:Orion.Files.Data.Entities.EntityFile">
+            <summary>
+            This is a one-to-one column mapping of the database table. <see cref="T:Orion.Files.Data.Entities.File"/> is the entity to use when working with filestream data.
+            </summary>
+        </member>
+        <member name="M:Orion.Files.Data.Repositories.IFileRepository.GetFileEntityWithBlob(System.Int32)">
+            <summary>
+            Returns a file entity with file blob details. File Blob property should not have binary data, otherwise there will be performance issues.
+            </summary>
+            <param name="fileId">File identifier.</param>
+            <returns>Returns file entity with file blob details.</returns>
+        </member>
+        <member name="T:Orion.Files.FilesComponentAutoMapperProfile">
+            <summary>
+            Files Component Auto Mapper Profile.
+            </summary>
+        </member>
+        <member name="M:Orion.Files.FilesComponentAutoMapperProfile.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Files.FilesComponentAutoMapperProfile"/> class.
+            </summary>
+        </member>
+        <member name="T:Orion.Files.FilesComponentModule">
+            <summary>
+            Files Component Module.
+            </summary>
+        </member>
+        <member name="M:Orion.Files.FilesComponentModule.Load(Autofac.ContainerBuilder)">
+            <summary>
+            Add registrations to the container.
+            </summary>
+            <param name="builder">The builder through which components can be registered.</param>
+            <remarks>
+            Note that the ContainerBuilder parameter is unique to this module.
+            </remarks>
+        </member>
+        <member name="T:Orion.Files.LicenseActivator">
+            <summary>
+            Class for initializing of library by using license file from resources.
+            </summary>
+        </member>
+        <member name="M:Orion.Files.LicenseActivator.InitializeAsposeWords">
+            <summary>
+            Initialize Aspose.Words using license file from resources.
+            </summary>
+        </member>
+        <member name="T:Orion.Files.Models.FileMetadataModel">
+            <summary>
+            Model describing a file metadata.
+            </summary>
+        </member>
+        <member name="P:Orion.Files.Models.FileMetadataModel.FileId">
+            <summary>
+            Gets or sets the file identifier.
+            </summary>
+        </member>
+        <member name="P:Orion.Files.Models.FileMetadataModel.Name">
+            <summary>
+            Gets or sets the file name.
+            </summary>
+        </member>
+        <member name="P:Orion.Files.Models.FileMetadataModel.Description">
+            <summary>
+            Gets or sets the file description.
+            </summary>
+        </member>
+        <member name="P:Orion.Files.Models.FileMetadataModel.BinaryDataLength">
+            <summary>
+            Gets or sets the file binary data length.
+            </summary>
+        </member>
+        <member name="P:Orion.Files.Models.FileMetadataModel.CreatedDate">
+            <summary>
+            Gets or sets the file creation date.
+            </summary>
+        </member>
+        <member name="P:Orion.Files.Models.FileMetadataModel.LastModifiedDate">
+            <summary>
+            Gets or sets the file last modified date.
+            </summary>
+        </member>
+        <member name="T:Orion.Files.Models.FileModel">
+            <summary>
+            Model describing a file.
+            </summary>
+        </member>
+        <member name="P:Orion.Files.Models.FileModel.FileId">
+            <summary>
+            Gets or sets the file identifier.
+            </summary>
+        </member>
+        <member name="P:Orion.Files.Models.FileModel.Name">
+            <summary>
+            Gets or sets the file name.
+            </summary>
+        </member>
+        <member name="P:Orion.Files.Models.FileModel.Description">
+            <summary>
+            Gets or sets the file description.
+            </summary>
+        </member>
+        <member name="P:Orion.Files.Models.FileModel.BinaryData">
+            <summary>
+            Gets or sets the file binary data.
+            </summary>
+        </member>
+        <member name="P:Orion.Files.Models.FileModel.BinaryDataLength">
+            <summary>
+            Gets or sets the file binary data length.
+            </summary>
+        </member>
+        <member name="P:Orion.Files.Models.FileModel.UploadTime">
+            <summary>
+            Gets or sets the file upload date/time (UTC).
+            </summary>
+        </member>
+        <member name="P:Orion.Files.Models.FileModel.EntityId">
+            <summary>
+            Gets or sets the file Entity identifier (UID).
+            </summary>
+        </member>
+        <member name="M:Orion.Files.Services.IFileDecryptorService.Decrypt(Orion.Files.Data.Entities.EncryptionKey,System.IO.Stream)">
+            <summary>Decrypts stream.</summary>
+            <param name="decryptionKey">Decryption key.</param>
+            <param name="source">Source stream.</param>
+            <returns>Decrypted stream.</returns>
+            <exception cref="T:System.ArgumentException">Unsupported algorithm.</exception>
+        </member>
+        <member name="M:Orion.Files.Services.IFileEncryptorService.Encrypt(Orion.Files.Data.Entities.EncryptionKey,System.IO.Stream)">
+            <summary>Encrypts stream.</summary>
+            <param name="encryptionKey">Encryption key.</param>
+            <param name="source">Source stream.</param>
+            <returns>Encrypted stream.</returns>
+            <exception cref="T:System.ArgumentException">Unsupported algorithm.</exception>
+        </member>
+        <member name="T:Orion.Files.IFilesComponent">
+            <summary>
+            Component used to work with files.
+            </summary>
+        </member>
+        <member name="M:Orion.Files.IFilesComponent.AddFile(Orion.Files.Models.FileModel)">
+            <summary>
+            Adds a new file.
+            </summary>
+            <param name="file">Model describing the new file.</param>
+            <returns>Model describing the added file.</returns>
+        </member>
+        <member name="M:Orion.Files.IFilesComponent.AddImageFile(Orion.Files.Models.FileModel,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Adds a new file.
+            </summary>
+            <param name="file">Model describing the new image file.</param>
+            <param name="allowedExtensions">allowedExtensions.</param>
+            <returns>Model describing the added image file.</returns>
+        </member>
+        <member name="M:Orion.Files.IFilesComponent.GetFile(System.Int32)">
+            <summary>
+            Gets a file by file identifier.
+            </summary>
+            <param name="fileId">File identifier.</param>
+            <returns>Model describing the file, including the file binary data.</returns>
+        </member>
+        <member name="M:Orion.Files.IFilesComponent.DeleteFile(System.Int32)">
+            <summary>
+            Deletes file.
+            </summary>
+            <param name="fileId">File identifier.</param>
+            <returns>Is the file deleted.</returns>
+        </member>
+        <member name="M:Orion.Files.IFilesComponent.UpdateFile(System.Int32,Orion.Files.Models.FileModel)">
+            <summary>
+            Updates existing file.
+            </summary>
+            <param name="fileId">File identifier.</param>
+            <param name="file">File model to be updated.</param>
+            <returns>Updated file model.</returns>
+        </member>
+        <member name="M:Orion.Files.IFilesComponent.GetFileMetadata(System.Int32)">
+            <summary>
+            Gets file metadata.
+            </summary>
+            <param name="fileId">File identifier.</param>
+            <returns>Model describing the file metadata.</returns>
+        </member>
+        <member name="M:Orion.Files.IFilesComponent.UpdateFileMetadata(Orion.Files.Models.FileMetadataModel)">
+            <summary>
+            Updates file metadata.
+            </summary>
+            <param name="fileMetadata">File metadata.</param>
+            <returns>Model describing the file metadata after the update.</returns>
+        </member>
+        <member name="M:Orion.Files.IFilesComponent.GetEntityIdByFileId(System.Int32)">
+            <summary>
+            Gets entity id by file identifier.
+            </summary>
+            <param name="fileId">File identifier.</param>
+            <returns>Entity id.</returns>
+        </member>
+        <member name="M:Orion.Files.IFilesComponent.SetFileViewedByCurrentUser(System.Int32)">
+            <summary>
+            Sets file viewed by current user.
+            </summary>
+            <param name="fileId">File identifier.</param>
+        </member>
+        <member name="M:Orion.Files.IFilesComponent.ValidateFileExtension(System.String)">
+            <summary>
+            Validates file extension.
+            </summary>
+            <param name="fileName">File name.</param>
+        </member>
+        <member name="M:Orion.Files.IFilesComponent.ValidateFileExtension(System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Validates file extension.
+            </summary>
+            <param name="fileName">File name.</param>
+            <param name="allowedExtensions">Allowed extensions.</param>
+        </member>
+        <member name="M:Orion.Files.IFilesComponent.DoesFileExist(System.Int32)">
+            <summary>
+            Validates the specified file exist in Files.
+            </summary>
+            <param name="fileId">The File identifier.</param>
+            <returns>True - exist, False - does not exist.</returns>
+        </member>
+        <member name="M:Orion.Files.IFilesComponent.CloneFile(System.Int32,System.Int64)">
+            <summary>
+            Clones the file.
+            </summary>
+            <param name="fileId">The file identifier.</param>
+            <param name="userId">The user identifier.</param>
+            <returns>New file id.</returns>
+        </member>
+        <member name="M:Orion.Files.IFilesComponent.GetFileContent(System.IO.Stream,System.String)">
+            <summary>
+            Gets the content of the file.
+            </summary>
+            <param name="fileStream">The file stream.</param>
+            <param name="fileName">Name of the file.</param>
+            <returns>File content.</returns>
+            Initialize Aspose.Words using license file from resources by calling LicenseActivator.InitializeAsposeWords() during application start
+        </member>
+        <member name="M:Orion.Files.IFilesComponent.ConvertFileToPdf(System.IO.Stream,System.String)">
+            <summary>
+            Converts the file to PDF.
+            </summary>
+            <param name="fileStream">The file stream.</param>
+            <param name="fileExtension">The file extension (without a dot).</param>
+            <returns>Stream of file content in PDF format. The stream should be disposed after using.</returns>
+        </member>
+        <member name="M:Orion.Files.IFilesComponent.StreamToByteArray(System.IO.Stream)">
+            <summary>
+            Converts Stream to Byte array.
+            </summary>
+            <param name="fileStream">Stream input.</param>
+            <returns>Byte array.</returns>
+        </member>
+        <member name="M:Orion.Files.IFilesComponent.GetLogo(System.Int32,System.Boolean)">
+            <summary>
+            Get logo based on module id.
+            </summary>
+            <param name="moduleId">The module identifier.</param>
+            <param name="isDownloadResponses">bool whether download responses or not. </param>
+            <returns>base64 string.</returns>
+        </member>
+    </members>
+</doc>

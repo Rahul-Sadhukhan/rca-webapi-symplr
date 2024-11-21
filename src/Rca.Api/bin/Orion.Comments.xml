@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Orion.Comments</name>
+    </assembly>
+    <members>
+        <member name="T:Orion.Comments.CommentsComponentAutoMapperProfile">
+            <summary>
+            Comments Component Auto Mapper Profile.
+            </summary>
+        </member>
+        <member name="M:Orion.Comments.CommentsComponentAutoMapperProfile.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Comments.CommentsComponentAutoMapperProfile"/> class.
+            </summary>
+        </member>
+        <member name="T:Orion.Comments.CommentsComponentModule">
+            <summary>
+            Comments Component Module.
+            </summary>
+        </member>
+        <member name="M:Orion.Comments.CommentsComponentModule.Load(Autofac.ContainerBuilder)">
+            <summary>
+            Add registrations to the container.
+            </summary>
+            <param name="builder">The builder through which components can be registered.</param>
+            <remarks>
+            Note that the ContainerBuilder parameter is unique to this module.
+            </remarks>
+        </member>
+        <member name="T:Orion.Comments.ICommentsComponent">
+            <summary>
+            Component used to work with Comments.
+            </summary>
+        </member>
+        <member name="M:Orion.Comments.ICommentsComponent.AddComment(System.Guid,Orion.Comments.Models.CommentModel)">
+            <summary>
+            Adds a new Comment for the given Entity.
+            </summary>
+            <param name="entityId">Entity identifier.</param>
+            <param name="comment">Model describing the new Comment.</param>
+            <returns>Model describing the added Comment.</returns>
+        </member>
+        <member name="M:Orion.Comments.ICommentsComponent.GetCommentsQueryable(System.Guid)">
+            <summary>
+            Gets queryable list of Comments for the given Entity.
+            </summary>
+            <param name="entityId">Entity identifier.</param>
+            <returns>Queryable list of comments.</returns>
+        </member>
+        <member name="T:Orion.Comments.Models.CommentModel">
+            <summary>
+            Represents a Comment.
+            </summary>
+        </member>
+        <member name="P:Orion.Comments.Models.CommentModel.CommentId">
+            <summary>
+            Gets or sets Comment identifier.
+            </summary>
+        </member>
+        <member name="P:Orion.Comments.Models.CommentModel.Content">
+            <summary>
+            Gets or sets Comment content.
+            </summary>
+        </member>
+        <member name="P:Orion.Comments.Models.CommentModel.UserInfo">
+            <summary>
+            Gets or sets UserInfo for the author of the Comment.
+            </summary>
+        </member>
+        <member name="P:Orion.Comments.Models.CommentModel.CreatedDate">
+            <summary>
+            Gets or sets date/time (UTC) when the Comment was created.
+            </summary>
+        </member>
+        <member name="T:Orion.Comments.Models.CommentWithDetailsModel">
+            <summary>
+            Comment With Details Model.
+            </summary>
+        </member>
+        <member name="P:Orion.Comments.Models.CommentWithDetailsModel.CommentId">
+            <summary>
+            Gets or sets Comment identifier.
+            </summary>
+        </member>
+        <member name="P:Orion.Comments.Models.CommentWithDetailsModel.Content">
+            <summary>
+            Gets or sets Comment content.
+            </summary>
+        </member>
+        <member name="P:Orion.Comments.Models.CommentWithDetailsModel.UserName">
+            <summary>
+            Gets or sets user name for the Comment author.
+            </summary>
+        </member>
+        <member name="P:Orion.Comments.Models.CommentWithDetailsModel.CreatedDate">
+            <summary>
+            Gets or sets date/time (UTC) when the Comment was created.
+            </summary>
+        </member>
+    </members>
+</doc>

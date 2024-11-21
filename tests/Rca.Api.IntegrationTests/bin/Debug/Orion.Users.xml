@@ -1,0 +1,1400 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Orion.Users</name>
+    </assembly>
+    <members>
+        <member name="T:Orion.Users.Data.Entities.UserExt">
+            <summary>
+            Represents part of additional to User fields from the UserExt view which are calculated from User Logging data.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Data.Entities.UserExt.Id">
+            <summary>
+            Gets or sets Id which is Id from OrionUser table.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Data.Entities.UserExt.LoginStatusAsOfDate">
+            <summary>
+            Gets or sets date of latest user login status change which is taken from the Logging data.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Data.Entities.UserExt.ProfileStatusAsOfDate">
+            <summary>
+            Gets or sets date of latest user profile status change which is taken from the Logging data.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Data.Entities.UserExt.HasEverHadActiveLogin">
+            <summary>
+            Gets or sets a value indicating whether user has ever had active login status.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Data.Entities.UserExt.IsAccessExpired">
+            <summary>
+            Gets or sets a value indicating whether user access (password or token) was expired based on LastAccessModifiedDate and expiration time calculated from Logging data and settings.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Data.Entities.UserExt.IsAccessWarning">
+            <summary>
+            Gets or sets a value indicating whether user access (password or token) has warning calculated based on Logging data.
+            </summary>
+        </member>
+        <member name="T:Orion.Users.Data.Projections.CreateUserModel">
+            <summary>
+            Model with fields required to create an OrionUser.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Data.Projections.CreateUserModel.UserName">
+            <summary>
+            Gets or sets UserName.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Data.Projections.CreateUserModel.FirstName">
+            <summary>
+            Gets or sets FirstName.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Data.Projections.CreateUserModel.LastName">
+            <summary>
+            Gets or sets LastName.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Data.Projections.CreateUserModel.EmailAddress">
+            <summary>
+            Gets or sets EmailAddress.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Data.Projections.CreateUserModel.UserType">
+            <summary>
+            Gets or sets UserType.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Data.Projections.CreateUserModel.IsLoginActive">
+            <summary>
+            Gets or sets a value indicating whether user can login or not.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Data.Projections.CreateUserModel.IsProfileActive">
+            <summary>
+            Gets or sets a value indicating whether Profile on use or not.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Data.Projections.CreateUserModel.Language">
+            <summary>
+            Gets or sets Language.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Data.Projections.CreateUserModel.CreatedByUserId">
+            <summary>
+            Gets or sets CreatedByUserId.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Data.Projections.CreateUserModel.IsSsoManaged">
+            <summary>
+            Gets or sets a value indicating whether user created by sso or not.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Data.Projections.CreateUserModel.PasswordHash">
+            <summary>
+            Gets or sets PasswordHash.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Data.Projections.CreateUserModel.UniqueId">
+            <summary>
+            Gets or sets UniqueId.
+            </summary>
+        </member>
+        <member name="M:Orion.Users.Data.Repositories.IUsersRepository.GetUsersById(System.Int64[])">
+            <summary>
+            Retrieves a list of OrionUsers that match the given OrionUser ids.
+            </summary>
+            <param name="ids">the ids of the OrionUsers to retrieve.</param>
+            <returns>Collection of OrionUser models.</returns>
+        </member>
+        <member name="M:Orion.Users.Data.Repositories.IUsersRepository.GetUsersWithActiveLogin">
+            <summary>
+            Retrieves users with an active login, regardless of profile status.
+            </summary>
+            <returns>All users with an active login.</returns>
+        </member>
+        <member name="M:Orion.Users.Data.Repositories.IUsersRepository.GetAllUsers">
+            <summary>
+            Retrieves all non-deleted users, regardless of login status and profile status.
+            </summary>
+            <returns>Collection of guaranteed not to be null.</returns>
+        </member>
+        <member name="M:Orion.Users.Data.Repositories.IUsersRepository.DoesUserExist(System.Int64)">
+            <summary>
+            Validates the specified user exist among Regular and None users which are not deleted.
+            </summary>
+            <param name="userId">User Id.</param>
+            <returns>True - exist, False - does not exist.</returns>
+        </member>
+        <member name="M:Orion.Users.Data.Repositories.UsersRepository.GetUsersById(System.Int64[])">
+            <summary>
+            Retrieves a list of OrionUsers that match the given OrionUser ids.
+            </summary>
+            <param name="ids">the ids of the OrionUsers to retrieve.</param>
+            <returns>Collection of OrionUser models.</returns>
+            <remarks>
+            Be careful passing too large of an array to this method. Ids are copied to SQL query and too many ids can cause performance issues.
+            </remarks>
+        </member>
+        <member name="M:Orion.Users.Data.Repositories.UsersRepository.GetActiveOrionUserByUserId(System.Int64)">
+            <summary>
+            Get active orion user details by user id.
+            </summary>
+            <param name="userId">User Identifier.</param>
+            <returns>User details.</returns>
+        </member>
+        <member name="M:Orion.Users.Data.Repositories.UsersRepository.GetRespondentUsers">
+            <summary>
+            Get respondent users.
+            </summary>
+            <returns>User details.</returns>
+        </member>
+        <member name="M:Orion.Users.Data.Repositories.UsersRepository.GetAuthenticatedUsers">
+            <summary>
+            Get authorised users.
+            </summary>
+            <returns>User details.</returns>
+        </member>
+        <member name="M:Orion.Users.Data.Repositories.UsersRepository.DoesRespondentUserExist(System.Int64)">
+            <summary>
+            check respondent user exist.
+            </summary>
+            <param name="userId">User Identifier.</param>
+            <returns>If user exist return true else return false.</returns>
+        </member>
+        <member name="M:Orion.Users.Data.Repositories.UsersRepository.GetRespondentUserByEmailAddress(System.String)">
+            <summary>
+            Get respondent user based on email.
+            </summary>
+            <param name="emailAddress">Email address.</param>
+            <returns>User details.</returns>
+        </member>
+        <member name="M:Orion.Users.Data.Repositories.UsersRepository.GetAuthenticatedUserByEmailAddress(System.String)">
+            <summary>
+            Get authenticated user based on email.
+            </summary>
+            <param name="emailAddress">Email address.</param>
+            <returns>User details.</returns>
+        </member>
+        <member name="M:Orion.Users.Data.Repositories.UsersRepository.GetSelfRegisterUserByEmailAddress(System.String)">
+            <summary>
+            Get self register user based on email.
+            </summary>
+            <param name="emailAddress">Email address.</param>
+            <returns>User details.</returns>
+        </member>
+        <member name="M:Orion.Users.Data.Repositories.UsersRepository.DoesAuthenticatedUserExist(System.Int64)">
+            <summary>
+            check authenticated user exist.
+            </summary>
+            <param name="userId">User Identifier.</param>
+            <returns>If user exist return true else return false.</returns>
+        </member>
+        <member name="M:Orion.Users.Data.Repositories.UsersRepository.GetAuthenticatedOrUnAuthenticatedRespondentUserById(System.Int64)">
+            <summary>
+            Get authenticated or unauthenticated respondent user based on userid.
+            </summary>
+            <param name="userId">User identifier.</param>
+            <returns>User details.</returns>
+        </member>
+        <member name="T:Orion.Users.Enums.UserType">
+            <summary>
+            User Type.
+            </summary>
+        </member>
+        <member name="F:Orion.Users.Enums.UserType.Anonymous">
+            <summary>
+            Anonymous type is used for anonymous using of the application (ex. Portal) or logic where the user is not authenticated yet.
+            Restricted to be only one per client.
+            </summary>
+        </member>
+        <member name="F:Orion.Users.Enums.UserType.Regular">
+            <summary>
+            Regular type is used for any user created manually from the application.
+            </summary>
+        </member>
+        <member name="F:Orion.Users.Enums.UserType.GlobalAdmin">
+            <summary>
+            GlobalAdmin type is used as a Verifield support user with extended permissions in the application.
+            Restricted to be only one per client.
+            </summary>
+        </member>
+        <member name="F:Orion.Users.Enums.UserType.None">
+            <summary>
+            None type is used for soft-deleted users.
+            </summary>
+        </member>
+        <member name="F:Orion.Users.Enums.UserType.Api">
+            <summary>
+            Api type is used for the access and work with Orion.Api application from the Verifield mobile application.
+            Restricted to be only one per client.
+            </summary>
+        </member>
+        <member name="F:Orion.Users.Enums.UserType.System">
+            <summary>
+            System type is used for the logging system actions or in the sql data creation scripts.
+            Restricted to be only one per client.
+            </summary>
+        </member>
+        <member name="F:Orion.Users.Enums.UserType.Delegee">
+            <summary>
+            Delegee type is used for the Delegee users in RAM NG.
+            </summary>
+        </member>
+        <member name="F:Orion.Users.Enums.UserType.DeveloperApi">
+            <summary>
+            DeveloperApi type is used for users which will call the Developer APIs available for the external vendors.
+            </summary>
+        </member>
+        <member name="F:Orion.Users.Enums.UserType.Respondent">
+            <summary>
+            Respondent type is used for users which will call the survey respondent.
+            </summary>
+        </member>
+        <member name="F:Orion.Users.Enums.UserType.SelfRegisterRespondent">
+            <summary>
+            Selft-Register Respondent user type is used for users which will call the survey respondent.
+            </summary>
+        </member>
+        <member name="T:Orion.Users.Extensions.UserPreferenceModelExtensions">
+            <summary>
+            User Preference Model Extensions.
+            </summary>
+        </member>
+        <member name="M:Orion.Users.Extensions.UserPreferenceModelExtensions.GetDefaults(Orion.Users.Models.UserPreferencesModel)">
+            <summary>
+            Gets defaults.
+            </summary>
+            <param name="preferenceModel">Preferences Model.</param>
+            <returns>Updated Preferences Model.</returns>
+        </member>
+        <member name="T:Orion.Users.Models.OData.OrionUserWithProfilesODataModel">
+            <summary>
+            A model which is used to represent a user with it's profiles in OData endpoint to get a list of users.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OData.OrionUserWithProfilesODataModel.UserId">
+            <summary>
+            Gets or sets UserId.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OData.OrionUserWithProfilesODataModel.FirstName">
+            <summary>
+            Gets or sets FirstName.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OData.OrionUserWithProfilesODataModel.LastName">
+            <summary>
+            Gets or sets LastName.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OData.OrionUserWithProfilesODataModel.IsLoginActive">
+            <summary>
+            Gets or sets a value indicating whether the user's login active or not.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OData.OrionUserWithProfilesODataModel.IsProfileActive">
+            <summary>
+            Gets or sets a value indicating whether the user's profile is active or not.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OData.OrionUserWithProfilesODataModel.IsLoginLocked">
+            <summary>
+            Gets or sets a value indicating whether the user's account is locked or not.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OData.OrionUserWithProfilesODataModel.UserName">
+            <summary>
+            Gets or sets the user's login.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OData.OrionUserWithProfilesODataModel.Email">
+            <summary>
+            Gets or sets Email.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OData.OrionUserWithProfilesODataModel.LastModifiedDate">
+            <summary>
+            Gets or sets the last date when the user was modified.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OData.OrionUserWithProfilesODataModel.UserProfiles">
+            <summary>
+            Gets or sets the user's profiles.
+            </summary>
+        </member>
+        <member name="T:Orion.Users.Models.OData.UserDefinitionODataModel">
+            <summary>
+            A user definition (profile) model which is used in Developer API Odata endpoint to get a list of users.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OData.UserDefinitionODataModel.Id">
+            <summary>
+            Gets or sets the unique user definition (profile) identifier.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OData.UserDefinitionODataModel.Name">
+            <summary>
+            Gets or sets the name of the user definition (profile) name.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OData.UserDefinitionODataModel.Language">
+            <summary>
+            Gets or sets the language in which the user definition (profile) is defined.
+            </summary>
+        </member>
+        <member name="T:Orion.Users.Models.OrionUserExtendedInfoModel">
+            <summary>
+            Orion User Extended Info Model.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OrionUserExtendedInfoModel.UserId">
+            <summary>
+            Gets or sets UserId.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OrionUserExtendedInfoModel.FullName">
+            <summary>
+            Gets or sets FullName.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OrionUserExtendedInfoModel.FirstName">
+            <summary>
+            Gets or sets FirstName.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OrionUserExtendedInfoModel.LastName">
+            <summary>
+            Gets or sets LastName.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OrionUserExtendedInfoModel.Email">
+            <summary>
+            Gets or sets Email.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OrionUserExtendedInfoModel.UserType">
+            <summary>
+            Gets or sets UserType.
+            </summary>
+        </member>
+        <member name="T:Orion.Users.Models.OrionUserWithEmailModel">
+            <summary>
+            Orion User With Email Model.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OrionUserWithEmailModel.Email">
+            <summary>
+            Gets or sets Email.
+            </summary>
+        </member>
+        <member name="T:Orion.Users.Models.OrionUserInfoModel">
+            <summary>
+            Orion User Info Model.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OrionUserInfoModel.UserId">
+            <summary>
+            Gets or sets UserId.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OrionUserInfoModel.Name">
+            <summary>
+            Gets or sets Name.
+            </summary>
+        </member>
+        <member name="T:Orion.Users.Models.OrionUserMetaDataModel">
+            <summary>
+            Orion User MetaData Model.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OrionUserMetaDataModel.LoginIsActive">
+            <summary>
+            Gets or sets a value indicating whether user has ability to login in application.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OrionUserMetaDataModel.ProfileIsActive">
+            <summary>
+            Gets or sets a value indicating whether user has active profile.
+            </summary>
+        </member>
+        <member name="T:Orion.Users.Models.UserAttributeDefinitionInfoModel">
+            <summary>
+            User Attribute Definition Info Model.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.UserAttributeDefinitionInfoModel.Id">
+            <summary>
+            Gets or sets Id.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.UserAttributeDefinitionInfoModel.UserAttributeDefinitionName">
+            <summary>
+            Gets or sets UserAttributeDefinitionName.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.UserAttributeDefinitionInfoModel.UserDefinitionName">
+            <summary>
+            Gets or sets UserDefinitionName.
+            </summary>
+        </member>
+        <member name="T:Orion.Users.Models.UserPreferencesModel">
+            <summary>
+            User Preferences Model.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.UserPreferencesModel.UserId">
+            <summary>
+            Gets or sets UserId.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.UserPreferencesModel.CollapsedNav">
+            <summary>
+            Gets or sets a value indicating whether CollapsedNav.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.UserPreferencesModel.DashboardReportPath">
+            <summary>
+            Gets or sets DashboardReportPath.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.UserPreferencesModel.DashboardReportName">
+            <summary>
+            Gets or sets DashboardReportName.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.UserPreferencesModel.DefaultWatchType">
+            <summary>
+            Gets or sets DefaultWatchType.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.UserPreferencesModel.IsHtmlEmail">
+            <summary>
+            Gets or sets a value indicating whether IsHtmlEmail.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.UserPreferencesModel.Language">
+            <summary>
+            Gets or sets Language.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.UserPreferencesModel.LegalRegisterEmailFrequency">
+            <summary>
+            Gets or sets LegalRegisterEmailFrequency.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.UserPreferencesModel.LegalRegisterUpdateEmailFrequency">
+            <summary>
+            Gets or sets LegalRegisterUpdateEmailFrequency.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.UserPreferencesModel.PagerStyle">
+            <summary>
+            Gets or sets PagerStyle.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.UserPreferencesModel.PayloadXml">
+            <summary>
+            Gets or sets PayloadXml.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.UserPreferencesModel.SendEmail">
+            <summary>
+            Gets or sets a value indicating whether SendEmail.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.UserPreferencesModel.SendNotification">
+            <summary>
+            Gets or sets a value indicating whether SendNotification.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.UserPreferencesModel.SentralPassword">
+            <summary>
+            Gets or sets SentralPassword.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.UserPreferencesModel.SentralUsername">
+            <summary>
+            Gets or sets SentralUsername.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.UserPreferencesModel.Theme">
+            <summary>
+            Gets or sets Theme.
+            </summary>
+        </member>
+        <member name="T:Orion.Users.Models.UserPasswordResetHashModel">
+            <summary>
+            User Password Reset Hash Model.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.UserPasswordResetHashModel.Id">
+            <summary>
+            Gets or sets Id.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.UserPasswordResetHashModel.UserId">
+            <summary>
+            Gets or sets UserId.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.UserPasswordResetHashModel.HashKey">
+            <summary>
+            Gets or sets HashKey.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.UserPasswordResetHashModel.CreatedDate">
+            <summary>
+            Gets or sets CreatedDate.
+            </summary>
+        </member>
+        <member name="T:Orion.Users.Models.OrionUserModel">
+            <summary>
+            Orion User Model.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OrionUserModel.Id">
+            <summary>
+            Gets or sets Id.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OrionUserModel.UniqueId">
+            <summary>
+            Gets or sets UniqueId.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OrionUserModel.UserName">
+            <summary>
+            Gets or sets UserName.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OrionUserModel.FirstName">
+            <summary>
+            Gets or sets FirstName.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OrionUserModel.LastName">
+            <summary>
+            Gets or sets LastName.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OrionUserModel.EmailAddress">
+            <summary>
+            Gets or sets EmailAddress.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OrionUserModel.PrivateKey">
+            <summary>
+            Gets or sets PrivateKey.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OrionUserModel.PublicKey">
+            <summary>
+            Gets or sets PublicKey.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OrionUserModel.InvalidLoginAttempts">
+            <summary>
+            Gets or sets InvalidLoginAttempts.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OrionUserModel.IsActive">
+            <summary>
+            Gets or sets a value indicating whether IsActive.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OrionUserModel.IsDeleted">
+            <summary>
+            Gets or sets a value indicating whether IsDeleted.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OrionUserModel.DeletedDate">
+            <summary>
+            Gets or sets DeletedDate.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OrionUserModel.RememberMeHash">
+            <summary>
+            Gets or sets RememberMeHash.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OrionUserModel.UserType">
+            <summary>
+            Gets or sets UserType.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OrionUserModel.Language">
+            <summary>
+            Gets or sets Language.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OrionUserModel.UserPin">
+            <summary>
+            Gets or sets UserPin.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OrionUserModel.SupervisorUserId">
+            <summary>
+            Gets or sets SupervisorUserId.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OrionUserModel.MiddleName">
+            <summary>
+            Gets or sets MiddleName.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OrionUserModel.CreatedByUserId">
+            <summary>
+            Gets or sets CreatedByUserId.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OrionUserModel.CreatedDate">
+            <summary>
+            Gets or sets CreatedDate.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OrionUserModel.LastModifiedByUserId">
+            <summary>
+            Gets or sets LastModifiedByUserId.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OrionUserModel.LastModifiedDate">
+            <summary>
+            Gets or sets LastModifiedDate.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OrionUserModel.FullName">
+            <summary>
+            Gets or sets FullName.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OrionUserModel.PasswordHash">
+            <summary>
+            Gets or sets PasswordHash.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OrionUserModel.Salt">
+            <summary>
+            Gets or sets Salt.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OrionUserModel.PasswordVersion">
+            <summary>
+            Gets or sets PasswordVersion.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OrionUserModel.IsLoginLocked">
+            <summary>
+            Gets or sets a value indicating whether IsLoginLocked.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OrionUserModel.LoginLockedDate">
+            <summary>
+            Gets or sets LoginLockedDate.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OrionUserModel.IsAnonymous">
+            <summary>
+            Gets or sets a value indicating whether IsAnonymous.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OrionUserModel.IsGlobal">
+            <summary>
+            Gets or sets a value indicating whether IsGlobal.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OrionUserModel.IsApi">
+            <summary>
+            Gets or sets a value indicating whether IsApi.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OrionUserModel.IsSystem">
+            <summary>
+            Gets or sets a value indicating whether IsSystem.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OrionUserModel.IsProfileActive">
+            <summary>
+            Gets or sets a value indicating whether IsProfileActive.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OrionUserModel.IsSsoManaged">
+            <summary>
+            Gets or sets a value indicating whether IsSsoManaged.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OrionUserModel.UserTokens">
+            <summary>
+            Gets or sets UserTokens.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.OrionUserModel.DeveloperApiToken">
+            <summary>
+            Gets or sets DeveloperApiToken.
+            </summary>
+        </member>
+        <member name="T:Orion.Users.Models.UserTokenModel">
+            <summary>
+            User Token Model.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.UserTokenModel.Id">
+            <summary>
+            Gets or sets Id.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.UserTokenModel.UserId">
+            <summary>
+            Gets or sets UserId.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.UserTokenModel.LayerId">
+            <summary>
+            Gets or sets LayerId.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.UserTokenModel.TokenId">
+            <summary>
+            Gets or sets TokenId.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.UserTokenModel.ExpirationDate">
+            <summary>
+            Gets or sets ExpirationDate.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.Models.UserTokenModel.TrustedTokenId">
+            <summary>
+            Gets or sets TrustedTokenId.
+            </summary>
+        </member>
+        <member name="T:Orion.Users.UsersComponentAutoMapperProfile">
+            <summary>
+            Users Component Auto Mapper Profile.
+            </summary>
+        </member>
+        <member name="M:Orion.Users.UsersComponentAutoMapperProfile.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Users.UsersComponentAutoMapperProfile"/> class.
+            </summary>
+        </member>
+        <member name="T:Orion.Users.IUsersComponent">
+            <summary>
+            Component used to work with Users.
+            </summary>
+        </member>
+        <member name="P:Orion.Users.IUsersComponent.CurrentUser">
+            <summary>
+            Gets a user which current session belongs to.
+            </summary>
+            <returns><see cref="T:Orion.Users.Models.OrionUserModel"/>.</returns>
+        </member>
+        <member name="M:Orion.Users.IUsersComponent.GetAnonymousUser">
+            <summary>
+            Returns Anonymous user.
+            </summary>
+            <returns><see cref="T:Orion.Users.Models.OrionUserModel"/>.</returns>
+        </member>
+        <member name="M:Orion.Users.IUsersComponent.GetSystemUser">
+            <summary>
+            Returns System user.
+            </summary>
+            <returns><see cref="T:Orion.Users.Models.OrionUserModel"/>.</returns>
+        </member>
+        <member name="M:Orion.Users.IUsersComponent.GetDeveloperApiUserById(System.Int64)">
+            <summary>
+            Returns user by id of UserType.DeveloperApi.
+            </summary>
+            <param name="userId">DeveloperApi user id.</param>
+            <returns><see cref="T:Orion.Users.Models.OrionUserModel"/>.</returns>
+        </member>
+        <member name="M:Orion.Users.IUsersComponent.GetDeveloperApiUserByUserName(System.String)">
+            <summary>
+            Returns user by user name of UserType.DeveloperApi.
+            </summary>
+            <param name="userName">DeveloperApi UserName.</param>
+            <returns><see cref="T:Orion.Users.Models.OrionUserModel"/>.</returns>
+        </member>
+        <member name="M:Orion.Users.IUsersComponent.GetDeveloperApiUserByToken(System.Guid)">
+            <summary>
+            Returns an active user by user token of UserType.DeveloperApi.
+            </summary>
+            <param name="token">DeveloperApi user token.</param>
+            <returns><see cref="T:Orion.Users.Models.OrionUserModel"/>User model or null in case if the dev api token or user not found.</returns>
+        </member>
+        <member name="M:Orion.Users.IUsersComponent.GetUsersWithActiveLoginAndActiveProfile">
+            <summary>
+            Gets a list of all not deleted users with both Login and Profile active.
+            </summary>
+            <returns>List of <see cref="T:Orion.Users.Models.OrionUserInfoModel"/>.</returns>
+        </member>
+        <member name="M:Orion.Users.IUsersComponent.GetUsersWithActiveLogin">
+            <summary>
+            Gets all users with an active login, regardless of profiles.
+            </summary>
+            <returns>IEnumerable of Users with active logins.</returns>
+        </member>
+        <member name="M:Orion.Users.IUsersComponent.GetAllUsers">
+            <summary>
+            Get all users that are not deleted, regardless of login or profile status.
+            </summary>
+            <returns>IEnumerable of <see cref="T:Orion.Users.Models.OrionUserInfoModel"/>.</returns>
+        </member>
+        <member name="M:Orion.Users.IUsersComponent.GetUserInfoById(System.Int64)">
+            <summary>
+            Gets OrionUserInfoModel by User identifier.
+            </summary>
+            <param name="id">User identifier to return from DB.</param>
+            <returns><see cref="T:Orion.Users.Models.OrionUserInfoModel"/>.</returns>
+        </member>
+        <member name="M:Orion.Users.IUsersComponent.GetUserExtendedInfoById(System.Int64)">
+            <summary>
+            Gets OrionUserExtendedInfoModel by User identifier.
+            </summary>
+            <param name="id">User Id to return from DB.</param>
+            <returns><see cref="T:Orion.Users.Models.OrionUserExtendedInfoModel"/>.</returns>
+        </member>
+        <member name="M:Orion.Users.IUsersComponent.GetUsersById(System.Int64[])">
+            <summary>
+             Gets a list of all not deleted users by list of provided user identifiers.
+            </summary>
+            <param name="ids">Array of user identifiers.</param>
+            <returns>List of <see cref="T:Orion.Users.Models.OrionUserInfoModel"/>.</returns>
+        </member>
+        <member name="M:Orion.Users.IUsersComponent.GetUserByToken(System.String)">
+            <summary>
+            Gets User by user security token which is used to login.
+            </summary>
+            <param name="token">User token which is used to login.</param>
+            <returns><see cref="T:Orion.Users.Models.OrionUserModel"/>.</returns>
+        </member>
+        <member name="M:Orion.Users.IUsersComponent.SetCurrentUser(Orion.Users.Models.OrionUserModel)">
+            <summary>
+            Sets user which is currently logged in into the UsersComponent.
+            </summary>
+            <param name="user">Logged in User that needs to be set <see cref="T:Orion.Users.Models.OrionUserModel"/>.</param>
+        </member>
+        <member name="M:Orion.Users.IUsersComponent.GetUsersWithEmailsById(System.Int64[])">
+            <summary>
+            Get users including emails by identifiers list.
+            </summary>
+            <param name="ids">Array of user identifiers.</param>
+            <returns>List of <see cref="T:Orion.Users.Models.OrionUserWithEmailModel"/>.</returns>
+        </member>
+        <member name="M:Orion.Users.IUsersComponent.GetUserWithEmailById(System.Int64)">
+            <summary>
+            Get user including email by identifier.
+            </summary>
+            <param name="id">User identifier.</param>
+            <returns><see cref="T:Orion.Users.Models.OrionUserWithEmailModel"/>.</returns>
+        </member>
+        <member name="M:Orion.Users.IUsersComponent.GetUserMetadataByUserId(System.Int64)">
+            <summary>
+            Gets user metadata such as statuses along with id and name.
+            </summary>
+            <param name="userId">User identifier to get.</param>
+            <returns><see cref="T:Orion.Users.Models.OrionUserMetaDataModel"/>.</returns>
+        </member>
+        <member name="M:Orion.Users.IUsersComponent.GetUsersMetadataByUserIds(System.Int64[])">
+            <summary>
+            Gets user metadata such as statuses along with id and name.
+            </summary>
+            <param name="userIds">Users identifiers to get.</param>
+            <returns><see cref="T:Orion.Users.Models.OrionUserMetaDataModel"/>Users metadata information.</returns>
+        </member>
+        <member name="M:Orion.Users.IUsersComponent.GetUsersPreferences(System.Collections.Generic.IEnumerable{System.Int64})">
+            <summary>
+            Gets preferences of users by their identifiers.
+            </summary>
+            <param name="userIds">List of user identifiers.</param>
+            <returns>List of <see cref="T:Orion.Users.Models.UserPreferencesModel"/>.</returns>
+        </member>
+        <member name="M:Orion.Users.IUsersComponent.GetUserPreferences(System.Int64)">
+            <summary>
+            Gets preferences by user id.
+            </summary>
+            <param name="userId">User identifier.</param>
+            <returns><see cref="T:Orion.Users.Models.UserPreferencesModel"/>.</returns>
+        </member>
+        <member name="M:Orion.Users.IUsersComponent.GetCurrentUserPreferences">
+            <summary>
+            Gets current user preferences.
+            </summary>
+            <returns><see cref="T:Orion.Users.Models.UserPreferencesModel"/>.</returns>
+        </member>
+        <member name="M:Orion.Users.IUsersComponent.CreateOrionUserRecord(Orion.Users.Models.OrionUserModel)">
+            <summary>
+            Adds new user into OrionUser with passed data for Delegee.
+            </summary>
+            <param name="orionUserModel">User to create in the system.</param>
+            <returns><see cref="T:Orion.Users.Models.OrionUserModel"/>.</returns>
+        </member>
+        <member name="M:Orion.Users.IUsersComponent.GetUsersExtendedInfoByEmail(System.String)">
+            <summary>
+            Gets list of user extended infos by provided email.
+            </summary>
+            <param name="email">Email address.</param>
+            <returns>List of <see cref="T:Orion.Users.Models.OrionUserExtendedInfoModel"/>.</returns>
+        </member>
+        <member name="M:Orion.Users.IUsersComponent.GetUsersExtendedInfoWithEmailsAndActiveLoginOrActiveProfileOrUserTypeDelegeeQueryable">
+            <summary>
+            Gets all extended user infos as IQueryable.
+            </summary>
+            <returns>Queryable list of <see cref="T:Orion.Users.Models.OrionUserExtendedInfoModel"/>.</returns>
+        </member>
+        <member name="M:Orion.Users.IUsersComponent.GetOrionUserModelsByUsersIds(System.Int64[])">
+            <summary>
+            Get <see cref="T:Orion.Users.Models.OrionUserModel"/> calculated collection.
+            <remarks>
+             USE IT CAREFULLY IT HAS PERFORMANCE IMPACT
+            </remarks>
+            </summary>
+            <param name="userIds">Array of user identifiers.</param>
+            <returns><see cref="T:System.Collections.Generic.IEnumerable`1"/>.</returns>
+        </member>
+        <member name="M:Orion.Users.IUsersComponent.AddUser(Orion.Users.Models.OrionUserModel)">
+            <summary>
+            Adds new user into the system.
+            </summary>
+            <param name="user">User to add <see cref="T:Orion.Users.Models.OrionUserModel"/>.</param>
+            <returns>User identifier which was just created.</returns>
+        </member>
+        <member name="M:Orion.Users.IUsersComponent.ResetUserPasswordResetHash(System.Int64)">
+            <summary>
+            Creates a new UserPasswordResetHash which is used to reset password for newly created Active Login user or after forgot password. All hashes which were previously created are removed.
+            </summary>
+            <param name="userId">User identifier which should have a new reset password hash.</param>
+            <returns>Created <see cref="T:Orion.Users.Models.UserPasswordResetHashModel"/>.</returns>
+        </member>
+        <member name="M:Orion.Users.IUsersComponent.GetUserById(System.Int64)">
+            <summary>
+            Gets Regular or None user by user identifier.
+            </summary>
+            <param name="userId">User identifier.</param>
+            <returns><see cref="T:Orion.Users.Models.OrionUserModel"/>.</returns>
+        </member>
+        <member name="M:Orion.Users.IUsersComponent.DoesUserExist(System.Int64)">
+            <summary>
+            Validates the specified user exist among Regular and None users which are not deleted.
+            </summary>
+            <param name="userId">User identifier.</param>
+            <returns>True - exist, False - does not exist.</returns>
+        </member>
+        <member name="M:Orion.Users.IUsersComponent.DoUsersExist(System.Collections.Generic.IEnumerable{System.Int64})">
+            <summary>
+            Validates the specified users exist among Regular and None users which are not deleted.
+            </summary>
+            <param name="userIds">User ids to check.</param>
+            <returns>True when all users exist, false otherwise.</returns>
+        </member>
+        <member name="M:Orion.Users.IUsersComponent.DoRegularActiveUsersExist(System.Collections.Generic.IEnumerable{System.Int64})">
+            <summary>
+            Validates the specified users exist among Regular users which are not deleted and active.
+            </summary>
+            <param name="userIds">User ids to check.</param>
+            <returns>True when all users exist, false otherwise.</returns>
+        </member>
+        <member name="M:Orion.Users.IUsersComponent.GetUserByUniqueId(System.String)">
+            <summary>
+            Gets Regular or None user by user UniqueId.
+            </summary>
+            <param name="uniqueId">User Unique Identifier.</param>
+            <returns><see cref="T:Orion.Users.Models.OrionUserModel"/>.</returns>
+        </member>
+        <member name="M:Orion.Users.IUsersComponent.GetUserByEmailAddress(System.String)">
+            <summary>
+            Gets Regular or None user by user Email Address.
+            </summary>
+            <param name="emailAddress">User Email Address.</param>
+            <returns><see cref="T:Orion.Users.Models.OrionUserModel"/>.</returns>
+        </member>
+        <member name="M:Orion.Users.IUsersComponent.UpdateUser(System.Int64,Orion.Users.Models.OrionUserModel)">
+            <summary>
+            Updates user information.
+            </summary>
+            <param name="userId">User identifier to update.</param>
+            <param name="user">User model to update the user<see cref="T:Orion.Users.Models.OrionUserModel"/>.</param>
+            <returns>Returns orion user model.</returns>
+        </member>
+        <member name="M:Orion.Users.IUsersComponent.ValidateUserUniqueIdUserNameAndEmailAddressAreNotUsed(System.Int64,System.String,System.String,System.String,Orion.Users.Enums.UserType)">
+            <summary>
+            Validates User Unique Id User Name And Email Address Are Not Used.
+            </summary>
+            <param name="userId">User identifier.</param>
+            <param name="uniqueId">Unique Id.</param>
+            <param name="userName">User Name.</param>
+            <param name="emailAddress">Email Address.</param>
+            <param name="userType">User Type.</param>
+        </member>
+        <member name="M:Orion.Users.IUsersComponent.UpdateUserDashboardReport(System.String)">
+            <summary>
+            Change dashboard report Name and Path for the current user; report Name and Path are stored in User Preference record.
+            </summary>
+            <param name="reportPath">Report path used to identify the report; null or empty string to reset report selection.</param>
+            <returns>Updated user preferences (<see cref="T:Orion.Users.Models.UserPreferencesModel"/>).</returns>
+        </member>
+        <member name="M:Orion.Users.IUsersComponent.GetUserAttributeDefinitions(Orion.Multilingual.Enums.Language)">
+            <summary>
+            Gets all active user attribute definition info models with userAttributeDefinitionName and it's correspondent userDefinitionName by provided language.
+            </summary>
+            <param name="language">Language to parse MLS.</param>
+            <returns>List of <see cref="T:Orion.Users.Models.UserAttributeDefinitionInfoModel"/>.</returns>
+        </member>
+        <member name="M:Orion.Users.IUsersComponent.GetActiveUserIdsByIds(System.Collections.Generic.IEnumerable{System.Int64})">
+            <summary>
+            Get only active user ids from provided list of ids.
+            </summary>
+            <param name="userIds">The user ids.</param>
+            <returns>
+            List of active user id.
+            </returns>
+        </member>
+        <member name="M:Orion.Users.IUsersComponent.GetNotDeletedRegularOrNoneUsersWithProfilesQueryable(Orion.Multilingual.Enums.Language)">
+            <summary>
+            Returns all not deleted regular or none users with their profiles.
+            </summary>
+            <param name="language">Language to parse mls.</param>
+            <returns>IQueryable collection of users for OData.</returns>
+        </member>
+        <member name="M:Orion.Users.IUsersComponent.GetRegularOrNoneUsersWithActiveLoginStatusQueryable">
+            <summary>
+            Returns all not deleted regular or none users with active login status.
+            </summary>
+            <returns>IQueryable collection of users for OData.</returns>
+        </member>
+        <member name="M:Orion.Users.IUsersComponent.GetActiveOrionUserByUserId(System.Int64)">
+            <summary>
+            Get active orion user details by user id.
+            </summary>
+            <param name="userId">User Identifier.</param>
+            <returns>User details.</returns>
+        </member>
+        <member name="M:Orion.Users.IUsersComponent.GetRespondentUsers">
+            <summary>
+            Get respondent users.
+            </summary>
+            <returns>Respondent user details.</returns>
+        </member>
+        <member name="M:Orion.Users.IUsersComponent.GetAuthenticatedUsers">
+            <summary>
+            Get Authenticated User details.
+            </summary>
+            <returns>Authenticated user details.</returns>
+        </member>
+        <member name="M:Orion.Users.IUsersComponent.DoesRespondentUserExist(System.Int64)">
+            <summary>
+            check respondent user exists.
+            </summary>
+            <param name="userId">User Identifier.</param>
+            <returns>If user exist return true else return false.</returns>
+        </member>
+        <member name="M:Orion.Users.IUsersComponent.GetRespondentUserByEmailAddress(System.String)">
+            <summary>
+            Get respondent user based on email.
+            </summary>
+            <param name="emailAddress">Email address.</param>
+            <returns>User details.</returns>
+        </member>
+        <member name="M:Orion.Users.IUsersComponent.GetAuthenticatedUserByEmailAddress(System.String)">
+            <summary>
+            Get authenticated user based on email.
+            </summary>
+            <param name="emailAddress">Email address.</param>
+            <returns>User details.</returns>
+        </member>
+        <member name="M:Orion.Users.IUsersComponent.GetSelfRegisterUserByEmailAddress(System.String)">
+            <summary>
+            Get self register user based on email.
+            </summary>
+            <param name="emailAddress">Email address.</param>
+            <returns>User details.</returns>
+        </member>
+        <member name="M:Orion.Users.IUsersComponent.DoesAuthenticatedUserExist(System.Int64)">
+            <summary>
+            check authenticated user exist.
+            </summary>
+            <param name="userId">User Identifier.</param>
+            <returns>If user exist return true else return false.</returns>
+        </member>
+        <member name="M:Orion.Users.IUsersComponent.GetAuthenticatedOrUnAuthenticatedRespondentUserById(System.Int64)">
+            <summary>
+            Get authenticated or unauthenticated respondent user based on userid.
+            </summary>
+            <param name="userId">User identifier.</param>
+            <returns>User details.</returns>
+        </member>
+        <member name="M:Orion.Users.Services.IUsersService.GetUsersById(System.Int64[])">
+            <summary>
+            Retrieves a list of OrionUsers that match the given OrionUser ids.
+            </summary>
+            <param name="ids">the ids of the OrionUsers to retrieve.</param>
+            <returns>Collection of OrionUser models.</returns>
+        </member>
+        <member name="M:Orion.Users.Services.IUsersService.GetUsersWithActiveLogin">
+            <summary>
+            Gets all users with an active login, regardless of profiles.
+            </summary>
+            <returns>IEnumerable of Users with active logins.</returns>
+        </member>
+        <member name="M:Orion.Users.Services.IUsersService.GetAllUsers">
+            <summary>
+            Get all users that are not deleted, regardless of login or profile status.
+            </summary>
+            <returns>IEnumerable of <see cref="T:Orion.Users.Models.OrionUserInfoModel"/>.</returns>
+        </member>
+        <member name="M:Orion.Users.Services.IUsersService.GetOrionUserModelsByUsersIds(System.Int64[])">
+            <summary>
+            Get <see cref="T:Orion.Users.Models.OrionUserModel"/> calculated collection.
+            <remarks>
+             USE IT CAREFULLY IT HAS PERFORMANCE IMPACT
+            </remarks>
+            </summary>
+            <param name="userIds"> set of user ids. </param>
+            <returns><see cref="T:System.Collections.Generic.IEnumerable`1"/>.</returns>
+        </member>
+        <member name="M:Orion.Users.Services.IUsersService.UpdateUserDashboardReport(System.Int64,Orion.Multilingual.Enums.Language,System.String)">
+            <summary>
+            Set dashboard report Name and Path for the given user; Name and Path are saved in User Preference record.
+            </summary>
+            <param name="userId">User identifier.</param>
+            <param name="language">Language to use for the report Name.</param>
+            <param name="reportPath">Report Path to save, used as a report identifier; null or empty string to reset report selection.</param>
+            <returns>Updated user preferences (<see cref="T:Orion.Users.Models.UserPreferencesModel"/>).</returns>
+        </member>
+        <member name="M:Orion.Users.Services.IUsersService.GetActiveOrionUserByUserId(System.Int64)">
+            <summary>
+            Get active orion user details by user id.
+            </summary>
+            <param name="userId">User Identifier.</param>
+            <returns>User details.</returns>
+        </member>
+        <member name="M:Orion.Users.Services.IUsersService.GetRespondentUsers">
+            <summary>
+            Get respondent users.
+            </summary>
+            <returns>User details.</returns>
+        </member>
+        <member name="M:Orion.Users.Services.IUsersService.GetAuthenticatedUsers">
+            <summary>
+            Get Authenticated User details.
+            </summary>
+            <returns>Authenticated user details.</returns>
+        </member>
+        <member name="M:Orion.Users.Services.IUsersService.DoesRespondentUserExist(System.Int64)">
+            <summary>
+            check respondent user exists.
+            </summary>
+            <param name="userId">User Identifier.</param>
+            <returns>If user exist return true else return false.</returns>
+        </member>
+        <member name="M:Orion.Users.Services.IUsersService.GetRespondentUserByEmailAddress(System.String)">
+            <summary>
+            Get respondent user based on email.
+            </summary>
+            <param name="emailAddress">Email address.</param>
+            <returns>User details.</returns>
+        </member>
+        <member name="M:Orion.Users.Services.IUsersService.GetAuthenticatedUserByEmailAddress(System.String)">
+            <summary>
+            Get authenticated user based on email.
+            </summary>
+            <param name="emailAddress">Email address.</param>
+            <returns>User details.</returns>
+        </member>
+        <member name="M:Orion.Users.Services.IUsersService.GetSelfRegisterUserByEmailAddress(System.String)">
+            <summary>
+            Get self register user based on email.
+            </summary>
+            <param name="emailAddress">Email address.</param>
+            <returns>User details.</returns>
+        </member>
+        <member name="M:Orion.Users.Services.IUsersService.DoesAuthenticatedUserExist(System.Int64)">
+            <summary>
+            check authenticated user exist.
+            </summary>
+            <param name="userId">User Identifier.</param>
+            <returns>If user exist return true else return false.</returns>
+        </member>
+        <member name="M:Orion.Users.Services.IUsersService.GetAuthenticatedOrUnAuthenticatedRespondentUserById(System.Int64)">
+            <summary>
+            Get authenticated or unauthenticated respondent user based on userid.
+            </summary>
+            <param name="userId">User identifier.</param>
+            <returns>User details.</returns>
+        </member>
+        <member name="M:Orion.Users.Services.UsersService.GetUsersById(System.Int64[])">
+            <summary>
+            Retrieves a list of OrionUsers that match the given OrionUser ids.
+            </summary>
+            <param name="ids">the ids of the OrionUsers to retrieve.</param>
+            <returns>Collection of OrionUser models.</returns>
+        </member>
+        <member name="M:Orion.Users.Services.UsersService.GetOrionUserModelsByUsersIds(System.Int64[])">
+            <summary>
+            Get <see cref="T:Orion.Users.Models.OrionUserModel"/> calculated collection.
+            <remarks>
+             USE IT CAREFULLY IT HAS PERFORMANCE IMPACT
+            </remarks>
+            </summary>
+            <param name="userIds"> set of user ids. </param>
+            <returns><see cref="T:System.Collections.Generic.IEnumerable`1"/>.</returns>
+        </member>
+        <member name="M:Orion.Users.Services.UsersService.GetAuthenticatedOrUnAuthenticatedRespondentUserById(System.Int64)">
+            <summary>
+            Get authenticated or unauthenticated respondent user based on userid.
+            </summary>
+            <param name="userId">User identifier.</param>
+            <returns>User details.</returns>
+        </member>
+        <member name="M:Orion.Users.Services.UsersService.GetActiveOrionUserByUserId(System.Int64)">
+            <summary>
+            Get active orion user details by user id.
+            </summary>
+            <param name="userId">User Identifier.</param>
+            <returns>User details.</returns>
+        </member>
+        <member name="M:Orion.Users.Services.UsersService.GetRespondentUsers">
+            <summary>
+            Get respondent users.
+            </summary>
+            <returns>User details.</returns>
+        </member>
+        <member name="M:Orion.Users.Services.UsersService.GetAuthenticatedUsers">
+            <summary>
+            Get authenticated user details.
+            </summary>
+            <returns>Authenticated user details.</returns>
+        </member>
+        <member name="M:Orion.Users.Services.UsersService.DoesRespondentUserExist(System.Int64)">
+            <summary>
+            check respondent user exist.
+            </summary>
+            <param name="userId">User Identifier.</param>
+            <returns>If user exist return true else return false.</returns>
+        </member>
+        <member name="M:Orion.Users.Services.UsersService.GetRespondentUserByEmailAddress(System.String)">
+            <summary>
+            Get respondent user based on email.
+            </summary>
+            <param name="emailAddress">Email address.</param>
+            <returns>User details.</returns>
+        </member>
+        <member name="M:Orion.Users.Services.UsersService.GetAuthenticatedUserByEmailAddress(System.String)">
+            <summary>
+            Get authenticated user based on email.
+            </summary>
+            <param name="emailAddress">Email address.</param>
+            <returns>User details.</returns>
+        </member>
+        <member name="M:Orion.Users.Services.UsersService.GetSelfRegisterUserByEmailAddress(System.String)">
+            <summary>
+            Get self register user based on email.
+            </summary>
+            <param name="emailAddress">Email address.</param>
+            <returns>User details.</returns>
+        </member>
+        <member name="M:Orion.Users.Services.UsersService.DoesAuthenticatedUserExist(System.Int64)">
+            <summary>
+            check authenticated user exist.
+            </summary>
+            <param name="userId">User Identifier.</param>
+            <returns>If user exist return true else return false.</returns>
+        </member>
+        <member name="M:Orion.Users.UsersComponent.GetUsersById(System.Int64[])">
+            <summary>
+            Retrieves a list of OrionUsers that match the given OrionUser ids.
+            </summary>
+            <param name="ids">the ids of the OrionUsers to retrieve.</param>
+            <returns>Collection of OrionUser models.</returns>
+        </member>
+        <member name="M:Orion.Users.UsersComponent.GetOrionUserModelsByUsersIds(System.Int64[])">
+            <summary>
+            Get <see cref="T:Orion.Users.Models.OrionUserModel"/> calculated collection.
+            <remarks>
+             USE IT CAREFULLY IT HAS PERFORMANCE IMPACT
+            </remarks>
+            </summary>
+            <param name="userIds"> set of user ids. </param>
+            <returns><see cref="T:System.Collections.Generic.IEnumerable`1"/>.</returns>
+        </member>
+        <member name="M:Orion.Users.UsersComponent.GetActiveOrionUserByUserId(System.Int64)">
+            <summary>
+            Get active orion user details by user id.
+            </summary>
+            <param name="userId">User Identifier.</param>
+            <returns>User details.</returns>
+        </member>
+        <member name="M:Orion.Users.UsersComponent.GetRespondentUsers">
+            <summary>
+            Get respondent users.
+            </summary>
+            <returns>User details.</returns>
+        </member>
+        <member name="M:Orion.Users.UsersComponent.GetAuthenticatedUsers">
+            <summary>
+            Get Authenticated User details.
+            </summary>
+            <returns>Authenticated user details.</returns>
+        </member>
+        <member name="M:Orion.Users.UsersComponent.DoesRespondentUserExist(System.Int64)">
+            <summary>
+            check respondent user exist.
+            </summary>
+            <param name="userId">User Identifier.</param>
+            <returns>If user exist return true else return false.</returns>
+        </member>
+        <member name="M:Orion.Users.UsersComponent.GetRespondentUserByEmailAddress(System.String)">
+            <summary>
+            Get respondent user based on email.
+            </summary>
+            <param name="emailAddress">Email address.</param>
+            <returns>User details.</returns>
+        </member>
+        <member name="M:Orion.Users.UsersComponent.GetAuthenticatedUserByEmailAddress(System.String)">
+            <summary>
+            Get authenticated user based on email.
+            </summary>
+            <param name="emailAddress">Email address.</param>
+            <returns>User details.</returns>
+        </member>
+        <member name="M:Orion.Users.UsersComponent.GetSelfRegisterUserByEmailAddress(System.String)">
+            <summary>
+            Get self register user based on email.
+            </summary>
+            <param name="emailAddress">Email address.</param>
+            <returns>User details.</returns>
+        </member>
+        <member name="M:Orion.Users.UsersComponent.DoesAuthenticatedUserExist(System.Int64)">
+            <summary>
+            check authenticated user exist.
+            </summary>
+            <param name="userId">User Identifier.</param>
+            <returns>If user exist return true else return false.</returns>
+        </member>
+        <member name="M:Orion.Users.UsersComponent.GetAuthenticatedOrUnAuthenticatedRespondentUserById(System.Int64)">
+            <summary>
+            Get authenticated or respondent user based on userid.
+            </summary>
+            <param name="userId">User identifier.</param>
+            <returns>User details.</returns>
+        </member>
+        <member name="T:Orion.Users.UsersComponentModule">
+            <summary>
+            Users Component Module.
+            </summary>
+        </member>
+        <member name="M:Orion.Users.UsersComponentModule.Load(Autofac.ContainerBuilder)">
+            <summary>
+            Add registrations to the container.
+            </summary>
+            <param name="builder">The builder through which components can be registered.</param>
+            <remarks>
+            Note that the ContainerBuilder parameter is unique to this module.
+            </remarks>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,159 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Orion.Processes</name>
+    </assembly>
+    <members>
+        <member name="T:Orion.Processes.Enums.ProcessType">
+            <summary>
+            The process type.
+            </summary>
+        </member>
+        <member name="F:Orion.Processes.Enums.ProcessType.Sequential">
+            <summary>
+            The process type indicating that all actors in the process should respond to the process one after another.
+            </summary>
+        </member>
+        <member name="F:Orion.Processes.Enums.ProcessType.Concurrent">
+            <summary>
+             The process type indicating that all actors can respond to the process in parallel.
+            </summary>
+        </member>
+        <member name="T:Orion.Processes.Enums.ResponseType">
+            <summary>
+            The response from the process actor.
+            </summary>
+        </member>
+        <member name="F:Orion.Processes.Enums.ResponseType.AwaitingResponse">
+            <summary>
+            Initial response type which is created by default.
+            </summary>
+        </member>
+        <member name="F:Orion.Processes.Enums.ResponseType.Approved">
+            <summary>
+            The response type indicating that the actor approved the process.
+            </summary>
+        </member>
+        <member name="F:Orion.Processes.Enums.ResponseType.Rejected">
+            <summary>
+            The response type indicating that the actor rejected the process.
+            </summary>
+        </member>
+        <member name="T:Orion.Processes.IProcessesComponent">
+            <summary>
+            Component to work with processes.
+            </summary>
+        </member>
+        <member name="M:Orion.Processes.IProcessesComponent.CreateProcess(Orion.Processes.Models.ProcessModel)">
+            <summary>
+            Creates a new process.
+            </summary>
+            <param name="process">Process to create.</param>
+            <returns>Created process model.</returns>
+        </member>
+        <member name="M:Orion.Processes.IProcessesComponent.GetProcessById(System.Int32)">
+            <summary>
+            Gets the process by identifier.
+            </summary>
+            <param name="id">The identifier.</param>
+            <returns>Process model.</returns>
+        </member>
+        <member name="M:Orion.Processes.IProcessesComponent.ChangeProcessResponsesType(System.Int32,System.Collections.Generic.IEnumerable{System.Int64},Orion.Processes.Enums.ResponseType)">
+            <summary>
+            Updates responseType for one or more reviewers.
+            </summary>
+            <param name="processId">The process identifier.</param>
+            <param name="reviewerIds">List of reviewer identifiers.</param>
+            <param name="responseType"><see cref="T:Orion.Processes.Enums.ResponseType"/>.</param>
+            <returns>Process model <see cref="T:Orion.Processes.Models.ProcessModel"/>.</returns>
+        </member>
+        <member name="M:Orion.Processes.IProcessesComponent.ChangeProcessResponseType(System.Int32,System.Int64,Orion.Processes.Enums.ResponseType)">
+            <summary>
+            Updates responseType for one reviewer.
+            </summary>
+            <param name="processId">The process identifier.</param>
+            <param name="reviewerId">Reviewer identifier.</param>
+            <param name="responseType"><see cref="T:Orion.Processes.Enums.ResponseType"/>.</param>
+            <returns>Process model <see cref="T:Orion.Processes.Models.ProcessModel"/>.</returns>
+        </member>
+        <member name="M:Orion.Processes.IProcessesComponent.UpdateProcessResponses(System.Int32,System.Collections.Generic.IEnumerable{Orion.Processes.Models.ResponseModel})">
+            <summary>
+            Updates the process responses.
+            </summary>
+            <param name="processId">The process identifier.</param>
+            <param name="responses">The responses.</param>
+            <returns>Process model with updated list of responses.</returns>
+        </member>
+        <member name="T:Orion.Processes.Models.ProcessModel">
+            <summary>
+            Process model.
+            </summary>
+        </member>
+        <member name="P:Orion.Processes.Models.ProcessModel.ProcessId">
+            <summary>
+            Gets or sets process identifier.
+            </summary>
+        </member>
+        <member name="P:Orion.Processes.Models.ProcessModel.ProcessType">
+            <summary>
+            Gets or sets the type of the process.
+            </summary>
+            <value>
+            The type of the process.
+            </value>
+        </member>
+        <member name="P:Orion.Processes.Models.ProcessModel.Responses">
+            <summary>
+            Gets or sets the responses.
+            </summary>
+        </member>
+        <member name="T:Orion.Processes.Models.ResponseModel">
+            <summary>
+            ResponseModel class.
+            </summary>
+        </member>
+        <member name="P:Orion.Processes.Models.ResponseModel.Order">
+            <summary>
+            Gets or sets the response order.
+            </summary>
+        </member>
+        <member name="P:Orion.Processes.Models.ResponseModel.UserId">
+            <summary>
+            Gets or sets a reference to a user identifier.
+            </summary>
+        </member>
+        <member name="P:Orion.Processes.Models.ResponseModel.ResponseType">
+            <summary>
+            Gets or sets the type of the response.
+            </summary>
+            <value>
+            The type of the response.
+            </value>
+        </member>
+        <member name="T:Orion.Processes.ProcessesComponentAutoMapperProfile">
+            <summary>
+            ProcessesComponentAutoMapperProfile class.
+            </summary>
+            <seealso cref="T:AutoMapper.Profile" />
+        </member>
+        <member name="M:Orion.Processes.ProcessesComponentAutoMapperProfile.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Processes.ProcessesComponentAutoMapperProfile"/> class.
+            </summary>
+        </member>
+        <member name="T:Orion.Processes.ProcessesComponentModule">
+            <summary>
+            Processes Component Module.
+            </summary>
+        </member>
+        <member name="M:Orion.Processes.ProcessesComponentModule.Load(Autofac.ContainerBuilder)">
+            <summary>
+            Add registrations to the container.
+            </summary>
+            <param name="builder">The builder through which components can be registered.</param>
+            <remarks>
+            Note that the ContainerBuilder parameter is unique to this module.
+            </remarks>
+        </member>
+    </members>
+</doc>

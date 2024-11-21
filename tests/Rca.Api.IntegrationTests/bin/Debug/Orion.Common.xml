@@ -1,0 +1,617 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Orion.Common</name>
+    </assembly>
+    <members>
+        <member name="T:Orion.Common.Constants.RegexPatterns">
+            <summary>
+            Regex Patterns.
+            </summary>
+        </member>
+        <member name="F:Orion.Common.Constants.RegexPatterns.EmailAddress">
+            <summary>
+            Email Address pattern. This pattern is copied from classic orion backend. Also it is not the same as UI validation in classic orion.
+            </summary>
+        </member>
+        <member name="T:Orion.Common.Data.BaseUnitOfWork">
+            <summary>
+            Base class for unit of work classes which should store ITrackable entities.
+            </summary>
+        </member>
+        <member name="M:Orion.Common.Data.BaseUnitOfWork.SaveChanges(System.Data.Entity.DbContext,System.Int64)">
+            <summary>
+            Saves the changes in EF dbContext.
+            </summary>
+            <param name="db">EF dbContext.</param>
+            <param name="userId">User id which is related to the request.</param>
+            <returns>Returns the number of updated entities.</returns>
+        </member>
+        <member name="T:Orion.Common.Data.Entities.ITrackableEntity">
+            <summary>
+            ITrackableEntity.
+            </summary>
+        </member>
+        <member name="P:Orion.Common.Data.Entities.ITrackableEntity.CreatedDate">
+            <summary>
+            Gets or sets Created Date.
+            </summary>
+        </member>
+        <member name="P:Orion.Common.Data.Entities.ITrackableEntity.CreatedByUserId">
+            <summary>
+            Gets or sets Created By User Id.
+            </summary>
+        </member>
+        <member name="P:Orion.Common.Data.Entities.ITrackableEntity.LastModifiedDate">
+            <summary>
+            Gets or sets Last Modified Date.
+            </summary>
+        </member>
+        <member name="P:Orion.Common.Data.Entities.ITrackableEntity.LastModifiedByUserId">
+            <summary>
+            Gets or sets Last Modified By User Id.
+            </summary>
+        </member>
+        <member name="T:Orion.Common.Data.OrionTransactionScope">
+            <summary>
+            Orion Transaction Scope wrapper class.
+            </summary>
+        </member>
+        <member name="M:Orion.Common.Data.OrionTransactionScope.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Common.Data.OrionTransactionScope"/> class.
+            Creates TransactionScope with default setting for ORION platform.
+            </summary>
+        </member>
+        <member name="M:Orion.Common.Data.OrionTransactionScope.#ctor(System.TimeSpan)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Common.Data.OrionTransactionScope"/> class.
+            Creates TransactionScope with default setting for ORION platform with specific timeout for the transaction.
+            </summary>
+            <param name="timeoutSpan">Timeout span of this new transaction.</param>
+        </member>
+        <member name="M:Orion.Common.Data.OrionTransactionScope.#ctor(System.Transactions.IsolationLevel)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Common.Data.OrionTransactionScope"/> class.
+            Creates TransactionScope with default setting for ORION platform with specific isolation level for the transaction.
+            </summary>
+            <param name="isolationLevel">Isolation level of this new transaction.</param>
+        </member>
+        <member name="M:Orion.Common.Data.OrionTransactionScope.#ctor(System.Transactions.IsolationLevel,System.TimeSpan)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Common.Data.OrionTransactionScope"/> class.
+            Creates TransactionScope with default setting for ORION platform with specific isolation level and timeout for the transaction.
+            </summary>
+            <param name="isolationLevel">Isolation level of this new transaction.</param>
+            <param name="timeoutSpan">Timeout span of this new transaction.</param>
+        </member>
+        <member name="M:Orion.Common.Data.OrionTransactionScope.#ctor(System.Transactions.Transaction)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Common.Data.OrionTransactionScope"/> class.
+            Wrapes TransactionScope around existing one.
+            </summary>
+            <param name="transactionToUse">Existing TransactionScope instance.</param>
+        </member>
+        <member name="M:Orion.Common.Data.OrionTransactionScope.Complete">
+            <summary>
+            Completes the transaction scope.
+            </summary>
+        </member>
+        <member name="M:Orion.Common.Data.OrionTransactionScope.Dispose">
+            <summary>
+            Disposes the transaction scope.
+            </summary>
+        </member>
+        <member name="T:Orion.Common.Enums.SqlCustomErrorCode">
+            <summary>
+            Sql Custom Error Code.
+            </summary>
+        </member>
+        <member name="F:Orion.Common.Enums.SqlCustomErrorCode.CustomError">
+            <summary>
+            Custom Error.
+            </summary>
+        </member>
+        <member name="F:Orion.Common.Enums.SqlCustomErrorCode.UniqueIdDuplicate">
+            <summary>
+            Unique Id Duplicate.
+            </summary>
+        </member>
+        <member name="F:Orion.Common.Enums.SqlCustomErrorCode.UserNameDuplicate">
+            <summary>
+            User Name Duplicate.
+            </summary>
+        </member>
+        <member name="F:Orion.Common.Enums.SqlCustomErrorCode.EmailAddressDuplicate">
+            <summary>
+            Email Address Duplicate.
+            </summary>
+        </member>
+        <member name="F:Orion.Common.Enums.SqlCustomErrorCode.BadRequest">
+            <summary>
+            Bad request error code.
+            </summary>
+        </member>
+        <member name="F:Orion.Common.Enums.SqlCustomErrorCode.NotFound">
+            <summary>
+            Not found error code.
+            </summary>
+        </member>
+        <member name="T:Orion.Common.Exceptions.NotAvailableFunctionalityException">
+            <summary>
+            Not Available Functionality Exception.
+            </summary>
+        </member>
+        <member name="M:Orion.Common.Exceptions.NotAvailableFunctionalityException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Common.Exceptions.NotAvailableFunctionalityException"/> class.
+            </summary>
+            <param name="message">Message.</param>
+        </member>
+        <member name="M:Orion.Common.Exceptions.NotAvailableFunctionalityException.#ctor(System.Net.HttpStatusCode)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Common.Exceptions.NotAvailableFunctionalityException"/> class.
+            </summary>
+            <param name="statusCode">Status code.</param>
+        </member>
+        <member name="M:Orion.Common.Exceptions.NotAvailableFunctionalityException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Common.Exceptions.NotAvailableFunctionalityException"/> class.
+            </summary>
+            <param name="info">Serialization info.</param>
+            <param name="context">Streaming context.</param>
+        </member>
+        <member name="P:Orion.Common.Exceptions.NotAvailableFunctionalityException.ErrorModel">
+            <summary>
+            Gets Error Model.
+            </summary>
+        </member>
+        <member name="M:Orion.Common.Exceptions.NotAvailableFunctionalityException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Get object data for serialization.
+            </summary>
+            <param name="info">Serialization Info.</param>
+            <param name="context">Streaming Context.</param>
+        </member>
+        <member name="M:Orion.Common.Exceptions.NotAvailableFunctionalityException.ToJson">
+            <summary>
+            Transforms Error Model to Json.
+            </summary>
+            <returns>Error Model as Json.</returns>
+        </member>
+        <member name="T:Orion.Common.Exceptions.NotFoundException">
+            <summary>
+            Not Found Exception.
+            </summary>
+        </member>
+        <member name="M:Orion.Common.Exceptions.NotFoundException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Common.Exceptions.NotFoundException"/> class.
+            </summary>
+            <param name="message">Message.</param>
+        </member>
+        <member name="M:Orion.Common.Exceptions.NotFoundException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Common.Exceptions.NotFoundException"/> class.
+            </summary>
+            <param name="info">Serialization info.</param>
+            <param name="context">Streaming context.</param>
+        </member>
+        <member name="P:Orion.Common.Exceptions.NotFoundException.ErrorModel">
+            <summary>
+            Gets Error Model.
+            </summary>
+        </member>
+        <member name="M:Orion.Common.Exceptions.NotFoundException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Get object data for serialization.
+            </summary>
+            <param name="info">Serialization Info.</param>
+            <param name="context">Streaming Context.</param>
+        </member>
+        <member name="M:Orion.Common.Exceptions.NotFoundException.ToJson">
+            <summary>
+            Transforms Error Model to Json.
+            </summary>
+            <returns>Error Model as Json.</returns>
+        </member>
+        <member name="T:Orion.Common.Exceptions.PlatformException">
+            <summary>
+            Platform Exception.
+            </summary>
+        </member>
+        <member name="M:Orion.Common.Exceptions.PlatformException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Common.Exceptions.PlatformException"/> class.
+            </summary>
+            <param name="message">Message.</param>
+        </member>
+        <member name="M:Orion.Common.Exceptions.PlatformException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Common.Exceptions.PlatformException"/> class.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="exception">The exception.</param>
+        </member>
+        <member name="M:Orion.Common.Exceptions.PlatformException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Common.Exceptions.PlatformException"/> class.
+            </summary>
+            <param name="info">Serialization info.</param>
+            <param name="context">Streaming context.</param>
+        </member>
+        <member name="M:Orion.Common.Exceptions.PlatformException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Get object data for serialization.
+            </summary>
+            <param name="info">Serialization Info.</param>
+            <param name="context">Streaming Context.</param>
+        </member>
+        <member name="T:Orion.Common.Exceptions.PresentationException">
+            <summary>
+            Presentation Exception.
+            </summary>
+        </member>
+        <member name="M:Orion.Common.Exceptions.PresentationException.#ctor(System.Net.HttpStatusCode)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Common.Exceptions.PresentationException"/> class.
+            </summary>
+            <param name="statusCode">Status Code.</param>
+        </member>
+        <member name="M:Orion.Common.Exceptions.PresentationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Common.Exceptions.PresentationException"/> class.
+            </summary>
+            <param name="info">Serialization info.</param>
+            <param name="context">Streaming context.</param>
+        </member>
+        <member name="P:Orion.Common.Exceptions.PresentationException.StatusCode">
+            <summary>
+            Gets Status Code.
+            </summary>
+        </member>
+        <member name="M:Orion.Common.Exceptions.PresentationException.ToJson">
+            <summary>
+            Converts to Json.
+            </summary>
+            <returns>Json.</returns>
+        </member>
+        <member name="T:Orion.Common.Exceptions.ResourceNotFoundException">
+            <summary>
+            Resource Not Found Exception.
+            </summary>
+        </member>
+        <member name="M:Orion.Common.Exceptions.ResourceNotFoundException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Common.Exceptions.ResourceNotFoundException"/> class.
+            </summary>
+            <param name="message">Message.</param>
+        </member>
+        <member name="M:Orion.Common.Exceptions.ResourceNotFoundException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Common.Exceptions.ResourceNotFoundException"/> class.
+            </summary>
+            <param name="info">Serialization info.</param>
+            <param name="context">Streaming context.</param>
+        </member>
+        <member name="T:Orion.Common.Exceptions.UnauthorizedAccessSecurityException">
+            <summary>
+            Unauthorized Access Security Exception.
+            </summary>
+        </member>
+        <member name="M:Orion.Common.Exceptions.UnauthorizedAccessSecurityException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Common.Exceptions.UnauthorizedAccessSecurityException"/> class.
+            </summary>
+            <param name="message">Message.</param>
+        </member>
+        <member name="M:Orion.Common.Exceptions.UnauthorizedAccessSecurityException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Common.Exceptions.UnauthorizedAccessSecurityException"/> class.
+            </summary>
+            <param name="info">Serialization info.</param>
+            <param name="context">Streaming context.</param>
+        </member>
+        <member name="P:Orion.Common.Exceptions.UnauthorizedAccessSecurityException.ErrorModel">
+            <summary>
+            Gets Error Model.
+            </summary>
+        </member>
+        <member name="M:Orion.Common.Exceptions.UnauthorizedAccessSecurityException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Get object data for serialization.
+            </summary>
+            <param name="info">Serialization Info.</param>
+            <param name="context">Streaming Context.</param>
+        </member>
+        <member name="M:Orion.Common.Exceptions.UnauthorizedAccessSecurityException.ToJson">
+            <summary>
+            Transforms Error Model to Json.
+            </summary>
+            <returns>Error Model as Json.</returns>
+        </member>
+        <member name="T:Orion.Common.Exceptions.ValidationPlatformException">
+            <summary>
+            Validation Platform Exception.
+            </summary>
+        </member>
+        <member name="M:Orion.Common.Exceptions.ValidationPlatformException.#ctor(FluentValidation.Results.ValidationResult)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Common.Exceptions.ValidationPlatformException"/> class.
+            </summary>
+            <param name="validationResult">Validation Result.</param>
+        </member>
+        <member name="M:Orion.Common.Exceptions.ValidationPlatformException.#ctor(FluentValidation.Results.ValidationFailure[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Common.Exceptions.ValidationPlatformException"/> class.
+            </summary>
+            <param name="failures">Failures.</param>
+        </member>
+        <member name="M:Orion.Common.Exceptions.ValidationPlatformException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Common.Exceptions.ValidationPlatformException"/> class.
+            </summary>
+            <param name="message">Message.</param>
+        </member>
+        <member name="M:Orion.Common.Exceptions.ValidationPlatformException.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Common.Exceptions.ValidationPlatformException"/> class.
+            </summary>
+            <param name="propertyName">Property which is not valid.</param>
+            <param name="message">Message.</param>
+        </member>
+        <member name="M:Orion.Common.Exceptions.ValidationPlatformException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Common.Exceptions.ValidationPlatformException"/> class.
+            </summary>
+            <param name="info">Serialization info.</param>
+            <param name="context">Streaming context.</param>
+        </member>
+        <member name="P:Orion.Common.Exceptions.ValidationPlatformException.ValidationResult">
+            <summary>
+            Gets Validation Result.
+            </summary>
+        </member>
+        <member name="T:Orion.Common.Exceptions.ValidationPresentationException">
+            <summary>
+            Validation Presentation Exception.
+            </summary>
+        </member>
+        <member name="M:Orion.Common.Exceptions.ValidationPresentationException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Common.Exceptions.ValidationPresentationException"/> class.
+            </summary>
+            <param name="message">Message.</param>
+        </member>
+        <member name="M:Orion.Common.Exceptions.ValidationPresentationException.#ctor(System.Collections.Generic.IEnumerable{Orion.Common.Models.FieldErrorModel})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Common.Exceptions.ValidationPresentationException"/> class.
+            </summary>
+            <param name="errors">Errors.</param>
+        </member>
+        <member name="M:Orion.Common.Exceptions.ValidationPresentationException.#ctor(Orion.Common.Models.FieldErrorModel[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Common.Exceptions.ValidationPresentationException"/> class.
+            </summary>
+            <param name="errors">Errors.</param>
+        </member>
+        <member name="M:Orion.Common.Exceptions.ValidationPresentationException.#ctor(System.Collections.Generic.IEnumerable{FluentValidation.Results.ValidationFailure})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Common.Exceptions.ValidationPresentationException"/> class.
+            </summary>
+            <param name="errors">Errors.</param>
+        </member>
+        <member name="M:Orion.Common.Exceptions.ValidationPresentationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Common.Exceptions.ValidationPresentationException"/> class.
+            </summary>
+            <param name="info">Serialization info.</param>
+            <param name="context">Streaming context.</param>
+        </member>
+        <member name="P:Orion.Common.Exceptions.ValidationPresentationException.ErrorModel">
+            <summary>
+            Gets Error Model.
+            </summary>
+        </member>
+        <member name="M:Orion.Common.Exceptions.ValidationPresentationException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Get object data for serialization.
+            </summary>
+            <param name="info">Serialization Info.</param>
+            <param name="context">Streaming Context.</param>
+        </member>
+        <member name="M:Orion.Common.Exceptions.ValidationPresentationException.ToJson">
+            <summary>
+            Transforms Error Model to Json.
+            </summary>
+            <returns>Error Model as Json.</returns>
+        </member>
+        <member name="T:Orion.Common.Extensions.EnumExtensions">
+            <summary>
+            Enum Extensions.
+            </summary>
+        </member>
+        <member name="M:Orion.Common.Extensions.EnumExtensions.GetEnumMember(System.Enum)">
+            <summary>
+            Gets Enum Member.
+            </summary>
+            <param name="enum">Enum.</param>
+            <returns>Enum member.</returns>
+        </member>
+        <member name="T:Orion.Common.Helpers.ImageHelper">
+            <summary>
+            It is a generic class and auto convert the list of any objects into data table for DB TVP value.
+            </summary>
+        </member>
+        <member name="M:Orion.Common.Helpers.ImageHelper.ResizeImage(System.Drawing.Image,System.Drawing.Size)">
+            <summary>
+            Resize image.
+            </summary>
+            <param name="imgToResize">Image to resize.</param>
+            <param name="size">Size of image.</param>
+            <returns>Image.</returns>
+        </member>
+        <member name="M:Orion.Common.Helpers.ImageHelper.ConvertStringToImage(System.String,System.String)">
+            <summary>
+            Convert string to image.
+            </summary>
+            <param name="binaryData">binary data.</param>
+            <param name="extension">image extension.</param>
+            <returns>Image.</returns>
+        </member>
+        <member name="T:Orion.Common.Helpers.CreateDatatableHelper">
+            <summary>
+            It is a generic class and auto convert the list of any objects into data table for DB TVP value.
+            </summary>
+        </member>
+        <member name="T:Orion.Common.Models.ErrorModel">
+            <summary>
+            Error Model.
+            </summary>
+        </member>
+        <member name="M:Orion.Common.Models.ErrorModel.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Common.Models.ErrorModel"/> class.
+            </summary>
+            <param name="errorMessage">Error Message.</param>
+        </member>
+        <member name="M:Orion.Common.Models.ErrorModel.#ctor(Orion.Common.Models.FieldErrorModel)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Common.Models.ErrorModel"/> class.
+            </summary>
+            <param name="error">Error.</param>
+        </member>
+        <member name="M:Orion.Common.Models.ErrorModel.#ctor(System.Collections.Generic.IEnumerable{Orion.Common.Models.FieldErrorModel})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Common.Models.ErrorModel"/> class.
+            </summary>
+            <param name="errors">Errors.</param>
+        </member>
+        <member name="P:Orion.Common.Models.ErrorModel.Errors">
+            <summary>
+            Gets or sets Errors.
+            </summary>
+        </member>
+        <member name="M:Orion.Common.Models.ErrorModel.ToString">
+            <summary>
+            Converts object to string.
+            </summary>
+            <returns>String.</returns>
+        </member>
+        <member name="T:Orion.Common.Models.FieldErrorModel">
+            <summary>
+            Field Error Model.
+            </summary>
+        </member>
+        <member name="M:Orion.Common.Models.FieldErrorModel.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Common.Models.FieldErrorModel"/> class.
+            </summary>
+            <param name="field">Field.</param>
+            <param name="message">Message.</param>
+        </member>
+        <member name="P:Orion.Common.Models.FieldErrorModel.Field">
+            <summary>
+            Gets Field.
+            </summary>
+        </member>
+        <member name="P:Orion.Common.Models.FieldErrorModel.Message">
+            <summary>
+            Gets Message.
+            </summary>
+        </member>
+        <member name="T:Orion.Common.Streams.HybridBufferedStream">
+            <summary>
+            Hybrid buffered stream.
+            </summary>
+        </member>
+        <member name="M:Orion.Common.Streams.HybridBufferedStream.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Common.Streams.HybridBufferedStream"/> class.
+            </summary>
+        </member>
+        <member name="M:Orion.Common.Streams.HybridBufferedStream.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Common.Streams.HybridBufferedStream"/> class.
+            </summary>
+            <param name="bufferFileName">Buffer file name.</param>
+        </member>
+        <member name="P:Orion.Common.Streams.HybridBufferedStream.InMemoryMaxSize">
+            <summary>
+            Gets or sets maximum in-memory buffer size.
+            </summary>
+        </member>
+        <member name="P:Orion.Common.Streams.HybridBufferedStream.CanRead">
+            <summary>
+            Gets a value indicating whether the current stream supports reading.
+            </summary>
+        </member>
+        <member name="P:Orion.Common.Streams.HybridBufferedStream.CanSeek">
+            <summary>
+            Gets a value indicating whether the current stream supports seeking.
+            </summary>
+        </member>
+        <member name="P:Orion.Common.Streams.HybridBufferedStream.CanWrite">
+            <summary>
+            Gets a value indicating whether the current stream supports writing.
+            </summary>
+        </member>
+        <member name="P:Orion.Common.Streams.HybridBufferedStream.Length">
+            <summary>
+            Gets the length in bytes of the stream.
+            </summary>
+        </member>
+        <member name="P:Orion.Common.Streams.HybridBufferedStream.Position">
+            <summary>
+            Gets or sets the position within the current stream.
+            </summary>
+        </member>
+        <member name="M:Orion.Common.Streams.HybridBufferedStream.Flush">
+            <summary>
+            Clears all buffers for this stream and causes any buffered data to be written to the underlying device.
+            </summary>
+        </member>
+        <member name="M:Orion.Common.Streams.HybridBufferedStream.Seek(System.Int64,System.IO.SeekOrigin)">
+            <summary>
+            Sets the position within the current stream.
+            </summary>
+            <param name="offset">A byte offset relative to the <paramref name="origin" /> parameter.</param>
+            <param name="origin">A value of type <see cref="T:System.IO.SeekOrigin" /> indicating the reference point used to obtain the new position.</param>
+            <returns>The new position within the current stream.</returns>
+        </member>
+        <member name="M:Orion.Common.Streams.HybridBufferedStream.SetLength(System.Int64)">
+            <summary>
+            Sets the length of the current stream (not implemented in this class).
+            </summary>
+            <param name="value">The desired length of the current stream in bytes.</param>
+        </member>
+        <member name="M:Orion.Common.Streams.HybridBufferedStream.Read(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Reads a sequence of bytes from the current stream.
+            </summary>
+            <param name="buffer">An array of bytes, buffer to read to.</param>
+            <param name="offset">The zero-based byte offset in <paramref name="buffer" /> at which to begin storing the data.</param>
+            <param name="count">The maximum number of bytes to be read.</param>
+            <returns>The total number of bytes read into the buffer.</returns>
+        </member>
+        <member name="M:Orion.Common.Streams.HybridBufferedStream.Write(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Writes a sequence of bytes to the current stream.
+            </summary>
+            <param name="buffer">An array of bytes, buffer to write from.</param>
+            <param name="offset">The zero-based byte offset in <paramref name="buffer" /> at which to begin copying bytes.</param>
+            <param name="count">The number of bytes to be written.</param>
+        </member>
+        <member name="M:Orion.Common.Streams.HybridBufferedStream.Close">
+            <summary>
+            Releases all resources used by the stream.
+            </summary>
+        </member>
+        <member name="M:Orion.Common.Streams.HybridBufferedStream.Dispose(System.Boolean)">
+            <summary>
+            Releases the unmanaged resources used by the stream.
+            </summary>
+            <param name="disposing"><see langword="true" /> to release both managed and unmanaged resources; <see langword="false" /> to release only unmanaged resources.</param>
+        </member>
+    </members>
+</doc>

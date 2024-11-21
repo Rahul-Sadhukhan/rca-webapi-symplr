@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Orion.Cognos</name>
+    </assembly>
+    <members>
+        <member name="T:Orion.Cognos.CognosComponentAutoMapperProfile">
+            <summary>
+            Cognos Component Auto Mapper Profile.
+            </summary>
+        </member>
+        <member name="M:Orion.Cognos.CognosComponentAutoMapperProfile.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Cognos.CognosComponentAutoMapperProfile"/> class.
+            </summary>
+        </member>
+        <member name="T:Orion.Cognos.CognosComponentModule">
+            <summary>
+            Cognos Component Module.
+            </summary>
+        </member>
+        <member name="M:Orion.Cognos.CognosComponentModule.Load(Autofac.ContainerBuilder)">
+            <summary>
+            Add registrations to the container.
+            </summary>
+            <param name="builder">The builder through which components can be registered.</param>
+            <remarks>
+            Note that the ContainerBuilder parameter is unique to this module.
+            </remarks>
+        </member>
+        <member name="T:Orion.Cognos.Constants.CognosReportConstants">
+            <summary>
+            Cognos Report Constants.
+            </summary>
+        </member>
+        <member name="F:Orion.Cognos.Constants.CognosReportConstants.Cognos11ReportPathPrefix">
+            <summary>
+            Cognos 11 Report Path Prefix.
+            </summary>
+        </member>
+        <member name="F:Orion.Cognos.Constants.CognosReportConstants.CognosAlias">
+            <summary>
+            Cognos Alias.
+            </summary>
+        </member>
+        <member name="F:Orion.Cognos.Constants.CognosReportConstants.CognosReportPathNameRegex">
+            <summary>
+            Cognos Report Path Name Regex.
+            </summary>
+        </member>
+        <member name="T:Orion.Cognos.ICognosComponent">
+            <summary>
+            Interface of Cognos related component in Orion.
+            </summary>
+        </member>
+        <member name="M:Orion.Cognos.ICognosComponent.GetCognosReports(Orion.Multilingual.Enums.Language)">
+            <summary>
+            Retrieves a list of Cognos reports available to use as dashboard reports.
+            </summary>
+            <param name="language">Language to use for report names.</param>
+            <returns>List of reports (<see cref="T:Orion.Cognos.Models.CognosReportModel"/>).</returns>
+        </member>
+        <member name="M:Orion.Cognos.ICognosComponent.GetCognosReportByReportPath(System.String)">
+            <summary>
+            Finds particular Cognos report by report path.
+            </summary>
+            <param name="reportPath">Report Path used as an identification of the report to find.</param>
+            <returns>Report (<see cref="T:Orion.Cognos.Models.CognosReportModel"/>), or null if not found.</returns>
+        </member>
+        <member name="M:Orion.Cognos.ICognosComponent.GetCognosReportUrl(System.Int64,System.String,System.Int64,Orion.Multilingual.Enums.Language)">
+            <summary>
+            Get Cognos report portal URL.
+            </summary>
+            <param name="userId">User identifier.</param>
+            <param name="userToken">User token.</param>
+            <param name="layerId">Layer identifier.</param>
+            <param name="language">Language used.</param>
+            <returns>Cognos report URL.</returns>
+        </member>
+        <member name="M:Orion.Cognos.ICognosComponent.GetCognosReportUrl(System.Int64,System.String,System.Int64,Orion.Multilingual.Enums.Language,System.String)">
+            <summary>
+            Prepares URL string for the given Cognos report.
+            </summary>
+            <param name="userId">User identifier.</param>
+            <param name="userToken">User token.</param>
+            <param name="layerId">Layer identifier.</param>
+            <param name="language">Language used for the report URL param.</param>
+            <param name="reportPath">Report Path used as an identification of the report.</param>
+            <returns>Report URL, or null if the report not found.</returns>
+        </member>
+        <member name="M:Orion.Cognos.ICognosComponent.GetCognosLogonParameters(System.Int64,System.String,System.Int64)">
+            <summary>
+            Prepares parameters needed for Cognos logon request.
+            </summary>
+            <param name="userId">User identifier.</param>
+            <param name="userToken">User token.</param>
+            <param name="layerId">Layer identifier.</param>
+            <returns>Dictionary with the logon parameters.</returns>
+        </member>
+        <member name="T:Orion.Cognos.Models.CognosReportModel">
+            <summary>
+            Represents a Cognos report.
+            </summary>
+        </member>
+        <member name="P:Orion.Cognos.Models.CognosReportModel.ReportId">
+            <summary>
+            Gets or sets Cognos report identifier.
+            </summary>
+        </member>
+        <member name="P:Orion.Cognos.Models.CognosReportModel.Name">
+            <summary>
+            Gets or sets Cognos report name.
+            </summary>
+        </member>
+        <member name="P:Orion.Cognos.Models.CognosReportModel.Path">
+            <summary>
+            Gets or sets Cognos report path.
+            </summary>
+        </member>
+    </members>
+</doc>

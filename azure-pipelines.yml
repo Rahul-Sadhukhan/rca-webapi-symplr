@@ -1,0 +1,303 @@
+variables:
+ - group: Orion_BuildPipeline_Common_Vars
+ - name: legacyBuildPlanName
+   value: o2-rca-api
+ - name: majorVersion
+   value: 2
+ - name: minorVersion
+   value: 2
+ - name: buildIncrementer
+   value: $[counter(format('{0}.{1}', variables['minorVersion'], variables['Build.SourceBranchName']), 0)]
+
+trigger:
+- master
+- feature*
+- release*
+- hotfix*
+- bugfix*
+
+resources:
+  repositories:
+  - repository: orion-build
+    type: github
+    endpoint: github.com_symplr-svc-ctc-ci-user
+    name: symplr-software/grc-cqs-shared-build
+    ref: master
+  - repository: orion-configuration
+    type: github
+    endpoint: github.com_symplr-svc-ctc-ci-user
+    name: symplr-software/grc-cqs-shared-build-configuration
+    ref: master
+
+jobs:
+- job: Build_Phase
+  displayName: RCA API Build
+  timeoutInMinutes: 90
+  pool:
+    vmImage: windows-latest
+  steps:
+  - checkout: self
+    path: rp
+  - checkout: orion-build
+    path: sc
+  - checkout: orion-configuration
+    path: cf
+  - task: PowerShell@2
+    inputs:
+      targetType: inline
+      script: |
+        try 
+        {
+          . $(Agent.BuildDirectory)\\sc\\Edit-FileString.ps1
+
+          switch ("$(Build.SourceBranchName)")
+          {
+            "master"
+            {
+                $version = "$(majorVersion).$(minorVersion).$(buildIncrementer)"
+            }
+            default
+            {
+                $version = "0.0.$(buildIncrementer)"
+            }
+          }
+
+          Write-Host("Branch name: $(Build.SourceBranchName)")
+          Write-Host("Version: $version")
+          foreach($AssemblyInfoFile in Get-ChildItem $(Agent.BuildDirectory)\rp\src\**\assemblyinfo.cs -Recurse)
+          {
+            Edit-FileString -FilePath $AssemblyInfoFile.FullName `
+                            -Encoding UTF8 `
+                            -Regex '\[assembly: AssemblyVersion\("[0-9]{1,4}\.[0-9]{1,4}\.[0-9]{1,4}\.[0-9]{1,4}"\)\]' `
+                            -ReplaceBy "[assembly: AssemblyVersion(`"$version`")]" `
+                            -Verbose
+            Edit-FileString -FilePath $AssemblyInfoFile.FullName `
+                            -Encoding UTF8 `
+                            -Regex '\[assembly: AssemblyFileVersion\("[0-9]{1,4}\.[0-9]{1,4}\.[0-9]{1,4}\.[0-9]{1,4}"\)\]' `
+                            -ReplaceBy "[assembly: AssemblyFileVersion(`"$version`")]" `
+                            -Verbose
+          }
+        }
+        catch
+        {
+            Write-Host $_.Exception.GetType().FullName
+            Write-Host $_.Exception.Message
+            exit 1
+        }
+    displayName: 'Update Versions in Files'
+  - task: NuGetCommand@2
+    inputs:
+      command: 'restore'
+      restoreSolution: '$(Agent.BuildDirectory)\rp\Rca.sln'
+      feedsToUse: 'select'
+      vstsFeed: '3d4f0be1-4d31-456a-af6b-2bacfcc92f2d/7c47f494-9732-4543-a62c-0afdee155ba0'
+    displayName: 'Restore NuGet Packages from Orion Azure Artifacts Feed'
+  - task: NuGetCommand@2
+    inputs:
+      command: 'custom'
+      arguments: 'install opencover -Version $(OpenCoverVersion) -OutputDirectory $(Agent.BuildDirectory)\tools -ConfigFile $(Agent.BuildDirectory)\sc\Nuget\Nuget.Config'
+    displayName: 'Install Opencover $(OpenCoverVersion)'
+  # - task: NuGetCommand@2
+  #   inputs:
+  #     command: 'custom'
+  #     arguments: 'install MSBuild.SonarQube.Runner.Tool -Version $(SonarQubeVersion) -OutputDirectory $(Agent.BuildDirectory)\tools -ConfigFile $(Agent.BuildDirectory)\sc\Nuget\Nuget.Config'
+  #   displayName: 'Install SonarQube Runner Tool $(SonarQubeVersion)'
+  - task: NuGetCommand@2
+    inputs:
+      command: 'custom'
+      arguments: 'install ReportGenerator -Version $(ReportGeneratorVersion) -OutputDirectory $(Agent.BuildDirectory)\tools -ConfigFile $(Agent.BuildDirectory)\sc\Nuget\Nuget.Config'
+    displayName: 'Install ReportGenerator $(ReportGeneratorVersion)'
+  - task: PowerShell@2
+    inputs:
+      targetType: inline
+      script: |
+        New-Item $(Agent.BuildDirectory)\artifacts -ItemType Directory -ErrorAction Stop
+        New-Item $(Agent.BuildDirectory)\artifacts\Tests -ItemType Directory -ErrorAction Stop
+        New-Item $(Agent.BuildDirectory)\artifacts\TestResults -ItemType Directory -ErrorAction Stop
+        New-Item $(Agent.BuildDirectory)\artifacts\CoverageResults -ItemType Directory -ErrorAction Stop
+        #New-Item $(Agent.BuildDirectory)\artifacts\Configuration-Transform -ItemType Directory -ErrorAction Stop
+    displayName: 'Create Artifact Directories'
+  # - task: PowerShell@2
+  #   inputs:
+  #     targetType: inline
+  #     script: |
+  #       try 
+  #       {
+  #         . "$(Agent.BuildDirectory)\sc\Transform-Template.ps1"
+
+  #         $TemplatePaths = Get-ChildItem -Path "$(Agent.BuildDirectory)\rp" -Recurse -Filter *.erb
+  #         $ConfigPath = "$(Agent.BuildDirectory)\artifacts\Configuration-Transform"
+  #         $jsonList = Get-ChildItem -Path "$(Agent.BuildDirectory)\cf" -Include *.json -Force -Recurse
+
+  #         $envs = @()
+  #         foreach ($item in $jsonList) {
+  #             $envs += $item.FullName.split('\')[-1].trim('.json')
+  #         }
+
+  #         Write-host "Prepare configs for: "
+  #         $envs
+
+  #         foreach($env in $envs){
+  #             $Config_path_services = New-Item -ItemType Directory -Path "$ConfigPath\$env\services" -ErrorAction Stop -Verbose
+  #             $Config_path_website = "$ConfigPath\$env"
+  #             foreach ($TemplatePath in $TemplatePaths){
+  #                 If ($TemplatePath.FullName -match "Service"){
+  #                 $Splitpath = ($TemplatePath.Name).Split('.')[1]
+  #                 $ConfigPath_Service = New-Item -ItemType Directory "$Config_path_services\$Splitpath" -ErrorAction Stop -Verbose
+  #                 Transform-Template -JSONPath "$(Agent.BuildDirectory)\cf\**\$env.json" -TemplatePath $TemplatePath.FullName -ConfigPath $ConfigPath_Service -ErrorAction Stop -Verbose
+  #                 }
+  #                 else {
+  #                     Transform-Template -JSONPath "$(Agent.BuildDirectory)\cf\**\$env.json" -TemplatePath $TemplatePath.FullName -ConfigPath $Config_path_website -ErrorAction Stop -Verbose
+  #                 }
+  #             }       
+  #         }
+  #         if($LASTEXITCODE -ne 0){exit $LASTEXITCODE}  
+  #       }
+  #       catch
+  #       {
+  #           Write-Host $_.Exception.GetType().FullName, $_.Exception.Message
+  #           exit 1
+  #       }
+  #   displayName: 'Create Transformation Artifacts'
+  #TODO: Set SonarQube Quality Gate
+  #TODO: Invoke SonarQube Runner
+  - task: VSBuild@1
+    inputs:
+      solution: '$(Agent.BuildDirectory)\rp\Rca.sln'
+      msbuildArgs: '@"$(Agent.BuildDirectory)\sc\RSP\orion2-rca-backend.rsp"'
+    displayName: 'Build Solution'
+  - task: PowerShell@2
+    inputs:
+      targetType: inline
+      script: |
+        $version_file= "$(Agent.BuildDirectory)\bin\Rca.Api\_PublishedWebsites\Rca.Api\version.txt"
+        Write-output "$(Build.SourceVersion)" > $version_file
+        Write-output "$(Build.BuildNumber)" >> $version_file
+        Write-output (Get-Date -Format "o") >> $version_file
+    displayName: 'Update Version File'
+  - task: PowerShell@2
+    inputs:
+      targetType: inline
+      script: |
+        $XConsole = Get-ChildItem $(Agent.BuildDirectory)\rp\packages\xunit.runner.console.*\tools\net461\xunit.console.exe | %{$_.FullName}
+        $OpenCover = Get-ChildItem $(Agent.BuildDirectory)\tools\OpenCover.*\tools\OpenCover.Console.exe | %{$_.FullName}
+        $ReportGenerator = Get-ChildItem $(Agent.BuildDirectory)\tools\ReportGenerator.*\tools\net47\ReportGenerator.exe | %{$_.FullName}
+
+        Get-ChildItem $(Agent.BuildDirectory)\bin\*.Tests | %{Copy-Item $_.FullName $(Agent.BuildDirectory)\artifacts\Tests -Recurse -ErrorAction Stop}
+        $tests = Get-childitem $(Agent.BuildDirectory)\artifacts\Tests\*\Rca*Tests.dll | %{$_.FullName}
+
+        $TestResultDir = $(Resolve-Path $(Agent.BuildDirectory)\artifacts\TestResults).Path
+        $TestCoverageResultsDir = $(Resolve-Path $(Agent.BuildDirectory)\artifacts\CoverageResults).Path
+
+        $TestReportFilePath = [string]::Format("{0}\report.xml", $TestResultDir)
+        $TestCoverageFilePath = [string]::Format("{0}\coverage.xml", $TestCoverageResultsDir)
+
+        & $OpenCover  -target:$XConsole `
+                      -targetargs:"$tests -xml $TestReportFilePath -noshadow" `
+                      -filter:"+[*]* -[*.Tests]*" `
+                       -mergebyhash `
+                      -hideskipped:"All" `
+                      -threshold:10 `
+                      -register:"Administrator" `
+                      -output:$TestCoverageFilePath
+        if($LASTEXITCODE -ne 0){exit $LASTEXITCODE}
+
+        & $ReportGenerator -reports:"$TestCoverageFilePath" `
+                          -targetdir:"$(Agent.BuildDirectory)\artifacts" `
+                          -reporttypes:"HTML;Cobertura;SonarQube"
+        if($LASTEXITCODE -ne 0){exit $LASTEXITCODE}
+    displayName: 'Run Xunit Tests'
+  - task: PublishCodeCoverageResults@1
+    inputs:
+      codeCoverageTool: 'Cobertura'
+      summaryFileLocation: '$(Agent.BuildDirectory)\artifacts\Cobertura.xml'
+    displayName: 'Publish Code Coverage Report'
+  - task: PublishTestResults@2
+    inputs:
+      testResultsFormat: 'XUnit'
+      testResultsFiles: '$(Agent.BuildDirectory)\artifacts\TestResults\*.xml'
+      failTaskOnFailedTests: true
+    displayName: 'Publish Test Results'
+  #TODO: Invoke SonarQube Runner
+  #TODO: Get SonarQube Scan Results
+  - task: PowerShell@2
+    inputs:
+      targetType: inline
+      script: |
+        $ArtifactDirs = Resolve-Path $(Agent.BuildDirectory)\bin\Rca.Api\_PublishedWebsites\Rca.Api -ErrorAction Stop | %{$_.Path}
+
+        $ArtifactDirs | %{Copy-Item $_ $(Agent.BuildDirectory)\artifacts -Recurse -ErrorAction Stop}
+
+        Get-ChildItem "$(Agent.BuildDirectory)\artifacts\Rca.Api" | Compress-Archive -DestinationPath "$(Agent.BuildDirectory)\artifacts\Rca.Api.zip"
+        #Get-ChildItem "$(Agent.BuildDirectory)\artifacts\Configuration-Transform" | Compress-Archive -DestinationPath "$(Agent.BuildDirectory)\artifacts\Configuration-Transform.zip"
+    displayName: 'Archive Artifacts'
+  - task: PowerShell@2
+    inputs:
+      targetType: inline
+      script: |
+        try 
+        {
+          $env:AZURE_DEVOPS_EXT_PAT = '$(System.AccessToken)'
+
+          $BuildPlanName = "$(legacyBuildPlanName)"
+          $branchName = "$(Build.SourceBranchName)" -replace "[^a-zA-Z0-9]", "-"
+          $artifactPrefix = "$buildPlanName.$branchName-"
+          $packages = Get-ChildItem "$(Agent.BuildDirectory)\artifacts" -Filter *.zip | % { $_.FullName } | Get-ChildItem -Exclude Configuration.zip, Configuration-Transform.zip | % { $_.FullName }
+
+          #$buildNumber = "$(Build.BuildNumber)"
+          #$buildVersion = "$buildNumber" -replace "\.", "-"
+          $packageVersion = "$(majorVersion).$(minorVersion).$(buildIncrementer)".ToLower()
+
+          foreach($package in $packages)
+          {
+            $artifact = Get-Item -Path $package
+            $artifactname = $($artifactPrefix+$artifact.Name).Replace(".zip",$null).ToLower().Replace("--","-")
+            write-output "publishing $artifactname"
+            az artifacts universal publish --organization $(ADO_Organization) --project="$(ADO_Project)" --scope project --feed $(ADO_Artifact_Feed) --name "$artifactname" --version $packageVersion --description "Orion RCA API Build Pipeline" --path "$package"
+          }
+
+          # Get-ChildItem -Path "$(Agent.BuildDirectory)\artifacts\Configuration-Transform"
+          # $configPackages = Get-ChildItem "$(Agent.BuildDirectory)\artifacts\Configuration-Transform" -Filter *.config -Recurse | % { $_.FullName } | Get-ChildItem -Exclude Configuration-Transform.zip | % { $_.FullName }
+          # foreach($package in $configPackages)
+          # {
+          #     write-output $package
+          #     $artifact = Get-Item -Path $package
+          #     $path = Split-Path -Path $package
+          #     $null = $path -match "Config.*"; $configpath = $Matches[0]
+          #     $artifactname = ($configpath.Replace(".","-") -replace "\\",".").ToLower()
+          #     $artifactname = $artifactPrefix + $artifactname
+          #     az artifacts universal publish --organization $(ADO_Organization) --project="$(ADO_Project)" --scope project --feed $(ADO_Artifact_Feed) --name "$artifactname" --version $packageVersion --description "Published by Orion Build Pipeline" --path "$package"
+          # }
+        }
+        catch
+        {
+          Write-Output "ERROR ============================================================ ERROR 
+          Details for debug:"
+          Write-Host $_.Exception.GetType().FullName, $_.Exception.Message
+          exit 1
+        }
+    displayName: 'Promote Packages to ADO Feed'
+  - task: CopyFiles@2
+    inputs:
+      SourceFolder: '$(Agent.BuildDirectory)/artifacts'
+      Contents: '**/*.zip'
+      TargetFolder: '$(Build.ArtifactStagingDirectory)/artifacts'
+    displayName: 'Stage Build Zipped Artifacts'
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)/artifacts'
+      ArtifactName: 'rca artifacts'
+      publishLocation: 'Container'
+    displayName: 'Publish Bundle of All RCA Zipped Artifacts'
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: '$(Agent.BuildDirectory)\artifacts\Rca.Api.zip'
+      ArtifactName: 'rca api website'
+      publishLocation: 'Container'
+    displayName: 'Publish Build RCA API Website Artifact'
+  # - task: PublishBuildArtifacts@1
+  #   inputs:
+  #     PathtoPublish: '$(Agent.BuildDirectory)\artifacts\Configuration-Transform.zip'
+  #     ArtifactName: 'Configuration-Transform'
+  #     publishLocation: 'Container'
+  #   displayName: 'Publish Build RCA Configuration Transformations Artifact'

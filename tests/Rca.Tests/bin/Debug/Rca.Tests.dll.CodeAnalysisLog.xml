@@ -1,0 +1,394 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="c:\program files\microsoft visual studio\2022\professional\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
+<FxCopReport Version="17.0">
+ <Targets>
+  <Target Name="C:\Symplr Projects\API\grc-cqs-rca-service\tests\Rca.Tests\bin\Debug\Rca.Tests.dll">
+   <Modules>
+    <Module Name="rca.tests.dll">
+     <Namespaces>
+      <Namespace Name="Rca.Tests.Models">
+       <Types>
+        <Type Name="ResultErrorModel" Kind="Class" Accessibility="Assembly" ExternallyVisible="False">
+         <Messages>
+          <Message TypeName="AvoidUninstantiatedInternalClasses" Category="Microsoft.Performance" CheckId="CA1812" Status="Active" Created="2024-11-21 06:28:59Z" FixCategory="NonBreaking">
+           <Issue Certainty="75" Level="Warning">'ResultErrorModel' is an internal class that is apparently never instantiated. If so, remove the code from the assembly. If this class is intended to contain only static methods, consider adding a private constructor to prevent the compiler from generating a default constructor.</Issue>
+          </Message>
+         </Messages>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="Rca.Tests.Services">
+       <Types>
+        <Type Name="CauseServiceTests" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#CreatCause_InvalidRCAId_Throws_ValidationException(Moq.Mock`1&lt;Rca.Services.ISoftLabelResourceService&gt;,Rca.Models.CauseModel,Rca.Services.CauseService)" Kind="Method" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2024-11-21 06:28:59Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="C:\Symplr Projects\API\grc-cqs-rca-service\tests\Rca.Tests\Services" File="CauseServiceTests.cs" Line="153">'CauseServiceTests.CreatCause_InvalidRCAId_Throws_ValidationException(Mock&lt;ISoftLabelResourceService&gt;, CauseModel, CauseService)' appears to have no upstream public or protected callers.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#CreatCause_ParameterRCAId_CauseModelRCAId_Mismatch_Throws_ValidationException(Moq.Mock`1&lt;Rca.Services.ISoftLabelResourceService&gt;,Moq.Mock`1&lt;Rca.Data.Repositories.IRootCauseAnalysisRepository&gt;,Rca.Models.CauseModel,Rca.Services.CauseService)" Kind="Method" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2024-11-21 06:28:59Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="C:\Symplr Projects\API\grc-cqs-rca-service\tests\Rca.Tests\Services" File="CauseServiceTests.cs" Line="214">'CauseServiceTests.CreatCause_ParameterRCAId_CauseModelRCAId_Mismatch_Throws_ValidationException(Mock&lt;ISoftLabelResourceService&gt;, Mock&lt;IRootCauseAnalysisRepository&gt;, CauseModel, CauseService)' appears to have no upstream public or protected callers.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#CreatCause_RCAIdNotExist_Throws_NotFoundxception(Moq.Mock`1&lt;Rca.Services.ISoftLabelResourceService&gt;,Moq.Mock`1&lt;Rca.Data.Repositories.IRootCauseAnalysisRepository&gt;,Rca.Models.CauseModel,Rca.Services.CauseService)" Kind="Method" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2024-11-21 06:28:59Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="C:\Symplr Projects\API\grc-cqs-rca-service\tests\Rca.Tests\Services" File="CauseServiceTests.cs" Line="171">'CauseServiceTests.CreatCause_RCAIdNotExist_Throws_NotFoundxception(Mock&lt;ISoftLabelResourceService&gt;, Mock&lt;IRootCauseAnalysisRepository&gt;, CauseModel, CauseService)' appears to have no upstream public or protected callers.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#CreatCause_ValidParameter_ValidCauseModel_ReturnSuccess(Moq.Mock`1&lt;FluentValidation.IValidator`1&lt;Rca.Models.CauseModel&gt;&gt;,Moq.Mock`1&lt;FluentValidation.Results.ValidationResult&gt;,Moq.Mock`1&lt;Rca.Data.Repositories.IRootCauseAnalysisRepository&gt;,Moq.Mock`1&lt;Rca.Data.IRcaUnitOfWork&gt;,Rca.Models.CauseModel,Rca.Services.CauseService)" Kind="Method" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2024-11-21 06:28:59Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="C:\Symplr Projects\API\grc-cqs-rca-service\tests\Rca.Tests\Services" File="CauseServiceTests.cs" Line="114">'CauseServiceTests.CreatCause_ValidParameter_ValidCauseModel_ReturnSuccess(Mock&lt;IValidator&lt;CauseModel&gt;&gt;, Mock&lt;ValidationResult&gt;, Mock&lt;IRootCauseAnalysisRepository&gt;, Mock&lt;IRcaUnitOfWork&gt;, CauseModel, CauseService)' appears to have no upstream public or protected callers.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#CreatCause_ValidRCAId__Model_NULL_Throws_ValidationException(Moq.Mock`1&lt;Rca.Services.ISoftLabelResourceService&gt;,Rca.Models.CauseModel,Rca.Services.CauseService)" Kind="Method" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2024-11-21 06:28:59Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="C:\Symplr Projects\API\grc-cqs-rca-service\tests\Rca.Tests\Services" File="CauseServiceTests.cs" Line="135">'CauseServiceTests.CreatCause_ValidRCAId__Model_NULL_Throws_ValidationException(Mock&lt;ISoftLabelResourceService&gt;, CauseModel, CauseService)' appears to have no upstream public or protected callers.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#CreatCause_ValidRCAIdNot_CauseModel_InvalidRCAId_Throws_ValidationException(Moq.Mock`1&lt;Rca.Services.ISoftLabelResourceService&gt;,Moq.Mock`1&lt;FluentValidation.IValidator`1&lt;Rca.Models.CauseModel&gt;&gt;,Moq.Mock`1&lt;Rca.Data.Repositories.IRootCauseAnalysisRepository&gt;,Rca.Models.CauseModel,Rca.Services.CauseService)" Kind="Method" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2024-11-21 06:28:59Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="C:\Symplr Projects\API\grc-cqs-rca-service\tests\Rca.Tests\Services" File="CauseServiceTests.cs" Line="191">'CauseServiceTests.CreatCause_ValidRCAIdNot_CauseModel_InvalidRCAId_Throws_ValidationException(Mock&lt;ISoftLabelResourceService&gt;, Mock&lt;IValidator&lt;CauseModel&gt;&gt;, Mock&lt;IRootCauseAnalysisRepository&gt;, CauseModel, CauseService)' appears to have no upstream public or protected callers.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetCause_CauseIdNotExist_Throws_NotFoundException(Moq.Mock`1&lt;Rca.Services.ISoftLabelResourceService&gt;,Moq.Mock`1&lt;Rca.Data.Repositories.ICauseRepository&gt;,Rca.Services.CauseService)" Kind="Method" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2024-11-21 06:28:59Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="C:\Symplr Projects\API\grc-cqs-rca-service\tests\Rca.Tests\Services" File="CauseServiceTests.cs" Line="89">'CauseServiceTests.GetCause_CauseIdNotExist_Throws_NotFoundException(Mock&lt;ISoftLabelResourceService&gt;, Mock&lt;ICauseRepository&gt;, CauseService)' appears to have no upstream public or protected callers.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetCause_InvalidCauseId_Throws_ValidationException(Moq.Mock`1&lt;Rca.Services.ISoftLabelResourceService&gt;,Rca.Services.CauseService)" Kind="Method" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2024-11-21 06:28:59Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="C:\Symplr Projects\API\grc-cqs-rca-service\tests\Rca.Tests\Services" File="CauseServiceTests.cs" Line="72">'CauseServiceTests.GetCause_InvalidCauseId_Throws_ValidationException(Mock&lt;ISoftLabelResourceService&gt;, CauseService)' appears to have no upstream public or protected callers.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetCause_ValidateParamters_Returns_CauseModel(Moq.Mock`1&lt;Rca.Data.Repositories.ICauseRepository&gt;,Rca.Data.Entities.Cause,Rca.Services.CauseService)" Kind="Method" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2024-11-21 06:28:59Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="C:\Symplr Projects\API\grc-cqs-rca-service\tests\Rca.Tests\Services" File="CauseServiceTests.cs" Line="54">'CauseServiceTests.GetCause_ValidateParamters_Returns_CauseModel(Mock&lt;ICauseRepository&gt;, Cause, CauseService)' appears to have no upstream public or protected callers.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetClassifications_ReturnsClassificationsList(Moq.Mock`1&lt;Rca.Data.Repositories.IClassificationRepository&gt;,Rca.Services.CauseService,System.Collections.Generic.IEnumerable`1&lt;Rca.Data.Entities.Classification&gt;)" Kind="Method" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2024-11-21 06:28:59Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="C:\Symplr Projects\API\grc-cqs-rca-service\tests\Rca.Tests\Services" File="CauseServiceTests.cs" Line="33">'CauseServiceTests.GetClassifications_ReturnsClassificationsList(Mock&lt;IClassificationRepository&gt;, CauseService, IEnumerable&lt;Classification&gt;)' appears to have no upstream public or protected callers.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetClassificationsByRCAId_InvalidRCAId_Throws_ValidationException(Moq.Mock`1&lt;Rca.Services.ISoftLabelResourceService&gt;,Rca.Services.CauseService)" Kind="Method" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2024-11-21 06:28:59Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="C:\Symplr Projects\API\grc-cqs-rca-service\tests\Rca.Tests\Services" File="CauseServiceTests.cs" Line="391">'CauseServiceTests.GetClassificationsByRCAId_InvalidRCAId_Throws_ValidationException(Mock&lt;ISoftLabelResourceService&gt;, CauseService)' appears to have no upstream public or protected callers.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetClassificationsByRCAId_RCAIdNotExist_Throws_NotFoundxception(Moq.Mock`1&lt;Rca.Services.ISoftLabelResourceService&gt;,Moq.Mock`1&lt;Rca.Data.Repositories.IRootCauseAnalysisRepository&gt;,Rca.Services.CauseService)" Kind="Method" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2024-11-21 06:28:59Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="C:\Symplr Projects\API\grc-cqs-rca-service\tests\Rca.Tests\Services" File="CauseServiceTests.cs" Line="408">'CauseServiceTests.GetClassificationsByRCAId_RCAIdNotExist_Throws_NotFoundxception(Mock&lt;ISoftLabelResourceService&gt;, Mock&lt;IRootCauseAnalysisRepository&gt;, CauseService)' appears to have no upstream public or protected callers.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetClassificationsByRCAId_ValidRCAId_Returns_CLassificationModel(Moq.Mock`1&lt;Rca.Data.Repositories.IRootCauseAnalysisRepository&gt;,Moq.Mock`1&lt;Rca.Data.Repositories.IClassificationRepository&gt;,Rca.Services.CauseService)" Kind="Method" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2024-11-21 06:28:59Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="C:\Symplr Projects\API\grc-cqs-rca-service\tests\Rca.Tests\Services" File="CauseServiceTests.cs" Line="368">'CauseServiceTests.GetClassificationsByRCAId_ValidRCAId_Returns_CLassificationModel(Mock&lt;IRootCauseAnalysisRepository&gt;, Mock&lt;IClassificationRepository&gt;, CauseService)' appears to have no upstream public or protected callers.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetRCAClassificationCauses_ClassificationIdNotExist_Throws_NotFoundxception(Moq.Mock`1&lt;Rca.Services.ISoftLabelResourceService&gt;,Moq.Mock`1&lt;Rca.Data.Repositories.IRootCauseAnalysisRepository&gt;,Moq.Mock`1&lt;Rca.Data.Repositories.IClassificationRepository&gt;,Rca.Services.CauseService)" Kind="Method" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2024-11-21 06:28:59Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="C:\Symplr Projects\API\grc-cqs-rca-service\tests\Rca.Tests\Services" File="CauseServiceTests.cs" Line="344">'CauseServiceTests.GetRCAClassificationCauses_ClassificationIdNotExist_Throws_NotFoundxception(Mock&lt;ISoftLabelResourceService&gt;, Mock&lt;IRootCauseAnalysisRepository&gt;, Mock&lt;IClassificationRepository&gt;, CauseService)' appears to have no upstream public or protected callers.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetRCAClassificationCauses_InvalidClassificationId_Throws_ValidationException(Moq.Mock`1&lt;Rca.Services.ISoftLabelResourceService&gt;,Rca.Services.CauseService)" Kind="Method" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2024-11-21 06:28:59Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="C:\Symplr Projects\API\grc-cqs-rca-service\tests\Rca.Tests\Services" File="CauseServiceTests.cs" Line="306">'CauseServiceTests.GetRCAClassificationCauses_InvalidClassificationId_Throws_ValidationException(Mock&lt;ISoftLabelResourceService&gt;, CauseService)' appears to have no upstream public or protected callers.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetRCAClassificationCauses_InvalidRCAId_Throws_ValidationException(Moq.Mock`1&lt;Rca.Services.ISoftLabelResourceService&gt;,Rca.Services.CauseService)" Kind="Method" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2024-11-21 06:28:59Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="C:\Symplr Projects\API\grc-cqs-rca-service\tests\Rca.Tests\Services" File="CauseServiceTests.cs" Line="289">'CauseServiceTests.GetRCAClassificationCauses_InvalidRCAId_Throws_ValidationException(Mock&lt;ISoftLabelResourceService&gt;, CauseService)' appears to have no upstream public or protected callers.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetRCAClassificationCauses_RCAIdNotExist_Throws_NotFoundxception(Moq.Mock`1&lt;Rca.Services.ISoftLabelResourceService&gt;,Moq.Mock`1&lt;Rca.Data.Repositories.IRootCauseAnalysisRepository&gt;,Rca.Services.CauseService)" Kind="Method" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2024-11-21 06:28:59Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="C:\Symplr Projects\API\grc-cqs-rca-service\tests\Rca.Tests\Services" File="CauseServiceTests.cs" Line="324">'CauseServiceTests.GetRCAClassificationCauses_RCAIdNotExist_Throws_NotFoundxception(Mock&lt;ISoftLabelResourceService&gt;, Mock&lt;IRootCauseAnalysisRepository&gt;, CauseService)' appears to have no upstream public or protected callers.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetRCAClassificationCauses_ValidParameters_Returns_CauseSelectListModel_WithCauses(Moq.Mock`1&lt;Rca.Data.Repositories.IRootCauseAnalysisRepository&gt;,Moq.Mock`1&lt;Rca.Data.Repositories.IClassificationRepository&gt;,Moq.Mock`1&lt;Rca.Data.Repositories.ICauseRepository&gt;,Rca.Services.CauseService)" Kind="Method" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2024-11-21 06:28:59Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="C:\Symplr Projects\API\grc-cqs-rca-service\tests\Rca.Tests\Services" File="CauseServiceTests.cs" Line="238">'CauseServiceTests.GetRCAClassificationCauses_ValidParameters_Returns_CauseSelectListModel_WithCauses(Mock&lt;IRootCauseAnalysisRepository&gt;, Mock&lt;IClassificationRepository&gt;, Mock&lt;ICauseRepository&gt;, CauseService)' appears to have no upstream public or protected callers.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetRCAClassificationCauses_ValidParameters_Returns_CauseSelectListModel_WithSubCauses(Moq.Mock`1&lt;Rca.Data.Repositories.IRootCauseAnalysisRepository&gt;,Moq.Mock`1&lt;Rca.Data.Repositories.IClassificationRepository&gt;,Moq.Mock`1&lt;Rca.Data.Repositories.ICauseRepository&gt;,Rca.Services.CauseService)" Kind="Method" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2024-11-21 06:28:59Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="C:\Symplr Projects\API\grc-cqs-rca-service\tests\Rca.Tests\Services" File="CauseServiceTests.cs" Line="264">'CauseServiceTests.GetRCAClassificationCauses_ValidParameters_Returns_CauseSelectListModel_WithSubCauses(Mock&lt;IRootCauseAnalysisRepository&gt;, Mock&lt;IClassificationRepository&gt;, Mock&lt;ICauseRepository&gt;, CauseService)' appears to have no upstream public or protected callers.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="SoftLabelResourceServiceTests" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#GetSoftLabel_Always_CallsMultilingualComponent(Moq.Mock`1&lt;Orion.Users.IUsersComponent&gt;,Moq.Mock`1&lt;Orion.Multilingual.IMultilingualComponent&gt;,Rca.Services.SoftLabelResourceService,Rca.Enums.ValidationMessage,Orion.Users.Models.OrionUserModel,System.Int32)" Kind="Method" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2024-11-21 06:28:59Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="C:\Symplr Projects\API\grc-cqs-rca-service\tests\Rca.Tests\Services" File="SoftLabelResourceServiceTests.cs" Line="29">'SoftLabelResourceServiceTests.GetSoftLabel_Always_CallsMultilingualComponent(Mock&lt;IUsersComponent&gt;, Mock&lt;IMultilingualComponent&gt;, SoftLabelResourceService, ValidationMessage, OrionUserModel, int)' appears to have no upstream public or protected callers.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Initialize_Always_InitializesMultilingualComponent(Moq.Mock`1&lt;Orion.Multilingual.IMultilingualComponent&gt;,Rca.Services.SoftLabelResourceService)" Kind="Method" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2024-11-21 06:28:59Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="C:\Symplr Projects\API\grc-cqs-rca-service\tests\Rca.Tests\Services" File="SoftLabelResourceServiceTests.cs" Line="47">'SoftLabelResourceServiceTests.Initialize_Always_InitializesMultilingualComponent(Mock&lt;IMultilingualComponent&gt;, SoftLabelResourceService)' appears to have no upstream public or protected callers.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="Rca.Tests.Services.OData">
+       <Types>
+        <Type Name="ItemODataServiceTests" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#GetItemQueryable_Always_CallsItemODataRepositoryOnce(Moq.Mock`1&lt;Rca.Data.IRcaUnitOfWork&gt;,Moq.Mock`1&lt;Rca.Data.Repositories.Queryable.IItemQueryableRepository&gt;,Moq.Mock`1&lt;Orion.Users.IUsersComponent&gt;)" Kind="Method" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2024-11-21 06:28:59Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="C:\Symplr Projects\API\grc-cqs-rca-service\tests\Rca.Tests\Services\OData" File="ItemODataServiceTests.cs" Line="48">'ItemODataServiceTests.GetItemQueryable_Always_CallsItemODataRepositoryOnce(Mock&lt;IRcaUnitOfWork&gt;, Mock&lt;IItemQueryableRepository&gt;, Mock&lt;IUsersComponent&gt;)' appears to have no upstream public or protected callers.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetItemQueryable_Always_ReturnsQueryable(Moq.Mock`1&lt;Rca.Data.Repositories.Queryable.IItemQueryableRepository&gt;,Moq.Mock`1&lt;Rca.Data.IRcaUnitOfWork&gt;,System.Collections.Generic.List`1&lt;Rca.Models.OData.ItemODataModel&gt;,Rca.Services.OData.ItemODataService)" Kind="Method" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2024-11-21 06:28:59Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="C:\Symplr Projects\API\grc-cqs-rca-service\tests\Rca.Tests\Services\OData" File="ItemODataServiceTests.cs" Line="29">'ItemODataServiceTests.GetItemQueryable_Always_ReturnsQueryable(Mock&lt;IItemQueryableRepository&gt;, Mock&lt;IRcaUnitOfWork&gt;, List&lt;ItemODataModel&gt;, ItemODataService)' appears to have no upstream public or protected callers.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="ParticipantODataServiceTests" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#GetParticipantQueryable_Always_CallsParticipantODataRepositoryOnce(Moq.Mock`1&lt;Rca.Data.IRcaUnitOfWork&gt;,Moq.Mock`1&lt;Rca.Data.Repositories.Queryable.IParticipantQueryableRepository&gt;)" Kind="Method" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2024-11-21 06:28:59Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="C:\Symplr Projects\API\grc-cqs-rca-service\tests\Rca.Tests\Services\OData" File="ParticipantODataServiceTests.cs" Line="46">'ParticipantODataServiceTests.GetParticipantQueryable_Always_CallsParticipantODataRepositoryOnce(Mock&lt;IRcaUnitOfWork&gt;, Mock&lt;IParticipantQueryableRepository&gt;)' appears to have no upstream public or protected callers.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetParticipantQueryable_Always_ReturnsQueryable(Moq.Mock`1&lt;Rca.Data.Repositories.Queryable.IParticipantQueryableRepository&gt;,Moq.Mock`1&lt;Rca.Data.IRcaUnitOfWork&gt;,System.Collections.Generic.List`1&lt;Rca.Models.OData.ParticipantODataModel&gt;,Rca.Services.OData.ParticipantODataService)" Kind="Method" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2024-11-21 06:28:59Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="C:\Symplr Projects\API\grc-cqs-rca-service\tests\Rca.Tests\Services\OData" File="ParticipantODataServiceTests.cs" Line="28">'ParticipantODataServiceTests.GetParticipantQueryable_Always_ReturnsQueryable(Mock&lt;IParticipantQueryableRepository&gt;, Mock&lt;IRcaUnitOfWork&gt;, List&lt;ParticipantODataModel&gt;, ParticipantODataService)' appears to have no upstream public or protected callers.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="RcaDashboardODataServiceTests" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#GetDashboardInfoQueryable_Always_ReturnsQueryable(Moq.Mock`1&lt;Rca.Data.Repositories.Queryable.IRcaDashboardQueryableRepository&gt;,Moq.Mock`1&lt;Rca.Data.IRcaUnitOfWork&gt;,System.Collections.Generic.List`1&lt;Rca.Models.OData.RcaDashboardODataModel&gt;,Rca.Services.OData.RcaDashboardODataService)" Kind="Method" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2024-11-21 06:28:59Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="C:\Symplr Projects\API\grc-cqs-rca-service\tests\Rca.Tests\Services\OData" File="RcaDashboardODataServiceTests.cs" Line="30">'RcaDashboardODataServiceTests.GetDashboardInfoQueryable_Always_ReturnsQueryable(Mock&lt;IRcaDashboardQueryableRepository&gt;, Mock&lt;IRcaUnitOfWork&gt;, List&lt;RcaDashboardODataModel&gt;, RcaDashboardODataService)' appears to have no upstream public or protected callers.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetDashboardInfoQueryable_Always_ReturnsRcaDashboardODataQueryableOnce(Moq.Mock`1&lt;Rca.Data.IRcaUnitOfWork&gt;,Moq.Mock`1&lt;Rca.Data.Repositories.Queryable.IRcaDashboardQueryableRepository&gt;,Moq.Mock`1&lt;Rca.Services.ISoftLabelResourceService&gt;,Moq.Mock`1&lt;Orion.Users.IUsersComponent&gt;)" Kind="Method" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2024-11-21 06:28:59Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="C:\Symplr Projects\API\grc-cqs-rca-service\tests\Rca.Tests\Services\OData" File="RcaDashboardODataServiceTests.cs" Line="50">'RcaDashboardODataServiceTests.GetDashboardInfoQueryable_Always_ReturnsRcaDashboardODataQueryableOnce(Mock&lt;IRcaUnitOfWork&gt;, Mock&lt;IRcaDashboardQueryableRepository&gt;, Mock&lt;ISoftLabelResourceService&gt;, Mock&lt;IUsersComponent&gt;)' appears to have no upstream public or protected callers.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="Rca.Tests.Validators">
+       <Types>
+        <Type Name="CauseModelValidatorTests" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#Validate_ClassificationId_MinusOne_ValidationError(Rca.Validators.CauseModelValidator`1&lt;Rca.Models.CauseModel&gt;,Rca.Models.CauseModel)" Kind="Method" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2024-11-21 06:28:59Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="C:\Symplr Projects\API\grc-cqs-rca-service\tests\Rca.Tests\Validators" File="CauseModelValidatorTests.cs" Line="47">'CauseModelValidatorTests.Validate_ClassificationId_MinusOne_ValidationError(CauseModelValidator&lt;CauseModel&gt;, CauseModel)' appears to have no upstream public or protected callers.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Validate_ParentCauseId_MinusOne_ValidationError(Rca.Validators.CauseModelValidator`1&lt;Rca.Models.CauseModel&gt;,Rca.Models.CauseModel)" Kind="Method" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2024-11-21 06:28:59Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="C:\Symplr Projects\API\grc-cqs-rca-service\tests\Rca.Tests\Validators" File="CauseModelValidatorTests.cs" Line="60">'CauseModelValidatorTests.Validate_ParentCauseId_MinusOne_ValidationError(CauseModelValidator&lt;CauseModel&gt;, CauseModel)' appears to have no upstream public or protected callers.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Validate_RCAId_MinusOne_ValidationError(Rca.Validators.CauseModelValidator`1&lt;Rca.Models.CauseModel&gt;,Rca.Models.CauseModel)" Kind="Method" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2024-11-21 06:28:59Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="C:\Symplr Projects\API\grc-cqs-rca-service\tests\Rca.Tests\Validators" File="CauseModelValidatorTests.cs" Line="34">'CauseModelValidatorTests.Validate_RCAId_MinusOne_ValidationError(CauseModelValidator&lt;CauseModel&gt;, CauseModel)' appears to have no upstream public or protected callers.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Validate_RCAId_NotEqualToZero_ValidationError(Rca.Validators.CauseModelValidator`1&lt;Rca.Models.CauseModel&gt;,Rca.Models.CauseModel)" Kind="Method" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2024-11-21 06:28:59Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="C:\Symplr Projects\API\grc-cqs-rca-service\tests\Rca.Tests\Validators" File="CauseModelValidatorTests.cs" Line="21">'CauseModelValidatorTests.Validate_RCAId_NotEqualToZero_ValidationError(CauseModelValidator&lt;CauseModel&gt;, CauseModel)' appears to have no upstream public or protected callers.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="RootCauseAnalysisModelValidatorTests" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#Validate_Description_Empty_ValidationError(Rca.Validators.RootCauseAnalysisModelValidator,Rca.Models.CreateRCAModel)" Kind="Method" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2024-11-21 06:28:59Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="C:\Symplr Projects\API\grc-cqs-rca-service\tests\Rca.Tests\Validators" File="RootCauseAnalysisModelValidatorTests.cs" Line="47">'RootCauseAnalysisModelValidatorTests.Validate_Description_Empty_ValidationError(RootCauseAnalysisModelValidator, CreateRCAModel)' appears to have no upstream public or protected callers.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Validate_IncidentDate_NoFuturedate_ValidationError(Rca.Validators.RootCauseAnalysisModelValidator,Rca.Models.CreateRCAModel)" Kind="Method" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2024-11-21 06:28:59Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="C:\Symplr Projects\API\grc-cqs-rca-service\tests\Rca.Tests\Validators" File="RootCauseAnalysisModelValidatorTests.cs" Line="60">'RootCauseAnalysisModelValidatorTests.Validate_IncidentDate_NoFuturedate_ValidationError(RootCauseAnalysisModelValidator, CreateRCAModel)' appears to have no upstream public or protected callers.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Validate_RcaName_Empty_ValidationError(Rca.Validators.RootCauseAnalysisModelValidator,Rca.Models.CreateRCAModel)" Kind="Method" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2024-11-21 06:28:59Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="C:\Symplr Projects\API\grc-cqs-rca-service\tests\Rca.Tests\Validators" File="RootCauseAnalysisModelValidatorTests.cs" Line="21">'RootCauseAnalysisModelValidatorTests.Validate_RcaName_Empty_ValidationError(RootCauseAnalysisModelValidator, CreateRCAModel)' appears to have no upstream public or protected callers.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Validate_RcaName_MaximumLength_ValidationError(Rca.Validators.RootCauseAnalysisModelValidator,Rca.Models.CreateRCAModel)" Kind="Method" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2024-11-21 06:28:59Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="C:\Symplr Projects\API\grc-cqs-rca-service\tests\Rca.Tests\Validators" File="RootCauseAnalysisModelValidatorTests.cs" Line="34">'RootCauseAnalysisModelValidatorTests.Validate_RcaName_MaximumLength_ValidationError(RootCauseAnalysisModelValidator, CreateRCAModel)' appears to have no upstream public or protected callers.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="Srm.Tests.Validators">
+       <Types>
+        <Type Name="BaseValidatorTests" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#_softLabelResourceServiceMock" Kind="Field" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotDeclareReadOnlyMutableReferenceTypes" Category="Microsoft.Security" CheckId="CA2104" Status="Active" Created="2024-11-21 06:28:59Z" FixCategory="NonBreaking">
+             <Issue Certainty="25" Level="Error">Remove the read-only designation from 'BaseValidatorTests._softLabelResourceServiceMock' or change the field to one that is an immutable reference type. If the reference type 'Mock&lt;ISoftLabelResourceService&gt;' is, in fact, immutable, exclude this message.</Issue>
+            </Message>
+            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2024-11-21 06:28:59Z" FixCategory="Breaking">
+             <Issue Certainty="90" Level="Error">Because field 'BaseValidatorTests._softLabelResourceServiceMock' is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+ </Targets>
+ <Rules>
+  <Rule TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811">
+   <Name>Avoid uncalled private code</Name>
+   <Description>There is uncalled code that is not externally visible and is not a known runtime entry point. If this violation fires in error, please send a problem report to the Visual Studio Code Analysis team.</Description>
+   <Resolution Name="Default">{0} appears to have no upstream public or protected callers.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182264.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="performancerules.dll" Version="17.0.0.0" />
+  </Rule>
+  <Rule TypeName="AvoidUninstantiatedInternalClasses" Category="Microsoft.Performance" CheckId="CA1812">
+   <Name>Avoid uninstantiated internal classes</Name>
+   <Description>An internal class was detected that is apparently never instantiated. This rule does not attempt to detect late-bound creation and will generate false positives if instances of a type are only created in this way (for example, by means of Activator.CreateInstance or by passing the type as an argument to a TypeConverter constructor).</Description>
+   <Resolution Name="Default">{0} is an internal class that is apparently never instantiated. If so, remove the code from the assembly. If this class is intended to contain only static methods, consider adding a private constructor to prevent the compiler from generating a default constructor.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182265.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="performancerules.dll" Version="17.0.0.0" />
+  </Rule>
+  <Rule TypeName="DoNotDeclareReadOnlyMutableReferenceTypes" Category="Microsoft.Security" CheckId="CA2104">
+   <Name>Do not declare read only mutable reference types</Name>
+   <Description>A read-only declaration for a mutable reference type does not prevent the field's instance data from being modified. For example, a read-only StringBuilder field declaration does not make sense, since the data encapsulated by the StringBuilder can be modified using the read-only reference.</Description>
+   <Resolution Name="Default">Remove the read-only designation from {0} or change the field to one that is an immutable reference type. If the reference type {1} is, in fact, immutable, exclude this message.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182302.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="25">Error</MessageLevel>
+   <File Name="securityrules.dll" Version="17.0.0.0" />
+  </Rule>
+  <Rule TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051">
+   <Name>Do not declare visible instance fields</Name>
+   <Description>Instance fields that are visible outside of the type that declares them, limit your ability to change the implementation details for those data items. Use properties instead. They do not compromise usability or performance and they do provide flexibility in that they conceal the implementation details of the underlying data.</Description>
+   <Resolution Name="Default">Because field {0} is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182141.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="90">Error</MessageLevel>
+   <File Name="designrules.dll" Version="17.0.0.0" />
+  </Rule>
+ </Rules>
+ <Localized>
+  <String Key="Category">Category</String>
+  <String Key="Certainty">Certainty</String>
+  <String Key="CollapseAll">Collapse All</String>
+  <String Key="CheckId">Check Id</String>
+  <String Key="Error">Error</String>
+  <String Key="Errors">error(s)</String>
+  <String Key="ExpandAll">Expand All</String>
+  <String Key="Help">Help</String>
+  <String Key="Line">Line</String>
+  <String Key="Messages">message(s)</String>
+  <String Key="LocationNotStoredInPdb">[Location not stored in Pdb]</String>
+  <String Key="Project">Project</String>
+  <String Key="Resolution">Resolution</String>
+  <String Key="Rule">Rule</String>
+  <String Key="RuleFile">Rule File</String>
+  <String Key="RuleDescription">Rule Description</String>
+  <String Key="Source">Source</String>
+  <String Key="Status">Status</String>
+  <String Key="Target">Target</String>
+  <String Key="Warning">Warning</String>
+  <String Key="Warnings">warning(s)</String>
+  <String Key="ReportTitle">Code Analysis Report</String>
+ </Localized>
+</FxCopReport>

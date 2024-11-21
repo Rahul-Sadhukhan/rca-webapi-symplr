@@ -1,0 +1,719 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Orion.OrganizationUnits</name>
+    </assembly>
+    <members>
+        <member name="M:Orion.OrganizationUnits.Data.IOrganizationUnitsDbContext.SortAlphabetically(System.Int64,Orion.Multilingual.Enums.Language)">
+            <summary>
+            Sorts all org units alphabetically.
+            </summary>
+            <param name="userId">The user id.</param>
+            <param name="language">The language.</param>
+        </member>
+        <member name="M:Orion.OrganizationUnits.Data.IOrganizationUnitsDbContext.GetOrgUnitTableOfContents(System.Int64,Orion.Multilingual.Enums.Language)">
+            <summary>
+            Get all parent Org Unit nodes for given Org Unit, and the Org Unit itself.
+            </summary>
+            <param name="orgUnitId">Org Unit identifier.</param>
+            <param name="language">Language to use to retrieve Org Unit names.</param>
+            <returns>Array of Org Units nodes.</returns>
+        </member>
+        <member name="T:Orion.OrganizationUnits.Data.Projections.OrgUnitNode">
+            <summary>
+            Projection of Org Unit to use for Table of Contents in Portal Integration.
+            </summary>
+        </member>
+        <member name="P:Orion.OrganizationUnits.Data.Projections.OrgUnitNode.Id">
+            <summary>
+            Gets or sets the Org Unit identifier.
+            </summary>
+        </member>
+        <member name="P:Orion.OrganizationUnits.Data.Projections.OrgUnitNode.Name">
+            <summary>
+            Gets or sets the Org Unit Name.
+            </summary>
+        </member>
+        <member name="P:Orion.OrganizationUnits.Data.Projections.OrgUnitNode.ParentId">
+            <summary>
+            Gets or sets identifier of the Org Unit parent.
+            </summary>
+        </member>
+        <member name="M:Orion.OrganizationUnits.Data.Repositories.OrgUnitRepository.DoesOrgUnitExistByOrgUnitName(System.String)">
+            <summary>
+            Determines whether an org unit (location) exists.
+            </summary>
+            <param name="orgUnitName">Name of the org unit (location).</param>
+            <returns>true if it exists, false otherwise.</returns>
+        </member>
+        <member name="M:Orion.OrganizationUnits.Data.Repositories.OrgUnitRepository.GetFilteredOrgUnits(Orion.OrganizationUnits.Models.OrgUnitFilterParameters,Orion.Multilingual.Enums.Language)">
+            <summary>
+            Gets filtered org units.
+            </summary>
+            <param name="filterParameters">Org unit filter parameters.</param>
+            <param name="language">The language.</param>
+            <returns>The org units filtered by parent id and language.</returns>
+        </member>
+        <member name="M:Orion.OrganizationUnits.Data.Repositories.OrgUnitRepository.GetAllOrgUnits(System.Boolean,Orion.Multilingual.Enums.Language)">
+            <summary>
+            Gets all org units by language.
+            </summary>
+            <param name="includeInactive">The value indicating whether to include inactive org units.</param>
+            <param name="language">The language.</param>
+            <returns>The all org units filtered by language.</returns>
+        </member>
+        <member name="M:Orion.OrganizationUnits.Data.Repositories.OrgUnitRepository.SortAllOrgUnitsByAlphabet(System.Int64,Orion.Multilingual.Enums.Language)">
+            <summary>
+            Sorts all org units alphabetically.
+            </summary>
+            <param name="userId">The user id.</param>
+            <param name="language">The language.</param>
+        </member>
+        <member name="M:Orion.OrganizationUnits.Data.Repositories.OrgUnitRepository.GetOrgUnitsForPortalSynchronization">
+            <summary>
+            Gets Org units for portal synchronization.
+            </summary>
+            <returns>Enumerable result of org units for portal synchronization.</returns>
+        </member>
+        <member name="M:Orion.OrganizationUnits.Data.Repositories.OrgUnitRepository.GetFilteredOrgUnits(Orion.OrganizationUnits.Models.OrgUnitFilterParameters,Orion.Multilingual.Enums.Language,System.Boolean)">
+            <summary>
+            Gets filtered org units.
+            </summary>
+            <param name="filterParameters">Org unit filter parameters.</param>
+            <param name="language">The language.</param>
+            <param name="filterByParent">The flag to specify parentId filter should be applied.</param>
+            <returns>The filtered org units.</returns>
+        </member>
+        <member name="M:Orion.OrganizationUnits.Data.Repositories.OrgUnitRepository.GetFilteredOrgUnitsQueryable(Orion.OrganizationUnits.Models.OrgUnitFilterParameters,Orion.Multilingual.Enums.Language,System.Boolean)">
+            <summary>
+            Gets filtered IQueryable org units.
+            </summary>
+            <param name="filterParameters">Org unit filter parameters.</param>
+            <param name="language">The language.</param>
+            <param name="filterByParent">The flag to specify parentId filter should be applied.</param>
+            <returns>The filtered IQueryable org units.</returns>
+        </member>
+        <member name="M:Orion.OrganizationUnits.Data.Repositories.OrgUnitRepository.ApplyPagination(System.Linq.IQueryable{Orion.OrganizationUnits.Models.OrgUnitInfoModel},Orion.OrganizationUnits.Models.OrgUnitFilterParameters)">
+            <summary>
+            Applies pagination to org units query.
+            </summary>
+            <param name="query">The query.</param>
+            <param name="filterParameters">Org unit filter parameters.</param>
+            <returns>The query with applied pagination.</returns>
+        </member>
+        <member name="M:Orion.OrganizationUnits.Data.Repositories.OrgUnitRepository.ApplySorting(System.Linq.IQueryable{Orion.OrganizationUnits.Models.OrgUnitInfoModel})">
+            <summary>
+            Applies sorting to org units query.
+            </summary>
+            <param name="query">The query.</param>
+            <returns>The query with applied sorting.</returns>
+        </member>
+        <member name="M:Orion.OrganizationUnits.Data.Repositories.OrgUnitRepository.ApplyFilters(System.Linq.IQueryable{Orion.OrganizationUnits.Data.Entities.NoMlsOrgUnit},Orion.OrganizationUnits.Models.OrgUnitFilterParameters,System.Boolean)">
+            <summary>
+            Applies filters to org units query.
+            </summary>
+            <param name="query">The query.</param>
+            <param name="filterParameters">Org unit filter parameters.</param>
+            <param name="filterByParent">The flag to specify parentId filter should be applied.</param>
+            <returns>The query with the applied filters.</returns>
+        </member>
+        <member name="M:Orion.OrganizationUnits.Data.Repositories.IOrgUnitRepository.DoesOrgUnitExist(System.Int64)">
+            <summary>
+            Determines whether an org unit (location) exists.
+            </summary>
+            <param name="id">identifier of the org unit (location).</param>
+            <returns>true if it exists, false otherwise.</returns>
+        </member>
+        <member name="M:Orion.OrganizationUnits.Data.Repositories.IOrgUnitRepository.DoesOrgUnitExistByOrgUnitName(System.String)">
+            <summary>
+            Determines whether an org unit (location) exists.
+            </summary>
+            <param name="orgUnitName">Name of the org unit (location).</param>
+            <returns>true if it exists, false otherwise.</returns>
+        </member>
+        <member name="M:Orion.OrganizationUnits.Data.Repositories.IOrgUnitRepository.GetFilteredOrgUnits(Orion.OrganizationUnits.Models.OrgUnitFilterParameters,Orion.Multilingual.Enums.Language)">
+            <summary>
+            Gets filtered org units.
+            </summary>
+            <param name="filterParameters">Org unit filter parameters.</param>
+            <param name="language">The language.</param>
+            <returns>The org units filtered by parent id and language.</returns>
+        </member>
+        <member name="M:Orion.OrganizationUnits.Data.Repositories.IOrgUnitRepository.GetAllOrgUnits(System.Boolean,Orion.Multilingual.Enums.Language)">
+            <summary>
+            Gets all org units by language.
+            </summary>
+            <param name="includeInactive">The value indicating whether to include inactive org units.</param>
+            <param name="language">The language.</param>
+            <returns>The all org units filtered by language.</returns>
+        </member>
+        <member name="M:Orion.OrganizationUnits.Data.Repositories.IOrgUnitRepository.SortAllOrgUnitsByAlphabet(System.Int64,Orion.Multilingual.Enums.Language)">
+            <summary>
+            Sorts all org units alphabetically.
+            </summary>
+            <param name="userId">The user id.</param>
+            <param name="language">The language.</param>
+        </member>
+        <member name="M:Orion.OrganizationUnits.Data.Repositories.IOrgUnitRepository.GetOrgUnitsForPortalSynchronization">
+            <summary>
+            Gets Org units for portal synchronization.
+            </summary>
+            <returns>Enumerable result of org units for portal synchronization.</returns>
+        </member>
+        <member name="M:Orion.OrganizationUnits.Data.OrganizationUnitsDbContext.SortAlphabetically(System.Int64,Orion.Multilingual.Enums.Language)">
+            <summary>
+            Sorts all org units alphabetically.
+            </summary>
+            <param name="userId">The user id.</param>
+            <param name="language">The language.</param>
+        </member>
+        <member name="T:Orion.OrganizationUnits.IOrganizationUnitsComponent">
+            <summary>
+            Component used to work with Organization Units.
+            </summary>
+        </member>
+        <member name="M:Orion.OrganizationUnits.IOrganizationUnitsComponent.GetOrgUnitsWithNpi">
+            <summary>
+            Retrieves a list of Org Units with Npi.
+            </summary>
+            <returns>Collection of OrgUnitInfoModel.</returns>
+        </member>
+        <member name="M:Orion.OrganizationUnits.IOrganizationUnitsComponent.GetAllOrgUnitsHierarchy(Orion.Multilingual.Enums.Language)">
+            <summary>
+            Retrieves a list of Org Units hierarchy.
+            </summary>
+            <param name="language">User language.</param>
+            <returns>Collection of OrgUnitRiskReporterInfoModel in view of hierarchy.</returns>
+        </member>
+        <member name="M:Orion.OrganizationUnits.IOrganizationUnitsComponent.GetOrgUnitWithNpi(System.Int64)">
+            <summary>
+            Retrieves an Org Unit With Npi.
+            </summary>
+            <param name="id">Org Unit identifier.</param>
+            <returns>OrgUnitInfoModel.</returns>
+        </member>
+        <member name="M:Orion.OrganizationUnits.IOrganizationUnitsComponent.GetOrgUnitsWithNpi(System.Int64[])">
+            <summary>
+            Retrieves a list of Org Units With Npi.
+            </summary>
+            <param name="ids">Array of Org Unit identifiers.</param>
+            <returns>Collection of OrgUnitInfoModel.</returns>
+        </member>
+        <member name="M:Orion.OrganizationUnits.IOrganizationUnitsComponent.DoesOrgUnitExist(System.Int64)">
+            <summary>
+            Determines whether an Org Unit exists.
+            </summary>
+            <param name="id">Identifier of the Org Unit.</param>
+            <returns>true if it exists, false otherwise.</returns>
+        </member>
+        <member name="M:Orion.OrganizationUnits.IOrganizationUnitsComponent.DoesOrgUnitExistByOrgUnitName(System.String)">
+            <summary>
+            Determines whether an org unit (location) exists.
+            </summary>
+            <param name="orgUnitName">Name of the org unit (location).</param>
+            <returns>true if it exists, false otherwise.</returns>
+        </member>
+        <member name="M:Orion.OrganizationUnits.IOrganizationUnitsComponent.GetFilteredOrgUnits(Orion.OrganizationUnits.Models.OrgUnitFilterParameters,Orion.Multilingual.Enums.Language)">
+            <summary>
+            Gets filtered org units.
+            </summary>
+            <param name="filterParameters">Org unit filter parameters.</param>
+            <param name="language">The language.</param>
+            <returns>The org units filtered by parent id and language.</returns>
+        </member>
+        <member name="M:Orion.OrganizationUnits.IOrganizationUnitsComponent.GetAllOrgUnits(System.Boolean,Orion.Multilingual.Enums.Language)">
+            <summary>
+            Gets all org units by language.
+            </summary>
+            <param name="includeInactive">The value indicating whether to include inactive org units.</param>
+            <param name="language">The language.</param>
+            <returns>The all org units filtered by language.</returns>
+        </member>
+        <member name="M:Orion.OrganizationUnits.IOrganizationUnitsComponent.SortAllOrgUnitsByAlphabet(Orion.Multilingual.Enums.Language)">
+            <summary>
+            Sorts all org units alphabetically.
+            </summary>
+            <param name="language">The language.</param>
+        </member>
+        <member name="M:Orion.OrganizationUnits.IOrganizationUnitsComponent.GetOrgUnitInfoWithManagersQueryable(Orion.Multilingual.Enums.Language)">
+            <summary>
+            Get all org units.
+            </summary>
+            <param name="language">The language.</param>
+            <returns>Collection of distinct org units with null org unit managers.</returns>
+        </member>
+        <member name="M:Orion.OrganizationUnits.IOrganizationUnitsComponent.GetOrgUnitInfoWithManagersQueryableByManagerTypeLookupValueId(System.Int64,Orion.Multilingual.Enums.Language)">
+            <summary>
+            Get org units filtered by manager type.
+            </summary>
+            <param name="managerTypeLookupValueId">Manager type of OrgUnitManager value id.</param>
+            <param name="language">The language.</param>
+            <returns>Collection of distinct org units with null org unit managers filtered by manager type.</returns>
+        </member>
+        <member name="M:Orion.OrganizationUnits.IOrganizationUnitsComponent.GetOrgUnitInfoWithManagersQueryableByEntityTypeLookupValueId(System.Int64,Orion.Multilingual.Enums.Language)">
+            <summary>
+            Get org unit with managers filtered by entity type.
+            </summary>
+            <param name="entityTypeLookupValueId">Entity type of OrgUnit value id.</param>
+            <param name="language">The language.</param>
+            <returns>Collection of distinct org units with null org unit managers.</returns>
+        </member>
+        <member name="M:Orion.OrganizationUnits.IOrganizationUnitsComponent.GetOrgUnitInfoWithManagersByManagerTypeLookupValueIdAndEntityTypeLookupValueId(System.Int64,System.Int64,Orion.Multilingual.Enums.Language)">
+            <summary>
+            Get org units with org unit managers filtered by EntityType and ManagerType with OrgUnitManagers.
+            </summary>
+            <param name="managerTypeLookupValueId">Manager type of OrgUnitManager value id.</param>
+            <param name="entityTypeLookupValueId">Entity type of OrgUnit value id.</param>
+            <param name="language">The language.</param>
+            <returns>Collection of distinct org units with null org manager filtered by entity type and manager type.</returns>
+        </member>
+        <member name="M:Orion.OrganizationUnits.IOrganizationUnitsComponent.GetOrgUnitParentAndChildrenIdsByParentId(System.Int64)">
+            <summary>
+            Get org units tree data by parent org unit id.
+            </summary>
+            <param name="parentId">Org unit id.</param>
+            <returns>Collection of org unit tree information.</returns>
+        </member>
+        <member name="M:Orion.OrganizationUnits.IOrganizationUnitsComponent.GetOrgUnitParentAndChildrenIdsByParentIds(System.Collections.Generic.IEnumerable{System.Int64})">
+            <summary>
+            Get org units tree data by parent org unit ids.
+            </summary>
+            <param name="parentIds">Org unit ids.</param>
+            <returns>Collection of org unit tree information.</returns>
+        </member>
+        <member name="M:Orion.OrganizationUnits.IOrganizationUnitsComponent.GetOrgUnitTableOfContents(System.Int64,Orion.Multilingual.Enums.Language)">
+            <summary>
+            Get all parent Org Unit nodes for given Org Unit, and the Org Unit itself.
+            </summary>
+            <param name="orgUnitId">Org Unit identifier.</param>
+            <param name="language">Language to use to retrieve Org Unit names.</param>
+            <returns>Array of Org Units nodes.</returns>
+        </member>
+        <member name="M:Orion.OrganizationUnits.IOrganizationUnitsComponent.GetAllOrganizationUnitsQueryable(Orion.Multilingual.Enums.Language)">
+            <summary>
+            Gets the odata list of org units.
+            </summary>
+            <param name="language">Language to use to retrive Org Unit names.</param>
+            <returns>The IQueryable list of org units.</returns>
+        </member>
+        <member name="M:Orion.OrganizationUnits.IOrganizationUnitsComponent.GetOrgUnitsForPortalSynchronization">
+            <summary>
+            Gets Org units for portal synchronization.
+            </summary>
+            <returns>Enumerable result of org units for portal synchronization.</returns>
+        </member>
+        <member name="T:Orion.OrganizationUnits.Models.OrgUnitChildrenModel">
+            <summary>
+            OrgUnit Children Model.
+            </summary>
+        </member>
+        <member name="P:Orion.OrganizationUnits.Models.OrgUnitChildrenModel.ParentOrgUnitId">
+            <summary>
+            Gets or sets Parent Org Unit Id.
+            </summary>
+        </member>
+        <member name="P:Orion.OrganizationUnits.Models.OrgUnitChildrenModel.ChildOrgUnitId">
+            <summary>
+            Gets or sets Child Org Unit Id.
+            </summary>
+        </member>
+        <member name="P:Orion.OrganizationUnits.Models.OrgUnitChildrenModel.Level">
+            <summary>
+            Gets or sets Level.
+            </summary>
+        </member>
+        <member name="T:Orion.OrganizationUnits.Models.OrgUnitFilterParameters">
+            <summary>
+            Filter parameters for org units queries.
+            </summary>
+        </member>
+        <member name="P:Orion.OrganizationUnits.Models.OrgUnitFilterParameters.ParentId">
+            <summary>
+            Gets or sets the ParentId.
+            </summary>
+        </member>
+        <member name="P:Orion.OrganizationUnits.Models.OrgUnitFilterParameters.IncludeInactive">
+            <summary>
+            Gets or sets a value indicating whether to include inactive org units.
+            </summary>
+        </member>
+        <member name="P:Orion.OrganizationUnits.Models.OrgUnitFilterParameters.Skip">
+            <summary>
+            Gets or sets number of org units to skip.
+            </summary>
+        </member>
+        <member name="P:Orion.OrganizationUnits.Models.OrgUnitFilterParameters.Take">
+            <summary>
+            Gets or sets number of org units to take.
+            </summary>
+        </member>
+        <member name="P:Orion.OrganizationUnits.Models.OrgUnitFilterParameters.SelectedIds">
+            <summary>
+            Gets or sets org units ids to select even if they are inactive.
+            </summary>
+        </member>
+        <member name="P:Orion.OrganizationUnits.Models.OrgUnitFilterParameters.FilterIds">
+            <summary>
+            Gets or sets ids by which org units will be filtered.
+            </summary>
+        </member>
+        <member name="T:Orion.OrganizationUnits.Models.OrgUnitHierarchyInfoModel">
+            <summary>
+            Org Unit Hierarchy Info Model.
+            </summary>
+        </member>
+        <member name="P:Orion.OrganizationUnits.Models.OrgUnitHierarchyInfoModel.OrgUnitId">
+            <summary>
+            Gets or sets the Org Unit identifier.
+            </summary>
+        </member>
+        <member name="P:Orion.OrganizationUnits.Models.OrgUnitHierarchyInfoModel.Name">
+            <summary>
+            Gets or sets the Org Unit Name.
+            </summary>
+        </member>
+        <member name="P:Orion.OrganizationUnits.Models.OrgUnitHierarchyInfoModel.Description">
+            <summary>
+            Gets or sets the Description.
+            </summary>
+        </member>
+        <member name="P:Orion.OrganizationUnits.Models.OrgUnitHierarchyInfoModel.ParentId">
+            <summary>
+            Gets or sets the ParentId.
+            </summary>
+        </member>
+        <member name="P:Orion.OrganizationUnits.Models.OrgUnitHierarchyInfoModel.IsParentActive">
+            <summary>
+            Gets or sets a value indicating whether the parent org unit is active.
+            </summary>
+        </member>
+        <member name="P:Orion.OrganizationUnits.Models.OrgUnitHierarchyInfoModel.ParentName">
+            <summary>
+            Gets or sets the ParentName.
+            </summary>
+        </member>
+        <member name="P:Orion.OrganizationUnits.Models.OrgUnitHierarchyInfoModel.SortId">
+            <summary>
+            Gets or sets the SortId.
+            </summary>
+        </member>
+        <member name="P:Orion.OrganizationUnits.Models.OrgUnitHierarchyInfoModel.IsActive">
+            <summary>
+            Gets or sets a value indicating whether the org unit is active.
+            </summary>
+        </member>
+        <member name="P:Orion.OrganizationUnits.Models.OrgUnitHierarchyInfoModel.ChildOrgUnits">
+            <summary>
+            Gets or sets the Org Unit Child.
+            </summary>
+        </member>
+        <member name="T:Orion.OrganizationUnits.Models.OrgUnitInfoModel">
+            <summary>
+            OrgUnit Info Model.
+            </summary>
+        </member>
+        <member name="P:Orion.OrganizationUnits.Models.OrgUnitInfoModel.OrganizationUnitId">
+            <summary>
+            Gets or sets the Org Unit identifier.
+            </summary>
+        </member>
+        <member name="P:Orion.OrganizationUnits.Models.OrgUnitInfoModel.Name">
+            <summary>
+            Gets or sets the Org Unit Name.
+            </summary>
+        </member>
+        <member name="P:Orion.OrganizationUnits.Models.OrgUnitInfoModel.Npi">
+            <summary>
+            Gets or sets the Org Unit Npi.
+            </summary>
+        </member>
+        <member name="P:Orion.OrganizationUnits.Models.OrgUnitInfoModel.Path">
+            <summary>
+            Gets or sets the Org Unit Path.
+            </summary>
+        </member>
+        <member name="P:Orion.OrganizationUnits.Models.OrgUnitInfoModel.OrganizationUnitsCount">
+            <summary>
+            Gets or sets OrganizationUnitsCount.
+            </summary>
+        </member>
+        <member name="P:Orion.OrganizationUnits.Models.OrgUnitInfoModel.ParentId">
+            <summary>
+            Gets or sets the ParentId.
+            </summary>
+        </member>
+        <member name="P:Orion.OrganizationUnits.Models.OrgUnitInfoModel.IsParentActive">
+            <summary>
+            Gets or sets a value indicating whether the parent org unit is active.
+            </summary>
+        </member>
+        <member name="P:Orion.OrganizationUnits.Models.OrgUnitInfoModel.ParentName">
+            <summary>
+            Gets or sets the ParentName.
+            </summary>
+        </member>
+        <member name="P:Orion.OrganizationUnits.Models.OrgUnitInfoModel.SortId">
+            <summary>
+            Gets or sets the SortId.
+            </summary>
+        </member>
+        <member name="P:Orion.OrganizationUnits.Models.OrgUnitInfoModel.Description">
+            <summary>
+            Gets or sets the Description.
+            </summary>
+        </member>
+        <member name="P:Orion.OrganizationUnits.Models.OrgUnitInfoModel.IsActive">
+            <summary>
+            Gets or sets a value indicating whether the org unit is active.
+            </summary>
+        </member>
+        <member name="P:Orion.OrganizationUnits.Models.OrgUnitInfoModel.UID">
+            <summary>
+            Gets or sets the UID.
+            </summary>
+        </member>
+        <member name="P:Orion.OrganizationUnits.Models.OrgUnitInfoModel.RedoxID">
+            <summary>
+            Gets or sets the RedoxID.
+            </summary>
+        </member>
+        <member name="P:Orion.OrganizationUnits.Models.OrgUnitInfoModel.IsQRIntegrationAvailable">
+            <summary>
+            Gets or sets a value indicating whether gets or sets the IsQRIntegrationAvailable.
+            </summary>
+        </member>
+        <member name="P:Orion.OrganizationUnits.Models.OrgUnitInfoModel.EHRID">
+            <summary>
+            Gets or sets the EHRID.
+            </summary>
+        </member>
+        <member name="T:Orion.OrganizationUnits.Models.OrgUnitForPortalSynchronizationModel">
+            <summary>
+            Org Unit to be used for Portal Synchronization.
+            </summary>
+        </member>
+        <member name="P:Orion.OrganizationUnits.Models.OrgUnitForPortalSynchronizationModel.FolderUid">
+            <summary>
+            Gets or sets the Folder Unique identifier.
+            </summary>
+        </member>
+        <member name="P:Orion.OrganizationUnits.Models.OrgUnitForPortalSynchronizationModel.FolderName">
+            <summary>
+            Gets or sets the Folder Name.
+            </summary>
+        </member>
+        <member name="P:Orion.OrganizationUnits.Models.OrgUnitForPortalSynchronizationModel.ParentFolderUid">
+            <summary>
+            Gets or sets unique identifier of the folder parent.
+            </summary>
+        </member>
+        <member name="T:Orion.OrganizationUnits.Models.OrgUnitWithOrgUnitManagerODataModel">
+            <summary>
+            Model of org unit with org unit managers for getting via OData.
+            </summary>
+        </member>
+        <member name="P:Orion.OrganizationUnits.Models.OrgUnitWithOrgUnitManagerODataModel.UserId">
+            <summary>
+            Gets or Sets UserId.
+            </summary>
+        </member>
+        <member name="P:Orion.OrganizationUnits.Models.OrgUnitWithOrgUnitManagerODataModel.UserName">
+            <summary>
+            Gets or Sets User full name.
+            </summary>
+        </member>
+        <member name="P:Orion.OrganizationUnits.Models.OrgUnitWithOrgUnitManagerODataModel.OrganizationUnitId">
+            <summary>
+            Gets or sets OrganizationUnitId.
+            </summary>
+        </member>
+        <member name="P:Orion.OrganizationUnits.Models.OrgUnitWithOrgUnitManagerODataModel.OrgUnitName">
+            <summary>
+            Gets or sets organization unit Name.
+            </summary>
+        </member>
+        <member name="P:Orion.OrganizationUnits.Models.OrgUnitWithOrgUnitManagerODataModel.OrgUnitPath">
+            <summary>
+            Gets or sets Path.
+            </summary>
+        </member>
+        <member name="P:Orion.OrganizationUnits.Models.OrgUnitWithOrgUnitManagerODataModel.OrgUnitSortId">
+            <summary>
+            Gets or sets the SortId.
+            </summary>
+        </member>
+        <member name="M:Orion.OrganizationUnits.OrganizationUnitsComponent.GetAllOrgUnitsHierarchy(Orion.Multilingual.Enums.Language)">
+            <summary>
+            Gets all organizational units hierarchy.
+            </summary>
+            <param name="language">User language.</param>
+            <returns>The hierarchy of all organizational units.</returns>
+        </member>
+        <member name="M:Orion.OrganizationUnits.OrganizationUnitsComponent.DoesOrgUnitExistByOrgUnitName(System.String)">
+            <summary>
+            Determines whether an org unit (location) exists.
+            </summary>
+            <param name="orgUnitName">Name of the org unit (location).</param>
+            <returns>true if it exists, false otherwise.</returns>
+        </member>
+        <member name="M:Orion.OrganizationUnits.OrganizationUnitsComponent.GetFilteredOrgUnits(Orion.OrganizationUnits.Models.OrgUnitFilterParameters,Orion.Multilingual.Enums.Language)">
+            <summary>
+            Gets filtered org units.
+            </summary>
+            <param name="filterParameters">Org unit filter parameters.</param>
+            <param name="language">The language.</param>
+            <returns>The org units filtered by parent id and language.</returns>
+        </member>
+        <member name="M:Orion.OrganizationUnits.OrganizationUnitsComponent.GetAllOrgUnits(System.Boolean,Orion.Multilingual.Enums.Language)">
+            <summary>
+            Gets all org units by language.
+            </summary>
+            <param name="includeInactive">The value indicating whether to include inactive org units.</param>
+            <param name="language">The language.</param>
+            <returns>The all org units filtered by language.</returns>
+        </member>
+        <member name="M:Orion.OrganizationUnits.OrganizationUnitsComponent.SortAllOrgUnitsByAlphabet(Orion.Multilingual.Enums.Language)">
+            <summary>
+            Sorts all org units alphabetically.
+            </summary>
+            <param name="language">The language.</param>
+        </member>
+        <member name="M:Orion.OrganizationUnits.OrganizationUnitsComponent.GetOrgUnitInfoWithManagersByManagerTypeLookupValueIdAndEntityTypeLookupValueId(System.Int64,System.Int64,Orion.Multilingual.Enums.Language)">
+            <summary>
+            Get org unit managers by EntityType and ManagerType.
+            </summary>
+            <param name="managerTypeLookupValueId">Manager type lookup value id.</param>
+            <param name="entityTypeLookupValueId">Entity type lookup value id.</param>
+            <param name="language">The language.</param>
+            <returns>Org units filtered by entity type and manager type.</returns>
+        </member>
+        <member name="M:Orion.OrganizationUnits.OrganizationUnitsComponent.GetOrgUnitsForPortalSynchronization">
+            <summary>
+            Gets Org units for portal synchronization.
+            </summary>
+            <returns>Enumerable result of org units for portal synchronization.</returns>
+        </member>
+        <member name="T:Orion.OrganizationUnits.OrganizationUnitsComponentAutoMapperProfile">
+            <summary>
+            Organization Units Component Auto Mapper Profile.
+            </summary>
+        </member>
+        <member name="M:Orion.OrganizationUnits.OrganizationUnitsComponentAutoMapperProfile.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.OrganizationUnits.OrganizationUnitsComponentAutoMapperProfile"/> class.
+            </summary>
+        </member>
+        <member name="T:Orion.OrganizationUnits.OrganizationUnitsComponentModule">
+            <summary>
+            Organization Units Component Module.
+            </summary>
+        </member>
+        <member name="M:Orion.OrganizationUnits.OrganizationUnitsComponentModule.Load(Autofac.ContainerBuilder)">
+            <summary>
+            Add registrations to the container.
+            </summary>
+            <param name="builder">The builder through which components can be registered.</param>
+            <remarks>
+            Note that the ContainerBuilder parameter is unique to this module.
+            </remarks>
+        </member>
+        <member name="M:Orion.OrganizationUnits.Services.OrgUnitService.DoesOrgUnitExistByOrgUnitName(System.String)">
+            <summary>
+            Determines whether an org unit (location) exists.
+            </summary>
+            <param name="orgUnitName">Name of the org unit (location).</param>
+            <returns>true if it exists, false otherwise.</returns>
+        </member>
+        <member name="M:Orion.OrganizationUnits.Services.OrgUnitService.GetFilteredOrgUnits(Orion.OrganizationUnits.Models.OrgUnitFilterParameters,Orion.Multilingual.Enums.Language)">
+            <summary>
+            Gets filtered org units.
+            </summary>
+            <param name="filterParameters">Org unit filter parameters.</param>
+            <param name="language">The language.</param>
+            <returns>The org units filtered by parent id and language.</returns>
+        </member>
+        <member name="M:Orion.OrganizationUnits.Services.OrgUnitService.GetAllOrgUnits(System.Boolean,Orion.Multilingual.Enums.Language)">
+            <summary>
+            Gets all org units by language.
+            </summary>
+            <param name="includeInactive">The value indicating whether to include inactive org units.</param>
+            <param name="language">The language.</param>
+            <returns>The all org units filtered by language.</returns>
+        </member>
+        <member name="M:Orion.OrganizationUnits.Services.OrgUnitService.SortAllOrgUnitsByAlphabet(Orion.Multilingual.Enums.Language)">
+            <summary>
+            Sorts all org units alphabetically.
+            </summary>
+            <param name="language">The language.</param>
+        </member>
+        <member name="M:Orion.OrganizationUnits.Services.OrgUnitService.GetOrgUnitsForPortalSynchronization">
+            <summary>
+            Gets Org units for portal synchronization.
+            </summary>
+            <returns>Enumerable result of org units for portal synchronization.</returns>
+        </member>
+        <member name="M:Orion.OrganizationUnits.Services.OrgUnitService.CreateOrgUnitsHierarchy(System.Collections.Generic.ICollection{Orion.OrganizationUnits.Models.OrgUnitHierarchyInfoModel})">
+            <summary>
+            Creates a hierarchy of organization units.
+            </summary>
+            <param name="orgUnits">The list of organization units.</param>
+            <returns>The hierarchy of all organizational units.</returns>
+        </member>
+        <member name="M:Orion.OrganizationUnits.Services.OrgUnitService.CreateOrgUnitHierarchyNode(System.Collections.Generic.IDictionary{System.Int64,System.Collections.Generic.List{Orion.OrganizationUnits.Models.OrgUnitHierarchyInfoModel}},Orion.OrganizationUnits.Models.OrgUnitHierarchyInfoModel)">
+            <summary>
+            Creates a hierarchy node of organization units.
+            </summary>
+            <param name="orgUnitsDictionary">The dictionary with parent ids and list of organizational units.</param>
+            <param name="parentOrgUnit">The parent organizational unit object.</param>
+        </member>
+        <member name="M:Orion.OrganizationUnits.Services.IOrgUnitService.GetAllOrgUnitsHierarchy(Orion.Multilingual.Enums.Language)">
+            <summary>
+            Gets all organizational units hierarchy.
+            </summary>
+            <param name="language">User language.</param>
+            <returns>The collection of organizational units in view of hierarchy.</returns>
+        </member>
+        <member name="M:Orion.OrganizationUnits.Services.IOrgUnitService.DoesOrgUnitExist(System.Int64)">
+            <summary>
+            Determines whether an org unit (location) exists.
+            </summary>
+            <param name="id">identifier of the org unit (location).</param>
+            <returns>true if it exists, false otherwise.</returns>
+        </member>
+        <member name="M:Orion.OrganizationUnits.Services.IOrgUnitService.DoesOrgUnitExistByOrgUnitName(System.String)">
+            <summary>
+            Determines whether an org unit (location) exists.
+            </summary>
+            <param name="orgUnitName">Name of the org unit (location).</param>
+            <returns>true if it exists, false otherwise.</returns>
+        </member>
+        <member name="M:Orion.OrganizationUnits.Services.IOrgUnitService.GetFilteredOrgUnits(Orion.OrganizationUnits.Models.OrgUnitFilterParameters,Orion.Multilingual.Enums.Language)">
+            <summary>
+            Gets filtered org units.
+            </summary>
+            <param name="filterParameters">Org unit filter parameters.</param>
+            <param name="language">The language.</param>
+            <returns>The org units filtered by parent id and language.</returns>
+        </member>
+        <member name="M:Orion.OrganizationUnits.Services.IOrgUnitService.GetAllOrgUnits(System.Boolean,Orion.Multilingual.Enums.Language)">
+            <summary>
+            Gets all org units by language.
+            </summary>
+            <param name="includeInactive">The value indicating whether to include inactive org units.</param>
+            <param name="language">The language.</param>
+            <returns>The all org units filtered by language.</returns>
+        </member>
+        <member name="M:Orion.OrganizationUnits.Services.IOrgUnitService.SortAllOrgUnitsByAlphabet(Orion.Multilingual.Enums.Language)">
+            <summary>
+            Sorts all org units alphabetically.
+            </summary>
+            <param name="language">The language.</param>
+        </member>
+        <member name="M:Orion.OrganizationUnits.Services.IOrgUnitService.GetOrgUnitsForPortalSynchronization">
+            <summary>
+            Gets Org units for portal synchronization.
+            </summary>
+            <returns>Enumerable result of org units for portal synchronization.</returns>
+        </member>
+    </members>
+</doc>

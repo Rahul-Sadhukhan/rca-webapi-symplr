@@ -1,0 +1,767 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Orion.Configuration</name>
+    </assembly>
+    <members>
+        <member name="T:Orion.Configuration.ConfigurationComponentModule`2">
+            <summary>
+            Configuration Component Module.
+            </summary>
+            <typeparam name="T1">Type 1.</typeparam>
+            <typeparam name="T2">Type 2.</typeparam>
+        </member>
+        <member name="M:Orion.Configuration.ConfigurationComponentModule`2.Load(Autofac.ContainerBuilder)">
+            <summary>
+            Add registrations to the container.
+            </summary>
+            <param name="builder">The builder through which components can be registered.</param>
+            <remarks>
+            Note that the ContainerBuilder parameter is unique to this module.
+            </remarks>
+        </member>
+        <member name="T:Orion.Configuration.ConfigurationResolvers.ConfigurationResolverBase">
+            <summary>
+            Configuration Resolver Base.
+            </summary>
+        </member>
+        <member name="M:Orion.Configuration.ConfigurationResolvers.ConfigurationResolverBase.BindDictionaryToModel``1(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Binds Dictionary To Model.
+            </summary>
+            <typeparam name="T">Return Type.</typeparam>
+            <param name="configurationKeyValuePairs">Configuration Key Value Pairs.</param>
+            <returns>Object.</returns>
+        </member>
+        <member name="M:Orion.Configuration.ConfigurationResolvers.ConfigurationResolverBase.Validate(System.Object)">
+            <summary>
+            Validate.
+            </summary>
+            <param name="obj">Object.</param>
+        </member>
+        <member name="M:Orion.Configuration.ConfigurationResolvers.ConfigurationResolverBase.FilterConfigurationByTemplate(System.Collections.Generic.Dictionary{System.String,System.Object},System.String)">
+            <summary>
+            Filters Configuration By Template.
+            </summary>
+            <param name="configurationKeyValuePairs">Configuration Key Value Pairs.</param>
+            <param name="template">Template.</param>
+            <returns>Dictionary.</returns>
+        </member>
+        <member name="T:Orion.Configuration.ConfigurationResolvers.IConfigurationResolver`1">
+            <summary>
+            IConfigurationResolver.
+            </summary>
+            <typeparam name="T">Type.</typeparam>
+        </member>
+        <member name="M:Orion.Configuration.ConfigurationResolvers.IConfigurationResolver`1.Resolve(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Resolve.
+            </summary>
+            <param name="configurationKeyValuePairs">Configuration Key Value Pairs.</param>
+            <returns>Object.</returns>
+        </member>
+        <member name="T:Orion.Configuration.ConfigurationResolvers.DefaultConfigurationResolver">
+            <summary>
+            Default Configuration Resolver.
+            </summary>
+        </member>
+        <member name="M:Orion.Configuration.ConfigurationResolvers.DefaultConfigurationResolver.Resolve(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Resolve.
+            </summary>
+            <param name="configurationKeyValuePairs">Configuration Key Value Pairs.</param>
+            <returns>Default Configuration Model.</returns>
+        </member>
+        <member name="T:Orion.Configuration.ConfigurationResolvers.WebApiConfigurationResolver">
+            <summary>
+            Web Api Configuration Resolver.
+            </summary>
+        </member>
+        <member name="M:Orion.Configuration.ConfigurationResolvers.WebApiConfigurationResolver.Resolve(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Resolves Web Api Config Model.
+            </summary>
+            <param name="configurationKeyValuePairs">Configuration Key Value Pairs.</param>
+            <returns>Web Api Config Model.</returns>
+        </member>
+        <member name="T:Orion.Configuration.ConfigurationResolvers.WebConfigurationResolver">
+            <summary>
+            Web Configuration Resolver.
+            </summary>
+        </member>
+        <member name="M:Orion.Configuration.ConfigurationResolvers.WebConfigurationResolver.Resolve(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Resolve.
+            </summary>
+            <param name="configurationKeyValuePairs">Configuration Key Value Pairs.</param>
+            <returns>Web Config Model.</returns>
+        </member>
+        <member name="T:Orion.Configuration.ConfigurationResolvers.WindowsServiceConfigurationResolver">
+            <summary>
+            Windows Service Configuration Resolver.
+            </summary>
+        </member>
+        <member name="M:Orion.Configuration.ConfigurationResolvers.WindowsServiceConfigurationResolver.Resolve(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Resolves Windows Service Config Model.
+            </summary>
+            <param name="configurationKeyValuePairs">Configuration Key Value Pairs.</param>
+            <returns>Windows Service Config Model.</returns>
+        </member>
+        <member name="T:Orion.Configuration.Exceptions.ConfigurationMissingException">
+            <summary>
+            Configuration Missing Exception.
+            </summary>
+        </member>
+        <member name="M:Orion.Configuration.Exceptions.ConfigurationMissingException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Configuration.Exceptions.ConfigurationMissingException"/> class.
+            </summary>
+            <param name="key">Key.</param>
+        </member>
+        <member name="M:Orion.Configuration.Exceptions.ConfigurationMissingException.#ctor(System.String[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Configuration.Exceptions.ConfigurationMissingException"/> class.
+            </summary>
+            <param name="keys">Keys.</param>
+        </member>
+        <member name="M:Orion.Configuration.Exceptions.ConfigurationMissingException.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Configuration.Exceptions.ConfigurationMissingException"/> class.
+            </summary>
+            <param name="key">Key.</param>
+            <param name="message">Message.</param>
+        </member>
+        <member name="M:Orion.Configuration.Exceptions.ConfigurationMissingException.#ctor(System.String[],System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Configuration.Exceptions.ConfigurationMissingException"/> class.
+            </summary>
+            <param name="keys">Keys.</param>
+            <param name="message">Message.</param>
+        </member>
+        <member name="M:Orion.Configuration.Exceptions.ConfigurationMissingException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Configuration.Exceptions.ConfigurationMissingException"/> class.
+            </summary>
+            <param name="info">Serialization info.</param>
+            <param name="context">Streaming context.</param>
+        </member>
+        <member name="T:Orion.Configuration.IConfigurationComponent`1">
+            <summary>
+            IConfigurationComponent.
+            </summary>
+            <typeparam name="T">Type.</typeparam>
+        </member>
+        <member name="M:Orion.Configuration.IConfigurationComponent`1.GetConfiguration">
+            <summary>
+            Gets Configuration.
+            </summary>
+            <returns>Configuration.</returns>
+        </member>
+        <member name="T:Orion.Configuration.Models.Configs.Default.AppSettingsConfig">
+            <summary>
+            App Settings Config.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Default.AppSettingsConfig.DatabaseServerName">
+            <summary>
+            Gets or sets Database Server Name.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Default.AppSettingsConfig.DatabaseApplicationName">
+            <summary>
+            Gets or sets Database Application Name.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Default.AppSettingsConfig.AttachmentAllowedExtensions">
+            <summary>
+            Gets or sets Attachment Allowed Extensions.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Default.AppSettingsConfig.IndexPath">
+            <summary>
+            Gets or sets Index Path.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Default.AppSettingsConfig.CognosReportPortal">
+            <summary>
+            Gets or sets Cognos Report Portal.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Default.AppSettingsConfig.CognosReportPortalEncryptionKey">
+            <summary>
+            Gets or sets Cognos Report Portal Encryption Key.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Default.AppSettingsConfig.CognosNamespace">
+            <summary>
+            Gets or sets Cognos Namespace.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Default.AppSettingsConfig.CorsAllowed">
+            <summary>
+            Gets or sets Cors Allowed.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Default.AppSettingsConfig.ConnectionPoolingOff">
+            <summary>
+            Gets or sets Connection Pooling Off.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Default.AppSettingsConfig.CognosDashboardFolderName">
+            <summary>
+            Gets or sets Cognos Dashboard Folder Name.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Default.AppSettingsConfig.CognosReportsToIgnoreSuffix">
+            <summary>
+            Gets or sets Cognos Reports To Ignore Suffix.
+            </summary>
+        </member>
+        <member name="T:Orion.Configuration.Models.Configs.Default.ConnectionStringConfig">
+            <summary>
+            Connection String Config.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Default.ConnectionStringConfig.MasterDatabaseConnectionString">
+            <summary>
+            Gets or sets Master Database Connection String.
+            </summary>
+        </member>
+        <member name="T:Orion.Configuration.Models.Configs.Default.HttpRuntimeConfig">
+            <summary>
+            Http Runtime Config.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Default.HttpRuntimeConfig.MaxRequestLength">
+            <summary>
+            Gets or sets Max Request Length.
+            </summary>
+        </member>
+        <member name="T:Orion.Configuration.Models.Configs.Default.DefaultConfigModel">
+            <summary>
+            Default Config Model.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Default.DefaultConfigModel.HttpRuntime">
+            <summary>
+            Gets or sets Http Runtime.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Default.DefaultConfigModel.ConnectionStrings">
+            <summary>
+            Gets or sets Connection Strings.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Default.DefaultConfigModel.AppSettings">
+            <summary>
+            Gets or sets App Settings.
+            </summary>
+        </member>
+        <member name="T:Orion.Configuration.Models.Configs.WebApi.AppSettingsConfig">
+            <summary>
+            AppSettingsConfig.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.WebApi.AppSettingsConfig.DatabaseServerName">
+            <summary>
+            Gets or sets DatabaseServerName.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.WebApi.AppSettingsConfig.DatabaseApplicationName">
+            <summary>
+            Gets or sets DatabaseApplicationName.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.WebApi.AppSettingsConfig.AttachmentAllowedExtensions">
+            <summary>
+            Gets or sets AttachmentAllowedExtensions.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.WebApi.AppSettingsConfig.IndexPath">
+            <summary>
+            Gets or sets IndexPath.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.WebApi.AppSettingsConfig.CognosReportPortal">
+            <summary>
+            Gets or sets CognosReportPortal.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.WebApi.AppSettingsConfig.CognosReportPortalEncryptionKey">
+            <summary>
+            Gets or sets CognosReportPortalEncryptionKey.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.WebApi.AppSettingsConfig.CognosNamespace">
+            <summary>
+            Gets or sets CognosNamespace.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.WebApi.AppSettingsConfig.CorsAllowed">
+            <summary>
+            Gets or sets CorsAllowed.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.WebApi.AppSettingsConfig.ConnectionPoolingOff">
+            <summary>
+            Gets or sets ConnectionPoolingOff.
+            </summary>
+        </member>
+        <member name="T:Orion.Configuration.Models.Configs.WebApi.ConnectionStringConfig">
+            <summary>
+            ConnectionStringConfig.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.WebApi.ConnectionStringConfig.MasterDatabaseConnectionString">
+            <summary>
+            Gets or sets MasterDatabaseConnectionString.
+            </summary>
+        </member>
+        <member name="T:Orion.Configuration.Models.Configs.WebApi.HttpRuntimeConfig">
+            <summary>
+            Http Runtime Config.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.WebApi.HttpRuntimeConfig.MaxRequestLength">
+            <summary>
+            Gets or sets MaxRequestLength.
+            </summary>
+        </member>
+        <member name="T:Orion.Configuration.Models.Configs.WebApi.WebApiConfigModel">
+            <summary>
+            WebApi Config Model.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.WebApi.WebApiConfigModel.HttpRuntime">
+            <summary>
+            Gets or sets HttpRuntime.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.WebApi.WebApiConfigModel.ConnectionStrings">
+            <summary>
+            Gets or sets ConnectionStrings.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.WebApi.WebApiConfigModel.AppSettings">
+            <summary>
+            Gets or sets AppSettings.
+            </summary>
+        </member>
+        <member name="T:Orion.Configuration.Models.Configs.Web.AppSettingsConfig">
+            <summary>
+            App Settings Config.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.AppSettingsConfig.PreserveLoginUrl">
+            <summary>
+            Gets or sets Preserve Login Url.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.AppSettingsConfig.ClientValidationEnabled">
+            <summary>
+            Gets or sets Client Validation Enabled.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.AppSettingsConfig.UnobtrusiveJavaScriptEnabled">
+            <summary>
+            Gets or sets Unobtrusive Java Script Enabled.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.AppSettingsConfig.ReleaseMode">
+            <summary>
+            Gets or sets Release Mode.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.AppSettingsConfig.EnableEntityFrameworkProfiler">
+            <summary>
+            Gets or sets Enable Entity Framework Profiler.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.AppSettingsConfig.EnableMiniProfiler">
+            <summary>
+            Gets or sets Enable Mini Profiler.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.AppSettingsConfig.EnableDbCommandInterceptor">
+            <summary>
+            Gets or sets Enable Db Command Interceptor.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.AppSettingsConfig.HoursUntilResetPasswordExpiration">
+            <summary>
+            Gets or sets Hours Until Reset Password Expiration.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.AppSettingsConfig.SearchIndicesDirectory">
+            <summary>
+            Gets or sets Search Indices Directory.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.AppSettingsConfig.TimeoutWarningInMinutes">
+            <summary>
+            Gets or sets Timeout Warning In Minutes.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.AppSettingsConfig.SaveItemTimeInSecondsBeforeTimeout">
+            <summary>
+            Gets or sets Save Item Time In Seconds Before Timeout.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.AppSettingsConfig.UserImportBatchSize">
+            <summary>
+            Gets or sets User Import Batch Size.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.AppSettingsConfig.MaxNumberOfConcurrentUserImports">
+            <summary>
+            Gets or sets Max Number Of Concurrent User Imports.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.AppSettingsConfig.UserImportSemaphoreTimeOut">
+            <summary>
+            Gets or sets User Import Semaphore Time Out.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.AppSettingsConfig.MaxImportFileSize">
+            <summary>
+            Gets or sets Max Import File Size.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.AppSettingsConfig.MaxAttachmentFileSize">
+            <summary>
+            Gets or sets Max Attachment File Size.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.AppSettingsConfig.AcceptableAttachmentFileExtensions">
+            <summary>
+            Gets or sets Acceptable Attachment File Extensions.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.AppSettingsConfig.ImportProcessingTempFilePath">
+            <summary>
+            Gets or sets Import Processing Temp File Path.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.AppSettingsConfig.DatabaseServerName">
+            <summary>
+            Gets or sets Database Server Name.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.AppSettingsConfig.OrgProfileHierarchyNameMaxLength">
+            <summary>
+            Gets or sets Org Profile Hierarchy Name Max Length.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.AppSettingsConfig.EnableServiceSecurityInterceptor">
+            <summary>
+            Gets or sets Enable Service Security Interceptor.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.AppSettingsConfig.EnableCacheInterceptor">
+            <summary>
+            Gets or sets Enable Cache Interceptor.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.AppSettingsConfig.EnableSearchMetadataQueue">
+            <summary>
+            Gets or sets Enable Search Metadata Queue.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.AppSettingsConfig.VerifyDependencyInjectionConfig">
+            <summary>
+            Gets or sets VerifyDependencyInjectionConfig.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.AppSettingsConfig.ApiKey">
+            <summary>
+            Gets or sets ApiKey.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.AppSettingsConfig.DeployedSurveyLinkFormat">
+            <summary>
+            Gets or sets DeployedSurveyLinkFormat.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.AppSettingsConfig.DefaultToEnglishSoftLabels">
+            <summary>
+            Gets or sets DefaultToEnglishSoftLabels.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.AppSettingsConfig.LogQaStatusCodes">
+            <summary>
+            Gets or sets LogQaStatusCodes.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.AppSettingsConfig.FatalErrorEmailSubject">
+            <summary>
+            Gets or sets FatalErrorEmailSubject.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.AppSettingsConfig.FatalErrorEmailAddresses">
+            <summary>
+            Gets or sets FatalErrorEmailAddresses.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.AppSettingsConfig.GATrackingCode">
+            <summary>
+            Gets or sets GATrackingCode.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.AppSettingsConfig.GIFEndpoint">
+            <summary>
+            Gets or sets GIFEndpoint.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.AppSettingsConfig.GIFOpenTokenConfigPath">
+            <summary>
+            Gets or sets GIFOpenTokenConfigPath.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.AppSettingsConfig.GTMTrackingCode">
+            <summary>
+            Gets or sets GTMTrackingCode.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.AppSettingsConfig.CognosReportPortal">
+            <summary>
+            Gets or sets CognosReportPortal.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.AppSettingsConfig.CognosNamespace">
+            <summary>
+            Gets or sets CognosNamespace.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.AppSettingsConfig.CognosAdminUserId">
+            <summary>
+            Gets or sets CognosAdminUserId.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.AppSettingsConfig.CognosReportsRefreshIntervalInMinutes">
+            <summary>
+            Gets or sets CognosReportsRefreshIntervalInMinutes.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.AppSettingsConfig.CognosDashboardFolderName">
+            <summary>
+            Gets or sets CognosDashboardFolderName.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.AppSettingsConfig.LogIpRestriction">
+            <summary>
+            Gets or sets LogIpRestriction.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.AppSettingsConfig.CognosReportsToIgnoreSuffix">
+            <summary>
+            Gets or sets CognosReportsToIgnoreSuffix.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.AppSettingsConfig.PerformanceLoggingEnabled">
+            <summary>
+            Gets or sets PerformanceLoggingEnabled.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.AppSettingsConfig.CurrentPostMaintenanceAlertVersion">
+            <summary>
+            Gets or sets CurrentPostMaintenanceAlertVersion.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.AppSettingsConfig.ShowPostMaintenanceAlerts">
+            <summary>
+            Gets or sets ShowPostMaintenanceAlerts.
+            </summary>
+        </member>
+        <member name="T:Orion.Configuration.Models.Configs.Web.ConnectionStringConfig">
+            <summary>
+            ConnectionStringConfig.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.ConnectionStringConfig.ComplyTrackEFTemplateConnectionString">
+            <summary>
+            Gets or sets ComplyTrackEFTemplateConnectionString.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.ConnectionStringConfig.ComplyTrackMasterTemplateConnectionString">
+            <summary>
+            Gets or sets ComplyTrackMasterTemplateConnectionString.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.ConnectionStringConfig.ComplyTrackMasterEFTemplateConnectionString">
+            <summary>
+            Gets or sets ComplyTrackMasterEFTemplateConnectionString.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.ConnectionStringConfig.SignalRConnectionString">
+            <summary>
+            Gets or sets SignalRConnectionString.
+            </summary>
+        </member>
+        <member name="T:Orion.Configuration.Models.Configs.Web.HttpRuntimeConfig">
+            <summary>
+            HttpRuntimeConfig.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.HttpRuntimeConfig.MaxRequestLength">
+            <summary>
+            Gets or sets MaxRequestLength.
+            </summary>
+        </member>
+        <member name="T:Orion.Configuration.Models.Configs.Web.WebConfigModel">
+            <summary>
+            WebConfigModel.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.WebConfigModel.HttpRuntime">
+            <summary>
+            Gets or sets HttpRuntime.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.WebConfigModel.ConnectionStrings">
+            <summary>
+            Gets or sets ConnectionStrings.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.Web.WebConfigModel.AppSettings">
+            <summary>
+            Gets or sets AppSettings.
+            </summary>
+        </member>
+        <member name="T:Orion.Configuration.Models.Configs.WindowsService.AppSettingsConfig">
+            <summary>
+            AppSettings Config.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.WindowsService.AppSettingsConfig.ServiceId">
+            <summary>
+            Gets or sets ServiceId.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.WindowsService.AppSettingsConfig.ServiceName">
+            <summary>
+            Gets or sets ServiceName.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.WindowsService.AppSettingsConfig.ServiceDisplayName">
+            <summary>
+            Gets or sets ServiceDisplayName.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.WindowsService.AppSettingsConfig.PollingIntervalInSeconds">
+            <summary>
+            Gets or sets PollingIntervalInSeconds.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.WindowsService.AppSettingsConfig.MaxClientsInParallel">
+            <summary>
+            Gets or sets MaxClientsInParallel.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.WindowsService.AppSettingsConfig.EntitiesToIndexPerCycle">
+            <summary>
+            Gets or sets EntitiesToIndexPerCycle.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.WindowsService.AppSettingsConfig.ConnectionPoolingOff">
+            <summary>
+            Gets or sets ConnectionPoolingOff.
+            </summary>
+        </member>
+        <member name="T:Orion.Configuration.Models.Configs.WindowsService.ConnectionStringConfig">
+            <summary>
+            ConnectionStringConfig.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.WindowsService.ConnectionStringConfig.MasterDatabaseConnectionString">
+            <summary>
+            Gets or sets MasterDatabaseConnectionString.
+            </summary>
+        </member>
+        <member name="T:Orion.Configuration.Models.Configs.WindowsService.WindowsServiceConfigModel">
+            <summary>
+            WindowsServiceConfigModel.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.WindowsService.WindowsServiceConfigModel.ConnectionStrings">
+            <summary>
+            Gets or sets ConnectionStrings.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.Configs.WindowsService.WindowsServiceConfigModel.AppSettings">
+            <summary>
+            Gets or sets AppSettings.
+            </summary>
+        </member>
+        <member name="T:Orion.Configuration.Models.DefaultConfigurationModel">
+            <summary>
+            DefaultConfigurationModel.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.DefaultConfigurationModel.AttachmentMaxFileSize">
+            <summary>
+            Gets or sets AttachmentMaxFileSize.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.DefaultConfigurationModel.AttachmentAllowedExtensions">
+            <summary>
+            Gets or sets AttachmentAllowedExtensions.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.DefaultConfigurationModel.MasterDatabaseConnectionString">
+            <summary>
+            Gets or sets MasterDatabaseConnectionString.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.DefaultConfigurationModel.DatabaseServerName">
+            <summary>
+            Gets or sets DatabaseServerName.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.DefaultConfigurationModel.DatabaseApplicationName">
+            <summary>
+            Gets or sets DatabaseApplicationName.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.DefaultConfigurationModel.IndexPath">
+            <summary>
+            Gets or sets IndexPath.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.DefaultConfigurationModel.CognosReportPortalUrl">
+            <summary>
+            Gets or sets CognosReportPortalUrl.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.DefaultConfigurationModel.CognosReportPortalEncryptionKey">
+            <summary>
+            Gets or sets CognosReportPortalEncryptionKey.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.DefaultConfigurationModel.CognosNamespace">
+            <summary>
+            Gets or sets CognosNamespace.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.DefaultConfigurationModel.CorsAllowed">
+            <summary>
+            Gets or sets a value indicating whether CorsAllowed.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.DefaultConfigurationModel.ConnectionPoolingOff">
+            <summary>
+            Gets or sets ConnectionPoolingOff.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.DefaultConfigurationModel.CognosDashboardFolderName">
+            <summary>
+            Gets or sets CognosDashboardFolderName.
+            </summary>
+        </member>
+        <member name="P:Orion.Configuration.Models.DefaultConfigurationModel.CognosReportsToIgnoreSuffix">
+            <summary>
+            Gets or sets CognosReportsToIgnoreSuffix.
+            </summary>
+        </member>
+    </members>
+</doc>

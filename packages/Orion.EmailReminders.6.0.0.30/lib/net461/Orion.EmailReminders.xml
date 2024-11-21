@@ -1,0 +1,319 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Orion.EmailReminders</name>
+    </assembly>
+    <members>
+        <member name="T:Orion.EmailReminders.Data.Repositories.IEmailRemindersRepository">
+            <summary>
+            Interface for EmailRemindersRepository.
+            </summary>
+        </member>
+        <member name="M:Orion.EmailReminders.Data.Repositories.IEmailRemindersRepository.GetEmailRemindersByIds(System.Collections.Generic.IEnumerable{System.Int32})">
+            <summary>
+            Method to retrieve email reminders for a list of emailReminderIds.
+            </summary>
+            <param name="emailReminderIds">Identifier of email reminders.</param>
+            <returns>List of email reminder entities.</returns>
+        </member>
+        <member name="M:Orion.EmailReminders.Data.Repositories.IEmailRemindersRepository.GetEmailRemindersById(System.Int32)">
+            <summary>
+            Method to retrieve email reminder for a emailReminderId.
+            </summary>
+            <param name="emailReminderId">Identifier of email reminder.</param>
+            <returns>Email Reminder.</returns>
+        </member>
+        <member name="M:Orion.EmailReminders.Data.Repositories.IEmailRemindersRepository.CreateReminder(Orion.EmailReminders.Data.Entities.EmailReminder)">
+            <summary>
+            Method to save email reminders.
+            </summary>
+            <param name="emailReminder">email reminder entity.</param>
+        </member>
+        <member name="M:Orion.EmailReminders.Data.Repositories.IEmailRemindersRepository.GetEmailRemindersPastNextScheduledDeliveryDate">
+            <summary>
+            Method to retrieve email reminders with NextScheduledDeliveryDate in the past.
+            </summary>
+            <returns>List of email reminder identifiers.</returns>
+        </member>
+        <member name="M:Orion.EmailReminders.Data.Repositories.IEmailRemindersRepository.IsReminderTemplateUsedByEmailReminders(System.Int64)">
+            <summary>
+            Method to check if any email reminders exists for a reminder template identifier.
+            </summary>
+            <param name="reminderTemplateId">Reminder Template Identifier.</param>
+            <returns>True/False.</returns>
+        </member>
+        <member name="M:Orion.EmailReminders.Data.Repositories.IEmailRemindersRepository.GetEmailRemindersForDeletion(System.Collections.Generic.IEnumerable{System.Int32})">
+            <summary>
+            Method to retrieve email reminders to delete for a list of emailReminderIds.
+            </summary>
+            <param name="emailReminderIds">Identifier of email reminders.</param>
+            <returns>List of email reminders for deletion.</returns>
+        </member>
+        <member name="T:Orion.EmailReminders.Data.Repositories.IReminderLogRepository">
+            <summary>
+            Interface for ReminderLogRepository.
+            </summary>
+        </member>
+        <member name="M:Orion.EmailReminders.Data.Repositories.IReminderLogRepository.CreateReminderLog(Orion.EmailReminders.Data.Entities.ReminderLog)">
+            <summary>
+            Method to save reminder log.
+            </summary>
+            <param name="reminderLog">reminder log entity.</param>
+        </member>
+        <member name="T:Orion.EmailReminders.IEmailRemindersComponent">
+            <summary>
+            Component used to work with Email Reminders.
+            </summary>
+        </member>
+        <member name="M:Orion.EmailReminders.IEmailRemindersComponent.GetEmailReminders(System.Collections.Generic.IEnumerable{System.Int32})">
+            <summary>
+            Gets list of email reminders.
+            </summary>
+            <param name="emailReminderIds">List of email reminder identifiers.</param>
+            <returns>Collection of EmailReminderModel.</returns>
+        </member>
+        <member name="M:Orion.EmailReminders.IEmailRemindersComponent.AddUpdateEmailReminders(Orion.EmailReminders.Models.EmailReminderRequestModel)">
+            <summary>
+            Create/Modify EmailReminders.
+            </summary>
+            <param name="emailReminderRequestModel">EmailReminderRequestModel.</param>
+            <returns>EmailReminderModel.</returns>
+        </member>
+        <member name="M:Orion.EmailReminders.IEmailRemindersComponent.GetEmailRemindersPastNextScheduledDeliveryDate">
+            <summary>
+            Get EmailReminders Past NextScheduledDeliveryDate.
+            </summary>
+            <returns>Collection of EmailReminder Ids.</returns>
+        </member>
+        <member name="M:Orion.EmailReminders.IEmailRemindersComponent.IsReminderTemplateUsedByEmailReminders(System.Int64)">
+            <summary>
+            Method to check if any email reminders exists for a reminder template identifier.
+            </summary>
+            <param name="reminderTemplateId">Reminder Template Identifier.</param>
+            <returns>True/False.</returns>
+        </member>
+        <member name="M:Orion.EmailReminders.IEmailRemindersComponent.CreateReminderLog(Orion.EmailReminders.Models.ReminderLogModel)">
+            <summary>
+            Create ReminderLog.
+            </summary>
+            <param name="reminderLogModel">ReminderLogModel.</param>
+        </member>
+        <member name="M:Orion.EmailReminders.IEmailRemindersComponent.DeleteEmailReminders(System.Collections.Generic.IEnumerable{System.Int32})">
+            <summary>
+            Method to delete email reminders for a list of emailReminderIds.
+            </summary>
+            <param name="emailReminderIds">Identifier of email reminders.</param>
+        </member>
+        <member name="M:Orion.EmailReminders.IEmailRemindersComponent.ComputeNextScheduledDeliveryDate(System.Collections.Generic.IEnumerable{Orion.EmailReminders.Models.NextScheduledDeliveryDateRequestModel})">
+            <summary>
+            Method to compute next schedulded delivery date for email reminders.
+            </summary>
+            <param name="nextScheduledDeliveryDateRequestModel">List of NextScheduledDeliveryDateRequestModel.</param>
+            <returns>List of NextScheduledDeliveryDateModel.</returns>
+        </member>
+        <member name="P:Orion.EmailReminders.Models.EmailReminderRequestModel.EmailReminderId">
+            <summary>
+            Gets or sets the Email Reminder identifier.
+            </summary>
+        </member>
+        <member name="P:Orion.EmailReminders.Models.EmailReminderRequestModel.EmailReminderName">
+            <summary>
+            Gets or sets the Email Reminder name.
+            </summary>
+        </member>
+        <member name="P:Orion.EmailReminders.Models.EmailReminderRequestModel.ReminderTemplateId">
+            <summary>
+            Gets or sets the Reminder Template identifier.
+            </summary>
+        </member>
+        <member name="P:Orion.EmailReminders.Models.EmailReminderRequestModel.AdditionalNotes">
+            <summary>
+            Gets or sets the Additional Notes.
+            </summary>
+        </member>
+        <member name="P:Orion.EmailReminders.Models.EmailReminderRequestModel.IsRecurring">
+            <summary>
+            Gets or sets a value indicating whether the Reminder is recurring.
+            </summary>
+        </member>
+        <member name="P:Orion.EmailReminders.Models.EmailReminderRequestModel.RecurrencePattern">
+            <summary>
+            Gets or sets the Reminder Recurrence Pattern.
+            </summary>
+        </member>
+        <member name="P:Orion.EmailReminders.Models.EmailReminderRequestModel.StartDate">
+            <summary>
+            Gets or sets the Reminder Start Date.
+            </summary>
+        </member>
+        <member name="P:Orion.EmailReminders.Models.EmailReminderRequestModel.EndDate">
+            <summary>
+            Gets or sets the Reminder End Date.
+            </summary>
+        </member>
+        <member name="P:Orion.EmailReminders.Models.NextScheduledDeliveryDateModel.EmailReminderId">
+            <summary>
+            Gets or sets the Email Reminder identifier.
+            </summary>
+        </member>
+        <member name="P:Orion.EmailReminders.Models.NextScheduledDeliveryDateModel.NextScheduledDeliveryDate">
+            <summary>
+            Gets or sets the Reminder NextScheduledDeliveryDate Date.
+            </summary>
+        </member>
+        <member name="P:Orion.EmailReminders.Models.NextScheduledDeliveryDateRequestModel.EmailReminderId">
+            <summary>
+            Gets or sets the Email Reminder identifier.
+            </summary>
+        </member>
+        <member name="P:Orion.EmailReminders.Models.NextScheduledDeliveryDateRequestModel.IsRecurring">
+            <summary>
+            Gets or sets a value indicating whether the Reminder is recurring.
+            </summary>
+        </member>
+        <member name="P:Orion.EmailReminders.Models.NextScheduledDeliveryDateRequestModel.RecurrencePattern">
+            <summary>
+            Gets or sets the Reminder Recurrence .
+            </summary>
+        </member>
+        <member name="P:Orion.EmailReminders.Models.NextScheduledDeliveryDateRequestModel.StartDate">
+            <summary>
+            Gets or sets the Reminder Start Date.
+            </summary>
+        </member>
+        <member name="T:Orion.EmailReminders.Models.ReminderLogModel">
+            <summary>
+            Model describing a Reminder Log.
+            </summary>
+        </member>
+        <member name="P:Orion.EmailReminders.Models.ReminderLogModel.ReminderDate">
+            <summary>
+            Gets or sets the Reminder Date.
+            </summary>
+        </member>
+        <member name="P:Orion.EmailReminders.Models.ReminderLogModel.EmailReminderId">
+            <summary>
+            Gets or sets the Email Reminder identifier.
+            </summary>
+        </member>
+        <member name="P:Orion.EmailReminders.Models.ReminderLogModel.EmailBody">
+            <summary>
+            Gets or sets the Email Body.
+            </summary>
+        </member>
+        <member name="P:Orion.EmailReminders.Models.ReminderLogModel.RecipientEmail">
+            <summary>
+            Gets or sets the Recipient Email.
+            </summary>
+        </member>
+        <member name="P:Orion.EmailReminders.Models.ReminderLogModel.RecipientUserId">
+            <summary>
+            Gets or sets the Recipient User Id.
+            </summary>
+        </member>
+        <member name="T:Orion.EmailReminders.Models.EmailReminderModel">
+            <summary>
+            Model describing a Email Reminder.
+            </summary>
+        </member>
+        <member name="P:Orion.EmailReminders.Models.EmailReminderModel.EmailReminderId">
+            <summary>
+            Gets or sets the Email Reminder identifier.
+            </summary>
+        </member>
+        <member name="P:Orion.EmailReminders.Models.EmailReminderModel.EmailReminderName">
+            <summary>
+            Gets or sets the Email Reminder name.
+            </summary>
+        </member>
+        <member name="P:Orion.EmailReminders.Models.EmailReminderModel.ReminderTemplateId">
+            <summary>
+            Gets or sets the Reminder Template identifier.
+            </summary>
+        </member>
+        <member name="P:Orion.EmailReminders.Models.EmailReminderModel.ReminderTemplateMessage">
+            <summary>
+            Gets or sets the Reminder Template message.
+            </summary>
+        </member>
+        <member name="P:Orion.EmailReminders.Models.EmailReminderModel.AdditionalNotes">
+            <summary>
+            Gets or sets the Additional Notes.
+            </summary>
+        </member>
+        <member name="P:Orion.EmailReminders.Models.EmailReminderModel.IsRecurring">
+            <summary>
+            Gets or sets a value indicating whether the Reminder is recurring.
+            </summary>
+        </member>
+        <member name="P:Orion.EmailReminders.Models.EmailReminderModel.RecurrencePattern">
+            <summary>
+            Gets or sets the Reminder Recurrence Pattern.
+            </summary>
+        </member>
+        <member name="P:Orion.EmailReminders.Models.EmailReminderModel.StartDate">
+            <summary>
+            Gets or sets the Reminder Start Date.
+            </summary>
+        </member>
+        <member name="P:Orion.EmailReminders.Models.EmailReminderModel.EndDate">
+            <summary>
+            Gets or sets the Reminder End Date.
+            </summary>
+        </member>
+        <member name="T:Orion.EmailReminders.EmailRemindersComponentAutoMapperProfile">
+            <summary>
+            Email Reminders Component Automapper Profile.
+            </summary>
+        </member>
+        <member name="M:Orion.EmailReminders.EmailRemindersComponentAutoMapperProfile.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.EmailReminders.EmailRemindersComponentAutoMapperProfile"/> class.
+            </summary>
+        </member>
+        <member name="T:Orion.EmailReminders.EmailRemindersComponentModule">
+            <summary>
+            Email Reminders Component Module.
+            </summary>
+        </member>
+        <member name="M:Orion.EmailReminders.EmailRemindersComponentModule.Load(Autofac.ContainerBuilder)">
+            <summary>
+            Add registrations to the container.
+            </summary>
+            <param name="builder">The builder through which components can be registered.</param>
+            <remarks>
+            Note that the ContainerBuilder parameter is unique to this module.
+            </remarks>
+        </member>
+        <member name="T:Orion.EmailReminders.Recurrence.Recurrence">
+            <summary>
+            Recurrence class.
+            </summary>
+        </member>
+        <member name="T:Orion.EmailReminders.Services.EmailRemindersService">
+            <summary>
+            Email Reminders Service.
+            </summary>
+        </member>
+        <member name="M:Orion.EmailReminders.Services.EmailRemindersService.#ctor(Orion.EmailReminders.Data.IEmailRemindersUnitOfWork,Orion.EmailReminders.Validators.IEmailReminderValidator,Orion.ReminderTemplates.IReminderTemplatesComponent,Orion.Clients.IClientComponent)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.EmailReminders.Services.EmailRemindersService"/> class.
+            </summary>
+            <param name="unitOfWork">Unit of Work.</param>
+            <param name="emailReminderValidator"> Email reminder validator.</param>
+            <param name="reminderTemplatesComponent">Reminder Template component.</param>
+            <param name="clientComponent">Client component.</param>
+        </member>
+        <member name="T:Orion.EmailReminders.Services.ReminderLogService">
+            <summary>
+            Reminder Log Service.
+            </summary>
+        </member>
+        <member name="M:Orion.EmailReminders.Services.ReminderLogService.#ctor(Orion.EmailReminders.Data.IEmailRemindersUnitOfWork)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.EmailReminders.Services.ReminderLogService"/> class.
+            </summary>
+            <param name="unitOfWork">Unit of Work.</param>
+        </member>
+    </members>
+</doc>

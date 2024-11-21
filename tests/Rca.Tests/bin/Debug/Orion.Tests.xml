@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Orion.Tests</name>
+    </assembly>
+    <members>
+        <member name="T:Orion.Tests.AutofacComponentRegistryBuilderFake">
+            <summary>
+            Fake class for collection of registered services for further validation.
+            </summary>
+        </member>
+        <member name="T:Orion.Tests.Constants.IntegrationTestsTraits">
+            <summary>
+            Traits for integration tests.
+            </summary>
+        </member>
+        <member name="F:Orion.Tests.Constants.IntegrationTestsTraits.CategoryTrait">
+            <summary>
+            Trait category.
+            </summary>
+        </member>
+        <member name="F:Orion.Tests.Constants.IntegrationTestsTraits.VerifieldSpecific">
+            <summary>
+            Verifield specific trait.
+            </summary>
+        </member>
+        <member name="F:Orion.Tests.Constants.IntegrationTestsTraits.ComplyTrackSpecific">
+            <summary>
+            ComplyTrack specific trait.
+            </summary>
+        </member>
+        <member name="M:Orion.Tests.EntityFrameworkHelpers.DbContextTestHelper.CheckRegisteredEntityTypes(System.Data.Entity.DbContext,System.String,System.String)">
+            <summary>
+            Check that all entity classes defined in the given namespace are registered on YourDbContext.OnModelCreating() call.
+            </summary>
+            <param name="sut">The DbContext-derived class you're testing.</param>
+            <param name="entitiesNamespace">Entities classes namespace, use null value for default.</param>
+            <param name="mappingNamespace">Mapping classes namespace, use null value for default.</param>
+        </member>
+        <member name="T:Orion.Tests.Helpers.SqlExceptionCreator">
+            <summary>
+            Helper used to create SqlException instance in unit tests.
+            </summary>
+        </member>
+        <member name="M:Orion.Tests.Helpers.SqlExceptionCreator.CreateSqlException(System.Int32,System.String,System.String)">
+            <summary>
+            Create SqlException instance.
+            </summary>
+            <param name="number">Number that identifies the type of error.</param>
+            <param name="errorMessage">Text describing the error.</param>
+            <param name="procedureName">Name of the stored procedure that generated the error.</param>
+            <returns>Instance of SqlException class.</returns>
+        </member>
+        <member name="M:Orion.Tests.IntegrationHelpers.BaseTest.GetHttpErrorResponse(System.Net.Http.HttpResponseMessage)">
+            <summary>
+            Use this one in case you need only works with errors from response.
+            </summary>
+            <param name="response">HTTP response.</param>
+            <returns>errors from response.</returns>
+        </member>
+        <member name="M:Orion.Tests.IntegrationHelpers.BaseTest.AssertHttpErrorStatusHandleErrors(System.Net.Http.HttpResponseMessage,System.Net.HttpStatusCode,System.Action{Orion.Common.Models.ErrorModel})">
+            <summary>
+            Check expected "HttpStatusCode" from response arg, add ability to customize error handling.
+            </summary>
+            <param name="response">HTTP response.</param>
+            <param name="expectedCode">Expected HTTP status code.</param>
+            <param name="errorHandler">An action used to validate the response.</param>
+            <example>
+            <code>
+                proxy.UpdateEntity(
+                    1, RepositoryType.Custom, null,
+                    message =&gt; AssertHttpErrorStatusHandleErrors(message,
+                        HttpStatusCode.BadRequest,
+                        errors =&gt; errors.Errors.First().Message.ShouldEqual("Can't update Library without required data.")));
+            </code>
+            </example>
+        </member>
+        <member name="M:Orion.Tests.IntegrationHelpers.EnumerableExtensions.ToConcatenatedString``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String})">
+            <summary>
+            Creates a string from the sequence by concatenating the result
+            of the specified string selector function for each element.
+            </summary>
+            <typeparam name="T">.</typeparam>
+            <param name="source">The source.</param>
+            <param name="stringSelector">The string selector.</param>
+            <returns>concatinating the string.</returns>
+        </member>
+        <member name="M:Orion.Tests.IntegrationHelpers.EnumerableExtensions.ToConcatenatedString``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String},System.String)">
+            <summary>
+            Creates a string from the sequence by concatenating the result
+            of the specified string selector function for each element.
+            </summary>
+            <typeparam name="T">.</typeparam>
+            <param name="source">The source.</param>
+            <param name="stringSelector">The string selector.</param>
+            <param name="separator">The string which separates each concatenated item.</param>
+            <returns>concatinating the string.</returns>
+        </member>
+        <member name="M:Orion.Tests.IntegrationHelpers.UriBuilderExtensions.GetQueryParams(System.UriBuilder)">
+            <summary>
+            Gets the query string key-value pairs of the URI.
+            Note that the one of the keys may be null ("?123") and
+            that one of the keys may be an empty string ("?=123").
+            </summary>
+            <param name="uri">.</param>
+            <returns>Ienumarable of keyvaluepair.</returns>
+        </member>
+        <member name="M:Orion.Tests.IntegrationHelpers.UriBuilderExtensions.AsKeyValuePairs(System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Converts the legacy NameValueCollection into a strongly-typed KeyValuePair sequence.
+            </summary>
+        </member>
+        <member name="M:Orion.Tests.IntegrationHelpers.UriBuilderExtensions.ParseQuery(System.UriBuilder)">
+            <summary>
+            Parses the query string of the URI into a NameValueCollection.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Rca.Api</name>
+    </assembly>
+    <members>
+        <member name="T:Rca.Api.App_Start.AutofacConfig">
+            <summary>
+            AutofacConfig class.
+            </summary>
+        </member>
+        <member name="M:Rca.Api.App_Start.AutofacConfig.Register(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Registers the specified configuration.
+            </summary>
+            <param name="config">The configuration.</param>
+        </member>
+        <member name="T:Rca.Api.App_Start.SwaggerConfig">
+            <summary>
+            Swagger configuration.
+            </summary>
+        </member>
+        <member name="M:Rca.Api.App_Start.SwaggerConfig.Register">
+            <summary>
+            Method to call Swagger registration for this API application.
+            </summary>
+        </member>
+        <member name="T:Rca.Api.WebApiConfig">
+            <summary>
+            WebApiConfig.
+            </summary>
+        </member>
+        <member name="M:Rca.Api.WebApiConfig.Register(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Registers the specified configuration.
+            </summary>
+            <param name="config">The configuration.</param>
+        </member>
+        <member name="T:Rca.Api.Controllers.OData.ItemODataController">
+            <summary>
+            Item OData controller.
+            </summary>
+            <seealso cref="T:System.Web.Http.ApiController" />
+        </member>
+        <member name="M:Rca.Api.Controllers.OData.ItemODataController.GetItem">
+            <summary>
+            Gets the list of Item Info.
+            </summary>
+            <returns>ItemODataModel list.</returns>
+        </member>
+        <member name="T:Rca.Api.Controllers.OData.RcaDashboardODataController">
+            <summary>
+            Rca Dashboard controller.
+            </summary>
+            <seealso cref="T:System.Web.Http.ApiController" />
+        </member>
+        <member name="M:Rca.Api.Controllers.OData.RcaDashboardODataController.GetRcaDashboardInfo">
+            <summary>
+            Gets the list of Rca Dashboard Info.
+            </summary>
+            <returns>RcaDashboardODataModel list.</returns>
+        </member>
+        <member name="M:Rca.Api.Controllers.OData.ParticipantODataController.GetParticipant">
+            <summary>
+            Gets the list of participants.
+            </summary>
+            <returns>Queryable list of ParticipantODataController.</returns>
+        </member>
+        <member name="T:Rca.Api.Controllers.CauseController">
+            <summary>
+            Cause controller.
+            </summary>
+            <seealso cref="T:System.Web.Http.ApiController" />
+        </member>
+        <member name="M:Rca.Api.Controllers.CauseController.#ctor(Rca.Services.ICauseService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Rca.Api.Controllers.CauseController"/> class.
+            </summary>
+            <param name="causeService">The cause service.</param>
+        </member>
+        <member name="M:Rca.Api.Controllers.CauseController.GetClassifications">
+            <summary>
+            Gets a list of classifications.
+            </summary>
+            <returns>List of classifications.</returns>
+        </member>
+        <member name="M:Rca.Api.Controllers.CauseController.GetCauseById(System.Int32)">
+            <summary>
+            Gets the cause details for a provider cause id.
+            </summary>
+            <param name="causeId">The cause identifier.</param>
+            <returns>Cause model.</returns>
+        </member>
+        <member name="M:Rca.Api.Controllers.CauseController.Post(System.Int32,Rca.Models.CauseModel)">
+            <summary>
+            Creates a cause.
+            </summary>
+            <param name="rcaId">The rca identifier.</param>
+            <param name="causeModel">Cause model.</param>
+            <returns>Success.</returns>
+        </member>
+        <member name="M:Rca.Api.Controllers.CauseController.GetRCAClassificationCauses(System.Int32,System.Int32)">
+            <summary>
+            Gets a list of RCA classification causes and it's sub-causes.
+            </summary>
+            <param name="rcaId">RCA identifier.</param>
+            <param name="classificationId">Classification identifier.</param>
+            <returns>Cause select list model.</returns>
+        </member>
+        <member name="M:Rca.Api.Controllers.CauseController.GetClassificationsByRCAId(System.Int32)">
+            <summary>
+            Gets a list of classifications for a provided RCA id.
+            </summary>
+            <param name="rcaId">RCA identifier.</param>
+            <returns>List of classifications.</returns>
+        </member>
+        <member name="T:Rca.Api.Controllers.RootCauseAnalysisController">
+            <summary>
+            RootCause Analysis Controller.
+            </summary>
+        </member>
+        <member name="M:Rca.Api.Controllers.RootCauseAnalysisController.GetRootCauseAnalysisById(System.Int32)">
+            <summary>
+            Gets rca by id.
+            </summary>
+            <param name="rcaId">rca id.</param>
+            <returns>Question list.</returns>
+        </member>
+        <member name="M:Rca.Api.Controllers.RootCauseAnalysisController.Create(Rca.Models.CreateRCAModel)">
+            <summary>
+            Create root cause analysis.
+            </summary>
+            <param name="rootCauseAnalysisModel">Create rca model.</param>
+            <returns>Response model containing created rca id.</returns>
+        </member>
+        <member name="M:Rca.Api.Controllers.RootCauseAnalysisController.GetRootCauseAnalysisDetails(System.Int32)">
+            <summary>
+            Gets the rca details by Id.
+            </summary>
+            <param name="rcaId">The rca identifier.</param>
+            <returns>Rca details model.</returns>
+        </member>
+        <member name="T:Rca.Api.WebApiApplication">
+            <summary>
+            Main entry point class for the RCA.API application.
+            </summary>
+        </member>
+        <member name="M:Rca.Api.WebApiApplication.Application_Start">
+            <summary>
+            Main entry point method that starts application.
+            </summary>
+        </member>
+    </members>
+</doc>

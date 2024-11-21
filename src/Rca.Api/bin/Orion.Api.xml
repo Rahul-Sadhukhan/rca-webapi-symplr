@@ -1,0 +1,1006 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Orion.Api</name>
+    </assembly>
+    <members>
+        <member name="T:Orion.Api.DelegatingHandlers.SwaggerAccessMessageHandler">
+            <summary>
+            Swagger access message handler.
+            </summary>
+        </member>
+        <member name="M:Orion.Api.DelegatingHandlers.SwaggerAccessMessageHandler.SendAsync(System.Net.Http.HttpRequestMessage,System.Threading.CancellationToken)">
+            <summary>
+            Override SendAsync to throw Unauthorized for anonymous user on swagger page.
+            </summary>
+            <param name="request">Request.</param>
+            <param name="cancellationToken">CancellationToken.</param>
+            <returns>Response.</returns>
+        </member>
+        <member name="T:Orion.Api.Converters.ValidationStringEnumConverter">
+            <summary>
+            The enum converter with enum string value validation.
+            </summary>
+        </member>
+        <member name="M:Orion.Api.Converters.ValidationStringEnumConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Converts the value to the specific type.
+            </summary>
+            <param name="reader">The reader.</param>
+            <param name="objectType">The object type.</param>
+            <param name="existingValue">The existing value.</param>
+            <param name="serializer">The serializer.</param>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="T:Orion.Api.Filters.BaseActionFilter">
+            <summary>
+            Base filter functionality.
+            </summary>
+        </member>
+        <member name="M:Orion.Api.Filters.BaseActionFilter.CreateResponse(System.Net.HttpStatusCode,System.String)">
+            <summary>
+            Create http response.
+            </summary>
+            <param name="statusCode">Code of response.</param>
+            <param name="content">content of response.</param>
+            <returns>Http response.</returns>
+        </member>
+        <member name="T:Orion.Api.Filters.ClientModuleAuthorizationFilter">
+            <summary>
+            Authentication filter for checking client's activated modules.
+            </summary>
+        </member>
+        <member name="M:Orion.Api.Filters.ClientModuleAuthorizationFilter.#ctor(Orion.Clients.IClientComponent,Orion.Users.IUsersComponent,Orion.Multilingual.IMultilingualComponent,System.Collections.Generic.IEnumerable{Orion.Clients.Enums.Module})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Api.Filters.ClientModuleAuthorizationFilter"/> class.
+            Main Constructor for Filter configuration.
+            </summary>
+            <param name="clientComponent"> available client component. </param>
+            <param name="multilingualComponent">multilingual component.</param>
+            <param name="modulesToCheck"> List of modules for filter check, if any of modules is unavailable for client filter will deny your request. </param>
+            <param name="usersComponent">users component.</param>
+        </member>
+        <member name="M:Orion.Api.Filters.ClientModuleAuthorizationFilter.OnAuthorizationAsync(System.Web.Http.Controllers.HttpActionContext,System.Threading.CancellationToken)">
+            <summary>Called when a process requests authorization.</summary>
+            <param name="actionContext">The context for the action.</param>
+            <param name="cancellationToken">A cancellation token for signaling task ending.</param>
+            <returns>A Task.</returns>
+        </member>
+        <member name="T:Orion.Api.Filters.FunctionalPermissionAttributeFilter.FunctionalPermissionSecurityApiActionFilter">
+            <summary>
+            This Action filter adds permissions check based on user and group features
+            for API controllers.
+            </summary>
+            <example>
+            1) Registration:
+            <code>
+            private static void RegisterFilters(ContainerBuilder builder)
+            {
+                ...
+                builder.Register(c => new FunctionalPermissionSecurityApiActionFilter(
+                    c.Resolve&lt;IPermissionsComponent&gt;(),
+                    c.Resolve&lt;IUsersComponent&gt;()))
+                    .AsWebApiActionFilterFor&lt;ApiController&gt;()
+                    .InstancePerRequest();
+                ...
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Orion.Api.Filters.FunctionalPermissionAttributeFilter.FunctionalPermissionSecurityApiActionFilter.#ctor(Orion.Permissions.IPermissionsComponent,Orion.Users.IUsersComponent,Orion.Multilingual.IMultilingualComponent)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Api.Filters.FunctionalPermissionAttributeFilter.FunctionalPermissionSecurityApiActionFilter"/> class.
+            </summary>
+            <param name="permissionsComponent">Permissions component.</param>
+            <param name="usersComponent">Users component.</param>
+            <param name="multilingualComponent">Multilingual component.</param>
+        </member>
+        <member name="M:Orion.Api.Filters.FunctionalPermissionAttributeFilter.FunctionalPermissionSecurityApiActionFilter.OnActionExecutingAsync(System.Web.Http.Controllers.HttpActionContext,System.Threading.CancellationToken)">
+            <summary>Occurs before the action method is invoked.</summary>
+            <param name="actionContext">The context for the action.</param>
+            <param name="cancellationToken">A cancellation token for signaling task ending.</param>
+            <returns>A Task.</returns>
+        </member>
+        <member name="M:Orion.Api.Filters.FunctionalPermissionAttributeFilter.FunctionalPermissionSecurityApiActionFilter.OnActionExecutedAsync(System.Web.Http.Filters.HttpActionExecutedContext,System.Threading.CancellationToken)">
+            <summary>Occurs after the action method is invoked.</summary>
+            <param name="actionExecutedContext">The context for the action.</param>
+            <param name="cancellationToken">A cancellation token for signaling task ending.</param>
+            <returns>A Task.</returns>
+        </member>
+        <member name="T:Orion.Api.Filters.FunctionalPermissionAttributeFilter.FunctionalPermissionAttribute">
+            <summary>
+            Use this attribute with method of API controller
+            to apply security check based on user and item permissions.
+            </summary>
+            <code>
+            public class ModelController : SecureApiController
+            {
+             ...
+                [FunctionalPermission(new [] { FunctionalPermissions.ManageQuestionsRead })]
+                public IHttpActionResult Get(int modelId)
+                {
+                    return Ok(_modelService.FetchModel(modelId));
+                }
+              ...
+            }.
+            </code>
+        </member>
+        <member name="M:Orion.Api.Filters.FunctionalPermissionAttributeFilter.FunctionalPermissionAttribute.#ctor(Orion.Permissions.Enums.FunctionalPermissionType[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Api.Filters.FunctionalPermissionAttributeFilter.FunctionalPermissionAttribute"/> class.
+            </summary>
+            <param name="functionalPermissions">List of necessary functional permissions.</param>
+        </member>
+        <member name="P:Orion.Api.Filters.FunctionalPermissionAttributeFilter.FunctionalPermissionAttribute.FunctionalPermissions">
+            <summary>
+            Gets a list of necessary functional permissions.
+            </summary>
+        </member>
+        <member name="T:Orion.Api.Filters.FeaturePermissionAttributeFilter.FeaturePermissionAttribute">
+            <summary>
+            Use this attribute with method of API controller
+            to apply check based on activated features.
+            </summary>
+            <code>
+            public class ModelController : ApiController
+            {
+              ...
+                [FunctionalPermission(new[] { Feature.Item })]
+                public IHttpActionResult Get(int modelId)
+                {
+                    return Ok(_modelService.FetchModel(modelId));
+                }
+              ...
+            }.
+            </code>
+        </member>
+        <member name="M:Orion.Api.Filters.FeaturePermissionAttributeFilter.FeaturePermissionAttribute.#ctor(Orion.Clients.Enums.Feature[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Api.Filters.FeaturePermissionAttributeFilter.FeaturePermissionAttribute"/> class.
+            </summary>
+            <param name="features">List of necessary features.</param>
+        </member>
+        <member name="P:Orion.Api.Filters.FeaturePermissionAttributeFilter.FeaturePermissionAttribute.Features">
+            <summary>
+            Gets a list of necessary features.
+            </summary>
+        </member>
+        <member name="T:Orion.Api.Filters.FeaturePermissionAttributeFilter.FeaturePermissionSecurityApiActionFilter">
+            <summary>
+            This Action filter adds permissions check based on client's features
+            for API controllers.
+            </summary>
+            <example>
+            1) Registration:
+            <code>
+            private static void RegisterFilters(ContainerBuilder builder)
+            {
+                ...
+                builder.Register(c => new FeaturePermissionSecurityApiActionFilter(
+                    c.Resolve&lt;IClientComponent&gt;(),
+                    c.Resolve&lt;IMultilingualComponent&gt;(),
+                    c.Resolve&lt;IUsersComponent&gt;()))
+                    .AsWebApiActionFilterFor&lt;ApiController&gt;()
+                    .InstancePerRequest();
+                ...
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Orion.Api.Filters.FeaturePermissionAttributeFilter.FeaturePermissionSecurityApiActionFilter.#ctor(Orion.Clients.IClientComponent,Orion.Multilingual.IMultilingualComponent,Orion.Users.IUsersComponent)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Api.Filters.FeaturePermissionAttributeFilter.FeaturePermissionSecurityApiActionFilter"/> class.
+            </summary>
+            <param name="clientComponent">Client component.</param>
+            <param name="multilingualComponent">Multilingual component.</param>
+            <param name="usersComponent">Users component.</param>
+        </member>
+        <member name="M:Orion.Api.Filters.FeaturePermissionAttributeFilter.FeaturePermissionSecurityApiActionFilter.OnActionExecutingAsync(System.Web.Http.Controllers.HttpActionContext,System.Threading.CancellationToken)">
+            <summary>Occurs before the action method is invoked.</summary>
+            <param name="actionContext">The context for the action.</param>
+            <param name="cancellationToken">A cancellation token for signaling task ending.</param>
+            <returns>A Task.</returns>
+        </member>
+        <member name="M:Orion.Api.Filters.FeaturePermissionAttributeFilter.FeaturePermissionSecurityApiActionFilter.OnActionExecutedAsync(System.Web.Http.Filters.HttpActionExecutedContext,System.Threading.CancellationToken)">
+            <summary>Occurs after the action method is invoked.</summary>
+            <param name="actionExecutedContext">The context for the action.</param>
+            <param name="cancellationToken">A cancellation token for signaling task ending.</param>
+            <returns>A Task.</returns>
+        </member>
+        <member name="M:Orion.Api.Filters.FeaturePermissionAttributeFilter.FeaturePermissionSecurityApiActionFilter.GetFeatures(System.Reflection.CustomAttributeTypedArgument)">
+            <summary>
+            Get all features.
+            </summary>
+            <param name="permissionAttributeArg">Permission attribute arguments.</param>
+            <returns>Features from permission attribute.</returns>
+        </member>
+        <member name="M:Orion.Api.Filters.FeaturePermissionAttributeFilter.FeaturePermissionSecurityApiActionFilter.PutNotAvailableFunctionalityStatusToActionContext(System.Web.Http.Controllers.HttpActionContext,System.String)">
+            <summary>
+            Mark that user doesn't have access to action.
+            </summary>
+            <param name="actionContext">Action context.</param>
+            <param name="featureNames">Feature which is not available for user.</param>
+        </member>
+        <member name="T:Orion.Api.Filters.UserItemSecurityApiActionFilter.SecureApiODataController">
+            <summary>
+            Interface for interception and check security
+            based on user and item use it with controllers
+            to make it works please be sure that in Autofac config
+            contains
+            <see cref="T:Orion.Api.Filters.UserItemSecurityApiActionFilter.UserItemSecurityApiActionFilter"/>,
+            <see cref="T:Orion.Api.Filters.UserItemSecurityApiActionFilter.ISecurityItemResolver"/>
+            registrations.
+            <example>
+            Registration:
+            <code>
+            {
+                ...
+                builder.Register(c =&gt;
+                    new UserItemSecurityApiActionFilter(
+                        c.Resolve&lt;IUsersComponent&gt;(),
+                        c.Resolve&lt;IPermissionsComponent&gt;(),
+                        c.Resolve&lt;ISecurityItemResolver&gt;(),
+                        c.Resolve&lt;IMultilingualComponent&gt;()))
+                    .AsWebApiActionFilterFor&lt;SecureApiODataController&gt;()
+                    .InstancePerRequest();
+                ...
+            }
+            </code>
+            Usage:
+            <code>
+            public class AuditODataController : SecureApiODataController
+            {
+                ...
+            }
+            </code>
+            </example>
+            </summary>
+        </member>
+        <member name="T:Orion.Api.Filters.UserItemSecurityApiActionFilter.UserItemSecurityApiActionFilter">
+             <summary>
+             This Action filter adds permissions check based on user and item
+             for Api controllers.
+             <example>
+             1) Please implement and register
+             <see cref="T:Orion.Api.Filters.UserItemSecurityApiActionFilter.ISecurityItemResolver"/> interface in your app
+            
+             2) Registration:
+             <code>
+             private static void RegisterFilters(ContainerBuilder builder)
+             {
+                 ...
+                 builder.Register(c =&amp;amp;gt;
+                       new UserItemSecurityApiActionFilter(
+                           c.Resolve&lt;IUsersComponent&gt;(),
+                           c.Resolve&lt;IPermissionsComponent&gt;(),
+                           c.Resolve&lt;ISecurityItemResolver&gt;()))
+                       .AsWebApiActionFilterFor&lt;SecureApiController&gt;()
+                       .InstancePerRequest();
+                 ...
+             }
+             </code>
+            
+             3) Make your controller derived from <see cref="T:Orion.Api.Filters.UserItemSecurityApiActionFilter.SecureApiController"/>
+             <code>
+             public class AuditController : SecureApiController
+             {
+                 ...
+             }
+             </code>
+            
+             4) Mark All your controller actions with attributes:
+             <see cref="T:Orion.Api.Filters.UserItemSecurityApiActionFilter.SecureApiPermissionAttribute"/>,
+             <see cref="T:Orion.Api.Filters.UserItemSecurityApiActionFilter.IgnoreApiPermissionAttribute"/>
+             <code>
+                public class ModelController : SecureApiController
+                {
+                 ...
+                    [SecureApiPermission(IdentityPermission.Read)]
+                    public IHttpActionResult Get(int modelId)
+                    {
+                        return Ok(_modelService.FetchModel(modelId));
+                    }
+                 ...
+                    [IgnoreApiPermission]
+                    public IHttpActionResult Post(RequestModel requestModel)
+                    {
+                        return Ok(_modelFacade.CreateEntity(requestModel));
+                    }
+                  ...
+                }
+             </code>
+             </example>
+             </summary>
+        </member>
+        <member name="M:Orion.Api.Filters.UserItemSecurityApiActionFilter.UserItemSecurityApiActionFilter.#ctor(Orion.Users.IUsersComponent,Orion.Permissions.IPermissionsComponent,Orion.Api.Filters.UserItemSecurityApiActionFilter.ISecurityItemResolver,Orion.Multilingual.IMultilingualComponent)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Api.Filters.UserItemSecurityApiActionFilter.UserItemSecurityApiActionFilter"/> class.
+            </summary>
+            <param name="usersComponent">Users component.</param>
+            <param name="permissionsComponent">Permissions component.</param>
+            <param name="itemResolver">Item resolver.</param>
+            <param name="multilingualComponent">Multilingual component.</param>
+        </member>
+        <member name="M:Orion.Api.Filters.UserItemSecurityApiActionFilter.UserItemSecurityApiActionFilter.OnActionExecutingAsync(System.Web.Http.Controllers.HttpActionContext,System.Threading.CancellationToken)">
+            <summary>Occurs before the action method is invoked.</summary>
+            <param name="actionContext">The context for the action.</param>
+            <param name="cancellationToken">A cancellation token for signaling task ending.</param>
+            <returns>A Task.</returns>
+        </member>
+        <member name="M:Orion.Api.Filters.UserItemSecurityApiActionFilter.UserItemSecurityApiActionFilter.OnActionExecutedAsync(System.Web.Http.Filters.HttpActionExecutedContext,System.Threading.CancellationToken)">
+            <summary>Occurs after the action method is invoked.</summary>
+            <param name="actionExecutedContext">The context for the action.</param>
+            <param name="cancellationToken">A cancellation token for signaling task ending.</param>
+            <returns>A Task.</returns>
+        </member>
+        <member name="M:Orion.Api.Filters.UserItemSecurityApiActionFilter.UserItemSecurityApiActionFilter.PutUnauthorizedStatusToActionContext(System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            Set user as unauthorized.
+            </summary>
+            <param name="actionContext">Action execution context.</param>
+        </member>
+        <member name="T:Orion.Api.Filters.UserItemSecurityApiActionFilter.IgnoreApiPermissionAttribute">
+            <summary>
+            Use this for specify methods for which you want to ignore
+            item user security check
+            in controller based on <see cref="T:Orion.Api.Filters.UserItemSecurityApiActionFilter.SecureApiController"/>.
+            <example>
+            <code>
+               public class ModelController : SecureApiController
+               {
+                ...
+                   [IgnoreApiPermission]
+                   public IHttpActionResult Post(RequestModel requestModel)
+                   {
+                       return Ok(_modelFacade.CreateEntity(requestModel));
+                   }
+                 ...
+               }
+            </code>
+            </example>
+            </summary>
+        </member>
+        <member name="T:Orion.Api.Filters.UserItemSecurityApiActionFilter.SecureApiController">
+            <summary>
+            Interface for interception and check security
+            based on user and item use it with controllers
+            to make it works please be sure that in Autofac config
+            contains
+            <see cref="T:Orion.Api.Filters.UserItemSecurityApiActionFilter.UserItemSecurityApiActionFilter"/>,
+            <see cref="T:Orion.Api.Filters.UserItemSecurityApiActionFilter.ISecurityItemResolver"/>
+            registrations.
+            <example>
+            Registration:
+            <code>
+            {
+                ...
+                builder.Register(c =&gt;
+                    new UserItemSecurityApiActionFilter(
+                        c.Resolve&lt;IUsersComponent&gt;(),
+                        c.Resolve&lt;IPermissionsComponent&gt;(),
+                        c.Resolve&lt;ISecurityItemResolver&gt;(),
+                        c.Resolve&lt;IMultilingualComponent&gt;()))
+                    .AsWebApiActionFilterFor&lt;SecureApiController&gt;()
+                    .InstancePerRequest();
+                ...
+            }
+            </code>
+            Usage:
+            <code>
+            public class AuditController : SecureApiController
+            {
+                ...
+            }
+            </code>
+            </example>
+            </summary>
+        </member>
+        <member name="T:Orion.Api.Filters.UserItemSecurityApiActionFilter.ISecurityItemResolver">
+            <summary>
+            This Interface have to be implemented
+            in work application, and register it in Autofac.
+            <example>
+            Registration:
+            <code>
+            builder.RegisterType&lt;SecurityItemResolver&gt;()
+                .As&lt;ISecurityItemResolver&gt;().InstancePerLifetimeScope();
+            </code>
+            </example>
+            </summary>
+        </member>
+        <member name="M:Orion.Api.Filters.UserItemSecurityApiActionFilter.ISecurityItemResolver.GetSecurityItemId(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Get item id by action arguments.
+            </summary>
+            <param name="actionArguments">List of action arguments.</param>
+            <returns>Item id.</returns>
+        </member>
+        <member name="T:Orion.Api.Filters.UserItemSecurityApiActionFilter.SecureApiPermissionAttribute">
+            <summary>
+            Use this attribute with method of API controller
+            to apply security check based on user and item permissions.
+            <example>
+            <code>
+            public class ModelController : SecureApiController
+            {
+             ...
+                [SecureApiPermission(IdentityPermission.Read)]
+                public IHttpActionResult Get(int modelId)
+                {
+                    return Ok(_modelService.FetchModel(modelId));
+                }
+              ...
+            }
+            </code>
+            </example>
+            </summary>
+        </member>
+        <member name="M:Orion.Api.Filters.UserItemSecurityApiActionFilter.SecureApiPermissionAttribute.#ctor(Orion.Permissions.Enums.IdentityPermission[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Api.Filters.UserItemSecurityApiActionFilter.SecureApiPermissionAttribute"/> class.
+            </summary>
+            <param name="requiredPermissions">Use this param for describing what kind of permissions
+            need to check for available values please see <see cref="T:Orion.Permissions.Enums.IdentityPermission"/>.
+            At least one permission from the param list should be to get access to the resource.</param>
+        </member>
+        <member name="P:Orion.Api.Filters.UserItemSecurityApiActionFilter.SecureApiPermissionAttribute.RequiredPermissions">
+            <summary>
+            Gets list of required permissions.
+            </summary>
+            <value>
+            The required permissions.
+            </value>
+        </member>
+        <member name="T:Orion.Api.Filters.ModelValidationActionFilter">
+            <summary>
+            Filter for validation model.
+            </summary>
+        </member>
+        <member name="M:Orion.Api.Filters.ModelValidationActionFilter.OnActionExecutingAsync(System.Web.Http.Controllers.HttpActionContext,System.Threading.CancellationToken)">
+            <summary>Occurs before the action method is invoked.</summary>
+            <param name="actionContext">The context for the action.</param>
+            <param name="cancellationToken">A cancellation token for signaling task ending.</param>
+            <returns>A Task.</returns>
+        </member>
+        <member name="M:Orion.Api.Filters.ModelValidationActionFilter.OnActionExecutedAsync(System.Web.Http.Filters.HttpActionExecutedContext,System.Threading.CancellationToken)">
+            <summary>Occurs after the action method is invoked.</summary>
+            <param name="actionExecutedContext">The context for the action.</param>
+            <param name="cancellationToken">A cancellation token for signaling task ending.</param>
+            <returns>A Task.</returns>
+        </member>
+        <member name="T:Orion.Api.Filters.AuthenticationFilter">
+            <summary>
+            Authentication filter.
+            </summary>
+        </member>
+        <member name="M:Orion.Api.Filters.AuthenticationFilter.#ctor(Orion.Users.IUsersComponent,Orion.Logging.ILoggingComponent,Orion.Clients.IClientComponent)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Api.Filters.AuthenticationFilter"/> class.
+            Main Constructor for Filter configuration.
+            </summary>
+            <param name="usersComponent">Users component.</param>
+            <param name="loggingComponent">Logging component.</param>
+            <param name="clientComponent">Client component.</param>
+        </member>
+        <member name="P:Orion.Api.Filters.AuthenticationFilter.UsersComponent">
+            <summary>
+            Gets or sets users component.
+            </summary>
+        </member>
+        <member name="P:Orion.Api.Filters.AuthenticationFilter.LoggingComponent">
+            <summary>
+            Gets or sets logging component.
+            </summary>
+        </member>
+        <member name="P:Orion.Api.Filters.AuthenticationFilter.ClientComponent">
+            <summary>
+            Gets or sets client component.
+            </summary>
+        </member>
+        <member name="M:Orion.Api.Filters.AuthenticationFilter.ChallengeAsync(System.Web.Http.Filters.HttpAuthenticationChallengeContext,System.Threading.CancellationToken)">
+            <summary>Called when an authentication challenge is required.</summary>
+            <param name="context">The context for the authentication challenge.</param>
+            <param name="cancellationToken">A cancellation token for signaling task ending.</param>
+            <returns>A Task.</returns>
+        </member>
+        <member name="M:Orion.Api.Filters.AuthenticationFilter.AuthenticateAsync(System.Web.Http.Filters.HttpAuthenticationContext,System.Threading.CancellationToken)">
+            <summary> Authenticates the request. </summary>
+            <param name="context">  The authentication context. </param>
+            <param name="cancellationToken">  The token to monitor for cancellation requests. </param>
+            <returns> A Task that will perform authentication. </returns>
+        </member>
+        <member name="M:Orion.Api.Filters.AuthenticationFilter.OnAuthenticate(System.Web.Http.Filters.HttpAuthenticationContext)">
+            <summary>
+            Called when [authenticate].
+            </summary>
+            <param name="context">The context.</param>
+        </member>
+        <member name="M:Orion.Api.Filters.AuthenticationFilter.HandleUnauthorizedResult(System.Web.Http.Filters.HttpAuthenticationContext)">
+            <summary>
+            Handle result of filter work if user was unauthorized.
+            </summary>
+            <param name="context">Authentication context for performing authentication.</param>
+        </member>
+        <member name="M:Orion.Api.Filters.AuthenticationFilter.InitializeClient(System.Web.Http.Filters.HttpAuthenticationContext)">
+            <summary>
+            Initialize client.
+            </summary>
+            <param name="context">Authentication context for performing authentication.</param>
+        </member>
+        <member name="M:Orion.Api.Filters.AuthenticationFilter.InitializeUser(System.Web.Http.Filters.HttpAuthenticationContext)">
+            <summary>
+            Initialize user.
+            </summary>
+            <param name="context">Authentication context for performing authentication.</param>
+        </member>
+        <member name="M:Orion.Api.Filters.AuthenticationFilter.GetUserByToken(System.String)">
+            <summary>
+            Gets the user by token.
+            </summary>
+            <param name="token">The token.</param>
+            <returns>Orion user model.</returns>
+        </member>
+        <member name="T:Orion.Api.Filters.LoggingActionFilter">
+            <summary>
+            Filter for logging exceptions.
+            </summary>
+        </member>
+        <member name="M:Orion.Api.Filters.LoggingActionFilter.#ctor(Orion.Logging.ILoggingComponent,Orion.Users.IUsersComponent,Orion.Clients.IClientComponent)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Api.Filters.LoggingActionFilter"/> class.
+            </summary>
+            <param name="loggingComponent">Logging component.</param>
+            <param name="usersComponent">Users Component.</param>
+            <param name="clientComponent">Client component.</param>
+        </member>
+        <member name="M:Orion.Api.Filters.LoggingActionFilter.OnActionExecutingAsync(System.Web.Http.Controllers.HttpActionContext,System.Threading.CancellationToken)">
+            <summary>Occurs before the action method is invoked.</summary>
+            <param name="actionContext">The context for the action.</param>
+            <param name="cancellationToken">A cancellation token for signaling task ending.</param>
+            <returns>A Task.</returns>
+        </member>
+        <member name="M:Orion.Api.Filters.LoggingActionFilter.OnActionExecutedAsync(System.Web.Http.Filters.HttpActionExecutedContext,System.Threading.CancellationToken)">
+            <summary>Occurs after the action method is invoked.</summary>
+            <param name="actionExecutedContext">The context for the action.</param>
+            <param name="cancellationToken">A cancellation token for signaling task ending.</param>
+            <returns>A Task.</returns>
+        </member>
+        <member name="M:Orion.Api.Filters.LoggingActionFilter.HandleException(System.Web.Http.Filters.HttpActionExecutedContext)">
+            <summary>
+            Handle exception.
+            </summary>
+            <param name="context">Action execution context.</param>
+        </member>
+        <member name="M:Orion.Api.Filters.LoggingActionFilter.LogExceptionAndFillResponse(System.Web.Http.Filters.HttpActionExecutedContext,System.Exception)">
+            <summary>
+            Log exception and add it to response.
+            </summary>
+            <param name="context">Action execution context.</param>
+            <param name="exception">Exception.</param>
+        </member>
+        <member name="M:Orion.Api.Filters.LoggingActionFilter.LogWarningAndFillResponse(System.Web.Http.Filters.HttpActionExecutedContext,Orion.Common.Exceptions.PresentationException,System.String)">
+            <summary>
+            Log warning and add it to response.
+            </summary>
+            <param name="context">Action execution context.</param>
+            <param name="presentationException">Presentation Exception.</param>
+            <param name="jsonContent">Exception Content in json format.</param>
+        </member>
+        <member name="T:Orion.Api.Helpers.GlobalExceptionHandler">
+            <summary>
+            This is the final exception handler for any exceptions that have bubbled up this far.
+            Important, errors related to WebApi such as configuration, routing, serialization, etc. will not be caught by this handler.
+            </summary>
+        </member>
+        <member name="M:Orion.Api.Helpers.GlobalExceptionHandler.Handle(System.Web.Http.ExceptionHandling.ExceptionHandlerContext)">
+            <summary>
+            This method handles any uncaught exceptions with exceptions noted above.
+            </summary>
+            <param name="context">The exception context.</param>
+        </member>
+        <member name="T:Orion.Api.Helpers.GlobalExceptionResponse">
+            <summary>
+            This is the response used to present information about the failed request.
+            </summary>
+        </member>
+        <member name="M:Orion.Api.Helpers.GlobalExceptionResponse.#ctor(System.Web.Http.ExceptionHandling.ExceptionContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Api.Helpers.GlobalExceptionResponse"/> class.
+            </summary>
+            <param name="exceptionContext">The uncaught exception context.</param>
+        </member>
+        <member name="M:Orion.Api.Helpers.GlobalExceptionResponse.ExecuteAsync(System.Threading.CancellationToken)">
+            <summary>
+            Executes the creation of the response message.
+            </summary>
+            <param name="cancellationToken">This meets the needs of the signature only and is ignored in the method.</param>
+            <returns>A HttpResponseMessage with any relevant error information about the exception that should be shown to the end client.</returns>
+        </member>
+        <member name="T:Orion.Api.Helpers.HttpContentsHelper">
+            <summary>
+            Contents helper.
+            </summary>
+        </member>
+        <member name="M:Orion.Api.Helpers.HttpContentsHelper.GetFormFieldValueFromHttpContent(System.Collections.Generic.ICollection{System.Net.Http.HttpContent},System.String)">
+            <summary>
+            Get value from body in http request.
+            </summary>
+            <param name="httpContents">Http content.</param>
+            <param name="fieldName">Field name.</param>
+            <returns>Field value.</returns>
+        </member>
+        <member name="M:Orion.Api.Helpers.HttpContentsHelper.GetValueFromActionArguments(System.Collections.Generic.Dictionary{System.String,System.Object},System.String)">
+            <summary>
+            Get param value from arguments in http request.
+            </summary>
+            <param name="actionArguments">Actions arguments.</param>
+            <param name="argumentName">Argument name.</param>
+            <returns>Param value.</returns>
+        </member>
+        <member name="T:Orion.Api.Helpers.InMemoryMultipartFormDataStreamProvider">
+            <summary>
+            Useful when we do not want to save uploaded file to the filesystem in a FileStream but want an in-memory FileStream instead.
+            </summary>
+        </member>
+        <member name="P:Orion.Api.Helpers.InMemoryMultipartFormDataStreamProvider.FormData">
+            <summary>
+            Gets a <see cref="T:System.Collections.Specialized.NameValueCollection"/> of form data passed as part of the multipart form data.
+            </summary>
+        </member>
+        <member name="P:Orion.Api.Helpers.InMemoryMultipartFormDataStreamProvider.Files">
+            <summary>
+            Gets list of <see cref="T:System.Net.Http.HttpContent"/>s which contain uploaded files as in-memory representation.
+            </summary>
+        </member>
+        <member name="M:Orion.Api.Helpers.InMemoryMultipartFormDataStreamProvider.GetStream(System.Net.Http.HttpContent,System.Net.Http.Headers.HttpContentHeaders)">
+            <summary>
+            Get stream.
+            </summary>
+            <param name="parent">Http content.</param>
+            <param name="headers">Http headers.</param>
+            <returns>Stream.</returns>
+        </member>
+        <member name="M:Orion.Api.Helpers.InMemoryMultipartFormDataStreamProvider.ExecutePostProcessingAsync">
+            <summary>
+            Read the non-file contents as form data.
+            </summary>
+            <returns>Task info.</returns>
+        </member>
+        <member name="M:Orion.Api.Helpers.InMemoryMultipartFormDataStreamProvider.UnquoteToken(System.String)">
+            <summary>
+            Remove bounding quotes on a token if present.
+            </summary>
+            <param name="token">Token to unquote.</param>
+            <returns>Unquoted token.</returns>
+        </member>
+        <member name="T:Orion.Api.HttpActionResults.CsvResult`1">
+            <summary>
+            Csv result.
+            </summary>
+            <typeparam name="T">Type of row in model.</typeparam>
+        </member>
+        <member name="M:Orion.Api.HttpActionResults.CsvResult`1.#ctor(System.Net.Http.HttpRequestMessage,Orion.FileExport.IFileExportComponent,System.Collections.Generic.IEnumerable{`0},System.Linq.IOrderedEnumerable{Orion.FileExport.Models.CsvExportColumnModel},System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Api.HttpActionResults.CsvResult`1"/> class.
+            </summary>
+            <param name="request">Http request.</param>
+            <param name="fileExportComponent">File export comments.</param>
+            <param name="contents">File content.</param>
+            <param name="csvHeaders">Custom csv headers.</param>
+            <param name="fileName">File name.</param>
+        </member>
+        <member name="M:Orion.Api.HttpActionResults.CsvResult`1.#ctor(System.Net.Http.HttpRequestMessage,Orion.FileExport.IFileExportComponent,System.Collections.Generic.IEnumerable{`0},System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Api.HttpActionResults.CsvResult`1"/> class.
+            </summary>
+            <param name="request">Http request.</param>
+            <param name="fileExportComponent">File export comments.</param>
+            <param name="contents">File content.</param>
+            <param name="fileName">File name.</param>
+        </member>
+        <member name="M:Orion.Api.HttpActionResults.CsvResult`1.#ctor(System.Web.Http.ApiController,Orion.FileExport.IFileExportComponent,System.Collections.Generic.IEnumerable{`0},System.Linq.IOrderedEnumerable{Orion.FileExport.Models.CsvExportColumnModel},System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Api.HttpActionResults.CsvResult`1"/> class.
+            </summary>
+            <param name="controller">Api controller.</param>
+            <param name="fileExportComponent">Files export component.</param>
+            <param name="contents">File content.</param>
+            <param name="csvHeaders">Custom csv headers.</param>
+            <param name="fileName">File name.</param>
+        </member>
+        <member name="M:Orion.Api.HttpActionResults.CsvResult`1.#ctor(System.Web.Http.ApiController,Orion.FileExport.IFileExportComponent,System.Collections.Generic.IEnumerable{`0},System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Api.HttpActionResults.CsvResult`1"/> class.
+            </summary>
+            <param name="controller">Api controller.</param>
+            <param name="fileExportComponent">Files export component.</param>
+            <param name="contents">File content.</param>
+            <param name="fileName">File name.</param>
+        </member>
+        <member name="P:Orion.Api.HttpActionResults.CsvResult`1.FileName">
+            <summary>
+            Gets or sets the name to call the file to be sent to the client for download.
+            </summary>
+            <remarks>
+            If the file isn't appended with the file extension "csv" then it will be added.
+            </remarks>
+        </member>
+        <member name="M:Orion.Api.HttpActionResults.CsvResult`1.ExecuteAsync(System.Threading.CancellationToken)">
+            <summary>
+            Execute Async.
+            </summary>
+            <param name="cancellationToken">Cancellation Token.</param>
+            <returns>Task.</returns>
+        </member>
+        <member name="T:Orion.Api.HttpActionResults.FileResult">
+            <summary>
+            File result.
+            </summary>
+        </member>
+        <member name="M:Orion.Api.HttpActionResults.FileResult.#ctor(System.IO.Stream,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Api.HttpActionResults.FileResult"/> class.
+            </summary>
+            <param name="stream">Stream with data.</param>
+            <param name="fileName">File name.</param>
+        </member>
+        <member name="M:Orion.Api.HttpActionResults.FileResult.ExecuteAsync(System.Threading.CancellationToken)">
+            <summary>
+            Create file result.
+            </summary>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>Reponse with file.</returns>
+        </member>
+        <member name="T:Orion.Api.MediaTypeFormatters.FormMultipartEncodedMediaTypeFormatter`2">
+            <summary>
+            Media type formatter which allows to bind multipart form data to a model with a file.
+            </summary>
+            <typeparam name="T">The type of the model which represents request model combined of file model and another part model.</typeparam>
+            <typeparam name="TG">The type of the model which represents another than file model from request.</typeparam>
+        </member>
+        <member name="M:Orion.Api.MediaTypeFormatters.FormMultipartEncodedMediaTypeFormatter`2.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Api.MediaTypeFormatters.FormMultipartEncodedMediaTypeFormatter`2"/> class.
+            </summary>
+        </member>
+        <member name="M:Orion.Api.MediaTypeFormatters.FormMultipartEncodedMediaTypeFormatter`2.CanReadType(System.Type)">
+            <summary>
+            Queries whether this <see cref="T:Orion.Api.MediaTypeFormatters.FormMultipartEncodedMediaTypeFormatter&lt;T&gt;" /> can deserialize an object of the specified type.
+            </summary>
+            <returns>true if the <see cref="T:Orion.Api.MediaTypeFormatters.FormMultipartEncodedMediaTypeFormatter&lt;T&gt;" /> can deserialize the type; otherwise, false.</returns>
+            <param name="type">The type to deserialize.</param>
+        </member>
+        <member name="M:Orion.Api.MediaTypeFormatters.FormMultipartEncodedMediaTypeFormatter`2.CanWriteType(System.Type)">
+            <summary>
+            Queries whether this <see cref="T:Orion.Api.MediaTypeFormatters.FormMultipartEncodedMediaTypeFormatter&lt;T&gt;" /> can serialize an object of the specified type.
+            </summary>
+            <returns>true if the <see cref="T:Orion.Api.MediaTypeFormatters.FormMultipartEncodedMediaTypeFormatter&lt;T&gt;" /> can serialize the type; otherwise, false.</returns>
+            <param name="type">The type to serialize.</param>
+        </member>
+        <member name="M:Orion.Api.MediaTypeFormatters.FormMultipartEncodedMediaTypeFormatter`2.ReadFromStreamAsync(System.Type,System.IO.Stream,System.Net.Http.HttpContent,System.Net.Http.Formatting.IFormatterLogger)">
+            <summary>Asynchronously deserializes an object of the specified type.</summary>
+            <returns>A <see cref="T:System.Threading.Tasks.Task" /> whose result will be an object of the given type.</returns>
+            <param name="type">The type of the object to deserialize.</param>
+            <param name="readStream">The <see cref="T:System.IO.Stream" /> to read.</param>
+            <param name="content">The <see cref="T:System.Net.Http.HttpContent" />, if available. It may be null.</param>
+            <param name="formatterLogger">The <see cref="T:System.Net.Http.Formatting.IFormatterLogger" /> to log events to.</param>
+            <exception cref="T:System.NotSupportedException">Derived types need to support reading.</exception>
+        </member>
+        <member name="T:Orion.Api.ModelBinders.CommaDelimitedArrayModelBinder">
+            <summary>
+            ModelBinder used to decode comma-separated list of elements into array.
+            </summary>
+            <example>
+            In the controller class you have the API:
+            <code>
+            [HttpGet]
+            public IHttpActionResult GetSomethingFilterByCategories(
+                [ModelBinder(typeof(CommaDelimitedArrayModelBinder))]int[] categoryIds)
+                ...
+            </code>
+            URL contains: ?categoryIds=1,2,3,4.
+            </example>
+        </member>
+        <member name="M:Orion.Api.ModelBinders.CommaDelimitedArrayModelBinder.BindModel(System.Web.Http.Controllers.HttpActionContext,System.Web.Http.ModelBinding.ModelBindingContext)">
+            <summary>
+            Bind model.
+            </summary>
+            <param name="actionContext">Action execution context.</param>
+            <param name="bindingContext">Binding context.</param>
+            <returns>Result of binding.</returns>
+        </member>
+        <member name="T:Orion.Api.ModelBinders.NullableLongModelBinder">
+            <summary>
+            Model Binder to use for Nullable Long parameter on controller endpoints.
+            </summary>
+            <example>
+            In the controller class you have the API:
+            <code>
+            [HttpGet]
+            public IHttpActionResult GetSomething(
+                [ModelBinder(typeof(NullableLongModelBinder))]long? someId = null)
+                ...
+            </code>
+            </example>
+        </member>
+        <member name="M:Orion.Api.ModelBinders.NullableLongModelBinder.BindModel(System.Web.Http.Controllers.HttpActionContext,System.Web.Http.ModelBinding.ModelBindingContext)">
+            <summary>
+            Binds the model to a value by using the specified controller context and binding context.
+            </summary>
+            <param name="actionContext">The action context.</param>
+            <param name="bindingContext">The binding context.</param>
+            <returns>
+            true if model binding is successful; otherwise, false.
+            </returns>
+        </member>
+        <member name="T:Orion.Api.Models.HttpPostedFileMultipartModel">
+            <summary>
+            Represents a file that has uploaded by a client via multipart/form-data.
+            </summary>
+        </member>
+        <member name="M:Orion.Api.Models.HttpPostedFileMultipartModel.#ctor(System.String,System.String,System.Byte[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Api.Models.HttpPostedFileMultipartModel"/> class.
+            </summary>
+            <param name="fileName">The fully qualified name of the file on the client.</param>
+            <param name="contentType">The MIME content type of an uploaded file.</param>
+            <param name="fileContents">The contents of the uploaded file.</param>
+        </member>
+        <member name="P:Orion.Api.Models.HttpPostedFileMultipartModel.ContentLength">
+            <summary>
+            Gets the length of the content.
+            </summary>
+        </member>
+        <member name="P:Orion.Api.Models.HttpPostedFileMultipartModel.ContentType">
+            <summary>
+            Gets the type of the content.
+            </summary>
+        </member>
+        <member name="P:Orion.Api.Models.HttpPostedFileMultipartModel.FileName">
+            <summary>
+            Gets the file name.
+            </summary>
+        </member>
+        <member name="P:Orion.Api.Models.HttpPostedFileMultipartModel.InputStream">
+            <summary>
+            Gets the input stream.
+            </summary>
+        </member>
+        <member name="T:Orion.Api.Models.ClientSettingsModel">
+            <summary>
+            Model with client setting.
+            </summary>
+        </member>
+        <member name="M:Orion.Api.Models.ClientSettingsModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Api.Models.ClientSettingsModel"/> class.
+            </summary>
+        </member>
+        <member name="P:Orion.Api.Models.ClientSettingsModel.LockSessionTimeOut">
+            <summary>
+            Gets or sets a value indicating whether to lock session timeout. True is session should be locked for timeout, false otherwise.
+            </summary>
+        </member>
+        <member name="P:Orion.Api.Models.ClientSettingsModel.SessionTimeoutInMinutes">
+            <summary>
+            Gets or sets amount of time, in minutes, allowed between requests before a user should be logged out.
+            </summary>
+        </member>
+        <member name="P:Orion.Api.Models.ClientSettingsModel.LanguageId">
+            <summary>
+            Gets or sets identifier for the layer's default language.
+            </summary>
+        </member>
+        <member name="P:Orion.Api.Models.ClientSettingsModel.CultureName">
+            <summary>
+            Gets or sets name of the culture of the layer. This is useful for date, time, and number formatting.
+            </summary>
+            <example>
+            'en-US', 'fr-BE', ...
+            </example>
+        </member>
+        <member name="P:Orion.Api.Models.ClientSettingsModel.IsDaylightSavings">
+            <summary>
+            Gets or sets a value indicating whether the current culture observes daylight savings.
+            </summary>
+        </member>
+        <member name="P:Orion.Api.Models.ClientSettingsModel.TimezoneDisplayType">
+            <summary>
+            Gets or sets how to display the division's timezone offset for dates.
+            </summary>
+            <remarks>
+             ThreeLetterISOCode = 0,
+             Both = 1,
+             GMTOffset = 2.
+            </remarks>
+        </member>
+        <member name="P:Orion.Api.Models.ClientSettingsModel.TimeZoneId">
+            <summary>
+            Gets or sets timezone of the layer.
+            </summary>
+            <example>
+            "Eastern Standard Time".
+            </example>
+        </member>
+        <member name="P:Orion.Api.Models.ClientSettingsModel.ImportDelimiter">
+            <summary>
+            Gets or sets the string which will separate values in an imported data file.
+            </summary>
+        </member>
+        <member name="P:Orion.Api.Models.ClientSettingsModel.ImportMultiselectDelimiter">
+            <summary>
+            Gets or sets the string that will separate multi-select values within a data field of a file that has already been parsed by <see cref="P:Orion.Api.Models.ClientSettingsModel.ImportDelimiter"/>.
+            </summary>
+            <remarks>
+            When imported data field maps to a multi-select control, this is the value that separates the multi-select data items.
+            </remarks>
+        </member>
+        <member name="P:Orion.Api.Models.ClientSettingsModel.ImportUniqueIdPrefix">
+            <summary>
+            Gets or sets prefix to add to imported users' identifier.
+            </summary>
+            <remarks>
+            By default this is "CT-".
+            </remarks>
+        </member>
+        <member name="P:Orion.Api.Models.ClientSettingsModel.TimeDisplayFormatType">
+            <summary>
+            Gets or sets whether to display times in 12 hour format or 24 hour format.
+            </summary>
+            <remarks>
+            "TwelveHourTime" for 0
+            "TwentyFourHourTime: for 1.
+            </remarks>
+        </member>
+        <member name="P:Orion.Api.Models.ClientSettingsModel.ClientName">
+            <summary>
+            Gets or sets the name of the client.
+            </summary>
+        </member>
+        <member name="P:Orion.Api.Models.ClientSettingsModel.CorrectiveActionItemDefinitionId">
+            <summary>
+            Gets or sets the identifier of the Corrective Action template.
+            </summary>
+        </member>
+        <member name="P:Orion.Api.Models.ClientSettingsModel.ContractorItemDefinitionId">
+            <summary>
+            Gets or sets template Id to create Contractor items.
+            </summary>
+        </member>
+        <member name="P:Orion.Api.Models.ClientSettingsModel.Features">
+            <summary>
+            Gets or sets the list of Features turned on for the client.
+            </summary>
+        </member>
+        <member name="T:Orion.Api.WebApiComponentAutoMapperProfile">
+            <summary>
+            Api component auto mapper profile.
+            </summary>
+        </member>
+        <member name="M:Orion.Api.WebApiComponentAutoMapperProfile.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Api.WebApiComponentAutoMapperProfile"/> class.
+            Register all mapping.
+            </summary>
+        </member>
+        <member name="T:Orion.Api.Loggers.GlobalExceptionLogger">
+            <summary>
+            Global exception logger.
+            </summary>
+        </member>
+        <member name="M:Orion.Api.Loggers.GlobalExceptionLogger.#ctor(Orion.Logging.ILoggingComponent,Orion.Users.IUsersComponent,Orion.Clients.IClientComponent)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orion.Api.Loggers.GlobalExceptionLogger"/> class.
+            </summary>
+            <param name="loggingComponent">Logging component.</param>
+            <param name="usersComponent">Users component.</param>
+            <param name="clientComponent">Client component.</param>
+        </member>
+        <member name="M:Orion.Api.Loggers.GlobalExceptionLogger.Log(System.Web.Http.ExceptionHandling.ExceptionLoggerContext)">
+            <summary>
+            Log error.
+            </summary>
+            <param name="context">Exception context.</param>
+        </member>
+    </members>
+</doc>

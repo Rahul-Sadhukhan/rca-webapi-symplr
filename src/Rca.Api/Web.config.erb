@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <configSections>
+    <section name="nlog" type="NLog.Config.ConfigSectionHandler, NLog" />
+    <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+  </configSections>
+  <connectionStrings>
+    <add name="MasterDatabaseConnectionString" providerName="System.Data.SqlClient" connectionString="Data Source={0};Initial Catalog=<%= @common.database.names.master %>;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;App=<%= @web.rcaApi.applicationName %>" />
+  </connectionStrings>
+  <appSettings>
+    <add key="DatabaseServerName" value="<%= @common.database.serverName %>" />
+    <add key="DatabaseApplicationName" value="<%= @web.rcaApi.applicationName %>" />
+    <add key="AttachmentAllowedExtensions" value="<%= @web.rcaApi.rcaAttachmentAllowedExtensions %>" />
+    <add key="IndexPath" value="<%= @common.luceneIndexPath %>" />
+    <add key="CognosReportPortal" value="<%= @web.rcaApi.cognos.cognosReportPortal %>" />
+    <add key="CognosReportPortalEncryptionKey" value="<%= @common.cognos.cognosReportPortalEncryptionKey %>" />
+    <add key="CognosNamespace" value="<%= @common.cognos.cognosNamespace %>" />
+    <add key="CognosDashboardFolderName" value="<%= @common.cognos.cognosDashboardFolderName %>" />
+    <add key="CognosReportsToIgnoreSuffix" value="<%= @common.cognos.cognosReportsToIgnoreSuffix %>" />
+    <add key="ConnectionPoolingOff" value="false" /><!--true is used only in windows services-->
+    <add key="CorsAllowed" value="<%= @common.corsAllowed %>" />
+    <add key="EnableSwagger" value="<%= @common.enableSwagger %>" />
+    <add key="WebDavEncryptionKey" value="<%= @common.webDavEncryptionKey %>" />
+    <add key="WebDavEncryptionIV" value="<%= @common.webDavEncryptionIV %>" />
+    <add key="gtmContainerId" value="<%= @common.gtmContainerId %>" />
+    <add key="visitorIdEncryptionKey" value="<%= @common.visitorIdEncryptionKey %>" />
+    <add key="visitorIdEncryptionIv" value="<%= @common.visitorIdEncryptionIv %>" />
+    <add key="environmentTypeForPendo" value="<%= @common.environmentTypeForPendo %>" />
+    <add key="mulesoftClientId" value="<%= @common.mulesoftClientId %>" />
+    <add key="mulesoftClientSecret" value="<%= @common.mulesoftClientSecret %>" />
+    <add key="mulesoftBaseUrl" value="<%= @common.mulesoftBaseUrl %>" />
+  </appSettings>
+  <system.web>
+    <compilation targetFramework="<%= @web.rcaApi.targetFramework %>" />
+      <httpRuntime maxRequestLength="209715200" targetFramework="<%= @web.rcaApi.targetFramework %>" />
+      </system.web>
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <dependentAssembly>
+        <assemblyIdentity name="Newtonsoft.Json" culture="neutral" publicKeyToken="30ad4fe6b2a6aeed" />
+        <bindingRedirect oldVersion="0.0.0.0-13.0.0.0" newVersion="13.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Optimization" publicKeyToken="31bf3856ad364e35" />
+        <bindingRedirect oldVersion="1.0.0.0-1.1.0.0" newVersion="1.1.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Helpers" publicKeyToken="31bf3856ad364e35" />
+        <bindingRedirect oldVersion="1.0.0.0-3.0.0.0" newVersion="3.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.WebPages" publicKeyToken="31bf3856ad364e35" />
+        <bindingRedirect oldVersion="1.0.0.0-3.0.0.0" newVersion="3.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Mvc" publicKeyToken="31bf3856ad364e35" />
+        <bindingRedirect oldVersion="1.0.0.0-5.2.7.0" newVersion="5.2.7.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Http" publicKeyToken="31bf3856ad364e35" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-5.2.7.0" newVersion="5.2.7.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Net.Http.Formatting" publicKeyToken="31bf3856ad364e35" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-5.2.7.0" newVersion="5.2.7.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Autofac" publicKeyToken="17863af14b0044da" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-5.2.0.0" newVersion="5.2.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.OData" publicKeyToken="31bf3856ad364e35" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-6.0.0.0" newVersion="6.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Runtime.CompilerServices.Unsafe" publicKeyToken="b03f5f7f11d50a3a" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.0.6.0" newVersion="4.0.6.0" />
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime>
+  <system.codedom>
+    <compilers>
+      <compiler language="c#;cs;csharp" extension=".cs" type="Microsoft.CodeDom.Providers.DotNetCompilerPlatform.CSharpCodeProvider, Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" warningLevel="4" compilerOptions="/langversion:default /nowarn:1659;1699;1701" />
+      <compiler language="vb;vbs;visualbasic;vbscript" extension=".vb" type="Microsoft.CodeDom.Providers.DotNetCompilerPlatform.VBCodeProvider, Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" warningLevel="4" compilerOptions="/langversion:default /nowarn:41008 /define:_MYTYPE=\&quot;Web\&quot; /optionInfer+" />
+    </compilers>
+  </system.codedom>
+  <nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <variable name="LoggingBaseDir" value="<%= @common.logging.basePath %>" />
+    <variable name="DatabaseServerName" value="<%= @common.database.serverName %>" />
+    <variable name="ApplicationName" value="<%= @web.rcaApi.applicationName %>" />
+    <variable name="ApplicationId" value="1" />
+    <variable name="RCAAttachmentExtendedAllowedExtensions" value="<%= @web.rcaApi.rcaAttachmentAllowedExtensions %>" />
+    <targets>
+      <target name="logfile" xsi:type="File" fileName="${LoggingBaseDir}\${ApplicationName}\${ApplicationName}-${shortdate:universalTime=true}.log" layout="${longdate:universalTime=true}|${level:uppercase=true}|${machinename}|${ApplicationName}|${message}|${exception:format=toString,Data:innerFormat=toString,Data}|${event-properties:item=UserId}|${event-properties:item=ClientId}|${event-properties:item=LayerId}" />
+      <target name="database" type="Database" connectionstring="data source=${DatabaseServerName};initial catalog=<%= @common.database.names.master %>;integrated security=True;multipleactiveresultsets=True;App=<%= @web.rcaApi.applicationName %>">
+        <commandText>
+          INSERT INTO ApplicationLog (ApplicationId,CreateDate,LogLevel,ServerName,ApplicationName,SessionId,Origin,Message,Exception,StackTrace,UserId,ClientId,LayerId) VALUES (@ApplicationId,@CreateDate,@LogLevel,@ServerName,@ApplicationName,@SessionId,@Origin,@Message,@Exception,@StackTrace,NULLIF(@UserId, ''),NULLIF(@ClientId, ''),NULLIF(@LayerId, ''))
+        </commandText>
+        <parameter name="@ApplicationId" layout="${ApplicationId}" />
+        <parameter name="@CreateDate" layout="${longdate:universalTime=true}" />
+        <parameter name="@LogLevel" layout="${level}" />
+        <parameter name="@ServerName" layout="${machinename}" />
+        <parameter name="@ApplicationName" layout="${ApplicationName}" />
+        <parameter name="@SessionId" layout="" />
+        <parameter name="@Origin" layout="" />
+        <parameter name="@Message" layout="${message}" />
+        <parameter name="@Exception" layout="${exception:format=toString,Data:innerFormat=toString,Data}" />
+        <parameter name="@StackTrace" layout="${stacktrace}" />
+        <parameter name="@UserId" layout="${event-properties:item=UserId}" />
+        <parameter name="@ClientId" layout="${event-properties:item=ClientId}" />
+        <parameter name="@LayerId" layout="${event-properties:item=LayerId}" />
+      </target>
+    </targets>
+    <rules>
+      <logger name="*" minlevel="<%= @web.rcaApi.logging.minLevelFileLog %>" writeTo="logfile" />
+      <logger name="*" minlevel="<%= @web.rcaApi.logging.minLevelDatabaseLog %>" writeTo="database" />
+    </rules>
+  </nlog>
+  <entityFramework>
+    <defaultConnectionFactory type="System.Data.Entity.Infrastructure.LocalDbConnectionFactory, EntityFramework">
+      <parameters>
+        <parameter value="mssqllocaldb" />
+      </parameters>
+    </defaultConnectionFactory>
+    <providers>
+      <provider invariantName="System.Data.SqlClient" type="System.Data.Entity.SqlServer.SqlProviderServices, EntityFramework.SqlServer" />
+    </providers>
+  </entityFramework>
+  <system.webServer>
+    <handlers>
+      <remove name="ExtensionlessUrlHandler-Integrated-4.0" />
+      <remove name="OPTIONSVerbHandler" />
+      <remove name="TRACEVerbHandler" />
+      <add name="ExtensionlessUrlHandler-Integrated-4.0" path="*." verb="*" type="System.Web.Handlers.TransferRequestHandler" preCondition="integratedMode,runtimeVersionv4.0" />
+    </handlers>
+    <httpProtocol>
+      <customHeaders>
+      <add name="X-Robots-Tag" value="noindex" />
+      </customHeaders>
+    </httpProtocol>
+    <security>
+      <requestFiltering>
+        <requestLimits maxAllowedContentLength="209715200" />
+      </requestFiltering>
+    </security>
+  </system.webServer>
+</configuration>
